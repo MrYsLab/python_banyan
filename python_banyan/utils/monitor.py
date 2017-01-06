@@ -4,7 +4,7 @@
 Created on January 9 11:39:15 2016
 
 @author: Alan Yorinks
-Copyright (c) 2016 Alan Yorinks All right reserved.
+Copyright (c) 2016-2017 Alan Yorinks All right reserved.
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public
