@@ -41,12 +41,17 @@ component can
  JavaScript, can be used within a Python Banyan application. A simple JavaScript demo is provided in the 
  examples section below.
  
- Python Banyan takes full advantage of the [ZeroMQ](zeromq.org) networking library that not only provides 
+ Python Banyan takes full advantage of the <a href="http://zeromq.org/" target="_blank">ZeroMQ</a> 
+  networking library that not only provides 
  connectivity, but in addition acts as a concurrency framework. All of this is handled transparently by the Python 
  Banyan base class. If your application requires additional concurrency support, you are free to choose whatever 
  works best for your application, such as a multi-threading or a Python asyncio approach. User defined messages are 
- prepared for transport across the network by wrapping them in the [MessagePack](http://msgpack.org/index.html) format.
+ prepared for transport across the network by wrapping them in the 
+ <a href="http://msgpack.org/index.html" target="_blank">Message Pack format.</a> 
+ 
   The complexities of 
  MessagePack are handled transparently by the base class, both for transmitting and receiving messages.
+
+To  understand how to develop with Python Banyan please refer to the user guide. 
 
 THIS SITE IS UNDER CONSTRUCTION
