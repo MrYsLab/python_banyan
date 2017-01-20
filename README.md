@@ -51,7 +51,22 @@ component can
  
   The complexities of 
  MessagePack are handled transparently by the base class, both for transmitting and receiving messages.
+ 
 
-To  understand how to develop with Python Banyan please refer to the user guide. 
+### A User's Guide Is Provided. Here is what the guide covers:
 
-THIS SITE IS UNDER CONSTRUCTION
+Chapter 1 is an introduction to developing with Python Banyan. An application tailored specifcally for this purpose will be presented in detail.
+
+In chapter 2, a demonstration of, and a discussion about creating physical computing components with Python Banyan.
+
+To demonstrate Python Banyan's flexibility, applications will be built from Python 2 components, Python 3 components and even a JavaScript component, all cooperating and communicating with each other within a single Python Banyan application.
+
+Python Banyan applications may be distributed across multiple computers, all without changing a single line of code. Using the components created in this guide, all of the components will first be launched to run on a Raspberry Pi, and then then the components will be re-distributed across a Linux Unbuntu PC, a Windows PC and the Raspberry Pi without having to change a single line of code.
+
+In Chapter 3, we will add components to control an 8x8 bicolor LED matrix connected to a Raspberry Pi. A demonstration of using Python Banyan to control an i2c device will be presented.
+
+If you need to control multiple i2c devices sharing the same i2c pins, Python Banyan provides the concurrency support for you to do so.
+
+Chapter 4 will discuss how to use Python's setup tools to convert a Banyan component into an executable file and have it automatically installed on the execution path.
+
+# THIS PAGE IS UNDER CONSTRUCTION.
