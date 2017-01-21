@@ -21,8 +21,8 @@ modules. Functionality is easily added to a Python Banyan application, and in fa
  different 
  versions of Python, and in fact, you can even add modules written in other computer languages.
  
- In addition, the modules may be run on a single computer, or may be distributed across muiltiple computers running 
- differnent operating systems, without having to change a single line of code.
+ In addition, the modules may be run on a single computer, or may be distributed across multiple computers running 
+ different operating systems, without having to change a single line of code.
 
 ## *A Little More Detail*
 The Python Banyan Framework consists of a single, simple base class. All Banyan compatible components inherit from 
@@ -55,13 +55,16 @@ component can
 
 ### A User's Guide Is Provided. Here is what the guide covers:
 
-Chapter 1 is an introduction to developing with Python Banyan. An application tailored specifcally for this purpose will be presented in detail.
+Chapter 1 is an introduction to developing with Python Banyan. An application tailored specifically for this purpose 
+will be 
+presented in detail.
 
 In chapter 2, a demonstration of, and a discussion about creating physical computing components with Python Banyan.
 
 To demonstrate Python Banyan's flexibility, applications will be built from Python 2 components, Python 3 components and even a JavaScript component, all cooperating and communicating with each other within a single Python Banyan application.
 
-Python Banyan applications may be distributed across multiple computers, all without changing a single line of code. Using the components created in this guide, all of the components will first be launched to run on a Raspberry Pi, and then then the components will be re-distributed across a Linux Unbuntu PC, a Windows PC and the Raspberry Pi without having to change a single line of code.
+Python Banyan applications may be distributed across multiple computers, all without changing a single line of code. Using the components created in this guide, all of the components will first be launched to run on a Raspberry Pi, 
+and then then the components will be re-distributed across a Linux Ubuntu PC, a Windows PC and the Raspberry Pi without having to change a single line of code.
 
 In Chapter 3, we will add components to control an 8x8 bicolor LED matrix connected to a Raspberry Pi. A demonstration of using Python Banyan to control an i2c device will be presented.
 
