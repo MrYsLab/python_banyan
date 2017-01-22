@@ -25,7 +25,7 @@ import umsgpack
 import zmq
 
 
-class BanyanBase:
+class BanyanBase(object):
     """
 
     This is the base class for all Python Banyan components. It encapsulates zeromq and message pack
