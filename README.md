@@ -1,6 +1,6 @@
 # The Python Banyan Framework
 
-![](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/examples/raspberry_redbot/documentation/images/BanyanTree.png)
+![](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/images/BanyanTree.png)
 
 ## WHAT IS PYTHON BANYAN?
 Python Banyan is a lightweight, reactive framework used to create flexible, non-blocking, event 
