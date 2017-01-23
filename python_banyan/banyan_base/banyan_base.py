@@ -124,8 +124,9 @@ class BanyanBase(object):
         """
         This is the receive loop for zmq messages.
 
-        It is assumed that this method will be overwritten to meet the needs of the application and to handle
-        received messages.
+        This method may be overwritten to meet the needs
+        of the application before handling received messages.
+
         :return:
         """
         while True:
