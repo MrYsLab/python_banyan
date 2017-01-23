@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 
 """
-Created on January 9 11:39:15 2016
-
-@author: Alan Yorinks
 Copyright (c) 2016-2017 Alan Yorinks All right reserved.
 
 This program is free software; you can redistribute it and/or
@@ -20,6 +17,9 @@ You should have received python_banyan copy of the GNU Lesser General Public
 License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 """
+
+# monitor.py
+
 import argparse
 import signal
 import sys
