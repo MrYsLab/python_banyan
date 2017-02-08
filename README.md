@@ -2,7 +2,39 @@
 
 ![](https://github.com/MrYsLab/python_banyan/blob/master/images/BanyanTree.png)
 
+## INSTALLATION INSTRUCTIONS
+You have the option to install the Python Banyan framework alone or the framework plus all the examples.
+
+To install the framework alone:
+
+
+```
+
+pip install python-banyan
+
+or
+
+sudo pip3 install python-banyan
+
+```
+
+To install the framework plus all the examples
+
+
+```
+
+pip install python-banyan[examples]
+
+or
+
+sudo pip3 install python-banyan[examples]
+
+```
+
+
 ## WHAT IS PYTHON BANYAN?
+A full User's Guide is available [here].(https://MrYsLab.github.io/python_banyan/ )
+
 Python Banyan is a lightweight, reactive framework used to create flexible, non-blocking, event 
 driven, 
 asynchronous applications. It was designed primarily to implement physical computing applications for devices such as
@@ -53,7 +85,7 @@ component can
  MessagePack are handled transparently by the base class, both for transmitting and receiving messages.
  
 
-### A User's Guide Is Provided. Here is what the guide covers:
+### Here is what the [Python Banyan User's Guide] ((https://MrYsLab.github.io/python_banyan/))guide covers:
 
 Chapter 1 is an introduction to developing with Python Banyan. An application tailored specifically for this purpose 
 will be 
@@ -76,4 +108,3 @@ An early version of the user's guide may be found [here](https://github.com/MrYs
 
 This guide has some sections to be completed, but will give the reader an early view of what it will contain.
 
-# THIS PAGE IS UNDER CONSTRUCTION.
