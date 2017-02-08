@@ -85,7 +85,7 @@ component can
  MessagePack are handled transparently by the base class, both for transmitting and receiving messages.
  
 
-### Here is what the [Python Banyan User's Guide]((https://MrYsLab.github.io/python_banyan/))guide covers:
+### Here is what the [Python Banyan User's Guide](https://MrYsLab.github.io/python_banyan/) guide covers:
 
 Chapter 1 is an introduction to developing with Python Banyan. An application tailored specifically for this purpose 
 will be 
