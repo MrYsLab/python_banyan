@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>ZeroMQ Installation - Python Banyan</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "ZeroMQ Installation";
+    var mkdocs_page_input_path = "zmq_install.md";
+    var mkdocs_page_url = "/zmq_install/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Python Banyan</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">User's Guide</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Additional Required Software</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../python3_install/">Python 3 Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">ZeroMQ Installation</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#checking-for-an-existing-zeromq-installation">Checking For An Existing ZeroMQ Installation</a></li>
+                
+                    <li><a class="toctree-l4" href="#windows-users">&nbsp;&nbsp;&nbsp;&nbsp;Windows Users</a></li>
+                
+                    <li><a class="toctree-l4" href="#linux-users">&nbsp;&nbsp;&nbsp;&nbsp;Linux Users</a></li>
+                
+                    <li><a class="toctree-l4" href="#mac-users">&nbsp;&nbsp;&nbsp;&nbsp;Mac Users</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../banyan_install/">Python Banyan Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lunch_install/">Lunch Launcher Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../remi_install/">Remi GUI Library</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../about/">About</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Python Banyan</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Additional Required Software &raquo;</li>
+        
+      
+    
+    <li>ZeroMQ Installation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="checking-for-an-existing-zeromq-installation">Checking For An Existing ZeroMQ Installation</h1>
+<p>Open a command window, and start Python3. </p>
+<p>Then at the Python prompt type:</p>
+<pre><code>import zmq
+</code></pre>
+
+<p>If you see no errors, you have ZeroMQ installed.</p>
+<p>If ZeroMQ is not installed, follow the procedures for your platform.</p>
+<p><img alt="" src="../images/zmq_check.png" /></p>
+<h2 id="windows-users">&nbsp;&nbsp;&nbsp;&nbsp;Windows Users</h2>
+<p>Although you can build ZeroMQ from source, the easiest way to install is by using a provided MSI installer.</p>
+<p>I used <a href="https://github.com/downloads/zeromq/pyzmq/pyzmq-2.2.0.1.win-amd64-py3.3.msi">this link</a> on Windows 10 64 Bit
+ without issue. It installs both ZeroMQ and PyZMQ.</p>
+<p>If you are running a 32 Bit machine, <a href="https://github.com/zeromq/pyzmq/downloads">go here</a> and find latest 
+compatible MSI installer for your system.</p>
+<p><a href="#checking-for-an-existing-zeromq-installation">Verify the installation</a></p>
+<h2 id="linux-users">&nbsp;&nbsp;&nbsp;&nbsp;Linux Users</h2>
+<p>Here are the steps necessary to build and install ZeroMQ on Ubuntu, BeagleBone Black and Raspberry Pi.</p>
+<ol>
+<li>sudo apt-get update</li>
+<li>sudo apt-get upgrade</li>
+<li>sudo apt-get install python3.5-dev  (not available for Raspberry Pi)</li>
+<li>cd</li>
+<li>sudo apt-get install libtool pkg-config build-essential autoconf automake</li>
+<li>mkdir build</li>
+<li>cd build/</li>
+<li>wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.8.tar.gz</li>
+<li>tar -zxvf libsodium-1.0.8.tar.gz</li>
+<li>cd libsodium-1.0.8/</li>
+<li>./configure</li>
+<li>make</li>
+<li>sudo make install</li>
+<li>sudo ldconfig</li>
+<li>cd ..</li>
+<li>wget http://download.zeromq.org/zeromq-4.1.4.tar.gz</li>
+<li>tar -zxvf zeromq-4.1.4.tar.gz</li>
+<li>cd zeromq-4.1.4/</li>
+<li>./configure</li>
+<li>make</li>
+<li>sudo make install</li>
+<li>sudo ldconfig</li>
+<li>reboot</li>
+</ol>
+<p><a href="#checking-for-an-existing-zeromq-installation">Verify the installation</a></p>
+<h2 id="mac-users">&nbsp;&nbsp;&nbsp;&nbsp;Mac Users</h2>
+<p>I do not own a Mac so I can't verify the following sources. But I have built from source for Linux on Ubuntu, 
+BeagleBone Black and Raspberry Pi without issue.</p>
+<ul>
+<li><a href="http://zeromq.org/docs:source-git" target="_blank">Building ZeroMQ from source code.</a> </li>
+<li><a href="http://macappstore.org/zeromq/" target="_blank">The Mac Store</a> </li>
+</ul>
+<p><a href="#checking-for-an-existing-zeromq-installation">Verify the installation</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../banyan_install/" class="btn btn-neutral float-right" title="Python Banyan Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../python3_install/" class="btn btn-neutral" title="Python 3 Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../python3_install/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../banyan_install/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

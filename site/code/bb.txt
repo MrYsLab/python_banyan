@@ -1,0 +1,91 @@
+Help on module banyan_base:
+
+NAME
+    banyan_base - Copyright (c) 2016 Alan Yorinks All right reserved.
+
+FILE
+    /home/afy/PycharmProjects/python_banyan_guide/docs/code/banyan_base.py
+
+DESCRIPTION
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public
+    License as published by the Free Software Foundation; either
+    version 3 of the License, or (at your option) any later version.
+    
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+CLASSES
+    BanyanBase
+    
+    class BanyanBase
+     |  This is the base class for all Python Banyan components.
+     |  It encapsulates zeromq and message pack
+     |  functionality. It methods should be overridden by the user in the
+     |  derived class to meet the needs of the component.
+     |  
+     |  To import into  the derived class use:
+     |  
+     |         from python_banyan.banyan_base import BanyanBase
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, back_plane_ip_address=None, subscriber_port='43125', publisher_port='43124', process_name='None', loop_time=0.1)
+     |      The __init__ method sets up all the ZeroMQ "plumbing"
+     |      
+     |      :param back_plane_ip_address: banyan_base back_planeIP Address -
+     |                                    if not specified, it will be set to the
+     |                                    local computer
+     |      :param subscriber_port: banyan_base back plane subscriber port.
+     |             This must match that of the banyan_base backplane
+     |      :param publisher_port: banyan_base back plane publisher port.
+     |                             This must match that of the banyan_base backplane
+     |      :param process_name: Component identifier
+     |      :return:
+     |  
+     |  clean_up(self)
+     |      Clean up before exiting - override if additional cleanup is necessary
+     |      
+     |      :return:
+     |  
+     |  incoming_message_processing(self, topic, payload)
+     |      Override this method with a custom python_banyan message
+     |      processor for subscribed messages
+     |      
+     |      :param topic: Message Topic string
+     |      :param payload: Message Data
+     |      :return:
+     |  
+     |  publish_payload(self, payload, topic='')
+     |      This method will publish a python_banyan payload and its associated topic
+     |      
+     |      :param payload: Protocol message to be published
+     |      :param topic: A string value
+     |      :return:
+     |  
+     |  receive_loop(self)
+     |      This is the receive loop for zmq messages.
+     |      
+     |      It is assumed that this method will be overwritten to meet the needs
+     |      of the application and to handle received messages.
+     |      :return:
+     |  
+     |  set_subscriber_topic(self, topic)
+     |      This method sets a subscriber topic.
+     |      
+     |      You can subscribe to multiple topics by calling this method for
+     |      each topic.
+     |      
+     |      :param topic: A topic string
+     |      :return:
+
+FUNCTIONS
+    banyan_base()
+
+

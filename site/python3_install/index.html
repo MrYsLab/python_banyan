@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Python 3 Installation - Python Banyan</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Python 3 Installation";
+    var mkdocs_page_input_path = "python3_install.md";
+    var mkdocs_page_url = "/python3_install/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Python Banyan</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">User's Guide</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Additional Required Software</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Python 3 Installation</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#checking-for-python-3">Checking For Python 3</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#installing-python-3">Installing Python 3</a></li>
+                
+                    <li><a class="toctree-l4" href="#windows-users">&nbsp;&nbsp;&nbsp;&nbsp;Windows Users</a></li>
+                
+                    <li><a class="toctree-l4" href="#linuxmac-users">&nbsp;&nbsp;&nbsp;&nbsp;Linux/Mac Users</a></li>
+                
+                    <li><a class="toctree-l4" href="#verify-the-python-installation">&nbsp;&nbsp;&nbsp;&nbsp;Verify The Python Installation</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../zmq_install/">ZeroMQ Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../banyan_install/">Python Banyan Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lunch_install/">Lunch Launcher Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../remi_install/">Remi GUI Library</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../about/">About</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Python Banyan</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Additional Required Software &raquo;</li>
+        
+      
+    
+    <li>Python 3 Installation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="checking-for-python-3">Checking For Python 3</h1>
+<p>To check to see if you already have Python 3 installed on your computer, open a command window and type:</p>
+<pre><code>python -V
+</code></pre>
+
+<p>or </p>
+<pre><code>python3 -V
+</code></pre>
+
+<p>Here are the results from a Windows computer:</p>
+<p><img alt="" src="../images/windows_python.png" /></p>
+<p>The results from a  Linux or Mac computer should look very similar.</p>
+<p>If you have Python3 already installed, skip down to <a href="../zmq_install/">Installing ZeroMQ.</a></p>
+<h1 id="installing-python-3">Installing Python 3</h1>
+<p>If you need to install Python3 on your computer, I recommend using the latest version as of this writing, version 3.6.
+If you have an earlier version already installed, upgrading to Python 3.6 is not necessary.</p>
+<h2 id="windows-users">&nbsp;&nbsp;&nbsp;&nbsp;Windows Users</h2>
+<p>To install Python 3.6 or later, go to the
+<a href="https://www.python.org/" target="_blank">Python home page,</a> 
+and download the 3.6.0 (or later) distribution for your operating system.</p>
+<p>If you have Python 2.7 installed, you do not need to remove it. </p>
+<p>During the installation process, if there is a checkbox to add Python 3.6 to your path, make sure it is checked before proceeding with the installation.</p>
+<p><img alt="" src="../images/pythonInstall.png" /></p>
+<h2 id="linuxmac-users">&nbsp;&nbsp;&nbsp;&nbsp;Linux/Mac Users</h2>
+<p>If you are using linux, here are the build and installation instructions</p>
+<ol>
+<li>sudo apt-get update</li>
+<li>sudo apt-get upgrade</li>
+<li>sudo apt-get dist-upgrade</li>
+<li>sudo apt-get install build-essential python-dev python-setuptools python-pip python-smbus</li>
+<li>sudo apt-get install build-essential libncursesw5-dev libgdbm-dev libc6-dev</li>
+<li>sudo apt-get install zlib1g-dev libsqlite3-dev tk-dev</li>
+<li>sudo apt-get install libssl-dev openssl</li>
+<li>cd ~</li>
+<li>mkdir build</li>
+<li>cd build</li>
+<li>wget https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tgz</li>
+<li>tar -zxvf Python-3.6.0.tgz</li>
+<li>cd Python-3.6.0</li>
+<li>./configure</li>
+<li>make</li>
+<li>sudo make install</li>
+</ol>
+<h2 id="verify-the-python-installation">&nbsp;&nbsp;&nbsp;&nbsp;Verify The Python Installation</h2>
+<p><a href="#checking-for-python-3">Click this link for instructions</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../zmq_install/" class="btn btn-neutral float-right" title="ZeroMQ Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="User's Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../zmq_install/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
