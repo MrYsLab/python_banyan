@@ -3,6 +3,8 @@
 ![](https://github.com/MrYsLab/python_banyan/blob/master/images/BanyanTree.png)
 
 ## INSTALLATION INSTRUCTIONS
+Please note that Python Banyan is not currently compatible with Python 2. Please use Python 3.4 or above.
+
 You have the option to install the Python Banyan framework alone or the framework plus all the examples.
 
 To install the framework alone:
