@@ -31,6 +31,8 @@ sudo pip3 install python-banyan[examples]
 
 ```
 
+The example code is located in [its own repository](https://github.com/MrYsLab/python_banyan_examples),
+ and may be downloaded there.
 
 ## WHAT IS PYTHON BANYAN?
 A full User's Guide is available [here](https://MrYsLab.github.io/python_banyan/).
