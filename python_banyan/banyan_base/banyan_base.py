@@ -25,6 +25,8 @@ import time
 import signal
 import argparse
 import umsgpack
+import msgpack
+import msgpack_numpy as m
 import zmq
 
 
@@ -41,7 +43,7 @@ class BanyanBase(object):
     """
 
     def __init__(self, back_plane_ip_address=None, subscriber_port='43125',
-                 publisher_port='43124', process_name='None', loop_time=.1):
+                 publisher_port='43124', process_name='None', loop_time=.1, numpy=False):
         """
         The __init__ method sets up all the ZeroMQ "plumbing"
 
@@ -51,10 +53,13 @@ class BanyanBase(object):
                This must match that of the banyan_base backplane
         :param publisher_port: banyan_base back plane publisher port. This must match that of the banyan_base backplane
         :param process_name: Component identifier
+        :param loop_time: receive loop sleep time
+        :param numpy: Set true if you wish to include numpy matrices in your messages
         :return:
         """
 
         self.back_plane_ip_address = None
+        self.numpy = numpy
 
         # If no back plane address was specified, determine the IP address of the local machine
         if back_plane_ip_address:
@@ -114,8 +119,11 @@ class BanyanBase(object):
         if not type(topic) is str:
             raise TypeError('Publish topic must be python_banyan string', 'topic')
 
-        # create python_banyan message ack payload
-        message = umsgpack.packb(payload)
+        # create python_banyan message pack payload
+        if self.numpy:
+            message = msgpack.packb(payload, default=m.encode)
+        else:
+            message = umsgpack.packb(payload)
 
         pub_envelope = topic.encode()
         self.publisher.send_multipart([pub_envelope, message])
@@ -132,7 +140,11 @@ class BanyanBase(object):
         while True:
             try:
                 data = self.subscriber.recv_multipart(zmq.NOBLOCK)
-                self.incoming_message_processing(data[0].decode(), umsgpack.unpackb(data[1]))
+                if self.numpy:
+                    payload = msgpack.unpackb(data[1], object_hook=m.decode)
+                    self.incoming_message_processing(data[0].decode(), payload)
+                else:
+                    self.incoming_message_processing(data[0].decode(), umsgpack.unpackb(data[1]))
             except zmq.error.Again:
                 try:
                     time.sleep(self.loop_time)
