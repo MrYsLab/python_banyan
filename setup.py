@@ -2,8 +2,9 @@ from setuptools import setup
 
 setup(
     name='python-banyan',
-    version='1.1',
+    version='1.2',
     packages=[
+        'python_banyan',
         'python_banyan.banyan_base',
         'python_banyan.utils',
         'python_banyan.backplane',
@@ -11,6 +12,9 @@ setup(
     install_requires=[
         'pyzmq',
         'u-msgpack-python',
+        'msgpack-python',
+        'numpy',
+        'msgpack-numpy'
     ],
 
     entry_points={
