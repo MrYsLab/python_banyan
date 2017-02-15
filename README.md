@@ -109,3 +109,4 @@ If you need to control multiple i2c devices sharing the same i2c pins, Python Ba
 Chapter 4 discusses how to use Python's setup tools to convert a Banyan component into an executable file and have it 
 automatically installed on the execution path.
 
+This project was developed with [Pycharm](https://www.jetbrains.com/pycharm/) ![](https://github.com/MrYsLab/python_banyan/blob/master/images/icon_PyCharm.png)
