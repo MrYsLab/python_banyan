@@ -2,6 +2,8 @@
 
 ![](https://github.com/MrYsLab/python_banyan/blob/master/images/BanyanTree.png)
 
+## Read [Python Banyan User's Guide](https://MrYsLab.github.io/python_banyan/) for details on using the framework:
+
 ## INSTALLATION INSTRUCTIONS
 Please note that Python Banyan is not currently compatible with Python 2. Please use Python 3.4 or above.
 
