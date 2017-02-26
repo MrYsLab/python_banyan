@@ -34,7 +34,8 @@ class Monitor(BanyanBase):
     This class subscribes to all messages on the back plane and prints out both topic and payload.
     """
 
-    def __init__(self, back_plane_ip_address=None, subscriber_port='43125', publisher_port='43124', process_name=None):
+    def __init__(self, back_plane_ip_address=None, subscriber_port='43125', publisher_port='43124', process_name=None,
+                 numpy=False):
         """
         This is constructor for the Monitor class
         :param back_plane_ip_address: IP address of the currently running backplane
@@ -43,7 +44,8 @@ class Monitor(BanyanBase):
         """
 
         # initialize the base class
-        super().__init__(back_plane_ip_address, subscriber_port, publisher_port, process_name=process_name)
+        super().__init__(back_plane_ip_address, subscriber_port, publisher_port, process_name=process_name,
+                         numpy=numpy)
 
         # allow time for connection
         time.sleep(.03)
@@ -68,6 +70,9 @@ def monitor():
     parser = argparse.ArgumentParser()
     parser.add_argument("-b", dest="back_plane_ip_address", default="None",
                         help="None or IP address used by Back Plane")
+    parser.add_argument("-m", dest="numpy", default="False", help="Set to True for numpy matrices")
+
+
     parser.add_argument("-n", dest="process_name", default="Monitor", help="Set process name in banner")
 
     args = parser.parse_args()
@@ -77,6 +82,12 @@ def monitor():
         kw_options['back_plane_ip_address'] = args.back_plane_ip_address
 
     kw_options['process_name'] = args.process_name
+
+    if args.numpy == "True":
+        kw_options['numpy'] = True
+    else:
+        kw_options['numpy'] = False
+
 
     my_monitor = Monitor(**kw_options)
 
