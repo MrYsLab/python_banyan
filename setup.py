@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='python-banyan',
-    version='1.2',
+    version='1.03',
     packages=[
         'python_banyan',
         'python_banyan.banyan_base',
