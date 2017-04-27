@@ -2,7 +2,7 @@
 
 ![](https://github.com/MrYsLab/python_banyan/blob/master/images/BanyanTree.png)
 
-## [View the slides](https://drive.google.com/open?id=0B0adDMMjxksDbkNvTFFZTXYzWWc) from a recent talk descrbing using the Python Banyan Framework to control a Raspbery Pi robot.
+## [View the slides](https://drive.google.com/open?id=0B0adDMMjxksDbkNvTFFZTXYzWWc) from a recent talk describing using the Python Banyan Framework to control a Raspbery Pi robot.
 ![](https://github.com/MrYsLab/razmq/blob/master/documentation/images/razbot.png)
 
 ## Read [Python Banyan User's Guide](https://MrYsLab.github.io/python_banyan/) for details on using the framework:
