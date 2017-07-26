@@ -14,7 +14,7 @@ setup(
         'u-msgpack-python',
         'msgpack-python',
         'numpy',
-        'msgpack-numpy'
+        'msgpack-numpy>=1.9'
     ],
 
     entry_points={
