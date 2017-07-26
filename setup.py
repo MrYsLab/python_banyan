@@ -13,8 +13,8 @@ setup(
         'pyzmq',
         'u-msgpack-python',
         'msgpack-python',
-        'numpy',
-        'msgpack-numpy>=1.9'
+        'numpy>=1.9',
+        'msgpack-numpy'
     ],
 
     entry_points={
