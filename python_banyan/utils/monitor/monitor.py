@@ -1,21 +1,23 @@
 #!/usr/bin/env python3
 
 """
-Copyright (c) 2016-2017 Alan Yorinks All right reserved.
+monitor.py
 
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public
-License as published by the Free Software Foundation; either
-version 3 of the License, or (at your option) any later version.
+Copyright (c) 2016, 2017 Alan Yorinks All right reserved.
 
-This library is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-General Public License for more details.
+ Python Banyan is free software; you can redistribute it and/or
+ modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+ Version 3 as published by the Free Software Foundation; either
+ or (at your option) any later version.
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
 
-You should have received python_banyan copy of the GNU Lesser General Public
-License along with this library; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE
+ along with this library; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
 """
 
 # monitor.py
@@ -24,6 +26,7 @@ import argparse
 import signal
 import sys
 import time
+import zmq
 
 from python_banyan.banyan_base import BanyanBase
 
@@ -34,7 +37,8 @@ class Monitor(BanyanBase):
     This class subscribes to all messages on the back plane and prints out both topic and payload.
     """
 
-    def __init__(self, back_plane_ip_address=None, subscriber_port='43125', publisher_port='43124', process_name=None,
+    def __init__(self, back_plane_ip_address=None,
+                 subscriber_port='43125', publisher_port='43124', process_name=None,
                  numpy=False):
         """
         This is constructor for the Monitor class
@@ -44,15 +48,22 @@ class Monitor(BanyanBase):
         """
 
         # initialize the base class
-        super().__init__(back_plane_ip_address, subscriber_port, publisher_port, process_name=process_name,
-                         numpy=numpy)
+        super(Monitor, self).__init__(back_plane_ip_address, subscriber_port,
+                                      publisher_port, process_name=process_name,
+                                      # loop_time=0.0,
+                                      numpy=numpy)
 
         # allow time for connection
         time.sleep(.03)
         self.set_subscriber_topic('')
 
         # receive loop is defined in the base class
-        self.receive_loop()
+        try:
+            self.receive_loop()
+        except zmq.error.ZMQError:
+            sys.exit()
+        except KeyboardInterrupt:
+            sys.exit()
 
     def incoming_message_processing(self, topic, payload):
         """
@@ -71,9 +82,11 @@ def monitor():
     parser.add_argument("-b", dest="back_plane_ip_address", default="None",
                         help="None or IP address used by Back Plane")
     parser.add_argument("-m", dest="numpy", default="False", help="Set to True for numpy matrices")
-
-
     parser.add_argument("-n", dest="process_name", default="Monitor", help="Set process name in banner")
+    parser.add_argument("-p", dest="publisher_port", default='43124',
+                        help="Publisher IP port")
+    parser.add_argument("-s", dest="subscriber_port", default='43125',
+                        help="Subscriber IP port")
 
     args = parser.parse_args()
     kw_options = {}
@@ -83,6 +96,9 @@ def monitor():
 
     kw_options['process_name'] = args.process_name
 
+    kw_options['publisher_port'] = args.publisher_port
+    kw_options['subscriber_port'] = args.subscriber_port
+
     if args.numpy == "True":
         kw_options['numpy'] = True
     else:
@@ -90,6 +106,7 @@ def monitor():
 
 
     my_monitor = Monitor(**kw_options)
+    # my_monitor.start()
 
     # signal handler function called when Control-C occurs
     # noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal

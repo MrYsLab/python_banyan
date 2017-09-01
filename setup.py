@@ -2,11 +2,13 @@ from setuptools import setup
 
 setup(
     name='python-banyan',
-    version='1.03',
+    version='2.0',
     packages=[
         'python_banyan',
         'python_banyan.banyan_base',
         'python_banyan.utils',
+        'python_banyan.utils.monitor',
+        'python_banyan.utils.banyan_launcher',
         'python_banyan.backplane',
     ],
     install_requires=[
@@ -14,34 +16,41 @@ setup(
         'u-msgpack-python',
         'msgpack-python',
         'numpy',
-        'msgpack-numpy'
+        'msgpack-numpy',
+        'psutil'
     ],
 
     entry_points={
         'console_scripts': [
             'backplane = python_banyan.backplane.backplane:bp',
-            'monitor = python_banyan.utils.monitor:monitor',
+            'monitor = python_banyan.utils.monitor.monitor:monitor',
+            'launchs = python_banyan.utils.banyan_launcher.bls:bls',
+            'launchc = python_banyan.utils.banyan_launcher.blc:blc',
+            'launchk = python_banyan.utils.banyan_launcher.blk:blk',
 
         ]
     },
 
-    extras_require = {
-        'examples':  ['python-banyan-examples'],
-    },
+    # extras_require={
+    #     'examples': ['python-banyan-examples'],
+    # },
 
     url='https://github.com/MrYsLab/python_banyan',
-    license='GNU General Public License v3 (GPLv3)',
+    license='GNU Affero General Public License v3 or later (AGPLv3+)',
     author='Alan Yorinks',
     author_email='MisterYsLab@gmail.com',
-    description='A Non-Blocking Event Driven Robotics Framework',
-    keywords=['python banyan', 'Raspberry Pi', 'ZeroMQ', 'MessagePack', 'RedBot', ],
+    description='A Non-Blocking Event Driven Applications Framework',
+    keywords=['python banyan',  'RPC', 'Remote Procedure Call', 'Event Driven',
+              'Asynchronous', 'Non-Blocking',
+              'Raspberry Pi', 'ZeroMQ', 'MessagePack', 'RedBot'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Other Environment',
         'Intended Audience :: Education',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+        'License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)',
         'Operating System :: OS Independent',
+        'Programming Language :: Python :: 2.7'
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Topic :: Education',
