@@ -10,7 +10,7 @@ class BanyanPub(BanyanBase):
     """
 
     def __init__(self):
-        super(BanyanPub, self).__init__(back_plane_ip_address='192.168.2.192', process_name='Banyan publisher')
+        super(BanyanPub, self).__init__(process_name='Banyan publisher')
 
         print('Publishing 100000 messages.')
         time.sleep(.3)
