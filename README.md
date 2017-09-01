@@ -1,5 +1,22 @@
 # The Python Banyan Framework
 
+## Fast Publisher/Subscriber Data Transfers
+
+* Streaming "sensor" data on a single Raspberry Pi 3 by continuously publishing 100000 messages.
+
+* Results:
+    * __Python Banyan 15.9 seconds__
+    * Mosquitto MQTT 31.3 seconds
+
+* Source code for tests can be found [here](https://github.com/MrYsLab/python_banyan/tree/master/python_banyan/performance_comparison)
+
+## Now Python 2 and 3 compatible
+
+## Transfer Numpy Matrices Quickly In A Single Payload
+
+## Coming Soon - JavaScript, Ruby, Java versions allowing remote procedure calls and data transfers across all platforms
+
+
 ![](https://github.com/MrYsLab/python_banyan/blob/master/images/BanyanTree.png)
 
 ## [View the slides](https://drive.google.com/open?id=0B0adDMMjxksDbkNvTFFZTXYzWWc) from a recent talk describing using the Python Banyan Framework to control a Raspbery Pi robot.
@@ -8,7 +25,7 @@
 ## Read [Python Banyan User's Guide](https://MrYsLab.github.io/python_banyan/) for details on using the framework:
 
 ## INSTALLATION INSTRUCTIONS
-Please note that Python Banyan is not currently compatible with Python 2. Please use Python 3.4 or above.
+
 
 You have the option to install the Python Banyan framework alone or the framework plus all the examples.
 
