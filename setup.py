@@ -24,16 +24,12 @@ setup(
         'console_scripts': [
             'backplane = python_banyan.backplane.backplane:bp',
             'monitor = python_banyan.utils.monitor.monitor:monitor',
-            'launchs = python_banyan.utils.banyan_launcher.bls:bls',
-            'launchc = python_banyan.utils.banyan_launcher.blc:blc',
-            'launchk = python_banyan.utils.banyan_launcher.blk:blk',
-
         ]
     },
 
-    # extras_require={
-    #     'examples': ['python-banyan-examples'],
-    # },
+    extras_require={
+        'examples': ['python-banyan-examples'],
+    },
 
     url='https://github.com/MrYsLab/python_banyan',
     license='GNU Affero General Public License v3 or later (AGPLv3+)',
