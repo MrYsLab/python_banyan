@@ -1,5 +1,8 @@
 # The Python Banyan Framework
 
+![](https://github.com/MrYsLab/python_banyan/blob/master/images/BanyanTree.png)
+
+
 ## Fast Publisher/Subscriber Data Transfers
 
 * Streaming "sensor" data on a single Raspberry Pi 3 by continuously publishing 100000 messages.
@@ -17,7 +20,6 @@
 ## Coming Soon - JavaScript, Ruby, Java versions allowing remote procedure calls and data transfers across all platforms
 
 
-![](https://github.com/MrYsLab/python_banyan/blob/master/images/BanyanTree.png)
 
 ## [View the slides](https://drive.google.com/open?id=0B0adDMMjxksDbkNvTFFZTXYzWWc) from a recent talk describing using the Python Banyan Framework to control a Raspbery Pi robot.
 ![](https://github.com/MrYsLab/razmq/blob/master/documentation/images/razbot.png)
