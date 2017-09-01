@@ -8,7 +8,7 @@
 * Streaming "sensor" data on a single Raspberry Pi 3 by continuously publishing 100000 messages.
 
 * Results:
-    * __Python Banyan 15.9 seconds__
+    * __Python Banyan 14.02 seconds__
     * Mosquitto MQTT 31.3 seconds
 
 * Source code for tests can be found [here](https://github.com/MrYsLab/python_banyan/tree/master/python_banyan/performance_comparison)

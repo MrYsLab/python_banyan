@@ -15,7 +15,7 @@ class BanyanSub(BanyanBase):
         Subscribe to the "test" topic, initialize the message count
         and enter the receive loop.
         """
-        super(BanyanSub, self).__init__(back_plane_ip_address='192.168.2.192',process_name='Banyan Subscriber')
+        super(BanyanSub, self).__init__(process_name='Banyan Subscriber')
         # allow time for connections to be established
         time.sleep(.3)
 
