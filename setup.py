@@ -2,20 +2,19 @@ from setuptools import setup
 
 setup(
     name='python-banyan',
-    version='2.0',
+    version='2.1',
     packages=[
         'python_banyan',
         'python_banyan.banyan_base',
         'python_banyan.utils',
         'python_banyan.utils.monitor',
-        'python_banyan.utils.banyan_launcher',
         'python_banyan.backplane',
     ],
     install_requires=[
         'pyzmq',
         'u-msgpack-python',
         'msgpack-python',
-        'numpy',
+        'numpy>=1.9',
         'msgpack-numpy',
         'psutil'
     ],
