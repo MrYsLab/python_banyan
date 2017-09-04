@@ -1,4 +1,5 @@
 import paho.mqtt.client as mqtt
+import socket
 import sys
 import time
 import umsgpack
@@ -18,7 +19,13 @@ class MQPUB(mqtt.Client):
         """
         super(MQPUB, self).__init__()
 
-        self.connect('192.168.2.192', 1883, 60)
+        # determine current IP address of the local computer
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        # use the google dns
+        s.connect(('8.8.8.8', 0))
+        self.ip_address = s.getsockname()[0]
+
+        self.connect(self.ip_address, 1883, 60)
         print("MQPUB Connected - Sending 100000 messages")
 
         time.sleep(2)
@@ -27,14 +34,6 @@ class MQPUB(mqtt.Client):
             payload = {'msg': x}
             packed = umsgpack.packb(payload)
             self.publish("test", packed)
-
-            if x == 45000:
-                timex = time.asctime(time.localtime(time.time()))
-                payload2 = {'modulo': x, 'time': timex}
-                packed2 = umsgpack.packb(payload2)
-                self.publish("m2", packed2)
-                print('m2 message: ' + str(x) + ' ' + timex)
-
 
         localtime = time.asctime(time.localtime(time.time()))
 

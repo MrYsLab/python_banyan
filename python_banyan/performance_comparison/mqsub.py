@@ -1,5 +1,6 @@
 import sys
 import time
+import socket
 
 import paho.mqtt.client as mqtt
 import umsgpack
@@ -25,16 +26,20 @@ class MQSUB(mqtt.Client):
         self.end = 0
         self.message_count = 0
 
-        self.connect('192.168.2.192', 1883, 60)
-        self.subscribe("test", 0)
-        self.subscribe("m2", 0)
+        # determine current IP address of the local computer
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        # use the google dns
+        s.connect(('8.8.8.8', 0))
+        self.ip_address = s.getsockname()[0]
 
+        self.connect(self.ip_address, 1883, 60)
+        self.subscribe("test", 0)
 
         self.loop_forever()
 
     def on_connect(self, mqttc, obj, flags, rc):
         """
-        Let the use know we are connected
+        Let the user know we are connected
         :param mqttc: unused
         :param obj: unused
         :param flags: unused
@@ -75,10 +80,6 @@ class MQSUB(mqtt.Client):
                 time.sleep(1)
                 self.loop_stop()
                 sys.exit(0)
-        elif msg.topic == 'm2':
-            mg = umsgpack.unpackb(msg.payload)
-            if mg['modulo'] == 45000:
-                print(msg.payload)
         else:
             print('unkown topic' + msg.topic)
 
