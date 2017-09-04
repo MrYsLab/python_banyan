@@ -2,12 +2,13 @@ from setuptools import setup
 
 setup(
     name='python-banyan',
-    version='2.1',
+    version='2.2',
     packages=[
         'python_banyan',
         'python_banyan.banyan_base',
         'python_banyan.utils',
         'python_banyan.utils.monitor',
+        'python_banyan.utils.banyan_launcher',
         'python_banyan.backplane',
     ],
     install_requires=[
@@ -23,6 +24,7 @@ setup(
         'console_scripts': [
             'backplane = python_banyan.backplane.backplane:bp',
             'monitor = python_banyan.utils.monitor.monitor:monitor',
+            
         ]
     },
 
