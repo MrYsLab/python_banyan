@@ -28,6 +28,12 @@
 
 ## INSTALLATION INSTRUCTIONS
 
+If you are installing for Python 2 on Raspberry Pi, first install python-dev:
+```
+sudo apt-get install python-dev
+
+```
+
 
 You have the option to install the Python Banyan framework alone or the framework plus all the examples.
 
