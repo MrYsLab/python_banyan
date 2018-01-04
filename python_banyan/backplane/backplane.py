@@ -41,9 +41,13 @@ class BackPlane:
         """
         This is the initializer for the Python Banyan BackPlane class. The class must be instantiated
         before starting any other Python Banyan components
+
         :param subscriber_port: subscriber IP port number
+
         :param publisher_port: publisher IP port number
+
         :param backplane_name: name to appear on the console for this backplane
+
         :param loop_time: event loop idle timer
         """
 
@@ -124,7 +128,21 @@ def bp():
     """
     Instantiate the backplane and run it.
     Attach a signal handler for the process to listen for user pressing Control C
-    :return:
+
+    usage: backplane [-h] [-n BACKPLANE_NAME] [-p PUBLISHER_PORT] [-s SUBSCRIBER_PORT] [-t LOOP_TIME]
+
+    optional arguments:
+
+      -h, --help          show this help message and exit
+
+      -n BACKPLANE_NAME   Name of this backplane
+
+      -p PUBLISHER_PORT   Publisher IP port
+
+      -s SUBSCRIBER_PORT  Subscriber IP port
+
+      -t LOOP_TIME        Event Loop Timer in seconds
+
     """
 
     parser = argparse.ArgumentParser()

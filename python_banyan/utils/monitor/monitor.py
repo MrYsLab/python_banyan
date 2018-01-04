@@ -42,9 +42,14 @@ class Monitor(BanyanBase):
                  numpy=False):
         """
         This is constructor for the Monitor class
+
         :param back_plane_ip_address: IP address of the currently running backplane
+
         :param subscriber_port: subscriber port number - matches that of backplane
+
         :param publisher_port: publisher port number - matches that of backplane
+
+        :param process_name: default name is "Monitor". Change using this paramenter
         """
 
         # initialize the base class

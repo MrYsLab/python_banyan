@@ -55,7 +55,8 @@ class BanyanBase(object):
     """
 
     def __init__(self, back_plane_ip_address=None, subscriber_port='43125',
-                 publisher_port='43124', process_name='None', loop_time=.1, numpy=False):
+                 publisher_port='43124', process_name='None', loop_time=.1, numpy=False,
+                 external_message_processor=None):
         """
         The __init__ method sets up all the ZeroMQ "plumbing"
 
@@ -74,6 +75,8 @@ class BanyanBase(object):
         :param loop_time: Receive loop sleep time.
 
         :param numpy: Set true if you wish to include numpy matrices in your messages.
+
+        :param external_message_processor: external method to process messages
         """
 
         # call to super allows this class to be used in multiple inheritance scenarios when needed
@@ -83,6 +86,7 @@ class BanyanBase(object):
 
         self.back_plane_ip_address = None
         self.numpy = numpy
+        self.external_message_processor = external_message_processor
 
         # if using numpy apply the msgpack_numpy monkey patch
         if numpy:
@@ -96,9 +100,12 @@ class BanyanBase(object):
             for pid in psutil.pids():
                 p = psutil.Process(pid)
                 p_command = p.cmdline()
-                if any('backplane' in s for s in p_command):
-                    self.backplane_exists = True
-                else:
+                try:
+                    if any('backplane' in s for s in p_command):
+                        self.backplane_exists = True
+                    else:
+                        continue
+                except UnicodeDecodeError:
                     continue
 
             if not self.backplane_exists:
@@ -113,8 +120,6 @@ class BanyanBase(object):
         self.publisher_port = publisher_port
 
         self.loop_time = loop_time
-
-        print()
 
         print('\n************************************************************')
         print(process_name + ' using Back Plane IP address: ' + self.back_plane_ip_address)
@@ -205,7 +210,10 @@ class BanyanBase(object):
 
         :param payload: Message Data.
         """
-        print('this method should be overwritten in the child class', topic, payload)
+        if self.external_message_processor:
+            self.external_message_processor(topic, payload)
+        else:
+            print('this method should be overwritten in the child class', topic, payload)
 
     def clean_up(self):
         """
