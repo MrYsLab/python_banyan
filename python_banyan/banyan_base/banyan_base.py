@@ -99,7 +99,11 @@ class BanyanBase(object):
             # check for a running backplane
             for pid in psutil.pids():
                 p = psutil.Process(pid)
-                p_command = p.cmdline()
+                try:
+                    p_command = p.cmdline()
+                except psutil.AccessDenied:
+                    # occurs in Windows - ignore
+                    continue
                 try:
                     if any('backplane' in s for s in p_command):
                         self.backplane_exists = True
@@ -190,7 +194,17 @@ class BanyanBase(object):
             try:
                 data = self.subscriber.recv_multipart(zmq.NOBLOCK)
                 if self.numpy:
+                    payload2={}
                     payload = msgpack.unpackb(data[1], object_hook=m.decode)
+                    # convert keys to strings
+                    # this compensates for the breaking change in msgpack-numpy 0.4.1 to 0.4.2
+                    for key, value in payload.items():
+                        if not type(key) == str:
+                            key=key.decode('utf-8')
+                            payload2[key] = value
+
+                    if payload2:
+                        payload = payload2
                     self.incoming_message_processing(data[0].decode(), payload)
                 else:
                     self.incoming_message_processing(data[0].decode(), umsgpack.unpackb(data[1]))

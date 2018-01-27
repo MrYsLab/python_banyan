@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='python-banyan',
-    version='2.3',
+    version='2.4',
     packages=[
         'python_banyan',
         'python_banyan.banyan_base',
@@ -16,7 +16,7 @@ setup(
         'u-msgpack-python',
         'msgpack-python',
         'numpy>=1.9',
-        'msgpack-numpy==0.4.1',
+        'msgpack-numpy',
         'psutil'
     ],
 
