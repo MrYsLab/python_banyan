@@ -1,0 +1,6 @@
+backplane_name,ip_address,subscriber_port,subscriber_topic,publisher_port
+BP1,192.168.2.194,43127,"[reply]",43126
+BP2,192.168.2.194,43125,"[reply]",43124
+BP3,192.168.2.177,43125,"[]",43124
+BP4,192.168.2.199,43125,"[run_motors,light_leds]",
+BP5,192.168.2.133,,"[run_motors,light_leds]",43124
