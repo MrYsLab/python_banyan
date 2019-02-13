@@ -4,7 +4,7 @@ import paho.mqtt.client as mqtt
 
 # This is a simple MQTT publisher example.
 # It connects to an MQTT broker, builds a payload and
-# then publishes the message to the "mqtt_network".
+# then publishes the message with a topic of "mqtt_network".
 
 my_client = mqtt.Client()
 my_client.connect("localhost", 1883, 60)
