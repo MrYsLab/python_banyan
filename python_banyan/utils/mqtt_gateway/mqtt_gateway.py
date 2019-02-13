@@ -84,6 +84,10 @@ class MqttGateway(BanyanBase):
         # save the banyan subscription topics
         self.banyan_sub_topics = banyan_sub_topics
 
+        # make sure it is in the form of a list
+        if type(self.banyan_sub_topics) is not list:
+            self.banyan_sub_topics = [self.banyan_sub_topics]
+
         # these topics are used by banyan components when they wish to publish a payload
         # to mqtt
         if self.banyan_sub_topics:
@@ -92,6 +96,10 @@ class MqttGateway(BanyanBase):
 
         # save the mqtt topic list, ip addr and publication topic
         self.mqtt_sub_topics = mqtt_sub_topics
+
+        # make sure it is in the form of a list
+        if type(self.mqtt_sub_topics) is not list:
+            self.mqtt_sub_topics = [self.mqtt_sub_topics]
 
         self.mqtt_addr = mqtt_addr
         self.mqtt_port = mqtt_port
@@ -153,9 +161,6 @@ class MqttGateway(BanyanBase):
             payload = json.dumps(payload).encode()
             self.client.publish(self.mqtt_pub_topic, payload)
 
-            # self.client.publish(topic, payload)
-
-
 def mqtt_gateway():
     # allow user to bypass the IP address auto-discovery. This is necessary if the component resides on a computer
     # other than the computing running the backplane.
@@ -188,12 +193,6 @@ def mqtt_gateway():
 
     if args.back_plane_ip_address != 'None':
         kw_options['back_plane_ip_address'] = args.back_plane_ip_address
-
-    if type(args.banyan_sub_topics) is not list:
-        args.banyan_sub_topics = [args.banyan_sub_topics]
-
-    if type(args.mqtt_sub_topics) is not list:
-        args.mqtt_sub_topics = [args.mqtt_sub_topics]
 
     kw_options = {'publisher_port': args.publisher_port,
                   'subscriber_port': args.subscriber_port,
