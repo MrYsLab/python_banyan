@@ -3,7 +3,7 @@
 """
 echo_cmdline_client.py
 
- Copyright (c) 2018 Alan Yorinks All right reserved.
+ Copyright (c) 2016-2019 Alan Yorinks All right reserved.
 
  Python Banyan is free software; you can redistribute it and/or
  modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -61,12 +61,12 @@ class EchoCmdClient(BanyanBase):
         """
         kwargs is a dictionary that will contain the following keys:
 
-        :param back_plane_ip_address: banyan_base back_planeIP Address - 
-                                    if not specified, it will be set to the 
+        :param back_plane_ip_address: banyan_base back_planeIP Address -
+                                    if not specified, it will be set to the
                                     local computer
         :param subscriber_port: banyan_base back plane subscriber port.
                This must match that of the banyan_base backplane
-        :param publisher_port: banyan_base back plane publisher port. 
+        :param publisher_port: banyan_base back plane publisher port.
                                This must match that of the
                                banyan_base backplane.
         :param number_of_messages: number of message to transmit
