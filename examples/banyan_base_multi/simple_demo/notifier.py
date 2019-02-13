@@ -34,9 +34,6 @@ class Notifier(BanyanBase):
         # initialize the parent
         super(Notifier, self).__init__(process_name='Notifier')
 
-        # allow time for base class to initialize publisher/subscriber connections
-        time.sleep(.3)
-
         # subscribe to receive 'echo' messages from the client
         self.set_subscriber_topic('notice')
 
