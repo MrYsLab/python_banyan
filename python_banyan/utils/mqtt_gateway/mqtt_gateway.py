@@ -45,7 +45,8 @@ class MqttGateway(BanyanBase):
                  subscriber_port='43125', publisher_port='43124',
                  process_name='MQTT Gateway', loop_time=.0001,
                  numpy=False,
-                 banyan_topic='to_mqtt',
+                 banyan_sub_topics='to_mqtt',
+                 banyan_pub_topic='from_mqtt',
                  mqtt_addr='localhost',
                  mqtt_port=1883,
                  mqtt_sub_topics=None,
@@ -58,12 +59,16 @@ class MqttGateway(BanyanBase):
         :param process_name: Name to display in this component's header
         :param loop_time: Banyan idle loop time
         :param numpy: Numpy flag
-        :param banyan_topic: topic string that external Banyan components use
-                            when publishing a payload to the MQTT network
+        :param banyan_sub_topics: A list of Banyan topics we wish to receive
+                                  that will forwarded to the MQTT network.
+        :param banyan_pub_topic: Topic string for publishing "MQTT messages"
+                                 to the Banyan network
         :param mqtt_addr: MQTT IP address
         :param mqtt_port: MQTT port
-        :param mqtt_sub_topics: A list of MQTT topics to subscribe to
-        :param mqtt_pub_topic: The MQTT topic used when publishing payloads to MQTT
+        :param mqtt_sub_topics: A list of MQTT topics we wish to receive from MQTT
+                                and will forwarded to the Banyan network.
+        :param mqtt_pub_topic: Topic string for publishing "Banyan messages"
+                               to the MQTT network
         """
 
         # initialize the base class
@@ -71,17 +76,25 @@ class MqttGateway(BanyanBase):
                                           publisher_port, process_name='MqttGateway',
                                           loop_time=0.1,
                                           numpy=numpy)
-        # save the banyan subscription topic
-        self.banyan_topic = banyan_topic
-        # this topic is used by banyan components when they wish to publish a payload
+
+        # save the publication topics
+        self.banyan_pub_topic = banyan_pub_topic
+        self.mqtt_pub_topic = mqtt_pub_topic
+
+        # save the banyan subscription topics
+        self.banyan_sub_topics = banyan_sub_topics
+
+        # these topics are used by banyan components when they wish to publish a payload
         # to mqtt
-        self.set_subscriber_topic(self.banyan_topic)
+        if self.banyan_sub_topics:
+            for sub in self.banyan_sub_topics:
+                self.set_subscriber_topic(sub)
 
         # save the mqtt topic list, ip addr and publication topic
         self.mqtt_sub_topics = mqtt_sub_topics
+
         self.mqtt_addr = mqtt_addr
         self.mqtt_port = mqtt_port
-        self.mqtt_pub_topic = mqtt_pub_topic
 
         # establish the mqtt client and connect
         self.client = mqtt.Client()
@@ -127,7 +140,7 @@ class MqttGateway(BanyanBase):
         """
         m = msg.payload.decode()
         payload = json.loads(m)
-        self.publish_payload(payload, self.banyan_topic)
+        self.publish_payload(payload, self.banyan_pub_topic)
 
     def incoming_message_processing(self, topic, payload):
         """
@@ -155,11 +168,13 @@ def mqtt_gateway():
                         help="None or IP address used by Back Plane", )
     parser.add_argument("-d", dest="mqtt_port", default=1883,
                         help="MQTT Port Number")
-    parser.add_argument("-e", dest="mqtt_pub_topic", default="from_banyan",
+    parser.add_argument("-e", dest="banyan_pub_topic", default="from_mqtt",
+                        help="Topic for messages to MQTT")
+    parser.add_argument("-g", dest="banyan_sub_topics", nargs='+', default="to_mqtt",
+                        help="Banyan topics space delimited: topic1 topic2 topic3"),
+    parser.add_argument("-i", dest="mqtt_pub_topic", default="from_banyan",
                         help="Topic for messages sent to MQTT")
-    parser.add_argument("-g", dest="banyan_topic", default="to_mqtt",
-                        help="Banyan subscription topic used when requesting forwarding message to MQTT")
-    parser.add_argument("-i", dest="mqtt_sub_topics", nargs='+', default='mqtt_network',
+    parser.add_argument("-j", dest="mqtt_sub_topics", nargs='+', default="mqtt_network",
                         help="MQTT topics space delimited: topic1 topic2 topic3")
     parser.add_argument("-n", dest="process_name", default="MQTT Gateway", help="Set process name in banner")
     parser.add_argument("-p", dest="publisher_port", default='43124',
@@ -174,11 +189,18 @@ def mqtt_gateway():
     if args.back_plane_ip_address != 'None':
         kw_options['back_plane_ip_address'] = args.back_plane_ip_address
 
+    if type(args.banyan_sub_topics) is not list:
+        args.banyan_sub_topics = [args.banyan_sub_topics]
+
+    if type(args.mqtt_sub_topics) is not list:
+        args.mqtt_sub_topics = [args.mqtt_sub_topics]
+
     kw_options = {'publisher_port': args.publisher_port,
                   'subscriber_port': args.subscriber_port,
                   'process_name': args.process_name,
                   'loop_time': float(args.loop_time),
-                  'banyan_topic': args.banyan_topic,
+                  'banyan_sub_topics': args.banyan_sub_topics,
+                  'banyan_pub_topic': args.banyan_pub_topic,
                   'mqtt_addr': args.mqtt_ip_address,
                   'mqtt_port': args.mqtt_port,
                   'mqtt_sub_topics': args.mqtt_sub_topics,
