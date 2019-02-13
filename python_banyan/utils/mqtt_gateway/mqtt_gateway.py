@@ -33,8 +33,7 @@ import paho.mqtt.client as mqtt
 class MqttGateway(BanyanBase):
     """
     This class allows a subscription to multiple MQTT topics published on an MQTT
-    broker and will republish these messages to the Banyan backplane with a topic
-    of 'from_mqtt'.
+    broker and will republish these messages to the Banyan backplane.
 
     This class also allows a Banyan application to publish messages to an MQTT broker.
     The MQTT topic is set to the value of the mqtt_pub_topic parameter. The MQTT payload
@@ -46,7 +45,7 @@ class MqttGateway(BanyanBase):
                  subscriber_port='43125', publisher_port='43124',
                  process_name='MQTT Gateway', loop_time=.0001,
                  numpy=False,
-                 banyan_topic='from_mqtt',
+                 banyan_topic='to_mqtt',
                  mqtt_addr='localhost',
                  mqtt_port=1883,
                  mqtt_sub_topics=None,
@@ -59,8 +58,8 @@ class MqttGateway(BanyanBase):
         :param process_name: Name to display in this component's header
         :param loop_time: Banyan idle loop time
         :param numpy: Numpy flag
-        :param banyan_topic: topic string that external Banyan components publishes
-                             to when it wants to send a payload to the MQTT network
+        :param banyan_topic: topic string that external Banyan components use
+                            when publishing a payload to the MQTT network
         :param mqtt_addr: MQTT IP address
         :param mqtt_port: MQTT port
         :param mqtt_sub_topics: A list of MQTT topics to subscribe to
@@ -158,9 +157,9 @@ def mqtt_gateway():
                         help="MQTT Port Number")
     parser.add_argument("-e", dest="mqtt_pub_topic", default="from_banyan",
                         help="Topic for messages sent to MQTT")
-    parser.add_argument("-g", dest="banyan_topic", default="from_mqtt",
+    parser.add_argument("-g", dest="banyan_topic", default="to_mqtt",
                         help="Banyan subscription topic used when requesting forwarding message to MQTT")
-    parser.add_argument("-i", dest="mqtt_sub_topics", nargs='+', default=None,
+    parser.add_argument("-i", dest="mqtt_sub_topics", nargs='+', default='mqtt_network',
                         help="MQTT topics space delimited: topic1 topic2 topic3")
     parser.add_argument("-n", dest="process_name", default="MQTT Gateway", help="Set process name in banner")
     parser.add_argument("-p", dest="publisher_port", default='43124',
