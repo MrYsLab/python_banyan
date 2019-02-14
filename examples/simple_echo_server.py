@@ -17,25 +17,19 @@ simple_echo_server.py
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 """
-import sys
-import time
 
+import sys
 from python_banyan.banyan_base import BanyanBase
 
 
 class EchoServer(BanyanBase):
     """
     This class is a simple Banyan echo server
-
     """
-
     def __init__(self, ):
 
         # initialize the parent
         super(EchoServer, self).__init__(process_name='EchoServer')
-
-        # allow time for base class to initialize publisher/subscriber connections
-        time.sleep(.3)
 
         # subscribe to receive 'echo' messages from the client
         self.set_subscriber_topic('echo')
@@ -52,9 +46,11 @@ class EchoServer(BanyanBase):
         Process incoming messages from the client
         :param topic: message topic
         :param payload: message payload
-        :return:
         """
+        # republish the message with a topic of reply
         self.publish_payload(payload, 'reply')
+
+        # extract the message number from the payload
         print('Message number:', payload['message_number'])
 
 

@@ -19,8 +19,6 @@ simple_echo_client.py
 """
 
 import sys
-import time
-
 from python_banyan.banyan_base import BanyanBase
 
 
@@ -34,9 +32,6 @@ class EchoClient(BanyanBase):
 
         # initialize the parent
         super(EchoClient, self).__init__(process_name='EchoClient')
-
-        # allow time for base class to initialize publisher/subscriber connections
-        time.sleep(.3)
 
         # accept banyan messages with the topic of reply
         self.set_subscriber_topic('reply')
@@ -59,7 +54,6 @@ class EchoClient(BanyanBase):
         Process incoming messages received from the echo client
         :param topic: Message Topic string
         :param payload: Message Data
-        :return:
         """
 
         # When a message is received and its number is zero, finish up.
