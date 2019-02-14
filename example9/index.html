@@ -256,8 +256,6 @@ must not be surrounded by quotes. Instead, the whole list, including the bracket
   is surrounded in quotes. In addition, there must
 not be any spaces after the commas. For example, if the topics
 are <strong>start</strong>, and <strong>finish</strong>, the subscriber_topic field is specified as: <strong>"[start,finish]"</strong></p>
-<p><strong>IMPORTANT NOTE2:</strong> When launching a BanyanBaseMulti component, make sure the
-routing specification is in the current working directory.</p>
 <p>The <strong><em>publisher_port</em></strong> specifies the publisher port for the given Backplane.</p>
 <p>Here is sample of a <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/banyan_base_multi/multi_driver_spec.csv"><em>routing specification file</em></a>
  for a component that connects to 5 Backplanes.</p>
@@ -712,13 +710,13 @@ of the BanyanBaseMulti base class. For this example, 2 Backplanes are invoked, e
 different computer. The example can be easily modified to run both Backplanes on a single
 computer by adjusting the values in the routing specification file.</p>
 <p>The application consists of 3 Banyan components in addition to the 2 Backplanes. The first component is a reuse of
-<a href="../example2/#modifying-the-simple-echo-client">echo_cmdline_client.py</a>. It resides on computer 1 . The second
+<a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/echo_cmdline_client.py"><strong><em>echo_cmdline_client.py</em></strong></a>. It resides on computer 1 . The second
  component, <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/banyan_base_multi/simple_demo/multi_echo_server.py"><strong><em>multi_echo_server.py</em></strong></a>
   derived from <em>BanyanBaseMulti</em>, resides on computer 1.
 The third component, <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/banyan_base_multi/simple_demo/notifier.py"><strong><em>notifier.py</em></strong></a>,
  derived from <em>BanyanBase</em> resides on computer 2.</p>
 <p>Backplane 1 resides on computer 1 and Backplane 2 resides on computer 2.</p>
-<p>The client publishes messages on Backplane 1 and the server echoes these messages back within Backplane 1. As each
+<p>The client publishes messages to Backplane 1 and the server echoes these messages back within Backplane 1. As each
 message is received by the server, it tests to see if the message number is 0, signaling end of messaging.
 If the message number is 0,
 the server then publishes a "notifier" message routed to Backplane 2.</p>
@@ -795,7 +793,7 @@ and when a message is received, prints 'Notification Received':</p>
 </code></pre>
 
 <h2 id="the-echo-client">The Echo Client</h2>
-<p>We are reusing the *<a href="../example2/#modifying-the-component-class">echo_cmdline_client*</a> unmodified.</p>
+<p>We are reusing the <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/echo_cmdline_client.py"><em>echo_cmdline_client</em></a> unmodified.</p>
 <h2 id="the-multiechoserver">The MultiEchoServer</h2>
 <p>The Server is derived from BanyanBaseMulti.
 Lets begin by examining its associated <em>routing specification file</em>.</p>
