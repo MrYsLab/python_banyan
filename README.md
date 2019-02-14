@@ -1,6 +1,8 @@
 # The Python Banyan Framework
 ![](https://github.com/MrYsLab/python_banyan/blob/master/images/BanyanTree.png)
 
+# UNDER CONSTRUCTION VERSION 3 IS BEING READIED FOR RELEASE
+
 The Python Banyan Framework is a lightweight, reactive framework used to
 create flexible, non-blocking, event driven, asynchronous applications.
 It was designed primarily to aid in the implementation of real-time physical computing applications
