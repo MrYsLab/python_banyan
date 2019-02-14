@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Tutorial 2  - Adding Command Line Options To A Component - Python Banyan</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Tutorial 2  - Adding Command Line Options To A Component";
+    var mkdocs_page_input_path = "example2.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Python Banyan</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">User's Guide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python Banyan By Example</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../examples_intro/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example1/">Tutorial 1  - A Simple Echo Server/Client</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Tutorial 2  - Adding Command Line Options To A Component</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#modifying-the-simple-echo-client">Modifying The Simple Echo Client</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#adding-the-necessary-imports">Adding The Necessary Imports</a></li>
+        
+            <li><a class="toctree-l4" href="#modifying-the-component-class">Modifying The Component Class</a></li>
+        
+            <li><a class="toctree-l4" href="#using-the-m-option">Using The -m Option</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example3/">Tutorial 3  - Distributed Applications</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example4/">Tutorial 4  - Applications From Components On Differing Platforms</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example5/">Tutorial 5  - Debugging Using The Monitor</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example6/">Tutorial 6  - Integrating With A GUI Event Loop</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example7/">Tutorial 7  - Installing Components As Executable Modules</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example8/">Tutorial 8  - Using the Banyan Launcher</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example9/">Tutorial 9  - Connecting To Multiple Backplanes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example10/">Tutorial 10 - Connecting Banyan To An MQTT Network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example11/">Tutorial 11 - Physical Computing And GPIO</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../benchmark/">Comparing Banyan and MQTT</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Python Banyan</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Python Banyan By Example &raquo;</li>
+        
+      
+    
+    <li>Tutorial 2  - Adding Command Line Options To A Component</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="modifying-the-simple-echo-client">Modifying The Simple Echo Client</h1>
+<p>Being able to set a component's parameters using command line options
+allow the user to easily modify the way a component operates.</p>
+<p>To demonstrate, we will take the existing simple echo client and modify the
+code to allow the user to enter the Backplane IP address,
+the publisher and subscriber port numbers, the number of messages to
+send to the server, the process name to display on the
+ banner, and the loop time, all via the command line.</p>
+<p>This example allows the user to specify, none, one or any combination
+of parameters, allowing maximum flexibility.</p>
+<p>To process user specified command line parameters, we will
+use the <a href="https://docs.python.org/3/library/argparse.html">argparse library</a>.</p>
+<p>A code comparison will be provided for the modified code, in addition
+to any new code that is required in order to add the feature.</p>
+<p>Once we modify the code, we will be able to print a help screen to the console, by simply
+invoking the program with
+a <em>-h</em> command line option. A list of all command line options will be displayed
+for the user to choose from.</p>
+<p><img align="center" src="../images/echo_cmdline_help.png"></p>
+<h2 id="adding-the-necessary-imports">Adding The Necessary Imports</h2>
+<p>We will import the argparse package as well as the signal package
+to the original file. Argparse allows us to create the command
+line arguments, and signal allows us to trap and process a Control-C
+entered by the user.</p>
+<pre><code>    22  import argparse
+    23  import signal
+</code></pre>
+
+<h2 id="modifying-the-component-class">Modifying The Component Class</h2>
+<p>Line 29 declares the name for our modified client.</p>
+<p>Lines 31 through 56 provide usage information.</p>
+<p>Lines 59 defines the __init__ method and it accepts a dictionary
+of parameters, called <em>kwargs</em>. The kwargs dictionary is populated
+near the end of the program.</p>
+<p>Lines 88 through 92 dereference the kwargs values and passes the values to the parent class.</p>
+<p>The rest of the class definition is unchanged.</p>
+<pre><code>    29  class EchoCmdClient(BanyanBase):
+    30      &quot;&quot;&quot;
+    31      This is an echo client that will allow the user
+    32      to specify command line arguments to change the default behavior
+    33      of the client.
+    34
+    35      It sends out a series of messages and expects an
+    36      echo reply from the server. When it completes, press enter, and it
+    37      will send a message to the server so that it also quits
+    38
+    39      To use: 1. Start the backplane.
+    40              2. Start the server.
+    41              3. Start this client.
+    42
+    43      usage: echo_cmdline_client.py [-h] [-b BACK_PLANE_IP_ADDRESS]
+    44                        [-m NUMBER_OF_MESSAGES] [-n PROCESS_NAME]
+    45                        [-p PUBLISHER_PORT] [-s SUBSCRIBER_PORT] [-t LOOP_TIME]
+    46
+    47      optional arguments:
+    48        -h, --help            show this help message and exit
+    49        -b BACK_PLANE_IP_ADDRESS
+    50                              None or IP address used by Back Plane
+    51        -m NUMBER_OF_MESSAGES
+    52                              Number of messages to publish
+    53        -n PROCESS_NAME       Set process name in banner
+    54        -p PUBLISHER_PORT     Publisher IP port
+    55        -s SUBSCRIBER_PORT    Subscriber IP port
+    56        -t LOOP_TIME          Event Loop Timer in seconds
+    57      &quot;&quot;&quot;
+    58
+    59      def __init__(self, **kwargs):
+    60
+    61          &quot;&quot;&quot;
+    62          kwargs is a dictionary that will contain the following keys:
+    63
+    64          :param back_plane_ip_address: banyan_base back_planeIP Address -
+    65                                      if not specified, it will be set to the
+    66                                      local computer
+    67          :param subscriber_port: banyan_base back plane subscriber port.
+    68                 This must match that of the banyan_base backplane
+    69          :param publisher_port: banyan_base back plane publisher port.
+    70                                 This must match that of the
+    71                                 banyan_base backplane.
+    72          :param number_of_messages: number of message to transmit
+    73          :param process_name: Component identifier
+    74          :param loop_time: receive loop sleep time
+    75
+    76          &quot;&quot;&quot;
+    77
+    78          # initialize the parent
+    79          super(EchoCmdClient, self).__init__(back_plane_ip_address=kwargs['back_plane_ip_address'],
+    80                                              subscriber_port=kwargs['subscriber_port'],
+    81                                              publisher_port=kwargs['publisher_port'],
+    82                                              process_name=kwargs['process_name'],
+    83                                              loop_time=kwargs['loop_time'])
+    84
+    85          # accept banyan messages with the topic of reply
+    86          self.set_subscriber_topic('reply')
+    87
+    88          # sequence number of messages
+    89          self.message_number = kwargs['number_of_messages']
+    90
+    91          # number of messages to send
+    92          self.number_of_messages = kwargs['number_of_messages']
+    93
+    94          # send the first message - make sure that the server is already started
+    95          self.publish_payload({'message_number': self.message_number}, 'echo')
+    96
+    97          # get the reply messages
+    98          try:
+    99              self.receive_loop()
+   100          except KeyboardInterrupt:
+   101              self.clean_up()
+   102              sys.exit(0)
+
+</code></pre>
+
+<h3 id="adding-a-startup-function-after-the-class-definition">Adding A Startup Function After The Class Definition</h3>
+<p>Here, we create a function that follows the class definition. This
+function, called echo_cmdline_client() will instantiate the class
+and parse for any command line options that the user may have specified.</p>
+<p>This function is contained within lines 125 to 168.</p>
+<p>Line 126 creates an instance of an ArgumentParser.</p>
+<p>Lines 129 through 144 create the command line options and adds them
+to the argument parser.</p>
+<p>Line 146 creates a variable called <em>args</em> and populates args with
+the values for all of the command line options.</p>
+<p>Lines 148 through 155 retrieve the option values using the defaults
+or the values provided by the user. The options
+are then added to a Python dictionary called kw_options.</p>
+<p>Line 158 instantiates the class, passing in the kw_options.</p>
+<p>Lines 161 through 164 add a signal handler to trap a user enteredControl-C.</p>
+<p>Line 172 calls the <em>echo_cmdline_client</em> function on line 125 to invoke the client.</p>
+<pre><code>   125  def echo_cmdline_client():
+   126      parser = argparse.ArgumentParser()
+   127      # allow user to bypass the IP address auto-discovery.
+   128      # This is necessary if the component resides on a computer
+   129      # other than the computing running the backplane.
+   130      parser.add_argument(&quot;-b&quot;, dest=&quot;back_plane_ip_address&quot;, default=&quot;None&quot;,
+   131                          help=&quot;None or IP address used by Back Plane&quot;)
+   132      parser.add_argument(&quot;-m&quot;, dest=&quot;number_of_messages&quot;, default=&quot;10&quot;,
+   133                          help=&quot;Number of messages to publish&quot;)
+   134      # allow the user to specify a name for the component and have it shown on the console banner.
+   135      # modify the default process name to one you wish to see on the banner.
+   136      # change the default in the derived class to set the name
+   137      parser.add_argument(&quot;-n&quot;, dest=&quot;process_name&quot;, default=&quot;EchoCmdClient&quot;,
+   138                          help=&quot;Set process name in banner&quot;)
+   139      parser.add_argument(&quot;-p&quot;, dest=&quot;publisher_port&quot;, default='43124',
+   140                          help=&quot;Publisher IP port&quot;)
+   141      parser.add_argument(&quot;-s&quot;, dest=&quot;subscriber_port&quot;, default='43125',
+   142                          help=&quot;Subscriber IP port&quot;)
+   143      parser.add_argument(&quot;-t&quot;, dest=&quot;loop_time&quot;, default=&quot;.1&quot;,
+   144                          help=&quot;Event Loop Timer in seconds&quot;)
+   145
+   146      args = parser.parse_args()
+   147
+   148      if args.back_plane_ip_address == 'None':
+   149          args.back_plane_ip_address = None
+   150      kw_options = {'back_plane_ip_address': args.back_plane_ip_address,
+   151                    'number_of_messages': int(args.number_of_messages),
+   152                    'publisher_port': args.publisher_port,
+   153                    'subscriber_port': args.subscriber_port,
+   154                    'process_name': args.process_name,
+   155                    'loop_time': float(args.loop_time)}
+   156
+   157      # replace with the name of your class
+   158      app = EchoCmdClient(**kw_options)
+   159
+   160      # signal handler function called when Control-C occurs
+   161      def signal_handler(signal, frame):
+   162          print(&quot;Control-C detected. See you soon.&quot;)
+   163          app.clean_up()
+   164          sys.exit(0)
+   165
+   166      # listen for SIGINT
+   167      signal.signal(signal.SIGINT, signal_handler)
+   168      signal.signal(signal.SIGTERM, signal_handler)
+   169
+   170
+   171  if __name__ == '__main__':
+   172      echo_cmdline_client()
+
+</code></pre>
+
+<h2 id="using-the-m-option">Using The -m Option</h2>
+<p>We can now specify the number of messages that the client produces, while
+accepting the default values for all of the other parameters.</p>
+<p>Making sure that the Backplane and server are already running, we can start
+the new client, asking it to produce 20 messages.</p>
+<pre><code>python3 echo_cmdline_client.py -m 20
+</code></pre>
+
+<p>This command will produce 20 messages.</p>
+<p>Here is what the client console displays after running this command.</p>
+<p><img align="center" src="../images/echo_client_20.png"></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../example3/" class="btn btn-neutral float-right" title="Tutorial 3  - Distributed Applications">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../example1/" class="btn btn-neutral" title="Tutorial 1  - A Simple Echo Server/Client"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../example1/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../example3/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

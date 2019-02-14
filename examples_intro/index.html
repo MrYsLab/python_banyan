@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Introduction - Python Banyan</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Introduction";
+    var mkdocs_page_input_path = "examples_intro.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Python Banyan</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">User's Guide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python Banyan By Example</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Introduction</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#learn-by-example">Learn By Example</a></li>
+    
+
+    <li class="toctree-l3"><a href="#the-key-elements-of-python-banyan">The Key Elements of Python Banyan</a></li>
+    
+
+    <li class="toctree-l3"><a href="#the-banyan-backplane">The Banyan Backplane</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#starting-the-backplane">Starting the Backplane</a></li>
+        
+            <li><a class="toctree-l4" href="#the-backplanes-command-line-options">The Backplane's Command Line Options</a></li>
+        
+            <li><a class="toctree-l4" href="#always-start-the-backplane-first">Always Start The Backplane First</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#python-banyan-base-classes">Python Banyan Base Classes</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#the-banyanbase-class">The BanyanBase Class</a></li>
+        
+            <li><a class="toctree-l4" href="#95_init__">__init__</a></li>
+        
+            <li><a class="toctree-l4" href="#set_subscriber_topic">set_subscriber_topic</a></li>
+        
+            <li><a class="toctree-l4" href="#publish_payload">publish_payload</a></li>
+        
+            <li><a class="toctree-l4" href="#receive_loop">receive_loop</a></li>
+        
+            <li><a class="toctree-l4" href="#incoming_message_processing">incoming_message_processing</a></li>
+        
+            <li><a class="toctree-l4" href="#clean_up">clean_up</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#a-template-for-component-command-line-options">A Template For Component Command Line Options</a></li>
+    
+
+    <li class="toctree-l3"><a href="#the-examples">The Examples</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#where-to-find-the-example-source-code">Where To Find The Example Source Code</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example1/">Tutorial 1  - A Simple Echo Server/Client</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example2/">Tutorial 2  - Adding Command Line Options To A Component</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example3/">Tutorial 3  - Distributed Applications</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example4/">Tutorial 4  - Applications From Components On Differing Platforms</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example5/">Tutorial 5  - Debugging Using The Monitor</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example6/">Tutorial 6  - Integrating With A GUI Event Loop</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example7/">Tutorial 7  - Installing Components As Executable Modules</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example8/">Tutorial 8  - Using the Banyan Launcher</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example9/">Tutorial 9  - Connecting To Multiple Backplanes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example10/">Tutorial 10 - Connecting Banyan To An MQTT Network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example11/">Tutorial 11 - Physical Computing And GPIO</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../benchmark/">Comparing Banyan and MQTT</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Python Banyan</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Python Banyan By Example &raquo;</li>
+        
+      
+    
+    <li>Introduction</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="learn-by-example">Learn By Example</h1>
+<p>The tutorials included with this guide, provide samples of simple working
+applications. The tutorials help to demonstrate Python Banyan's features,
+ as well as the
+set of utilities that are part of the <a href="https://github.com/MrYsLab/python_banyan"><strong><em>python-banyan</em></strong></a> package.</p>
+<h1 id="the-key-elements-of-python-banyan">The Key Elements of Python Banyan</h1>
+<p>There are two key components of the Banyan Framework, the <strong><em>Backplane</em></strong> that acts as
+communication hub, and the <strong><em>Banyan Components</em></strong> where you implement your design. This section
+will discuss these two elements.</p>
+<h1 id="the-banyan-backplane">The Banyan Backplane</h1>
+<p>When you install Python Banyan, an executable file called <strong><em>backplane</em></strong>,
+is automatically installed on your computer. The Backplane is implemented as a ZeroMQ <em>device</em>
+called a <a href="http://learning-0mq-with-pyzmq.readthedocs.io/en/latest/pyzmq/devices/forwarder.html"><strong><em>Forwarder</em></strong></a>.</p>
+<p>When connecting to the Backplane, all components utilize common, well-known IP addresses and port numbers.
+As a result, routing is greatly simplified, and for most cases
+eliminates the need for maintaining a routing table.</p>
+<p>Because a Banyan component automatically attempts to
+"plug" itself into the Backplane when first invoked, <strong><em>the backplane,
+must be started before starting any other components.</em></strong></p>
+<p>If you forget to start Backplane first, the component will raise a RunTimeError
+exception.</p>
+<p>In general, a Banyan application uses a single instance of the Backplane,
+however, it is possible to have multiple Backplanes running in a single
+application. Using multiple backplanes will be covered in a <a href="/example9">later section</a>.</p>
+<p>Since the Backplane is not normally modified by the user, its code will not be discussed here, but
+if you wish, you may view
+<a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/backplane/backplane.py">the Backplane source code here</a>.</p>
+<h2 id="starting-the-backplane">Starting the Backplane</h2>
+<p>To start the Backplane, open a command or terminal window and type:</p>
+<pre><code>backplane
+</code></pre>
+
+<p><img align="center" src="../images/backplane_start.png"></p>
+<p>After starting the Backplane, you will see a standard Python Banyan header for the Backplane.</p>
+<p>The <strong>Backplane name</strong> is displayed. The default is "Backplane" and normally, this default is accepted.
+You may change it
+using a <a href="#the-backplanes-command-line-options">command line option described below</a></p>
+<p>The Backplane's <strong>IP Address</strong> is shown next to the Backplane name. The Backplane
+always uses the <strong>IP address</strong> of the computer on which it is run and is not user
+configurable. This address is auto-discovered.</p>
+<p>The <strong>Subscriber and Publisher Ports</strong> are also displayed. For applications
+that will run on a single computer the default ports should be accepted. These
+values are user configurable, in case you need to modify them.</p>
+<p>The <strong>Loop Time</strong> sets the iteration time for the Backplane's idle loop. Normally
+the default should be accepted, but it can be altered to fine tune the application's
+CPU utilization.</p>
+<h2 id="the-backplanes-command-line-options">The Backplane's Command Line Options</h2>
+<p>To see the command line options for the Backplane type:</p>
+<pre><code>backplane -h
+</code></pre>
+
+<p><img align="center" src="../images/backplane_help.png"></p>
+<p>To specify a command line option, provide the option and its parameter
+value. Multiple options may be set if desired.</p>
+<pre><code>backplane -n MyBackplane -p 12345 -s 54321 -t .01
+</code></pre>
+
+<p>In the example above, the backplane name, the publisher port, the subscriber port
+and the loop time have all been customized.</p>
+<h2 id="always-start-the-backplane-first">Always Start The Backplane First</h2>
+<p>A Python Banyan component expects the Backplane to be running when it is instantiated.
+If you forget to start the Backplane, the component with raise a RunTimeException.</p>
+<p><img align="center" src="../images/no_backplane_running.png"></p>
+<h1 id="python-banyan-base-classes">Python Banyan Base Classes</h1>
+<p>Most Python Banyan components need only to connect to a single Backplane and are built
+ by inheriting from the <strong><em>banyan_base</em></strong>
+base class, <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/banyan_base/banyan_base.py">banyan_base.py</a>.</p>
+<p>If you need to create your application using multiple Backplanes (a rare occurrence),
+please refer to <a href="/example9">this section</a> for a discussion of the <strong><em>banyan_base_multi</em></strong> class.</p>
+<h2 id="the-banyanbase-class">The BanyanBase Class</h2>
+<p>The BanyanBase class is both Python 2 and Python 3 compatible.</p>
+<p>Here is the "executive summary" of this class's 6 methods:</p>
+<ol>
+<li>
+<p><strong>__init__</strong> - This method initializes the class. A derived class
+often overrides this method to add additional initialization parameters
+as well as being a convenient place to add subscription topics.
+The Banyan event loop may started in this method, but it should be done so
+as the last line of the overridden
+method, since a call to <em>receive_loop</em> will not return.</p>
+</li>
+<li>
+<p><strong>set_subscriber_topic</strong> - This method is usually <strong>not</strong> overridden and is used as is.</p>
+</li>
+<li>
+<p><strong>publish_payload</strong> - This method is usually <strong>not</strong> overridden and used as is.</p>
+</li>
+<li>
+<p><strong>receive_loop</strong> - This method is usually <strong>not</strong> overridden and used as is.</p>
+</li>
+<li>
+<p><strong>incoming_message_processing</strong> - This method <strong>must</strong> be overridden to handle incoming messages.</p>
+</li>
+<li>
+<p><strong>clean_up</strong> - This method maybe overridden to add any additional clean-up for a terminating component.</p>
+</li>
+</ol>
+<p>To get a better understanding of the base class, let's look at the code line by line. You can skip this
+section and move on to the <a href="/example1/">examples</a> and return later if you need a more detailed explanation of the base class.</p>
+<p>Lines 1 through 19 displays the license information.</p>
+<pre><code>     1  &quot;&quot;&quot;
+     2  banyan_base.py
+     3
+     4   Copyright (c) 2016-2019 Alan Yorinks All right reserved.
+     5
+     6   Python Banyan is free software; you can redistribute it and/or
+     7   modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+     8   Version 3 as published by the Free Software Foundation; either
+     9   or (at your option) any later version.
+    10   This library is distributed in the hope that it will be useful,
+    11   but WITHOUT ANY WARRANTY; without even the implied warranty of
+    12   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    13   General Public License for more details.
+    14
+    15   You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE
+    16   along with this library; if not, write to the Free Software
+    17   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+    18
+    19  &quot;&quot;&quot;
+
+
+</code></pre>
+
+<p>Lines 20 through 36 list the packages required by banyan_base.py. All required packages are
+automatically installed when the Python Banyan distribution is first installed.</p>
+<p>Note that lines 25 through 27 are commented out.
+A template for creating command line options for your component is provided at the bottom of the file.
+This is totally optional, but if you wish to use the template, you will need to uncomment out lines 25 through 27.</p>
+<p>The template will be discussed at the <a href="#a-template-for-component-command-line-options">end of this discussion</a>.</p>
+<pre><code>    20  from __future__ import unicode_literals
+    21
+    22  # Use argparse and signal if you wish to implement the argparse
+    23  # code located at the bottom of this file.
+    24
+    25  # import argparse
+    26  # import signal
+    27  # import sys
+    28
+    29  import socket
+    30  import time
+    31  import umsgpack
+    32  import msgpack
+    33  import msgpack_numpy as m
+    34  import zmq
+    35  import psutil
+    36
+
+</code></pre>
+
+<p>Line 38 declares the BanyanBase class. It inherits from <em>object</em> to keep the class Python 2 compatible.</p>
+<p>Lines 41 through 49 provide a brief description of the class.</p>
+<p>Line 53 shows the import line used to import this class into your component.
+The examples will demonstrate how to import BanyanBase.</p>
+<pre><code>    37
+    38  class BanyanBase(object):
+    39      &quot;&quot;&quot;
+    40
+    41      This is the base class for all Python Banyan components,
+    42      encapsulating and acting as an abstraction layer for zeromq and message pack
+    43      functionality.
+    44
+    45      Banyan components are derived by inheriting from this class and
+    46      overriding its methods as necessary.
+    47
+    48      Banyan components have the capability to both publish and subscribe to user
+    49      defined messages using the Banyan backplane.
+    50
+    51      To import into  the derived class use:
+    52
+    53             from python_banyan.banyan_base import BanyanBase
+    54
+    55      &quot;&quot;&quot;
+</code></pre>
+
+<p>The base class consists of 6 methods and the following is a discussion of each of the
+methods.</p>
+<h2 id="95_init__">__init__</h2>
+<p>The __init__ method is overwritten as needed. A subscription to specific topics is
+often established in this method by calling <a href="examples_intro/#set_subscriber_topic">set_subscriber_topic</a>
+for each topic.</p>
+<pre><code>    57      def __init__(self, back_plane_ip_address=None, subscriber_port='43125',
+    58                   publisher_port='43124', process_name='None', loop_time=.1, numpy=False,
+    59                   external_message_processor=None, receive_loop_idle_addition=None,
+    60                   connect_time=0.3):
+    61          &quot;&quot;&quot;
+    62          The __init__ method sets up all the ZeroMQ &quot;plumbing&quot;
+
+</code></pre>
+
+<p>Line 57 through 59 constitute the parameter list for the <strong><em>_</em>init</strong>___ method.
+Notice that all of the parameters contain default values, and in most cases accepting the defaults
+is all that you need.</p>
+<p>Lines 63 through 83 document the parameters (and are discussed below).</p>
+<h3 id="back_plane_ip_address">back_plane_ip_address</h3>
+<p>The default for this parameter is <em>None</em>. The component will discover the IP
+address of the local computer and assume that the Backplane is also running on this
+computer. If the component is running on a computer different from the one that the Backplane is running,
+then this parameter will need to match the IP address of the Backplane.</p>
+<pre><code>    64          :param back_plane_ip_address: banyan_base back_planeIP Address -
+    65                                        if not specified, it will be set to the
+    66                                        local computer.
+</code></pre>
+
+<h3 id="subscriber-and-publisher-ports">subscriber and publisher ports</h3>
+<p>These are default IP ports dictated by those set for the Backplane. Normally these are
+not changed, but may be if there are any port conflicts or if you are running in a system
+that has more than one Backplane running on a computer.</p>
+<pre><code>    68          :param subscriber_port: banyan_base back plane subscriber port.
+    69                 This must match that of the banyan_base backplane
+    70
+    71          :param publisher_port: banyan_base back plane publisher port.
+    72                                 This must match that of the banyan_base backplane.
+    73
+</code></pre>
+
+<h3 id="process_name">process_name</h3>
+<p>This sets the name shown in the component's console header for identification purposes. If not set
+the name of the component will be 'None'.</p>
+<pre><code>    74          :param process_name: Component identifier in banner at component startup.
+    75
+</code></pre>
+
+<h3 id="loop_time">loop_time</h3>
+<p>A Banyan component continuously checks for any incoming messages. If no messages are available,
+then the component will sleep for the specified loop time. The smaller the number,
+the greater the CPU utilization for the component.</p>
+<pre><code>    76          :param loop_time: Receive loop sleep time.
+    77
+</code></pre>
+
+<h3 id="numpy">numpy</h3>
+<p>If the component requires numpy data to be published,
+then set this parameter to <em>True</em> to serialize the data in an
+efficient manner.</p>
+<pre><code>    78          :param numpy: Set true if you wish to include numpy matrices in your messages.
+    79
+</code></pre>
+
+<h3 id="external_message_processor">external_message_processor</h3>
+<p>Normally all incoming messages are handled within the component itself. If specified, message processing
+will be done outside of the component and act in a similar fashion to a callback.</p>
+<pre><code>    80          :param external_message_processor: external method to process messages
+    81
+</code></pre>
+
+<h3 id="receive_loop_idle_addition">receive_loop_idle_addition</h3>
+<p>Normally the receive idle loop is executed when no messages are present.
+If you wish to perform some additional processing during
+idle time, set this parameter to the function or method that you would like to be called.
+The function or method should be non-blocking.</p>
+<pre><code>    82          :param receive_loop_idle_addition: an external method called in the idle section
+    83                                             of the receive loop
+    84          &quot;&quot;&quot;
+</code></pre>
+
+<h3 id="connect_time">connect_time</h3>
+<p>This parameter allows for the connection between the component and Backplane to complete.
+It prevents race conditions between trying to publish a message before the connection
+has been established.</p>
+<pre><code>85          :param connect_time: a short delay to allow the component to connect to the Backplane
+</code></pre>
+<p>The actual class code for the method follows the parameter documentation strings.</p>
+<p>Line 89 allows for the possibility of multiple inheritance.
+ An example might be the need to import the <em>threading</em> module in addition to BanyanBase.</p>
+<pre><code>    88          # call to super allows this class to be used in multiple inheritance scenarios when needed
+    89          super(BanyanBase, self).__init__()
+    90
+
+</code></pre>
+
+<p>Line 91 declares a flag which is set when the check for a running Backplane takes place.</p>
+<p>Lines 93 through 97 assign the input parameters to instance variables.</p>
+<pre><code>    91          self.backplane_exists = False
+    92
+    93          self.back_plane_ip_address = None
+    94          self.numpy = numpy
+    95          self.external_message_processor = external_message_processor
+    96          self.receive_loop_idle_addition = receive_loop_idle_addition
+    97          self.connect_time = connect_time
+</code></pre>
+
+<p>Lines 99 through 101 are used to enable the <a href="https://github.com/lebedov/msgpack-numpy">numpy version of messagepack</a> if the
+numpy parameter was set to True.</p>
+<pre><code>    99          # if using numpy apply the msgpack_numpy monkey patch
+   100          if numpy:
+   101              m.patch()
+
+</code></pre>
+
+<p>Lines 103 through 105 set the IP address for the backplane if one was specified.</p>
+<p>If no Backplane IP address was specified, Lines 107 through 121 checks to
+see if there is a Backplane currently running.
+If a Backplane is running, the <em>self.backplane_exists</em> flag is set to True.</p>
+<p><strong>NOTE:</strong> Unlike when both the component and Backplane are running on the same computer,
+when a remote Backplane is being used, that is the component and Backplane are running
+on different computers, the component cannot check for an existing running Backplane.
+Therefore in this case, it is the user's responsibility to check for a running remote Backplane.</p>
+<pre><code>   103          # If no back plane address was specified, determine the IP address of the local machine
+   104          if back_plane_ip_address:
+   105              self.back_plane_ip_address = back_plane_ip_address
+   106          else:
+   107              # check for a running backplane
+   108              for pid in psutil.pids():
+   109                  p = psutil.Process(pid)
+   110                  try:
+   111                      p_command = p.cmdline()
+   112                  except psutil.AccessDenied:
+   113                      # occurs in Windows - ignore
+   114                      continue
+   115                  try:
+   116                      if any('backplane' in s for s in p_command):
+   117                          self.backplane_exists = True
+   118                      else:
+   119                          continue
+   120                  except UnicodeDecodeError:
+   121                      continue
+
+</code></pre>
+
+<p>Lines 123 through 124 checks to see if a local Backplane was found.
+If not, a RunTimeError is raised. If a Backplane was detected as running, lines 125 through  129 retrieve the IP address of
+the local computer
+and then sets the backplane_ip_address to that address.</p>
+<p>Lines 131 through 134 continue setting instance variables from input parameters.
+received by the __init__ method.</p>
+<pre><code>   123              if not self.backplane_exists:
+   124                  raise RuntimeError('Backplane is not running - please start it.')
+   125              # determine this computer's IP address
+   126              s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+   127              # use the google dns
+   128              s.connect(('8.8.8.8', 0))
+   129              self.back_plane_ip_address = s.getsockname()[0]
+   130
+   131          self.subscriber_port = subscriber_port
+   132          self.publisher_port = publisher_port
+   133
+   134          self.loop_time = loop_time
+
+</code></pre>
+
+<p>Lines 136 through 141 print out the standard Python Banyan console heading. It includes
+the <em>process_name</em>, <em>backplane_ip_address</em>, <em>subscriber_port</em>, <em>publisher_port</em>, and <em>loop_time</em>.</p>
+<pre><code>   136          print('\n************************************************************')
+   137          print(process_name + ' using Back Plane IP address: ' + self.back_plane_ip_address)
+   138          print('Subscriber Port = ' + self.subscriber_port)
+   139          print('Publisher  Port = ' + self.publisher_port)
+   140          print('Loop Time = ' + str(loop_time) + ' seconds')
+   141          print('************************************************************')
+   142
+</code></pre>
+
+<p>Lines 143 through 151 establish ZeroMQ publish and subscribe connections to the Backplane.</p>
+<p>Line 154 calls <em>time.sleep</em> to wait for the duration of the connect_time value.
+ This allows enough time for both the publisher and subscriber connections
+to be estalished.</p>
+<pre><code>   143          # establish the zeromq sub and pub sockets and connect to the backplane
+   144          self.context = zmq.Context()
+   145          self.subscriber = self.context.socket(zmq.SUB)
+   146          connect_string = &quot;tcp://&quot; + self.back_plane_ip_address + ':' + self.subscriber_port
+   147          self.subscriber.connect(connect_string)
+   148
+   149          self.publisher = self.context.socket(zmq.PUB)
+   150          connect_string = &quot;tcp://&quot; + self.back_plane_ip_address + ':' + self.publisher_port
+   151          self.publisher.connect(connect_string)
+   152
+   153          # Allow enough time for the TCP connection to the Backplane complete.
+   154          time.sleep(self.connect_time)
+   155
+</code></pre>
+
+<h2 id="set_subscriber_topic">set_subscriber_topic</h2>
+<p>This method is not typically overridden.</p>
+<p>Line 156 defines the <em>set_subscriber_topic</em> method that requires a topic string
+parameter. This method is called for each subscribed topic.</p>
+<p>Lines 166 through 167 validate that the topic is a string. If
+ the topic is not a string, then a <strong><em>TypeError</em></strong> is raised.</p>
+<p>Line 169 encodes the topic and registers it with ZeroMQ.</p>
+<pre><code>   156      def set_subscriber_topic(self, topic):
+   157          &quot;&quot;&quot;
+   158          This method sets a subscriber topic.
+   159
+   160          You can subscribe to multiple topics by calling this method for
+   161          each topic.
+   162
+   163          :param topic: A topic string
+   164          &quot;&quot;&quot;
+   165
+   166          if not type(topic) is str:
+   167              raise TypeError('Subscriber topic must be python_banyan string')
+   168
+   169          self.subscriber.setsockopt(zmq.SUBSCRIBE, topic.encode())
+</code></pre>
+
+<h2 id="publish_payload">publish_payload</h2>
+<p>This method is typically not overridden.</p>
+<p>Line 171 defines the <em>publish_payload</em> method. It accepts two parameters,
+a message <strong><em>payload</em></strong> that by convention is in the form of a Python
+ dictionary. The dictionary may contain one or more key/value pairs.
+ The second pararmeter is a message <strong><em>topic</em></strong> that must be in
+ the form of a valid string.</p>
+<p>Lines 181 through 182 validate that the topic is a string. If the topic
+is not of string type, then a TypeError exception is raised.</p>
+<p>Lines 185 through 188 select the messagepack version to use to encode
+the payload for transmission across the network. If the numpy parameter
+was set, then messagepack_numpy is selected for use, otherwise standard messagepack
+is selected.</p>
+<p>Line 190 encodes the topic for transmission across the network.</p>
+<p>Line 191 publishes the message by calling ZeroMQ <em>send_multipart</em>.</p>
+<pre><code>   171      def publish_payload(self, payload, topic=''):
+   172          &quot;&quot;&quot;
+   173          This method will publish a python_banyan payload and its associated topic
+   174
+   175          :param payload: Protocol message to be published
+   176
+   177          :param topic: A string value
+   178          &quot;&quot;&quot;
+   179
+   180          # make sure the topic is a string
+   181          if not type(topic) is str:
+   182              raise TypeError('Publish topic must be python_banyan string', 'topic')
+   183
+   184          # create python_banyan message pack payload
+   185          if self.numpy:
+   186              message = msgpack.packb(payload, default=m.encode)
+   187          else:
+   188              message = umsgpack.packb(payload)
+   189
+   190          pub_envelope = topic.encode()
+   191          self.publisher.send_multipart([pub_envelope, message])
+
+</code></pre>
+
+<h2 id="receive_loop">receive_loop</h2>
+<pre><code>   193      def receive_loop(self):
+   194          &quot;&quot;&quot;
+   195          This is the receive loop for Banyan messages.
+   196
+   197          This method may be overwritten to meet the needs
+   198          of the application before handling received messages.
+   199
+   200          &quot;&quot;&quot;
+   201          while True:
+   202              try:
+   203                  data = self.subscriber.recv_multipart(zmq.NOBLOCK)
+   204                  if self.numpy:
+   205                      payload2 = {}
+   206                      payload = msgpack.unpackb(data[1], object_hook=m.decode)
+   207                      # convert keys to strings
+   208                      # this compensates for the breaking change in msgpack-numpy 0.4.1 to 0.4.2
+   209                      for key, value in payload.items():
+   210                          if not type(key) == str:
+   211                              key = key.decode('utf-8')
+   212                              payload2[key] = value
+   213
+   214                      if payload2:
+   215                          payload = payload2
+   216                      self.incoming_message_processing(data[0].decode(), payload)
+   217                  else:
+   218                      self.incoming_message_processing(data[0].decode(), umsgpack.unpackb(data[1]))
+   219              # if no messages are available, zmq throws this exception
+   220              except zmq.error.Again:
+   221                  try:
+   222                      if self.receive_loop_idle_addition:
+   223                          self.receive_loop_idle_addition()
+   224                      time.sleep(self.loop_time)
+   225                  except KeyboardInterrupt:
+   226                      self.clean_up()
+   227                      raise KeyboardInterrupt
+</code></pre>
+
+<p>This method is the Python Banyan event loop and it is typically not overridden.</p>
+<p>Line 201 is the beginning of a forever loop.</p>
+<p>To retrieve the next available
+ message on the subscription queue, line 203 calls the ZeroMQ <em>recv_multipart</em> method with the
+non-blocking flag set.</p>
+<h3 id="when-a-message-is-available">When A Message Is Available</h3>
+<p>If a message is available, it is assigned to the <em>data</em> variable on line 203.</p>
+<p>Line 204 checks to see if the numpy flag was set, and if it is, lines 205
+through 216 are executed to handle the numpy data.
+This code exists because a breaking change was added to the <em>messagepack_numpy</em>
+package by its author. This code is required to handle the latest and earlier versions of
+messagepack_numpy.</p>
+<p>The decoded topic string and payload are then passed to the
+<a href="/examples_intro/#incoming_message_processing">incoming_message_processing method</a>
+ to process the message. Line 216 handles the case for numpy data,
+and 218 for non-numpy data.</p>
+<h3 id="when-no-messages-are-available">When No Messages Are Available</h3>
+<p>When the ZeroMQ <em>recv_mutlipart</em> method is called and no data
+ is available on the subscription queue, ZeroMQ raises a <strong><em>zmq.error.Again</em></strong> exception.
+ The exception handler constitutes the idle portion of the Python Banyan event loop.
+ During idle time, the
+<em>receive_loop_idle_addition</em> variable is checked, and if set, the method assigned to
+<em>receive_loop_idle_addition</em> is called.</p>
+<p>Within the idle loop, a  <em>sleep</em> is performed for the <em>loop_time</em> duration.
+ This relinquishes control of the CPU to allow other components to run. If the user presses Control-C during the idle
+loop, a KeyboardInterrupt exception is raised.</p>
+<h2 id="incoming_message_processing">incoming_message_processing</h2>
+<p>This method <strong><em>must</em></strong> be overridden to process the incoming messages.
+The decoded topic, in the form of a string, and decoded payload,
+typically in the form of a dictionary, are passed in as input parameters.</p>
+<p>The message is typically processed within this method, but may be
+ handled by
+an external function or method specified by the <a href="/examples_intro/#external_message_processor"><em>external_message_processor</em></a>
+parameter.</p>
+<pre><code>   229      def incoming_message_processing(self, topic, payload):
+   230          &quot;&quot;&quot;
+   231          Override this method with a custom Banyan message processor for subscribed messages.
+   232
+   233          :param topic: Message Topic string.
+   234
+   235          :param payload: Message Data.
+   236          &quot;&quot;&quot;
+   237          if self.external_message_processor:
+   238              self.external_message_processor(topic, payload)
+   239          else:
+   240              print('this method should be overwritten in the child class', topic, payload)
+</code></pre>
+
+<h2 id="clean_up">clean_up</h2>
+<p>This method may be overridden. It is normally called before terminating the component.
+It closes both the publisher and subscriber connections and terminates the
+ZeroMQ session for the component. You may add any additional cleanup that your component may require.</p>
+<pre><code>   242      def clean_up(self):
+   243          &quot;&quot;&quot;
+   244          Clean up before exiting - override if additional cleanup is necessary
+   245
+   246          &quot;&quot;&quot;
+   247          self.publisher.close()
+   248          self.subscriber.close()
+   249          self.context.term()
+</code></pre>
+
+<h1 id="a-template-for-component-command-line-options">A Template For Component Command Line Options</h1>
+<p>If you would like to provide the facility to specify command line options
+for a component, the following is a template to do so.</p>
+<p>This will be explained in detail in a <a href="/example2">later section</a>.</p>
+<pre><code>   251  # When creating a derived component, replicate the code below and replace
+   252  # banyan_base with a name of your choice.
+   253
+   254  # def banyan_base():
+   255  #     # Allow user to bypass the IP address auto-discovery.
+   256  #     # This is necessary if the component resides on a computer
+   257  #     # other than the computing running the backplane.
+   258  #
+   259  #     parser = argparse.ArgumentParser()
+   260  #     parser.add_argument(&quot;-b&quot;, dest=&quot;back_plane_ip_address&quot;, default=&quot;None&quot;,
+   261  #                         help=&quot;None or IP address used by Back Plane&quot;)
+   262  #
+   263  #     # allow the user to specify a name for the component and have it shown on the console banner.
+   264  #     # modify the default process name to one you wish to see on the banner.
+   265  #     # change the default in the derived class to set the name
+   266  #     parser.add_argument(&quot;-n&quot;, dest=&quot;process_name&quot;, default=&quot;YOUR PROCESS NAME&quot;, help=&quot;Set process name in banner&quot;)
+   267  #
+   268  #     parser.add_argument(&quot;-t&quot;, dest=&quot;loop_time&quot;, default=&quot;.1&quot;, help=&quot;Event Loop Timer in seconds&quot;)
+   269  #
+   270  #     args = parser.parse_args()
+   271  #     kw_options = {}
+   272  #
+   273  #     if args.back_plane_ip_address != 'None':
+   274  #         kw_options['back_plane_ip_address'] = args.back_plane_ip_address
+   275  #
+   276  #     kw_options['process_name'] = args.process_name
+   277  #
+   278  #     kw_options['loop_time'] = float(args.loop_time)
+   279  #
+   280  #     # replace with the name of your class
+   281  #     app = BanyanBase(**kw_options)
+   282  #
+   283  #     # optionally add any subscriber topics here
+   284  #     app.set_subscriber_topic('python_banyan')
+   285  #
+   286  #     # optionally start the receive loop here or start it in your __init__
+   287  #     try:
+   288  #         app.receive_loop()
+   289  #     except KeyboardInterrupt:
+   290  #         sys.exit()
+   291  #
+   292  #     # signal handler function called when Control-C occurs
+   293  #     # noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal
+   294  #     def signal_handler(signal, frame):
+   295  #         print(&quot;Control-C detected. See you soon.&quot;)
+   296  #         app.clean_up()
+   297  #         sys.exit(0)
+   298  #
+   299  #     # listen for SIGINT
+   300  #     signal.signal(signal.SIGINT, signal_handler)
+   301  #     signal.signal(signal.SIGTERM, signal_handler)
+   302  #
+   303  #
+   304  # if __name__ == '__main__':
+   305  #     # replace with name of function you defined above
+   306  #     banyan_base()
+
+</code></pre>
+
+<h1 id="the-examples">The Examples</h1>
+<p>In the next section, we will begin using the hands-on demos to understand
+how to build and use Python Banyan components.</p>
+<h2 id="where-to-find-the-example-source-code">Where To Find The Example Source Code</h2>
+<p>The code for all the examples may be found on <a href="https://github.com/MrYsLab/python_banyan/tree/master/examples">GitHub</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../example1/" class="btn btn-neutral float-right" title="Tutorial 1  - A Simple Echo Server/Client">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../install/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../install/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../example1/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Tutorial 5  - Debugging Using The Monitor - Python Banyan</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Tutorial 5  - Debugging Using The Monitor";
+    var mkdocs_page_input_path = "example5.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Python Banyan</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">User's Guide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python Banyan By Example</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../examples_intro/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example1/">Tutorial 1  - A Simple Echo Server/Client</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example2/">Tutorial 2  - Adding Command Line Options To A Component</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example3/">Tutorial 3  - Distributed Applications</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example4/">Tutorial 4  - Applications From Components On Differing Platforms</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Tutorial 5  - Debugging Using The Monitor</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#the-banyan-monitor">The Banyan Monitor</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example6/">Tutorial 6  - Integrating With A GUI Event Loop</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example7/">Tutorial 7  - Installing Components As Executable Modules</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example8/">Tutorial 8  - Using the Banyan Launcher</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example9/">Tutorial 9  - Connecting To Multiple Backplanes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example10/">Tutorial 10 - Connecting Banyan To An MQTT Network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example11/">Tutorial 11 - Physical Computing And GPIO</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../benchmark/">Comparing Banyan and MQTT</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Python Banyan</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Python Banyan By Example &raquo;</li>
+        
+      
+    
+    <li>Tutorial 5  - Debugging Using The Monitor</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="the-banyan-monitor">The Banyan Monitor</h1>
+<p>When Python Banyan is installed, an executable program called
+<strong><em>monitor</em></strong> is automatically installed.</p>
+<p>The <strong><em>Monitor</em></strong> is a special Banyan component that prints all protocol
+messages published to the Backplane. It displays the message topic as well
+as the payload for each message. It is used mainly as a debugging aid to monitor and
+debug messaging traffic.</p>
+<p>To see the Monitor in action, start the Backplane and server as described
+in <a href="/example1/">Section 1</a>, but before starting the client, open
+a terminal or command window and type:</p>
+<pre><code>monitor
+</code></pre>
+
+<p><img align="center" src="../images/monitor1.png"></p>
+<p>The Monitor displays a familiar Banyan banner.</p>
+<p>Now start the client. The monitor will display all of the protocol messages
+published by both the client and server.</p>
+<p><img align="center" src="../images/monitor2.png"></p>
+<p>The Monitor displays each protocol message. The topic is displayed followed by
+the payload. The topic is displayed as a string and the payload as a Python dictionary.</p>
+<p>Note that CPU utilization is likely to increase when the Monitor is active, so once an
+application is debugged, you may wish to dismiss the <em>Monitor</em>.</p>
+<p>The Monitor has several command line options available:</p>
+<p><img align="center" src="../images/monitor_h.png"></p>
+<p>The monitor may be located on any computer and be connected to any Backplane
+by using the -b option in conjunction with the -s and -p options.</p>
+<p>If you wish to display numpy data payloads, then use the -m option and set it
+to True.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../example6/" class="btn btn-neutral float-right" title="Tutorial 6  - Integrating With A GUI Event Loop">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../example4/" class="btn btn-neutral" title="Tutorial 4  - Applications From Components On Differing Platforms"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../example4/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../example6/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

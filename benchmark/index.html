@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Comparing Banyan and MQTT - Python Banyan</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Comparing Banyan and MQTT";
+    var mkdocs_page_input_path = "benchmark.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Python Banyan</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">User's Guide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python Banyan By Example</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../examples_intro/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example1/">Tutorial 1  - A Simple Echo Server/Client</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example2/">Tutorial 2  - Adding Command Line Options To A Component</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example3/">Tutorial 3  - Distributed Applications</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example4/">Tutorial 4  - Applications From Components On Differing Platforms</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example5/">Tutorial 5  - Debugging Using The Monitor</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example6/">Tutorial 6  - Integrating With A GUI Event Loop</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example7/">Tutorial 7  - Installing Components As Executable Modules</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example8/">Tutorial 8  - Using the Banyan Launcher</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example9/">Tutorial 9  - Connecting To Multiple Backplanes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example10/">Tutorial 10 - Connecting Banyan To An MQTT Network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example11/">Tutorial 11 - Physical Computing And GPIO</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Comparing Banyan and MQTT</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#benchmarking-banyan-and-mqtt">Benchmarking Banyan and MQTT</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#testing-environment">Testing Environment</a></li>
+        
+            <li><a class="toctree-l3" href="#using-mqtt">Using MQTT</a></li>
+        
+            <li><a class="toctree-l3" href="#using-python-banyan">Using Python Banyan</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Python Banyan</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Comparing Banyan and MQTT</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="benchmarking-banyan-and-mqtt">Benchmarking Banyan and MQTT</h1>
+<p>MQTT is a great tool if used for what it is designed - that is, publishing messages across the greater Internet.
+But when traffic is limited to within a given LAN, MQTT is highly inefficient.</p>
+<p>We ran a simple benchmark comparing MQTT to Python Banyan.
+For each framework, the benchmark consists of a publisher that publishes 100000 messages and a subscriber that receives those messages.
+The total transfer time is calculated for each, and total latency between the publisher and subscriber is explored.</p>
+<p>To view the benchmark code, click on these links:</p>
+<ul>
+<li><a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/performance_comparison/mqsub.py">MQTT subscriber</a>,</li>
+<li><a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/performance_comparison/mqpub.py">MQTT publisher</a>,</li>
+<li><a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/performance_comparison/banyan_sub.py">Python Banyan subscriber</a>,</li>
+<li><a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/performance_comparison/banyan_pub.py">Python Banyan publisher</a>.</li>
+</ul>
+<h2 id="testing-environment">Testing Environment</h2>
+<p>All tests were run on Ubuntu Linux 18.10 on a computer using
+an Intel Core i5-2500K CPU running at 3.30GHz.</p>
+<p>Python 3.7.2 compiled with the --enable_optimizations flag set was used for both
+tests.</p>
+<p>Mosquitto version 1.4.15 and paho version 1.3.1 were used for the mqtt tests.</p>
+<h2 id="using-mqtt">Using MQTT</h2>
+<p>Here are the MQTT test results for the subscriber:</p>
+<pre><code>$ python3 mqsub.py
+MQSUB Connected - Expecting 100000 Messages
+Task completed on:  Wed Feb 13 17:27:25 2019
+100000 Total messages received in 4.819453239440918 seconds.
+</code></pre>
+
+<p>And here are the results for the MQTT publisher:</p>
+<pre><code>$ python mqpub.py
+MQPUB Connected - Sending 100000 messages
+Task completed on:  Wed Feb 13 17:27:24 2019
+
+</code></pre>
+
+<p>We can see that it took a little over 4.18 seconds to send the and receive the 100000 messages.</p>
+<h2 id="using-python-banyan">Using Python Banyan</h2>
+<p>Here are the Banyan subscriber results:</p>
+<pre><code>$ python3 banyan_sub.py
+
+************************************************************
+Banyan Subscriber using Back Plane IP address: 192.168.2.189
+Subscriber Port = 43125
+Publisher  Port = 43124
+Loop Time = 0.1 seconds
+************************************************************
+Expecting 100000 messages.
+Task completed at:  Wed Feb 13 17:38:42 2019
+100000 Total messages received in 1.695580244064331 seconds.
+</code></pre>
+
+<p>Here are the Banyan publisher results:</p>
+<pre><code>$ python3 banyan_pub.py
+
+************************************************************
+Banyan publisher using Back Plane IP address: 192.168.2.189
+Subscriber Port = 43125
+Publisher  Port = 43124
+Loop Time = 0.1 seconds
+************************************************************
+Publishing 100000 messages.
+Task completed at:  Wed Feb 13 17:38:42 2019
+
+</code></pre>
+
+<p>Looking at the results, Python Banyan was almost 2.5 times faster the MQTT.
+What is more interesting is the latency between the publishers and subscribers completions.
+Looking at the time stamps reported, MQTT had a latency of 1 seconds, while Banyan had a latency of 0 second.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../example11/" class="btn btn-neutral" title="Tutorial 11 - Physical Computing And GPIO"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../example11/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

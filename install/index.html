@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Installation - Python Banyan</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Installation";
+    var mkdocs_page_input_path = "install.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Python Banyan</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">User's Guide</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Installation</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#installing-python-banyan">Installing Python Banyan</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#checking-for-an-existing-python-installation">Checking For An Existing Python Installation</a></li>
+        
+            <li><a class="toctree-l3" href="#installing-python-3">Installing Python 3</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#installing-python-banyan_1">Installing Python Banyan</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python Banyan By Example</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../examples_intro/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example1/">Tutorial 1  - A Simple Echo Server/Client</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example2/">Tutorial 2  - Adding Command Line Options To A Component</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example3/">Tutorial 3  - Distributed Applications</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example4/">Tutorial 4  - Applications From Components On Differing Platforms</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example5/">Tutorial 5  - Debugging Using The Monitor</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example6/">Tutorial 6  - Integrating With A GUI Event Loop</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example7/">Tutorial 7  - Installing Components As Executable Modules</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example8/">Tutorial 8  - Using the Banyan Launcher</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example9/">Tutorial 9  - Connecting To Multiple Backplanes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example10/">Tutorial 10 - Connecting Banyan To An MQTT Network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example11/">Tutorial 11 - Physical Computing And GPIO</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../benchmark/">Comparing Banyan and MQTT</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Python Banyan</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Installation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="installing-python-banyan">Installing Python Banyan</h1>
+<h2 id="checking-for-an-existing-python-installation">Checking For An Existing Python Installation</h2>
+<p>The first step in installing Python Banyan is to make sure you have Python
+installed on your computer. Python Banyan is both Python 2 and Python3 compatible,
+so if either version is installed on your computer, you are ready to start using Python Banyan.</p>
+<p>If you need to install Python on your system,
+then Python 3 is recommended.</p>
+<p>To check to see if you already have Python installed on your computer, open a command window and type:</p>
+<pre><code>python -V
+</code></pre>
+
+<p>or</p>
+<pre><code>python3 -V
+</code></pre>
+
+<p>You should see something similar to this screen shot:</p>
+<p><img alt="" src="../images/windows_python.png" /></p>
+<h2 id="installing-python-3">Installing Python 3</h2>
+<p>If you need to install Python3 on your computer, use the latest version of Python 3 available.
+As of this writing,
+that version is 3.7.2.
+If you have an earlier version already installed, upgrading to Python 3.7.2 is not necessary.</p>
+<h3 id="windows-users">Windows Users</h3>
+<p>To install Python 3.7.2 or later, go to the
+<a href="https://www.python.org/" target="_blank">Python home page,</a>
+and download the 3.7.2 (or later) distribution for your operating system.</p>
+<p>If you have Python 2.7 installed, you do not need to remove it.</p>
+<p>During the installation process, if there is a checkbox to add Python 3.7 to your path, make sure it is checked before proceeding with the installation.</p>
+<p><img alt="" src="../images/pythonInstall.png" /></p>
+<h3 id="debian-based-linux-distribution-users">Debian Based Linux Distribution Users</h3>
+<p>If you are using a Debian based Linux, such as Ubuntu, Raspbian, etc., and wish to build the latest version,
+here are the build and installation instructions for version 3.7.2, the latest version as of this writing:</p>
+<ol>
+<li>sudo apt-get update</li>
+<li>sudo apt-get upgrade</li>
+<li>sudo apt-get dist-upgrade</li>
+<li>sudo apt-get install build-essential python-dev python-setuptools python-pip python-smbus</li>
+<li>sudo apt-get install build-essential libncursesw5-dev libgdbm-dev libc6-dev</li>
+<li>sudo apt-get install zlib1g-dev libsqlite3-dev tk-dev</li>
+<li>sudo apt-get install libssl-dev openssl</li>
+<li>sudo apt-get install libffi-dev</li>
+<li>cd ~</li>
+<li>mkdir build</li>
+<li>cd build</li>
+<li>wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz</li>
+<li>tar -zxvf Python-3.7.2.tgz</li>
+<li>cd Python-3.7.2</li>
+<li>./configure</li>
+<li>make</li>
+<li>sudo make install</li>
+</ol>
+<p>Install pip
+For debian based distributions:</p>
+<pre><code>  sudo apt-get install pip3-python
+</code></pre>
+
+<h3 id="non-debian-based-linux-distribution-users">Non-Debian Based Linux Distribution Users</h3>
+<p>Check with your distribution provider for the latest versions of Python.</p>
+<h3 id="mac-users">Mac Users</h3>
+<ol>
+<li>Install Python 3.7.2 from <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>
+ or via <a href="http://brew.sh/">homebrew</a></li>
+<li>Download get-pip.py from <a href="https://bootstrap.pypa.io/get-pip.py">https://bootstrap.pypa.io/get-pip.py</a> and
+install (this should already be installed if python was installed from python.org or homebrew):</li>
+</ol>
+<pre><code>curl -O https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
+</code></pre>
+
+<h3 id="verify-the-python-installation">Verify The Python Installation</h3>
+<p>Refer to <a href="/install/#checking-for-an-existing-python-installation">"Checking To See If Python Is Installed"</a>, above.</p>
+<h1 id="installing-python-banyan_1">Installing Python Banyan</h1>
+<p>To install Python Banyan on Linux and Mac computers, open a terminal window and type:</p>
+<pre><code>sudo pip3 install python-banyan
+</code></pre>
+
+<p>For Windows users type:</p>
+<pre><code>pip install python-banyan
+</code></pre>
+
+<p>The code for Python Banyan can be found on <a href="https://github.com/MrYsLab/python_banyan">GitHub</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../examples_intro/" class="btn btn-neutral float-right" title="Introduction">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="User's Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../examples_intro/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

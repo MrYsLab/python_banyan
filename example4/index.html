@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Tutorial 4  - Applications From Components On Differing Platforms - Python Banyan</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Tutorial 4  - Applications From Components On Differing Platforms";
+    var mkdocs_page_input_path = "example4.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Python Banyan</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">User's Guide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python Banyan By Example</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../examples_intro/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example1/">Tutorial 1  - A Simple Echo Server/Client</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example2/">Tutorial 2  - Adding Command Line Options To A Component</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example3/">Tutorial 3  - Distributed Applications</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Tutorial 4  - Applications From Components On Differing Platforms</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#javascript-ruby-and-java-banyan-frameworks">JavaScript, Ruby, and Java Banyan Frameworks</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example5/">Tutorial 5  - Debugging Using The Monitor</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example6/">Tutorial 6  - Integrating With A GUI Event Loop</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example7/">Tutorial 7  - Installing Components As Executable Modules</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example8/">Tutorial 8  - Using the Banyan Launcher</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example9/">Tutorial 9  - Connecting To Multiple Backplanes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example10/">Tutorial 10 - Connecting Banyan To An MQTT Network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example11/">Tutorial 11 - Physical Computing And GPIO</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../benchmark/">Comparing Banyan and MQTT</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Python Banyan</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Python Banyan By Example &raquo;</li>
+        
+      
+    
+    <li>Tutorial 4  - Applications From Components On Differing Platforms</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="javascript-ruby-and-java-banyan-frameworks">JavaScript, Ruby, and Java Banyan Frameworks</h1>
+<p>There are versions of the Banyan Framework available for
+<a href="https://github.com/MrYsLab/js-banyan">JavaScript</a>, <a href="https://github.com/MrYsLab/rb_banyan">Ruby</a>,
+<a href="https://github.com/MrYsLab/javabanyan">Java</a>.</p>
+<p>Banyan components can be written with any of these frameworks, and the components
+can be combined into a single Banyan application.</p>
+<p>Below is the <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/simple_echo_server.js">simple echo server rewritten using the JavaScript Banyan Framework.</a></p>
+<pre><code>#!/usr/bin/env node
+
+/**
+ Copyright (c) 2017-2019 Alan Yorinks All right reserved.
+
+ Python Banyan is free software; you can redistribute it and/or
+ modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+ Version 3 as published by the Free Software Foundation; either
+ or (at your option) any later version.
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+
+ You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE
+ along with this library; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+
+const BanyanBase = require('js-banyan/lib/banyan_base');
+
+class SimpleEchoServer extends BanyanBase {
+
+    constructor() {
+
+        super({ processName: 'SimpleEchoServer'
+        });
+
+        this.set_subscriber_topic('echo');
+        this.receive_loop();
+    }
+
+    incoming_message_processing( topic, payload) {
+        console.log('Message number:', payload['message_number']);
+        this.publish_payload(payload, 'reply');
+    }
+}
+try {
+    new SimpleEchoServer();
+}
+catch(err){
+    process.exit()
+}
+</code></pre>
+
+<p>Compare it to the <a href="/example1/#the-server">Python version</a> and you can easily
+see how similar they are.</p>
+<p>To run the example, first start the Backplane (it can be any of the Backplanes - Python, JavaScript,
+Ruby or Java),
+then start the JavaScript server:</p>
+<pre><code>node simple_echo_server.js
+</code></pre>
+
+<p>and finally start the Python client. The application runs as if it was written for a
+single platform.</p>
+<p>No changes to the protocol messages or the code is necessary. The components, in conjunction with
+any of the Backplanes, create a cohesive, seamless application.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../example5/" class="btn btn-neutral float-right" title="Tutorial 5  - Debugging Using The Monitor">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../example3/" class="btn btn-neutral" title="Tutorial 3  - Distributed Applications"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../example3/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../example5/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

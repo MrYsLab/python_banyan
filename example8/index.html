@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Tutorial 8  - Using the Banyan Launcher - Python Banyan</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Tutorial 8  - Using the Banyan Launcher";
+    var mkdocs_page_input_path = "example8.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Python Banyan</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">User's Guide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python Banyan By Example</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../examples_intro/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example1/">Tutorial 1  - A Simple Echo Server/Client</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example2/">Tutorial 2  - Adding Command Line Options To A Component</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example3/">Tutorial 3  - Distributed Applications</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example4/">Tutorial 4  - Applications From Components On Differing Platforms</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example5/">Tutorial 5  - Debugging Using The Monitor</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example6/">Tutorial 6  - Integrating With A GUI Event Loop</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example7/">Tutorial 7  - Installing Components As Executable Modules</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Tutorial 8  - Using the Banyan Launcher</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#the-python-banyan-launcher">The Python Banyan Launcher</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#testing-for-xterm">Testing For Xterm</a></li>
+        
+            <li><a class="toctree-l4" href="#installing-xterm-for-raspberry-pi-or-debian-based-linux">Installing Xterm For Raspberry Pi or Debian Based Linux</a></li>
+        
+            <li><a class="toctree-l4" href="#installing-xterm-for-mac">Installing Xterm For Mac</a></li>
+        
+            <li><a class="toctree-l4" href="#launching-components">Launching Components</a></li>
+        
+            <li><a class="toctree-l4" href="#the-launch-descriptor-file">The Launch Descriptor File</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#the-banyan-launch-server">The Banyan Launch Server</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#the-auto-restart-feature">The Auto Restart Feature</a></li>
+        
+            <li><a class="toctree-l4" href="#the-log-file">The Log File</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#the-banyan-launch-client">The Banyan Launch Client</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#modified-launch-descriptor-for-remote-launching">Modified Launch Descriptor For Remote Launching</a></li>
+        
+            <li><a class="toctree-l4" href="#invoking-the-banyan-launch-client">Invoking The Banyan Launch Client</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#killing-the-application">Killing The Application</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example9/">Tutorial 9  - Connecting To Multiple Backplanes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example10/">Tutorial 10 - Connecting Banyan To An MQTT Network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example11/">Tutorial 11 - Physical Computing And GPIO</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../benchmark/">Comparing Banyan and MQTT</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Python Banyan</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Python Banyan By Example &raquo;</li>
+        
+      
+    
+    <li>Tutorial 8  - Using the Banyan Launcher</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="the-python-banyan-launcher">The Python Banyan Launcher</h1>
+<p>Launching a Banyan application often involves launching multiple
+individual Banyan components. The Python Banyan Launcher
+simplifies the launch process by allowing you to launch all the components
+from a single console command.</p>
+<p>This source code for the Banyan Launcher may be found on <a href="https://github.com/MrYsLab/python_banyan/tree/master/python_banyan/utils/banyan_launcher">GitHub.</a></p>
+<p><strong>NOTE:</strong> For Linux, Mac and Raspberry PI users, the Launcher requires <strong>xterm</strong> to installed on your system.</p>
+<p><strong><em>Xterm is not required for Windows, so Windows users can skip to 
+<a href="/example8/#launching-components">Launching Components.</a></em></strong></p>
+<h2 id="testing-for-xterm">Testing For Xterm</h2>
+<p>To determine if xterm is installed on your computer, simply open a terminal window and type:</p>
+<pre><code>xterm
+</code></pre>
+
+<p>You should see an xterm window similar to the one below appear. If an xterm window does not appear,
+then you will need to install xterm.</p>
+<p><img align="center" src="../images/xterm_window.png"></p>
+<h2 id="installing-xterm-for-raspberry-pi-or-debian-based-linux">Installing Xterm For Raspberry Pi or Debian Based Linux</h2>
+<p>In a terminal window type:</p>
+<pre><code>sudo apt-get install xterm
+</code></pre>
+
+<h2 id="installing-xterm-for-mac">Installing Xterm For Mac</h2>
+<p>Please refer to <a href="https://support.apple.com/en-us/ht201341">these instructions.</a></p>
+<h2 id="launching-components">Launching Components</h2>
+<p>To demonstrate the use of the Launcher,  we will
+launch the <a href="/example5">Monitor</a>, the
+<a href="/example1/#the-server">simple echo server</a> and
+<a href="/example2">command line echo client</a> that were installed as executable components in a
+ <a href="/example7">previous section</a> of this document.</p>
+<p>Launch instructions are specified by creating a comma delimited text file
+ called the <strong><em>launch descriptor file</em></strong>. Let's examine the <em>launch descriptor file</em> in detail.</p>
+<h2 id="the-launch-descriptor-file">The Launch Descriptor File</h2>
+<p>For each Python Banyan component we wish to launch, there is a corresponding
+launch description entry placed in the <em>launch descriptor file</em>.</p>
+<p>Let's look at the contents of <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/utils/banyan_launcher/launch.csv"><em>launch.csv</em></a>
+, the comma delimited text file we will use to launch
+our components.</p>
+<pre><code>command_string,spawn,topic,append_bp_address,auto_restart,wait
+monitor,yes,local,no,no,0
+server,yes,local,no,yes,0
+client,yes,local,no,no,0
+</code></pre>
+
+<p>The first line of the file contains the descriptor for each of the entry fields.</p>
+<pre><code>command_string,spawn,topic,append_bp_address,auto_restart,wait
+
+</code></pre>
+
+<p><strong>command_string</strong> - this field is the command line command used to execute the component. For the example,
+the Launcher will start the <em>monitor</em>, and the <em>server and client</em> that were installed as executable modules
+as <a href="/example7">described earlier</a>.</p>
+<p>Note that the launcher will execute any command string we enter, so for example,
+if the file <em>simple_echo_server.py</em> is in the <em>/home/bob_files/demo</em> directory, we could specify the command
+as</p>
+<pre><code>python /home/bob_files/demo/simple_echo_server.py,yes,local,no,yes,0
+</code></pre>
+
+<p><strong>spawn</strong> - this field determines if the command will be executed in its own
+ terminal window. If <strong>yes</strong>, a new window
+will be opened and all component console output will appear in this window. If this field is set to <strong>no</strong>,
+ the component will be spawned within the common launcher terminal window and all console output will be placed
+ in that window. There are screen shots below to demonstrate both cases.</p>
+<p><strong>topic</strong> - if component is to be run on the local machine, the topic must be set to <strong><em>local</em></strong>. If you wish
+to launch a component on a remote computer, than the <em>topic</em> must be set to something other than <strong><em>local</em></strong>. Note
+that the <em>topic</em> mentioned here is for the Launcher's purposes and does not affect the application.
+Remote launching will be demonstrated <a href="/example8/#the-banyan-launch-client">in the Banyan Launch Client section</a>.</p>
+<p><strong>append_bp_address</strong> - this field is used mainly when launching components on a remote computer.
+If set to <strong><em>yes</em></strong>, the Backplane IP address is appended to the command string with a
+<strong><em>-b option</em></strong>. The address is the IP address of the local computer. For example, if the Backplane IP address being used is
+192.168.1.100 and the descriptor entry for the <em>client</em> component was set as follows:</p>
+<pre><code>client,yes,remote1,yes,no,0
+</code></pre>
+
+<p>The command string sent to the remote computer would be:</p>
+<pre><code>client -b 192.168.1.100
+</code></pre>
+
+<p>When the component is launched on the remote computer, it will automatically connect to the backplane.
+The -b option is used assuming that the component was built using <a href="/example2">command line options</a>.</p>
+<p><strong>auto_restart</strong> - if this field is set to <em>yes</em>, and
+the component crashes, it will
+automatically be restarted.</p>
+<p><strong>wait</strong> - this is the time in seconds to wait before executing the next line in the script.</p>
+<h1 id="the-banyan-launch-server">The Banyan Launch Server</h1>
+<p>The Banyan Launch Server (<strong>bls</strong>) is the name of the Banyan application that
+reads the <em>Launch Descriptor</em> file and launches the components specified by that file.
+The Banyan Launch Server is automatically installed as an executable when you installed
+Python Banyan. </p>
+<p>When invoking bls, if no launch descriptor file is specified using the -f command line option,
+then bls will assume that a file called <em>launch.csv</em> is being used.</p>
+<p>Make sure you have copy of <em>launch.csv</em> in your current working directory.</p>
+<p>Let's execute bls:</p>
+<p><img align="center" src="../images/launcher1.png"></p>
+<p>We see a standard Banyan header, followed by a list of the components launched with their process ids.(PID).</p>
+<p>The launch server first checks to see if a backplane is currently running and if not will launch one before
+proceeding.</p>
+<p>It then launches each of the components specified in the launch descriptor file. Because we specified <em>spawn</em> for
+each component, a terminal window is invoked for each component.</p>
+<p><img align="center" src="../images/bls1.png"></p>
+<p>If we modify launcher.csv to set the server's spawn parameter to <strong><em>no</em></strong>, then the server's output is displayed
+in the bls console window.</p>
+<pre><code>command_string,spawn,topic,append_bp_address,auto_restart,wait
+monitor,yes,local,no,no,0
+server,no,local,no,yes,0
+client,yes,local,no,no,0
+
+</code></pre>
+
+<p><img align="center" src="../images/launcher4.png"></p>
+<h2 id="the-auto-restart-feature">The Auto Restart Feature</h2>
+<p>We specified auto restart for the server in the launch descriptor file, so let's close the server window
+that was opened by <em>bls</em> and see what happens.</p>
+<p><img align="center" src="../images/launcher2.png"></p>
+<p>When <strong><em>bls</em></strong> detects that server process died, it indicates this in
+the <strong><em>bls</em></strong> console and then relaunches the server. A new PID
+is generated for the relaunch.</p>
+<p>If we kill client, which does not have auto restart enabled, then we just see the "DIED" notification.</p>
+<p><img align="center" src="../images/launcher3.png"></p>
+<h2 id="the-log-file">The Log File</h2>
+<p>Anytime a process dies, it is not only noted on the screen, but an entry is placed in
+ the banyan log file.
+The log file, called banyan_launcher.log, is automatically generated and placed
+in the user's home directory.</p>
+<h1 id="the-banyan-launch-client">The Banyan Launch Client</h1>
+<p>To launch components remotely, the Banyan Launch Client (<strong>blc</strong>) is invoked on the
+remote computer.</p>
+<p>To demonstrate how to launch components remotely, we will distribute the components as
+shown below:</p>
+<p><img align="center" src="../images/blc1.png"></p>
+<p>The Ubuntu computer will run bls and the Backplane. Its IP address is 192.168.2.190</p>
+<p>The Windows 10 computer will run blc and the client. Its IP address is 192.168.180</p>
+<p>The Raspberry Pi computer will run blc and the server. Its IP address is 192.168.189</p>
+<p>All we need to do is install the components on their respective computers
+and modify the launch configuration file. Then we start bls,
+in the case of this example, the Ubuntu computer, and blc on the remote computers,
+Windows 10 and the Raspberry Pi.</p>
+<p><strong>NOTE:</strong> The configuration file only resides on the computer that runs <strong><em>bls</em></strong>. It
+will send all the launch information to the remote computers, and then the remote
+computers will manage the applications, including auto-restart if specified.</p>
+<h2 id="modified-launch-descriptor-for-remote-launching">Modified Launch Descriptor For Remote Launching</h2>
+<pre><code>command_string,spawn,topic,append_bp_address,auto_restart,wait
+monitor,yes,local,no,no,0
+server,yes,rpi_launch,yes,yes,0
+client,yes,windows_launch,yes,no,0
+</code></pre>
+
+<p>The lines for the <em>server</em> and <em>client</em> have been modified to set the append_bp_address field to <strong><em>yes</em></strong>,
+in addition to creating a unique topic string for each remote computer. For the echo server that will run on the Raspberry Pi,
+the topic string <strong>rpi_launch</strong> was chosen and for the Windows machine running the echo client,
+<strong>windows_launch</strong> was chosen.</p>
+<h2 id="invoking-the-banyan-launch-client">Invoking The Banyan Launch Client</h2>
+<p>Make sure that you have installed Python Banyan on your computer, which will automatically
+install the Banyan Launcher programs.</p>
+<p>The <strong>blc</strong> application requires 2 command line arguments to be supplied on the command line.
+ If the required arguments are not supplied, then <strong><em>blc</em></strong> will exit with an error message.</p>
+<p>The first required command line argument
+is the application's backplane IP address and the second is the topic string
+that the remote computer will be listening for to receive its launch instructions.</p>
+<p>For the Windows machine, <strong>blc</strong> is started with the following command:</p>
+<pre><code>blc -b 192.168.2.190 -t windows_launch
+</code></pre>
+
+<p>And for the Raspberry Pi:</p>
+<pre><code>blc -b 192.168.2.190 -t rpi_launch
+</code></pre>
+
+<p>You may start <strong>bls</strong> and the <strong>blc</strong> instances in any order.</p>
+<p>When <strong>bls</strong> starts, it will publish Banyan messages with the topics specified in the
+Launch Configuration File, and the payload will contain the details of the launch for the component.</p>
+<p>Using the monitor, we can capture the messages being sent by <strong>bls</strong> as shown below.</p>
+<p><img align="center" src="../images/blc22.png"></p>
+<p>After starting <strong><em>bls</em></strong> we see the following:</p>
+<p><img align="center" src="../images/blc3.png"></p>
+<p>The Backplane and Monitor have been started on the local computer.</p>
+<p>We next start <strong><em>blc</em></strong> on the Raspberry Pi computer and see the following:</p>
+<p><img align="center" src="../images/blc_rpi_1.png"></p>
+<p>The Raspberry Pi is awaiting the launch message from <strong><em>bls</em></strong>.</p>
+<p>When we start <strong><em>blc</em></strong> on the Windows computer, we see a similar screen:</p>
+<p><img align="center" src="../images/blc_windows1.png"></p>
+<p>When the launch messages are received on the remote computers we see the following:</p>
+<p><img align="center" src="../images/blc_rpi2.png"></p>
+<p><img align="center" src="../images/blc_windows2.png"></p>
+<p>After the program is launched on the remote machine by <strong><em>blc</em></strong> we see the name of the program
+and its process ID (PID) that is assigned by the remote machine.</p>
+<p>The local instance of <strong><em>bls</em></strong> reflects the handshake between the local and remote computers:</p>
+<p><img align="center" src="../images/bls_remote_1.png"></p>
+<p>The PIDs used by the remote computers are shown on the screen.</p>
+<h1 id="killing-the-application">Killing The Application</h1>
+<p>To kill all local and remote components of the application,
+we use another utility called Banyan Launch Kill (<strong>blk</strong>), that was installed
+on your computer when you installed Python Banyan. We simply open up a new command terminal on the local
+computer and type <em>blk</em>.</p>
+<p>When we do this we see the following on the local computer and remote computers,
+showing that all processes were killed successfully.</p>
+<p><img align="center" src="../images/blk_bls.png"></p>
+<p><img align="center" src="../images/blk_rpi.png"></p>
+<p><img align="center" src="../images/blk_windows.png"></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../example9/" class="btn btn-neutral float-right" title="Tutorial 9  - Connecting To Multiple Backplanes">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../example7/" class="btn btn-neutral" title="Tutorial 7  - Installing Components As Executable Modules"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../example7/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../example9/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

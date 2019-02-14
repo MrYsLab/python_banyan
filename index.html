@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>User's Guide - Python Banyan</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "User's Guide";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Python Banyan</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">User's Guide</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#what-is-python-banyan">What is Python Banyan?</a></li>
+    
+
+    <li class="toctree-l2"><a href="#a-little-more-detail-about-python-banyan">A Little More Detail About Python Banyan</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#banyan-base-classes">Banyan Base Classes</a></li>
+        
+            <li><a class="toctree-l3" href="#banyan-protocol-messages">Banyan Protocol Messages</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#where-is-python-banyan-being-used">Where Is Python Banyan Being Used?</a></li>
+    
+
+    <li class="toctree-l2"><a href="#banyan-application-design">Banyan Application Design</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#some-design-guidelines">Some Design Guidelines</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python Banyan By Example</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="examples_intro/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="example1/">Tutorial 1  - A Simple Echo Server/Client</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="example2/">Tutorial 2  - Adding Command Line Options To A Component</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="example3/">Tutorial 3  - Distributed Applications</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="example4/">Tutorial 4  - Applications From Components On Differing Platforms</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="example5/">Tutorial 5  - Debugging Using The Monitor</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="example6/">Tutorial 6  - Integrating With A GUI Event Loop</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="example7/">Tutorial 7  - Installing Components As Executable Modules</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="example8/">Tutorial 8  - Using the Banyan Launcher</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="example9/">Tutorial 9  - Connecting To Multiple Backplanes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="example10/">Tutorial 10 - Connecting Banyan To An MQTT Network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="example11/">Tutorial 11 - Physical Computing And GPIO</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="benchmark/">Comparing Banyan and MQTT</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Python Banyan</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>User's Guide</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><img align="left" src="./images/BanyanTree4.png"></p>
+<p><center><span style="color:#990033; font-family:Georgia; font-size:4em;">Python Banyan</span></center></p>
+<p><center><span style="color:#990033; font-family:Georgia; font-size:3em;"><em>A User's Guide</em></span></center></p>
+<p>Last Modified February 15 2019</p>
+<hr />
+<h1 id="what-is-python-banyan">What is Python Banyan?</h1>
+<p>Python Banyan is a lightweight, <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">reactive</a> framework used to
+create <a href="http://ptgmedia.pearsoncmg.com/images/9780134602417/samplepages/9780134602417.pdf">flexible</a>, <a href="https://www.allthingsdistributed.com/historical/archives/000486.html">non-blocking, event
+driven,
+asynchronous</a> applications.
+It was designed primarily to aid in the implementation of real-time physical computing applications
+ for devices such as
+ the Raspberry Pi, ESP8266,  and Arduino,
+but may easily be applied to projects outside of the physical programming domain.</p>
+<p>Banyan uses a <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">publish/subscribe</a>
+ model that is similar to <a href="https://en.wikipedia.org/wiki/MQTT">MQTT</a>, but is much faster than MQTT in
+ real-time control and data monitoring applications.
+ A <a href="benchmark/#benchmark">benchmark comparison</a> of Banyan
+and MQTT is provided later in this guide to illustrate Banyan's efficiency.
+If your application requires connectivity to an MQTT broker, a <a href="/example10/">Gateway</a> is provided.</p>
+<p>Most traditional physical computing libraries or frameworks use an <em>object oriented</em> model,
+that yield a single,
+tightly coupled, monolithic executable image. Python Banyan uses an extension of the object oriented model, called
+the <em><a href="https://en.wikipedia.org/wiki/Component-based_software_engineering">component based</a> <a href="https://en.wikipedia.org/wiki/Service-oriented_architecture">service oriented architectural</a></em>
+model. A <strong><em>component based</em></strong> application consists of a set of independent, loosely
+coupled <strong><em>components</em></strong>, that communicate with one another through a set
+of platform independent, user defined, protocol messages transmitted over a TCP network.</p>
+<p>A Banyan application is composed of a set of <em>components</em> running concurrently as separate processes.
+These <em>components</em> can be developed using a single language platform such as Python, or developed using any of the other Banyan frameworks.
+There are versions of Banyan available for <a href="https://github.com/MrYsLab/js-banyan">JavaScript</a>, <a href="https://github.com/MrYsLab/rb_banyan">Ruby</a>,
+ and <a href="https://github.com/MrYsLab/javabanyan">Java</a>. Components developed using dissimilar languages can be combined
+ without modification, to form a single, cohesive application.</p>
+<p>Banyan uses a central message distribution mechanism called the <strong><em>Backplane</em></strong>. When first starting a Banyan application,
+the <em>Backplane</em> is brought on-line, followed by
+the application's components.
+At startup, each
+ <em>component</em> automatically
+"plugs" itself into the <em>Backplane</em> establishing a TCP/IP communication channel between itself and the Backplane.</p>
+<p>After communication is established, components may publish messages <em>to</em> the Backplane, receive messages from other components or both
+publish and receive messages. A major feature of Python Banyan
+is that it has the capability to incorporate <a href="http://www.numpy.org/">Numpy</a> data into a protocol message
+ seamlessly and easily.</p>
+<p>Without modification, a Banyan application's components can run on a single computer or distributed across multiple computers.
+This will be <a href="example3/">demonstrated later</a> on in this document.</p>
+<h1 id="a-little-more-detail-about-python-banyan"><em>A Little More Detail About Python Banyan</em></h1>
+<h2 id="banyan-base-classes">Banyan Base Classes</h2>
+<p>All Banyan components are created by inheriting from one of the supplied Banyan base classes.
+ The base class methods are overridden as needed to
+ support the component's specific needs.</p>
+<p>The base classes act as a wrapper for the <a href="http://zeromq.org/">ZeroMQ</a> embeddable networking library that has been configured
+ to operate in a Publish/Subscribe networking pattern.
+In addition, the base class encodes and decodes protocol messages for efficient network transmission,
+using <a href="https://msgpack.org/index.html">MessagePack</a>.</p>
+<h2 id="banyan-protocol-messages">Banyan Protocol Messages</h2>
+<p>Banyan protocol messages consist of 2 parts, a "topic" and a "payload".</p>
+<h3 id="the-topic-string">The Topic String</h3>
+<p>A message topic consists of a simple string. To receive messages, a component
+subscribes to one or more topics. A subscribing component receives all messages published
+containing the desired topic.</p>
+<h4 id="prefix-matching">Prefix Matching</h4>
+<p>When a message is received, the topic is compared to the subscribed topic, and if it matches,
+the message is placed on the component's receive queue. Any topic that begins with the subscribed topic string
+is considered a match even if the received message topic contains additional text.
+ For example, if you subscribe to the topic <strong>"abcd"</strong>, and a message is received
+with a topic of <strong>"abcde"</strong>, the "abcde" message will be placed on the receive queue. Any messages that have topics
+that begin with the subscribed topic string are considered a match even though the topic may contain additional text.</p>
+<h3 id="the-message-payload">The Message Payload</h3>
+<p>Message payloads consist of a Python dictionary type structure, containing one or more name/value items.
+ By utilizing a dictionary, message data can be quickly de-referenced and processed.</p>
+<p>Because Banyan messages are not computer language specific, components written in other computer Languages, such as
+ JavaScript, can be used within a Python Banyan application. A simple <a href="example4/">JavaScript demo</a> is provided as one
+ of the included examples.</p>
+<h1 id="where-is-python-banyan-being-used">Where Is Python Banyan Being Used?</h1>
+<p>Commercially, Python Banyan has been chosen by Palace Games in San Francisco to monitor and control
+their <a href="https://palace-games.com/edison-escape-room/">Palace Games Edison Room</a>.
+ The Edison room contains several hundred sensors and actuators, and Banyan helps tie all the devices
+and their associated micro-controllers together, allowing them to
+communicate quickly and transparently with one another. Banyan supports data transfers of Numpy data,
+which the Edison
+room uses to efficiently model their data. You can read about Palace Games on the
+<a href="https://www.raspberrypi.org/blog/raspberry-pi-escape-room/">Raspberry Pi Blog</a>.</p>
+<p>Banyan is also being used in numerous physical computing projects utilizing the Raspberry Pi, Arduino, and ESP8266.
+An earlier version of Python Banyan, called <a href="https://github.com/MrYsLab/razmq">razmq</a>, was used to control a Raspberry Pi robot.</p>
+<h1 id="banyan-application-design">Banyan Application Design</h1>
+<p>When designing a Banyan Component, it is good practice to keep it as small as
+possible. By limiting a component to a small area of concern, testing is greatly
+simplified and the potential for component reuse increases.</p>
+<h2 id="some-design-guidelines">Some Design Guidelines</h2>
+<ul>
+<li>
+<p>A component should subscribe to the minimal number of message topics as possible.</p>
+</li>
+<li>
+<p>Keep messages as short as possible.</p>
+</li>
+<li>
+<p>Limit the component to its task at hand. For example if you wish to log application activity,
+create a specific logging component. All other components can take advantage of this logging facility
+in a consistent fashion. It also offloads logging I/O from the main component, promoting higher performance
+for the system as a whole.</p>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="install/" class="btn btn-neutral float-right" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="install/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-02-14 00:38:30
+-->

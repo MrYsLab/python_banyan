@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Tutorial 7  - Installing Components As Executable Modules - Python Banyan</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Tutorial 7  - Installing Components As Executable Modules";
+    var mkdocs_page_input_path = "example7.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Python Banyan</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">User's Guide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python Banyan By Example</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../examples_intro/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example1/">Tutorial 1  - A Simple Echo Server/Client</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example2/">Tutorial 2  - Adding Command Line Options To A Component</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example3/">Tutorial 3  - Distributed Applications</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example4/">Tutorial 4  - Applications From Components On Differing Platforms</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example5/">Tutorial 5  - Debugging Using The Monitor</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example6/">Tutorial 6  - Integrating With A GUI Event Loop</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Tutorial 7  - Installing Components As Executable Modules</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#installing-your-components-as-executable-modules">Installing Your Components As Executable Modules</a></li>
+    
+
+    <li class="toctree-l3"><a href="#creating-a-package-directory-structure">Creating A Package Directory Structure</a></li>
+    
+
+    <li class="toctree-l3"><a href="#setuppy">setup.py</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#executable-name">Executable Name</a></li>
+        
+            <li><a class="toctree-l4" href="#location-of-the-file">Location Of The File</a></li>
+        
+            <li><a class="toctree-l4" href="#startup-function">Startup Function</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#installing-with-pip">Installing With pip</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example8/">Tutorial 8  - Using the Banyan Launcher</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example9/">Tutorial 9  - Connecting To Multiple Backplanes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example10/">Tutorial 10 - Connecting Banyan To An MQTT Network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example11/">Tutorial 11 - Physical Computing And GPIO</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../benchmark/">Comparing Banyan and MQTT</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Python Banyan</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Python Banyan By Example &raquo;</li>
+        
+      
+    
+    <li>Tutorial 7  - Installing Components As Executable Modules</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="installing-your-components-as-executable-modules">Installing Your Components As Executable Modules</h2>
+<p>There are times when it is more convenient to start a Banyan component
+using the command line without having to specifically invoke the Python
+interpreter.</p>
+<p>For example, instead of starting the server with:</p>
+<pre><code>python simple_echo_server.py
+</code></pre>
+
+<p>You might wish to start it by simply typing:</p>
+<pre><code>server
+</code></pre>
+
+<p>Fortunately, the Python <a href="https://setuptools.readthedocs.io/en/latest/">setuptools</a>
+provide a fairly simple way to install a Python script as a command line executable.</p>
+<p>The setuptools can perform the installation in a platform independent way, so no matter if you are running
+Windows, Mac or Linux, no code changes are necessary and installation is performed
+consistently across all platforms.</p>
+<h2 id="creating-a-package-directory-structure">Creating A Package Directory Structure</h2>
+<p>The first thing you need to do is to setup a directory structure for setuptools to use.
+Setuptools expects a very specific directory structure.</p>
+<p>Here is a directory structure for an example project called <em>ecs</em>.</p>
+<pre><code>ecs
+├── ecs
+│   ├── echo_cmdline_client.py
+│   ├── __init__.py
+│   ├── simple_echo_server.py
+│   └── tk_echo_client.py
+└── setup.py
+</code></pre>
+
+<p>You can find a copy of this directory and all of its files on <a href="https://github.com/MrYsLab/python_banyan/tree/master/examples/ecs">GitHub.</a>
+You can find a copy of this directory and all of its files on <a href="https://github.com/MrYsLab/python_banyan/tree/master/examples/ecs">GitHub.</a></p>
+<p>We start with a top level directory called ecs. The ecs directory contains
+the <em>setup.py</em> file, and another directory, with the package name <em>ecs</em>.
+This second directory holds the package's source files, as well as
+<em>__init__.py</em>. This file is empty, but identifies this directory as a <em>python package</em>
+for setuptools.</p>
+<p>The <em>setup.py</em> file will be configured to install the three Python source files as executables
+called
+<em>server</em>, <em>client</em> and <em>gui</em>. To perform the installation, we will
+use the <a href="https://pip.pypa.io/en/stable/"><em>pip</em></a> facility.</p>
+<h2 id="setuppy">setup.py</h2>
+<p>Let's start by looking at the setup.py file shown below.</p>
+<pre><code>     1  from setuptools import setup
+     2
+     3  setup(
+     4      name='ecs',
+     5      version='1.0',
+     6      packages=[
+     7          'ecs',
+     8      ],
+     9      install_requires=[
+    10          'pyzmq',
+    11          'u-msgpack-python',
+    12          'msgpack-python',
+    13          'numpy&gt;=1.9',
+    14          'msgpack-numpy',
+    15          'psutil'
+    16      ],
+    17
+    18      entry_points={
+    19          'console_scripts': [
+    20              'client = ecs.echo_cmdline_client:echo_cmdline_client',
+    21              'server = ecs.simple_echo_server:echo_server',
+    22              'gui = ecs.tk_echo_client:gui_client'
+    23          ]
+    24      },
+    25  )
+
+
+</code></pre>
+
+<p>Line 1 imports setup from setuptools.</p>
+<p>Lines 3 through 25 define the <em>setup</em> function required by setuptools.</p>
+<p>Line 4 is the name parameter which specifies the name we wish to give to our package.</p>
+<p>Line 5 is the version number. We can change the version as we make changes.</p>
+<p>Line 6 is a list of packages that make up our package. A package can be comprised of set of packages
+and therefore it is expressed as a list. For our purposes, we only have one package.</p>
+<p>Lines 9 through 16 is a list of packages our package requires to run.</p>
+<p>Lines 18 through 24 defines a dictionary called <em>entry_points</em> that contains a single
+key called <em>console_scripts</em>, with a list of 3 strings as its value.</p>
+<p>For each of the three entries, the string to the left of the equals sign is the command line
+command name for the script. The string between the equals sign and the colon defines
+the location of the python script, and the string after the colon defines the name of the function
+that will be called within the script to start it.</p>
+<p>Let's look at the format for the first executable, <em>'client'</em>.</p>
+<h3 id="executable-name">Executable Name</h3>
+<p>On the left of the equal sign is the name we wish to give the our executable, and in this
+case the name is <em>client</em>.</p>
+<h3 id="location-of-the-file">Location Of The File</h3>
+<p>On the right of the equal sign, is a dotted notation of where the source file resides,
+followed by a function within the file to be called to start the program.</p>
+<p>Line 20 specifies the file location as "ecs.echo_cmdline_client". The first
+part is the name of the package, "ecs". That is the directory that contains the source
+files. The second part is the file name within this directory, "echo_cmdline_client"</p>
+<h3 id="startup-function">Startup Function</h3>
+<p>If we look at line 125 of the source code for the
+<a href="/example2/#modifying-the-component-class">client</a>, we see the function
+called "echo_cmdline_client" and this is the function we specify to start the component
+when we invoke "client" as a command line command.</p>
+<h2 id="installing-with-pip">Installing With <em>pip</em></h2>
+<p>To install our files as executables we first go to the directory that contains the
+<em>ecs</em> directory, for example, <em>python_banyan/python_banyan/examples</em>.</p>
+<p>We then type:</p>
+<pre><code>pip install ./ecs
+</code></pre>
+
+<p>to install using our local copy of the ecs package. If we did not specify "<em>./ecs</em>" and just
+used <em>ecs</em>, pip would try to access and install the package from <a href="https://pypi.org/">pypi</a>
+ on the internet.</p>
+<p>Now, after starting the Backplane, you can start the server by simply typing
+"server" in a command window, and either "client" or "gui" in another command window
+to start a client.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../example8/" class="btn btn-neutral float-right" title="Tutorial 8  - Using the Banyan Launcher">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../example6/" class="btn btn-neutral" title="Tutorial 6  - Integrating With A GUI Event Loop"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../example6/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../example8/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
