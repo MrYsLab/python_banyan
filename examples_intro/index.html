@@ -282,10 +282,11 @@ If you forget to start the Backplane, the component with raise a RunTimeExceptio
  by inheriting from the <strong><em>banyan_base</em></strong>
 base class, <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/banyan_base/banyan_base.py">banyan_base.py</a>.</p>
 <p>If you need to create your application using multiple Backplanes (a rare occurrence),
-please refer to <a href="../#example9">this section</a> for a discussion of the <strong><em>banyan_base_multi</em></strong> class.</p>
+please refer to <a href="../#example9/">this section</a> for a discussion of the <strong><em>banyan_base_multi</em></strong> class.</p>
 <h2 id="the-banyanbase-class">The BanyanBase Class</h2>
-<p>The BanyanBase class is both Python 2 and Python 3 compatible.</p>
-<p>Here is the "executive summary" of this class's 6 methods:</p>
+<p>The methods
+are discussed in <a href="#the-banyanbase-class">detail</a> below.</p>
+<p>An "executive summary" of the methods follows.</p>
 <ol>
 <li>
 <p><strong>__init__</strong> - This method initializes the class. A derived class
@@ -296,13 +297,17 @@ as the last line of the overridden
 method, since a call to <em>receive_loop</em> will not return.</p>
 </li>
 <li>
-<p><strong>set_subscriber_topic</strong> - This method is usually <strong>not</strong> overridden and is used as is.</p>
+<p><strong>set_subscriber_topic</strong> - This method is usually <strong>not</strong> overridden and is used as is.
+This method is called for each subscription topic.</p>
 </li>
 <li>
-<p><strong>publish_payload</strong> - This method is usually <strong>not</strong> overridden and used as is.</p>
+<p><strong>publish_payload</strong> - This method is usually <strong>not</strong> overridden and used as is.
+This method will format the message and send it to the backplane.</p>
 </li>
 <li>
-<p><strong>receive_loop</strong> - This method is usually <strong>not</strong> overridden and used as is.</p>
+<p><strong>receive_loop</strong> - This method is usually <strong>not</strong> overridden and used as is.
+This method waits to receive messages that have topics that have been subscribed to.
+When a message is received, it calls the <strong>incoming_message_processing</strong> method.</p>
 </li>
 <li>
 <p><strong>incoming_message_processing</strong> - This method <strong>must</strong> be overridden to handle incoming messages.</p>
@@ -445,7 +450,7 @@ the greater the CPU utilization for the component.</p>
 </code></pre>
 
 <h3 id="numpy">numpy</h3>
-<p>If the component requires numpy data to be published,
+<p>If the component requires numpy data handling,
 then set this parameter to <em>True</em> to serialize the data in an
 efficient manner.</p>
 <pre><code>    78          :param numpy: Set true if you wish to include numpy matrices in your messages.
