@@ -3,7 +3,7 @@
 """
 monitor.py
 
-Copyright (c) 2016, 2017 Alan Yorinks All right reserved.
+Copyright (c) 2016 - 2019 Alan Yorinks All right reserved.
 
  Python Banyan is free software; you can redistribute it and/or
  modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -25,7 +25,7 @@ Copyright (c) 2016, 2017 Alan Yorinks All right reserved.
 import argparse
 import signal
 import sys
-import time
+
 import zmq
 
 from python_banyan.banyan_base import BanyanBase
@@ -49,7 +49,7 @@ class Monitor(BanyanBase):
 
         :param publisher_port: publisher port number - matches that of backplane
 
-        :param process_name: default name is "Monitor". Change using this paramenter
+        :param process_name: default name is "Monitor". Change using this parameter
         """
 
         # initialize the base class
@@ -58,8 +58,6 @@ class Monitor(BanyanBase):
                                       # loop_time=0.0,
                                       numpy=numpy)
 
-        # allow time for connection
-        time.sleep(.03)
         self.set_subscriber_topic('')
 
         # receive loop is defined in the base class
@@ -109,8 +107,8 @@ def monitor():
     else:
         kw_options['numpy'] = False
 
-
     my_monitor = Monitor(**kw_options)
+
     # my_monitor.start()
 
     # signal handler function called when Control-C occurs
@@ -124,6 +122,7 @@ def monitor():
     # listen for SIGINT
     signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
+
 
 if __name__ == '__main__':
     monitor()

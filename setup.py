@@ -1,14 +1,19 @@
 from setuptools import setup
 
+with open('pypi_desc.md') as f:
+    long_description = f.read()
+
 setup(
     name='python-banyan',
-    version='2.4',
+    version='3.0',
     packages=[
         'python_banyan',
         'python_banyan.banyan_base',
+        'python_banyan.banyan_base_multi',
         'python_banyan.utils',
         'python_banyan.utils.monitor',
         'python_banyan.utils.banyan_launcher',
+        'python_banyan.utils.mqtt_gateway',
         'python_banyan.backplane',
     ],
     install_requires=[
@@ -17,19 +22,19 @@ setup(
         'msgpack-python',
         'numpy>=1.9',
         'msgpack-numpy',
-        'psutil'
+        'psutil',
+        'apscheduler'
     ],
 
     entry_points={
         'console_scripts': [
             'backplane = python_banyan.backplane.backplane:bp',
             'monitor = python_banyan.utils.monitor.monitor:monitor',
-            
+            'bls = python_banyan.utils.banyan_launcher.bls:bls',
+            'blc = python_banyan.utils.banyan_launcher.blc:blc',
+            'blk = python_banyan.utils.banyan_launcher.blk:blk',
+            'mgw = python_banyan.utils.mqtt_gateway.mqtt_gateway:mqtt_gateway'
         ]
-    },
-
-    extras_require={
-        'examples': ['python-banyan-examples'],
     },
 
     url='https://github.com/MrYsLab/python_banyan',
@@ -37,6 +42,8 @@ setup(
     author='Alan Yorinks',
     author_email='MisterYsLab@gmail.com',
     description='A Non-Blocking Event Driven Applications Framework',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     keywords=['python banyan',  'RPC', 'Remote Procedure Call', 'Event Driven',
               'Asynchronous', 'Non-Blocking',
               'Raspberry Pi', 'ZeroMQ', 'MessagePack', 'RedBot'],

@@ -1,7 +1,7 @@
 """
 banyan_base.py
 
- Copyright (c) 2016, 2017 Alan Yorinks All right reserved.
+ Copyright (c) 2016-2019 Alan Yorinks All right reserved.
 
  Python Banyan is free software; you can redistribute it and/or
  modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -24,9 +24,9 @@ from __future__ import unicode_literals
 
 # import argparse
 # import signal
+# import sys
 
 import socket
-import sys
 import time
 import umsgpack
 import msgpack
@@ -56,7 +56,8 @@ class BanyanBase(object):
 
     def __init__(self, back_plane_ip_address=None, subscriber_port='43125',
                  publisher_port='43124', process_name='None', loop_time=.1, numpy=False,
-                 external_message_processor=None):
+                 external_message_processor=None, receive_loop_idle_addition=None,
+                 connect_time=0.3):
         """
         The __init__ method sets up all the ZeroMQ "plumbing"
 
@@ -67,8 +68,8 @@ class BanyanBase(object):
         :param subscriber_port: banyan_base back plane subscriber port.
                This must match that of the banyan_base backplane
 
-        :param publisher_port: banyan_base back plane publisher port. This must match that of
-                               the banyan_base backplane.
+        :param publisher_port: banyan_base back plane publisher port.
+                               This must match that of the banyan_base backplane.
 
         :param process_name: Component identifier in banner at component startup.
 
@@ -77,6 +78,11 @@ class BanyanBase(object):
         :param numpy: Set true if you wish to include numpy matrices in your messages.
 
         :param external_message_processor: external method to process messages
+
+        :param receive_loop_idle_addition: an external method called in the idle section
+                                           of the receive loop
+
+        :param connect_time: a short delay to allow the component to connect to the Backplane
         """
 
         # call to super allows this class to be used in multiple inheritance scenarios when needed
@@ -87,6 +93,8 @@ class BanyanBase(object):
         self.back_plane_ip_address = None
         self.numpy = numpy
         self.external_message_processor = external_message_processor
+        self.receive_loop_idle_addition = receive_loop_idle_addition
+        self.connect_time = connect_time
 
         # if using numpy apply the msgpack_numpy monkey patch
         if numpy:
@@ -142,6 +150,9 @@ class BanyanBase(object):
         connect_string = "tcp://" + self.back_plane_ip_address + ':' + self.publisher_port
         self.publisher.connect(connect_string)
 
+        # Allow enough time for the TCP connection to the Backplane complete.
+        time.sleep(self.connect_time)
+
     def set_subscriber_topic(self, topic):
         """
         This method sets a subscriber topic.
@@ -151,8 +162,7 @@ class BanyanBase(object):
 
         :param topic: A topic string
         """
-        if sys.version_info[0] < 3:
-            topic = topic.encode()
+
         if not type(topic) is str:
             raise TypeError('Subscriber topic must be python_banyan string')
 
@@ -167,11 +177,9 @@ class BanyanBase(object):
         :param topic: A string value
         """
 
+        # make sure the topic is a string
         if not type(topic) is str:
-            if sys.version_info[0] < 3:
-                raise AttributeError('Publish topic must be python_banyan string', 'topic')
-            else:
-                raise TypeError('Publish topic must be python_banyan string', 'topic')
+            raise TypeError('Publish topic must be python_banyan string', 'topic')
 
         # create python_banyan message pack payload
         if self.numpy:
@@ -194,13 +202,13 @@ class BanyanBase(object):
             try:
                 data = self.subscriber.recv_multipart(zmq.NOBLOCK)
                 if self.numpy:
-                    payload2={}
+                    payload2 = {}
                     payload = msgpack.unpackb(data[1], object_hook=m.decode)
                     # convert keys to strings
                     # this compensates for the breaking change in msgpack-numpy 0.4.1 to 0.4.2
                     for key, value in payload.items():
                         if not type(key) == str:
-                            key=key.decode('utf-8')
+                            key = key.decode('utf-8')
                             payload2[key] = value
 
                     if payload2:
@@ -211,6 +219,8 @@ class BanyanBase(object):
             # if no messages are available, zmq throws this exception
             except zmq.error.Again:
                 try:
+                    if self.receive_loop_idle_addition:
+                        self.receive_loop_idle_addition()
                     time.sleep(self.loop_time)
                 except KeyboardInterrupt:
                     self.clean_up()
@@ -238,9 +248,8 @@ class BanyanBase(object):
         self.subscriber.close()
         self.context.term()
 
-
 # When creating a derived component, replicate the code below and replace
-# banyan_base with a  name of your choice.
+# banyan_base with a name of your choice.
 
 # def banyan_base():
 #     # Allow user to bypass the IP address auto-discovery.
