@@ -255,15 +255,15 @@ and then to extract the message's payload and publish a "reply" topic message.</
     29      &quot;&quot;&quot;
 </code></pre>
 
-<p>Lines 31 through 44 define the <a href="/examples_intro/#95_init__">__init__</a> method.
+<p>Lines 31 through 44 define the <a href="../examples_intro/#95_init__">__init__</a> method.
 To keep things simple, this method does not accept any parameters.</p>
 <p>When inheriting from another class, the parent class must be initialized.</p>
 <p>Line 34 initializes the parent and sets the parent's
- <a href="/examples_intro/#process_name"><em>process_name</em></a> parameter. The process_name is printed to the console when the component is
+ <a href="../examples_intro/#process_name"><em>process_name</em></a> parameter. The process_name is printed to the console when the component is
  first invoked. All other default values are accepted as is.</p>
-<p>Line 37 calls the BanyanBase method <a href="/examples_intro/#set_subscriber_topic"><em>set_subscriber_topic</em></a> to subscribe to 'echo' messages.</p>
-<p>Line 41 calls the BanyanBase method <a href="/examples_intro/#receive_loop"><em>receive_loop</em></a> to wait for incoming messages.</p>
-<p>Line 42 through 44 trap a Control-C entered by the user. The inherited BanyanBase <a href="/examples_intro/#clean_up"><em>clean_up</em></a> method
+<p>Line 37 calls the BanyanBase method <a href="../examples_intro/#set_subscriber_topic"><em>set_subscriber_topic</em></a> to subscribe to 'echo' messages.</p>
+<p>Line 41 calls the BanyanBase method <a href="../examples_intro/#receive_loop"><em>receive_loop</em></a> to wait for incoming messages.</p>
+<p>Line 42 through 44 trap a Control-C entered by the user. The inherited BanyanBase <a href="../examples_intro/#clean_up"><em>clean_up</em></a> method
 is called to close the ZeroMQ connections. The program is then exited.</p>
 <pre><code>    31      def __init__(self, ):
     32
@@ -281,7 +281,7 @@ is called to close the ZeroMQ connections. The program is then exited.</p>
     44              sys.exit(0)
 </code></pre>
 
-<p>Lines 46 through 55 override the base class <a href="/examples_intro/#incoming_message_processing"><em>incoming_message_process</em></a> method.
+<p>Lines 46 through 55 override the base class <a href="../examples_intro/#incoming_message_processing"><em>incoming_message_process</em></a> method.
 Whenever a message is received by the <em>receive_loop</em>, it calls <em>incoming_message_processing</em> to process the message.</p>
 <p>The <em>incoming_message_processing</em> method requires two parameters, a
 topic string, and a payload. Both the topic and payload are decoded within the receive_loop, so they
@@ -304,7 +304,7 @@ of the received message is then printed to the console.</p>
 <p>Lines 61 through 62 create a function to instantiate the EchoServer class.
 This function is added so that we can install our component as an executable
 file in our system if we desire to do so. Installing Components as executable modules
-is <a href="/example7/">explained in a later section.</a></p>
+is <a href="../example7/#example7">explained in a later section.</a></p>
 <p>Lines 57 through 62 use a <a href="https://docs.python.org/3/library/__main__.html">standard Python construct</a> to
 call the instantiation function.</p>
 <pre><code>    57  def echo_server():
