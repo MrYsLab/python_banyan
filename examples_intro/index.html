@@ -237,7 +237,7 @@ must be started before starting any other components.</em></strong></p>
 exception.</p>
 <p>In general, a Banyan application uses a single instance of the Backplane,
 however, it is possible to have multiple Backplanes running in a single
-application. Using multiple backplanes will be covered in a <a href="/example9">later section</a>.</p>
+application. Using multiple backplanes will be covered in a <a href="../example9">later section</a>.</p>
 <p>Since the Backplane is not normally modified by the user, its code will not be discussed here, but
 if you wish, you may view
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/backplane/backplane.py">the Backplane source code here</a>.</p>
@@ -282,7 +282,7 @@ If you forget to start the Backplane, the component with raise a RunTimeExceptio
  by inheriting from the <strong><em>banyan_base</em></strong>
 base class, <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/banyan_base/banyan_base.py">banyan_base.py</a>.</p>
 <p>If you need to create your application using multiple Backplanes (a rare occurrence),
-please refer to <a href="/example9">this section</a> for a discussion of the <strong><em>banyan_base_multi</em></strong> class.</p>
+please refer to <a href="../example9">this section</a> for a discussion of the <strong><em>banyan_base_multi</em></strong> class.</p>
 <h2 id="the-banyanbase-class">The BanyanBase Class</h2>
 <p>The BanyanBase class is both Python 2 and Python 3 compatible.</p>
 <p>Here is the "executive summary" of this class's 6 methods:</p>
@@ -312,7 +312,7 @@ method, since a call to <em>receive_loop</em> will not return.</p>
 </li>
 </ol>
 <p>To get a better understanding of the base class, let's look at the code line by line. You can skip this
-section and move on to the <a href="/example1/">examples</a> and return later if you need a more detailed explanation of the base class.</p>
+section and move on to the <a href="../example1/">examples</a> and return later if you need a more detailed explanation of the base class.</p>
 <p>Lines 1 through 19 displays the license information.</p>
 <pre><code>     1  &quot;&quot;&quot;
      2  banyan_base.py
@@ -392,7 +392,7 @@ The examples will demonstrate how to import BanyanBase.</p>
 methods.</p>
 <h2 id="95_init__">__init__</h2>
 <p>The __init__ method is overwritten as needed. A subscription to specific topics is
-often established in this method by calling <a href="examples_intro/#set_subscriber_topic">set_subscriber_topic</a>
+often established in this method by calling <a href="../examples_intro/#set_subscriber_topic">set_subscriber_topic</a>
 for each topic.</p>
 <pre><code>    57      def __init__(self, back_plane_ip_address=None, subscriber_port='43125',
     58                   publisher_port='43124', process_name='None', loop_time=.1, numpy=False,
@@ -697,7 +697,7 @@ This code exists because a breaking change was added to the <em>messagepack_nump
 package by its author. This code is required to handle the latest and earlier versions of
 messagepack_numpy.</p>
 <p>The decoded topic string and payload are then passed to the
-<a href="/examples_intro/#incoming_message_processing">incoming_message_processing method</a>
+<a href="../examples_intro/#incoming_message_processing">incoming_message_processing method</a>
  to process the message. Line 216 handles the case for numpy data,
 and 218 for non-numpy data.</p>
 <h3 id="when-no-messages-are-available">When No Messages Are Available</h3>
@@ -716,7 +716,7 @@ The decoded topic, in the form of a string, and decoded payload,
 typically in the form of a dictionary, are passed in as input parameters.</p>
 <p>The message is typically processed within this method, but may be
  handled by
-an external function or method specified by the <a href="/examples_intro/#external_message_processor"><em>external_message_processor</em></a>
+an external function or method specified by the <a href="../examples_intro/#external_message_processor"><em>external_message_processor</em></a>
 parameter.</p>
 <pre><code>   229      def incoming_message_processing(self, topic, payload):
    230          &quot;&quot;&quot;
@@ -749,7 +749,7 @@ ZeroMQ session for the component. You may add any additional cleanup that your c
 <h1 id="a-template-for-component-command-line-options">A Template For Component Command Line Options</h1>
 <p>If you would like to provide the facility to specify command line options
 for a component, the following is a template to do so.</p>
-<p>This will be explained in detail in a <a href="/example2">later section</a>.</p>
+<p>This will be explained in detail in a <a href="../example2">later section</a>.</p>
 <pre><code>   251  # When creating a derived component, replicate the code below and replace
    252  # banyan_base with a name of your choice.
    253

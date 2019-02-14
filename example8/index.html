@@ -212,7 +212,7 @@ from a single console command.</p>
 <p>This source code for the Banyan Launcher may be found on <a href="https://github.com/MrYsLab/python_banyan/tree/master/python_banyan/utils/banyan_launcher">GitHub.</a></p>
 <p><strong>NOTE:</strong> For Linux, Mac and Raspberry PI users, the Launcher requires <strong>xterm</strong> to installed on your system.</p>
 <p><strong><em>Xterm is not required for Windows, so Windows users can skip to 
-<a href="/example8/#launching-components">Launching Components.</a></em></strong></p>
+<a href="../example8/#launching-components">Launching Components.</a></em></strong></p>
 <h2 id="testing-for-xterm">Testing For Xterm</h2>
 <p>To determine if xterm is installed on your computer, simply open a terminal window and type:</p>
 <pre><code>xterm
@@ -230,10 +230,10 @@ then you will need to install xterm.</p>
 <p>Please refer to <a href="https://support.apple.com/en-us/ht201341">these instructions.</a></p>
 <h2 id="launching-components">Launching Components</h2>
 <p>To demonstrate the use of the Launcher,  we will
-launch the <a href="/example5">Monitor</a>, the
-<a href="/example1/#the-server">simple echo server</a> and
-<a href="/example2">command line echo client</a> that were installed as executable components in a
- <a href="/example7">previous section</a> of this document.</p>
+launch the <a href="../example5">Monitor</a>, the
+<a href="../example1/#the-server">simple echo server</a> and
+<a href="../example2">command line echo client</a> that were installed as executable components in a
+ <a href="../example7">previous section</a> of this document.</p>
 <p>Launch instructions are specified by creating a comma delimited text file
  called the <strong><em>launch descriptor file</em></strong>. Let's examine the <em>launch descriptor file</em> in detail.</p>
 <h2 id="the-launch-descriptor-file">The Launch Descriptor File</h2>
@@ -255,7 +255,7 @@ client,yes,local,no,no,0
 
 <p><strong>command_string</strong> - this field is the command line command used to execute the component. For the example,
 the Launcher will start the <em>monitor</em>, and the <em>server and client</em> that were installed as executable modules
-as <a href="/example7">described earlier</a>.</p>
+as <a href="../example7">described earlier</a>.</p>
 <p>Note that the launcher will execute any command string we enter, so for example,
 if the file <em>simple_echo_server.py</em> is in the <em>/home/bob_files/demo</em> directory, we could specify the command
 as</p>
@@ -283,7 +283,7 @@ If set to <strong><em>yes</em></strong>, the Backplane IP address is appended to
 </code></pre>
 
 <p>When the component is launched on the remote computer, it will automatically connect to the backplane.
-The -b option is used assuming that the component was built using <a href="/example2">command line options</a>.</p>
+The -b option is used assuming that the component was built using <a href="../example2">command line options</a>.</p>
 <p><strong>auto_restart</strong> - if this field is set to <em>yes</em>, and
 the component crashes, it will
 automatically be restarted.</p>

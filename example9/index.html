@@ -215,7 +215,7 @@
 <p>For the vast majority of Banyan applications, a single Backplane is all that is needed to
 handle all the
 application's messaging needs. When using a single Backplane configuration, there is no need to manually perform
-message routing, since all components automatically connect to a <a href="/examples_intro/#the-banyan-backplane">common Backplane.</a></p>
+message routing, since all components automatically connect to a <a href="../examples_intro/#the-banyan-backplane">common Backplane.</a></p>
 <p>There are occasions however, where you might like to design your component so that it
  has the ability to communicate with more than one Backplane. Some possible
  scenarios for this configuration would be to provide message load balancing or a better
@@ -225,7 +225,7 @@ message routing, since all components automatically connect to a <a href="/examp
 <h1 id="the-banyan-base-multi-base-class">The <strong><em>Banyan Base Multi</em></strong> Base Class</h1>
 <p>In many ways the <strong><em>BanyanBaseMulti</em></strong>
  base class
-is similar to the <a href="/examples_intro/#python-banyan-base-classes"><strong><em>BanyanBase</em></strong></a>
+is similar to the <a href="../examples_intro/#python-banyan-base-classes"><strong><em>BanyanBase</em></strong></a>
  class, but there is one major difference. A <em>BanyanBaseMulti</em> component requires that
 a Backplane routing table be provided at initialization. This table is known as the <em>routing specification file</em>.</p>
 <p>Note: <em>BanyanBase</em> and <em>BanyanBaseMulti</em> components may communicate with each other without restriction.
@@ -309,11 +309,11 @@ Since they share a common IP address, their ports have different values.</p>
 port. This is a valid case when the component does not publish any messages.</p>
 <p>BP5 has no subscriber port specified and no topics specified. Because there is no subscriber
 port, topics are not listed. For BP5, this component acts only as a publisher.</p>
-<p>A <a href="/example9/#a-simple-working-example">simple working example</a> is discussed below if you would like to try using
+<p>A <a href="../example9/#a-simple-working-example">simple working example</a> is discussed below if you would like to try using
 BanyanBaseMulti.</p>
 <h2 id="the-python-banyan-multi-base-class-code-in-detail">The Python Banyan Multi Base Class Code In Detail</h2>
 <p>Lines 1 through 66 should seem very similar to those for the
-<a href="/examples_intro/#python-banyan-base-class">BanyanBase</a> base class.</p>
+<a href="../examples_intro/#python-banyan-base-class">BanyanBase</a> base class.</p>
 <pre><code>     1  &quot;&quot;&quot;
      2  banyan_base_multi.py
      3
@@ -712,7 +712,7 @@ of the BanyanBaseMulti base class. For this example, 2 Backplanes are invoked, e
 different computer. The example can be easily modified to run both Backplanes on a single
 computer by adjusting the values in the routing specification file.</p>
 <p>The application consists of 3 Banyan components in addition to the 2 Backplanes. The first component is a reuse of
-<a href="/example2/#modifying-the-simple-echo-client">echo_cmdline_client.py</a>. It resides on computer 1 . The second
+<a href="../example2/#modifying-the-simple-echo-client">echo_cmdline_client.py</a>. It resides on computer 1 . The second
  component, <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/banyan_base_multi/simple_demo/multi_echo_server.py"><strong><em>multi_echo_server.py</em></strong></a>
   derived from <em>BanyanBaseMulti</em>, resides on computer 1.
 The third component, <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/banyan_base_multi/simple_demo/notifier.py"><strong><em>notifier.py</em></strong></a>,
@@ -795,7 +795,7 @@ and when a message is received, prints 'Notification Received':</p>
 </code></pre>
 
 <h2 id="the-echo-client">The Echo Client</h2>
-<p>We are reusing the *<a href="/example2/#modifying-the-component-class">echo_cmdline_client*</a> unmodified.</p>
+<p>We are reusing the *<a href="../example2/#modifying-the-component-class">echo_cmdline_client*</a> unmodified.</p>
 <h2 id="the-multiechoserver">The MultiEchoServer</h2>
 <p>The Server is derived from BanyanBaseMulti.
 Lets begin by examining its associated <em>routing specification file</em>.</p>
