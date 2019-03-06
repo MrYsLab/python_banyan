@@ -21,7 +21,7 @@ gateway_base_aio.py
 """
 
 import asyncio
-from banyan_base_aio import BanyanBaseAIO
+from python_banyan.banyan_base_aio import BanyanBaseAIO
 
 
 class GatewayBaseAIO(BanyanBaseAIO):
