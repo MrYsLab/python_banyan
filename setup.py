@@ -5,11 +5,14 @@ with open('pypi_desc.md') as f:
 
 setup(
     name='python-banyan',
-    version='3.0',
+    version='3.1',
     packages=[
         'python_banyan',
         'python_banyan.banyan_base',
+        'python_banyan.banyan_base_aio',
         'python_banyan.banyan_base_multi',
+        'python_banyan.gateway_base',
+        'python_banyan.gateway_base_aio',
         'python_banyan.utils',
         'python_banyan.utils.monitor',
         'python_banyan.utils.banyan_launcher',
