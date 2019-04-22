@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-gateway_base_aio.py
+gateway_base.py
 
  Copyright (c) 2017-2019 Alan Yorinks All right reserved.
 
@@ -55,7 +55,7 @@ class GatewayBase(BanyanBase):
     # noinspection PyDefaultArgument,PyRedundantParentheses
     def __init__(self, back_plane_ip_address=None, subscriber_port='43125',
                  publisher_port='43124', process_name='',
-                 subscriber_list=None, board_type=None, event_loop=None,):
+                 subscriber_list=None, board_type=None, ):
         """
 
         :param back_plane_ip_address: banyan_base back_planeIP Address -
@@ -68,7 +68,6 @@ class GatewayBase(BanyanBase):
         :param process_name: Component identifier
         :param subscriber_list: a tuple or list of topics to be subscribed to
         :param board_type: micro-controller type ID
-        :param event_loop: event loop that user may specify
 
         """
         if board_type:
@@ -101,10 +100,10 @@ class GatewayBase(BanyanBase):
         #     await self.set_subscriber_topic(topic)
         # initialize the parent
         super(GatewayBase, self).__init__(back_plane_ip_address=back_plane_ip_address,
-                                             subscriber_port=subscriber_port,
-                                             publisher_port=publisher_port,
-                                             process_name=process_name,
-                                             )
+                                          subscriber_port=subscriber_port,
+                                          publisher_port=publisher_port,
+                                          process_name=process_name,
+                                          )
 
         self.command_dictionary = {'analog_write': self.analog_write,
                                    'digital_write': self.digital_write,
@@ -155,9 +154,6 @@ class GatewayBase(BanyanBase):
             print(payload)
             raise
 
-        # pin = None
-        # tag = ''
-
         # if a tag is provided and the tag is in the dictionary, fetch
         # the associated pin number
         if 'tag' in payload:
@@ -169,27 +165,17 @@ class GatewayBase(BanyanBase):
                     payload['pin'] = pin
                 else:
                     self.tags_dictionary[payload['tag']] = payload['pin']
-        else:
-            tag = ''
-
-        # try:
-        #     if pin is not None:
-        #         pin = int(payload['pin'])
-
-            # if self.pins_dictionary:
-            #     pin_record = self.pins_dictionary[pin]
-            # else:
-            #     raise RuntimeError('Set pin mode before using pin')
-        # except KeyError:
-        #     raise KeyError('pin record not found')
 
         # if command is in the command dictionary, execute the command
         if command in self.command_dictionary.keys():
-             self.command_dictionary[command](topic, payload)
+            self.command_dictionary[command](topic, payload)
 
         # for unknown requests, pass them along to the hardware gateway to handle
         else:
-             self.additional_banyan_messages(topic, payload)
+            self.additional_banyan_messages(topic, payload)
+
+    # all of the following methods should be overridden in the hardware
+    # specific gateway when being used.
 
     def additional_banyan_messages(self, topic, payload):
         """
