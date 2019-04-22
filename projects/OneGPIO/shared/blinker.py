@@ -56,11 +56,15 @@ class Blinker(BanyanBase):
 
         value = 0
 
-        while True:
-            payload = {'command': 'set_mode_digital_output',
-                       'pin': self.led_pin, 'tag': 'blinker'}
-            self.publish_payload(payload, self.publish_topic)
+        # set the pin mode
 
+        payload = {'command': 'set_mode_digital_output',
+                   'pin': self.led_pin, 'tag': 'blinker'}
+        self.publish_payload(payload, self.publish_topic)
+
+        while True:
+
+            # blink the blinker led
             payload = {'command': 'digital_write', 'tag': 'blinker',
                        'value': value}
             self.publish_payload(payload, self.publish_topic)
