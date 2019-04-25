@@ -28,7 +28,6 @@ from __future__ import unicode_literals
 
 import socket
 import time
-import umsgpack
 import msgpack
 import msgpack_numpy as m
 import zmq
@@ -185,7 +184,7 @@ class BanyanBase(object):
         if self.numpy:
             message = msgpack.packb(payload, default=m.encode)
         else:
-            message = umsgpack.packb(payload)
+            message = msgpack.packb(payload, use_bin_type=True)
 
         pub_envelope = topic.encode()
         self.publisher.send_multipart([pub_envelope, message])
@@ -215,7 +214,8 @@ class BanyanBase(object):
                         payload = payload2
                     self.incoming_message_processing(data[0].decode(), payload)
                 else:
-                    self.incoming_message_processing(data[0].decode(), umsgpack.unpackb(data[1]))
+                    self.incoming_message_processing(data[0].decode(),
+                                                     msgpack.unpackb(data[1], raw=False))
             # if no messages are available, zmq throws this exception
             except zmq.error.Again:
                 try:

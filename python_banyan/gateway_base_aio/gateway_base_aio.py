@@ -172,19 +172,6 @@ class GatewayBaseAIO(BanyanBaseAIO):
                     payload['pin'] = pin
                 else:
                     self.tags_dictionary[payload['tag']] = payload['pin']
-        else:
-            tag = ''
-
-        # try:
-        #     if pin is not None:
-        #         pin = int(payload['pin'])
-
-            # if self.pins_dictionary:
-            #     pin_record = self.pins_dictionary[pin]
-            # else:
-            #     raise RuntimeError('Set pin mode before using pin')
-        # except KeyError:
-        #     raise KeyError('pin record not found')
 
         # if command is in the command dictionary, execute the command
         if command in self.command_dictionary.keys():
@@ -193,6 +180,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         # for unknown requests, pass them along to the hardware gateway to handle
         else:
             await self.additional_banyan_messages(topic, payload)
+
+    # all of the following methods should be overridden in the hardware
+    # specific gateway when being used.
 
     async def additional_banyan_messages(self, topic, payload):
         """

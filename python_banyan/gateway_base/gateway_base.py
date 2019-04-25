@@ -42,11 +42,6 @@ class GatewayBase(BanyanBase):
     SONAR_MODE = 10
     WILD_CARD_MODE = 11
 
-    # index into pin database record
-    PIN_MODE = 0
-    LAST_VALUE = 1
-    PULL_UP = 2
-
     # board types
     ARDUINO = 0
     RPi = 1
@@ -86,18 +81,13 @@ class GatewayBase(BanyanBase):
 
         self.pins_dictionary = {}
 
-        # a pin can optionally be give a tag, it is used as a key to find pin number
+        # a pin can optionally be given a tag, it is used as a key to find
+        # pin number
         # tag(string): pin(integer)
         self.tags_dictionary = {}
 
         self.init_pins_dictionary()
 
-        # for arduinos - save the pin number of the first analog pin
-        self.first_analog_pin = 0
-
-        # subscribe to initial topics
-        # for topic in subscription_topics:
-        #     await self.set_subscriber_topic(topic)
         # initialize the parent
         super(GatewayBase, self).__init__(back_plane_ip_address=back_plane_ip_address,
                                           subscriber_port=subscriber_port,

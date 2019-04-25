@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
- Copyright (c) 2018 Alan Yorinks - All Rights Reserved.
+ Copyright (c) 2018-2019 Alan Yorinks - All Rights Reserved.
 
 
  Python Banyan is free software; you can redistribute it and/or
@@ -186,8 +186,12 @@ class BLS(BanyanBase):
                     self.spawn_local(idx)
                 else:
                     self.publish_payload(record, record['topic'])
-            if int(record['wait']) > 0:
-                time.sleep(int(record['wait']))
+            try:
+                if int(record['wait']) > 0:
+                    time.sleep(int(record['wait']))
+            except TypeError:
+                print(record)
+                raise
 
         # start the background scheduler to periodically run check_processes and confirm methods
         self.scheduler = BackgroundScheduler()

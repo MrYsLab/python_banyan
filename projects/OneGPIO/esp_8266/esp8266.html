@@ -1,0 +1,1071 @@
+<!doctype html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Banyan Demo Station For The ESP-8266 </title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#tabs").tabs();
+        });
+    </script>
+</head>
+<body>
+<form>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Digital Input</a></li>
+            <li><a href="#tabs-2">Digital/PWM Output</a></li>
+            <li><a href="#tabs-3">Analog Input</a></li>
+            <li><a href="#tabs-4">Servo</a></li>
+            <li><a href="#tabs-5">i2c</a></li>
+            <li><a href="#tabs-6">Tone</a></li>
+            <li><a href="#tabs-7">HC-SR04</a></li>
+            <li><a href="#tabs-8">Stepper Motor</a></li>
+
+
+        </ul>
+        <div id="tabs-1">
+
+            <h1>Banyan Demo Station For The ESP-8266</h1>
+
+            <p id="connected"><b>You Are Not Connected To The WebSocket Gateway</b></p>
+
+
+
+            <p><b>Pullups are in use. Zero is ON and one is OFF.</b></p>
+            <input type="radio" name="e4" value="0" id="in4d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e4" value="1" id="out4d" onclick="clicked(this.id);">Enabled
+            <b>Pin 04 (D2):</b>
+            <input id="ip4" name="pin" class="element text medium" type="text" maxlength="255" value="1"
+                   style="width: 20px;"/>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Last Event Occurred On:</b>
+            <input id="dlevent4" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 230px;"/>
+            <br>
+
+            <input type="radio" name="e5" value="0" id="in5d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e5" value="1" id="out5d" onclick="clicked(this.id);">Enabled
+            <b>Pin 05 (D1):</b>
+            <input id="ip5" name="pin" class="element text medium" type="text" maxlength="255" value="1"
+                   style="width: 20px;"/>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Last Event Occurred On:</b>
+            <input id="dlevent5" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 230px;"/>
+            <br>
+
+
+            <input type="radio" name="e12" value="0" id="in12d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e12" value="1" id="out12d" onclick="clicked(this.id);">Enabled
+            <b>Pin 12 (D6):</b>
+            <input id="ip12" name="pin" class="element text medium" type="text" maxlength="255" value="1"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <b>Last Event Occurred On:</b>
+            <input id="dlevent12" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 230px;"/>
+            <br>
+
+            <input type="radio" name="e13" value="0" id="in13d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e13" value="1" id="out13d" onclick="clicked(this.id);">Enabled
+            <b>Pin 13 (D7):</b>
+            <input id="ip13" name="pin" class="element text medium" type="text" maxlength="255" value="1"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <b>Last Event Occurred On:</b>
+            <input id="dlevent13" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 230px;"/>
+            <br>
+
+            <input type="radio" name="e14" value="0" id="in14d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e14" value="1" id="out14d" onclick="clicked(this.id);">Enabled
+            <b>Pin 14 (D5):</b>
+            <input id="ip14" name="pin" class="element text medium" type="text" maxlength="255" value="1"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <b>Last Event Occurred On:</b>
+            <input id="dlevent14" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 230px;"/>
+            <br>
+
+
+
+
+
+        </div>
+        <div id="tabs-2">
+            <h1>Banyan Demo Station For The ESP-8266</h1>
+
+            <br>
+            <b>Pin 04:</b>
+            <input type="radio" name="p4" value="0" id="p4low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p4" value="1" id="p4high" onclick="clicked(this.id);">High
+            <input type="radio" name="p4" value="2" onclick="clicked(this.id);" id="pwm4">PWM
+            <input type="number" name="p4pwm" id="v4" min="0" max="1023" step="1" value="0"
+                   oninput="pwmChange(this.id);">
+            <br>
+            <b>Pin 05:</b>
+            <input type="radio" name="p5" value="0" id="p5low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p5" value="1" id="p5high" onclick="clicked(this.id);">High
+            <input type="radio" name="p5" value="2" onclick="clicked(this.id);" id="pwm5">PWM
+            <input type="number" name="p5pwm" id="v5" min="0" max="1023" step="1" value="0"
+                   oninput="pwmChange(this.id);">
+            <br>
+            <b>Pin 12:</b>
+            <input type="radio" name="p12" value="0" id="p12low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p12" value="1" id="p12high" onclick="clicked(this.id);">High
+            <input type="radio" name="p12" value="2" id="pwm12" onclick="clicked(this.id);">PWM
+            <input type="number" name="p12pwm" id="v12" min="0" max="1023" step="1" value="0"
+                   oninput="pwmChange(this.id);">
+            <br>
+
+            <b>Pin 13:</b>
+            <input type="radio" name="p13" value="0" id="p13low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p13" value="1" id="p13high" onclick="clicked(this.id);">High
+            <input type="radio" name="p13" value="2" id="pwm13" onclick="clicked(this.id);">PWM
+            <input type="number" name="p13pwm" id="v13" min="0" max="1023" step="1" value="0"
+                   oninput="pwmChange(this.id);">
+            <br>
+            <b>Pin 14:</b>
+            <input type="radio" name="p14" value="0" id="p14low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p14" value="1" id="p14high" onclick="clicked(this.id);">High
+            <input type="radio" name="p14" value="2" id="pwm14" onclick="clicked(this.id);">PWM
+            <input type="number" name="p14pwm" id="v14" min="0" max="1023" step="1" value="0"
+                   oninput="pwmChange(this.id);">
+
+
+        </div>
+        <div id="tabs-3">
+            <h1>Banyan Demo Station For The ESP-8266</h1>
+
+            <input type="radio" name="a0" value="0" id="in0a" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="a0" value="1" id="out0a" onclick="clicked(this.id);">Enabled
+            <b>Pin A0:</b>
+            <input id="ia0" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 80px;"/>
+            &nbsp;&nbsp;
+
+            <b>Last Event Occurred On:</b>
+            <input id="alevent0" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 230px;"/>
+            <br>
+
+        </div>
+
+        <div id="tabs-4">
+            <h1>Banyan Demo Station For The ESP-8266</h1>
+
+            <br>
+
+            <b>Servo Pin</b>
+            <select id="servoPin">
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Servo Angle in Degrees</b>
+            <input id="servoAngle" name="pin" class="element text medium" type="text" maxlength="4" value="0"
+                   style="width: 60px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="moveServo" type="button" value="Set Servo" onclick="servo();"/>
+        </div>
+        <div id="tabs-5">
+            <h1>Banyan Demo Station For The ESP-8266</h1>
+            <h2>SCL is GPIO 5 (D1) and SDA is GPIO 4 (D2)</h2>
+            <h2>Enter All Values In Decimal Representation </h2>
+            <h2>I2C Write</h2>
+            <b>Device Address</b>
+
+            <input id="i2cWriteAddress" name="pin" class="element text medium" type="text" maxlength="4" value=0
+                   style="width: 120px;"/>
+
+            <br>
+            <br>
+            <b>Comma Delimited List Of Bytes To Write (First byte can be i2c register) </b>
+            <br>
+            <input id="i2cWriteData" name="pin" class="element text medium" type="text" maxlength="29" value=0,0
+                   style="width: 600px;"/>
+            <br>
+            <br>
+            <input id="i2cWriteRequest" type="button" value="I2C Write" onclick="i2cWrite();"/>
+            <br>
+            <br>
+            <br>
+
+            <h2>I2C Read</h2>
+            <b>Device Address</b>
+            <input id="i2cReadAddress" name="pin" class="element text medium" type="text" maxlength="4" value="0"
+                   style="width: 120px;"/>
+            <b>Device Register</b>
+            <input id="i2cReadRegister" name="pin" class="element text medium" type="text" maxlength="4" value="0"
+                   style="width: 120px;"/>
+            <b>Number of Bytes To Read</b>
+            <input id="i2cReadNumBytes" name="pin" class="element text medium" type="text" maxlength="4" value="0"
+                   style="width: 120px;"/>
+
+            <br>
+            <br>
+            <input id="i2cReadReq" type="button" value="I2C Read" onclick="i2cReadRequest();"/>
+
+            &nbsp;&nbsp;<b>Read Result (First byte is device i2c address) </b>
+            <input id="i2cReadResult" name="pin" class="element text medium" type="text" maxlength="60" value=""
+                   style="width: 800px;"/>
+            &nbsp;
+            <br>
+
+        </div>
+        <div id="tabs-6">
+            <h1>Banyan Demo Station For The ESP-8266</h1>
+
+            <br>
+
+            <b>Pin:</b>
+            <select id="tonePin">
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Frequency (Hz)</b>
+            <input id="freq" class="element text medium" type="text" maxlength="4" value="1000"
+                   style="width: 60px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Duration (ms)</b>
+            <input id="duration" class="element text medium" type="text" maxlength="4" value="100"
+                   style="width: 60px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="tone" type="button" value="Play Tone" onclick="playTone();"/>
+            <br><br>
+        </div>
+        <div id="tabs-7">
+            <h1>Banyan Demo Station For The ESP-8266</h1>
+
+            <br>
+
+            <b>Trigger Pin:</b>
+            <select id="sonarTriggerPin">
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Echo Pin:</b>
+            <select id="sonarEchoPin">
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="getAutoSonar" type="button" value="Sonar Continuous Read" onclick="sonarRead();"/>
+
+
+            &nbsp;&nbsp;<b>Sonar Value In Centimeters </b>
+            <input id="sonarValue" name="pin" class="element text medium" type="text" maxlength="10" value=""
+                   style="width: 250px;"/>
+
+            <br><br>
+        </div>
+        <div id="tabs-8">
+            <h1>Banyan Demo Station For The ESP-8266</h1>
+
+            <br>
+
+            <div>
+                <b>Pin 1:</b>
+                <select id="stepperPin1">
+                    <option value="4" selected>4</option>
+                    <option value="5">5</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                </select>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <b>Pin 2:</b>
+                <select id="stepperPin2">
+                    <option value="4">4</option>
+                    <option value="5" selected>5</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+
+                </select>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <b>Pin 3:</b>
+                <select id="stepperPin3">
+
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="12" selected>12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+
+                </select>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <b>Pin 4:</b>
+                <select id="stepperPin4">
+
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="12">12</option>
+                    <option value="13" selected>13</option>
+                    <option value="14">14</option>
+                </select>
+
+                <br>
+                <br>
+                &nbsp;
+
+                <b># Of Steps - Negative Value is Reverse</b>
+                <input id="numSteps" class="element text medium" type="text" maxlength="4" value="500"
+                       style="width: 100px;"/>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <br>
+                <br>
+                <br>
+                <br>
+                <input id="runStepper" type="button" value="Run Stepper" onclick="runStepMotor();"/>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // hide all of the pwm input controls until selected
+
+
+        $("#v0").hide();
+        $("#v2").hide();
+        $("#v4").hide();
+        $("#v5").hide();
+        $("#v12").hide();
+        $("#v13").hide();
+        $("#v14").hide();
+        $("#v15").hide();
+
+        // connect to the server
+        var ipAddress = "localhost";
+        var ipPort = "9000";
+
+        var inputMode = "0";
+        var outputMode = "1";
+        var analogMode = "2";
+        var pwmMode = "3";
+
+        var socket = new WebSocket('ws://' + ipAddress + ':' + ipPort);
+        var pin_mode = "";
+        var pin = "";
+        var outputValue = "";
+
+
+        socket.onopen = function (event) {
+            $("#connected").text('Successfully connected to the WebSocket Gateway');
+            var msg = JSON.stringify({"id": "to_esp8266_gateway"});
+            socket.send(msg);
+
+        };
+
+        socket.onclose = function (event) {
+            alert("The socket has closed!");
+        };
+
+        socket.onmessage = function (message) {
+            console.log('got message' + message.data);
+            console.log(message.data);
+            var msg = JSON.parse(message.data);
+            var report = msg["report"];
+            console.log(report);
+            //var params = msg["params"];
+            //console.log(params);
+
+            //var out = data;
+            ////console.log(out)
+            switch (report) {
+                case "analog_input": {
+                    //console.log('analog');
+                    var pin = msg["pin"];
+                    var value = msg["value"];
+                    var timestamp = msg["timestamp"];
+                    ////console.log(a)
+                    //var out = params[1];
+                    //console.log("out: " + out);
+                    switch (pin) {
+                        case 0:
+                            document.getElementById("ia0").value = value;
+                            document.getElementById("alevent0").value = timestamp;
+                            break;
+                        default:
+                            alert("unknown analog pin")
+
+
+                    }
+                    break;
+                }
+
+                case "digital_input": {
+                    console.log('digital input message');
+                    console.log(msg)
+
+                    pin = msg["pin"];
+                    value = msg["value"];
+                    timestamp = msg["timestamp"];
+                    ////console.log(a)
+                    //out = params[1];
+                    //console.log('digital message');
+                    //console.log('pin: ' + pin);
+                    //console.log('value =' + out);
+                    switch (pin) {
+
+                        case 2:
+                            document.getElementById("ip2").value = value;
+                            document.getElementById("dlevent2").value = timestamp;
+                            break;
+                        case 3:
+                            document.getElementById("ip3").value = value;
+                            document.getElementById("dlevent3").value = timestamp;
+                            break;
+                        case 4:
+                            document.getElementById("ip4").value = value;
+                            document.getElementById("dlevent4").value = timestamp;
+                            break;
+                        case 5:
+                            document.getElementById("ip5").value = value;
+                            document.getElementById("dlevent5").value = timestamp;
+                            break;
+                        case 6:
+                            document.getElementById("ip6").value = value;
+                            document.getElementById("dlevent6").value = timestamp;
+                            break;
+                        case 7:
+                            document.getElementById("ip7").value = value;
+                            document.getElementById("dlevent7").value = timestamp;
+                            break;
+                        case 8:
+                            document.getElementById("ip8").value = value;
+                            document.getElementById("dlevent8").value = timestamp;
+                            break;
+                        case 9:
+                            document.getElementById("ip9").value = value;
+                            document.getElementById("dlevent9").value = timestamp;
+                            break;
+                        case 10:
+                            document.getElementById("ip10").value = value;
+                            document.getElementById("dlevent10").value = timestamp;
+                            break;
+                        case 11:
+                            document.getElementById("ip11").value = value;
+                            document.getElementById("dlevent11").value = timestamp;
+                            break;
+                        case 12:
+                            document.getElementById("ip12").value = value;
+                            document.getElementById("dlevent12").value = timestamp;
+                            break;
+                        case 13:
+                            document.getElementById("ip13").value = value;
+                            document.getElementById("dlevent13").value = timestamp;
+                            break;
+                        case 14:
+                            document.getElementById("ip14").value = value;
+                            document.getElementById("dlevent14").value = timestamp;
+                            break;
+                        case 15:
+                            document.getElementById("ip15").value = value;
+                            document.getElementById("dlevent15").value = timestamp;
+                            break;
+                        case 16:
+                            document.getElementById("ip16").value = value;
+                            document.getElementById("dlevent16").value = timestamp;
+                            break;
+                        case 17:
+                            document.getElementById("ip17").value = value;
+                            document.getElementById("dlevent17").value = timestamp;
+                            break;
+                        case 18:
+                            document.getElementById("ip18").value = value;
+                            document.getElementById("dlevent18").value = timestamp;
+                            break;
+                        case 19:
+                            document.getElementById("ip19").value = value;
+                            document.getElementById("dlevent19").value = timestamp;
+                            break;
+                        default:
+                            alert("unknown digital pin");
+                        //console.log('unknown digital pin: ' + pin);
+                    }
+                }
+                    break;
+
+                case "i2c_data":
+                    //console.log('i2c_read_result');
+                    //console.log(params);
+                    value = msg["value"];
+                    document.getElementById("i2cReadResult").value = value;
+                    break;
+
+                case "sonar_data":
+                    value = msg["value"];
+                    document.getElementById("sonarValue").value = value;
+                    break;
+
+                case "digital_read_reply":
+                    document.getElementById('ddata').value = params[1];
+                    break;
+
+                case "analog_read_reply":
+                    document.getElementById('adata').value = params[1];
+                    break;
+
+
+                default:
+                    break;
+            }
+            //document.getElementById("ain").value = out;
+        };
+
+
+        function clicked(id) {
+            console.log('clicked: ' + id);
+            switch (id) {
+                // show the pwm value field
+                case 'pwm0':
+                    $("#v0").show();
+                    setPinModePWM(0);
+                    break;
+                case 'pwm2':
+                    $("#v2").show();
+                    setPinModePWM(2);
+                    break;
+                case 'pwm4':
+                    $("#v4").show();
+                    setPinModePWM(4);
+                    break;
+                case 'pwm5':
+                    $("#v5").show();
+                    setPinModePWM(5);
+                    break;
+                case 'pwm12':
+                    $("#v12").show();
+                    setPinModePWM(12);
+                    break;
+                case 'pwm13':
+                    $("#v13").show();
+                    setPinModePWM(13);
+                    break;
+                case 'pwm14':
+                    $("#v14").show();
+                    setPinModePWM(14);
+                    break;
+                case 'pwm15':
+                    $("#v15").show();
+                    setPinModePWM(15);
+                    break;
+
+                // hide the pwm field
+                case "p0low":
+                    $("#v0").hide();
+                    setPinModeDigitalOutput(0);
+                    digitalWrite(0, 0);
+                    break;
+                case "p0high":
+                    $("#v0").hide();
+                    setPinModeDigitalOutput(0);
+                    digitalWrite(0, 1);
+                    break;
+                case "p2low":
+                    $("#v2").hide();
+                    setPinModeDigitalOutput(2);
+                    digitalWrite(2, 0);
+                    break;
+                case "p2high":
+                    $("#v2").hide();
+                    setPinModeDigitalOutput(2);
+                    digitalWrite(2, 1);
+                    break;
+
+                case "p4low":
+                    $("#v4").hide();
+                    setPinModeDigitalOutput(4);
+                    digitalWrite(4, 0);
+                    break;
+
+                case "p4high":
+                    $("#v4").hide();
+                    setPinModeDigitalOutput(4);
+                    digitalWrite(4, 1);
+                    break;
+
+                case "p5low":
+                    $("#v5").hide();
+                    setPinModeDigitalOutput(5);
+                    digitalWrite(5, 0);
+                    break;
+                case "p5high":
+                    $("#v5").hide();
+                    setPinModeDigitalOutput(5);
+                    digitalWrite(5, 1);
+                    break;
+
+
+
+                case "p12low":
+                    $("#v12").hide();
+                    setPinModeDigitalOutput(12);
+                    digitalWrite(12, 0);
+                    break;
+
+                case "p12high":
+                    $("#v12").hide();
+                    setPinModeDigitalOutput(12);
+                    digitalWrite(12, 1);
+                    break;
+
+                case "p13low":
+                    $("#v13").hide();
+                    setPinModeDigitalOutput(13);
+                    digitalWrite(13, 0);
+                    break;
+
+                case "p13high":
+                    $("#v13").hide();
+                    setPinModeDigitalOutput(13);
+                    digitalWrite(13, 1);
+                    break;
+
+                case "p14low":
+                    $("#v14").hide();
+                    setPinModeDigitalOutput(14);
+                    digitalWrite(14, 0);
+                    break;
+
+                case "p14high":
+                    $("#v14").hide();
+                    setPinModeDigitalOutput(14);
+                    digitalWrite(14, 1);
+                    break;
+
+                case "p15low":
+                    $("#v15").hide();
+                    setPinModeDigitalOutput(15);
+                    digitalWrite(15, 0);
+                    break;
+
+                case "p15high":
+                    $("#v15").hide();
+                    setPinModeDigitalOutput(15);
+                    digitalWrite(15, 0);
+                    break;
+
+
+
+                case 'in0a':
+                    disableAnalogReporting(0);
+                    break;
+
+
+                case 'in0d':
+                    disableDigitalReporting(0);
+
+                case 'in2d':
+                    disableDigitalReporting(2);
+                    break;
+                case 'in3d':
+                    disableDigitalReporting(3);
+                    break;
+
+                case 'in4d':
+                    disableDigitalReporting(4);
+                    break;
+                case 'in5d':
+                    disableDigitalReporting(5);
+                    break;
+
+                case 'in6d':
+                    disableDigitalReporting(7);
+                    break;
+                case 'in7d':
+                    disableDigitalReporting(7);
+                    break;
+
+                case 'in8d':
+                    disableDigitalReporting(8);
+                    break;
+
+                case 'in9d':
+                    disableDigitalReporting(9);
+                    break;
+
+                case 'in10d':
+                    disableDigitalReporting(10);
+                    break;
+
+                case 'in11d':
+                    disableDigitalReporting(11);
+                    break;
+
+                case 'in12d':
+                    disableDigitalReporting(12);
+                    break;
+
+                case 'in13d':
+                    disableDigitalReporting(13);
+                    break;
+
+                case 'in14d':
+                    disableDigitalReporting(14);
+                    break;
+
+                case 'in15d':
+                    disableDigitalReporting(15);
+                    break;
+
+                case 'in16d':
+                    disableDigitalReporting(16);
+                    break;
+
+                case 'in17d':
+                    disableDigitalReporting(17);
+                    break;
+
+                case 'in18d':
+                    disableDigitalReporting(18);
+                    break;
+
+                case 'in19d':
+                    disableDigitalReporting(19);
+                    break;
+
+
+                case 'out0d':
+                    setPinModeDigitalInput(0);
+                    break;
+                case 'out2d':
+                    setPinModeDigitalInput(2);
+                    break;
+
+                case 'out3d':
+                    setPinModeDigitalInput(3);
+                    break;
+
+                case 'out4d':
+                    setPinModeDigitalInput(4);
+                    break;
+
+                case 'out5d':
+                    setPinModeDigitalInput(5);
+                    break;
+
+                case 'out6d':
+                    setPinModeDigitalInput(6);
+                    break;
+
+                case 'out7d':
+                    setPinModeDigitalInput(7);
+                    break;
+
+                case 'out8d':
+                    setPinModeDigitalInput(8);
+                    break;
+
+                case 'out9d':
+                    setPinModeDigitalInput(9);
+                    break;
+
+                case 'out10d':
+                    setPinModeDigitalInput(10);
+                    break;
+
+                case 'out11d':
+                    setPinModeDigitalInput(11);
+                    break;
+
+                case 'out12d':
+                    setPinModeDigitalInput(12);
+                    break;
+
+                case 'out13d':
+                    setPinModeDigitalInput(13);
+                    break;
+
+                case 'out14d':
+                    setPinModeDigitalInput(14);
+                    break;
+
+                case 'out15d':
+                    setPinModeDigitalInput(15);
+                    break;
+
+                case 'out16d':
+                    setPinModeDigitalInput(16);
+                    break;
+
+                case 'out17d':
+                    setPinModeDigitalInput(17);
+                    break;
+
+                case 'out18d':
+                    setPinModeDigitalInput(18);
+                    break;
+
+                case 'out19d':
+                    setPinModeDigitalInput(19);
+                    break;
+
+                case 'out0a':
+                    setPinModeAnalogInput(0);
+                    break;
+
+                case 'out1a':
+                    setPinModeAnalogInput(1);
+                    break;
+
+                case 'out2a':
+                    setPinModeAnalogInput(2);
+                    break;
+
+                case 'out3a':
+                    setPinModeAnalogInput(3);
+                    break;
+
+                case 'out4a':
+                    setPinModeAnalogInput(4);
+                    break;
+
+                case 'out5a':
+                    setPinModeAnalogInput(5);
+                    break;
+
+
+            }
+            //console.log(id);
+
+        }
+
+        function pwmChange(control) {
+            var pin = 0;
+            value = 0;
+            switch (control) {
+                case 'v0':
+                    pin = 0;
+                    break;
+                case 'v2':
+                    pin = 2;
+                    break;
+                case 'v4':
+                    pin = 4;
+                    break;
+                case 'v5':
+                    pin = 5;
+                    break;
+                case 'v12':
+                    pin = 12;
+                    break;
+                case 'v13':
+                    pin = 13;
+                    break;
+                case 'v14':
+                    pin = 14;
+                    break;
+                case 'v15':
+                    pin = 15;
+                    break;
+            }
+            value = document.getElementById(control).value;
+            value = parseInt(value)
+            var msg = JSON.stringify({"command": "pwm_write", "pin": pin, "value": value});
+            socket.send(msg);
+            console.log(pin + ':' + value);
+
+        }
+
+
+        function servo() {
+            pin = document.getElementById('servoPin').value;
+            pin = parseInt(pin)
+            console.log('servoPin: ' + pin);
+            var angle = document.getElementById('servoAngle').value;
+            angle = parseInt(angle)
+            console.log('servoAngle: ' + angle);
+
+            var msg = JSON.stringify({"command": "set_mode_servo", "pin": pin});
+            socket.send(msg);
+            msg = JSON.stringify({"command": "servo_position", "pin": pin, "position": angle});
+            socket.send(msg);
+
+        }
+
+        function setPinModeAnalogInput(pin) {
+            var msg = JSON.stringify({"command": "set_mode_analog_input", "pin": pin});
+            socket.send(msg);
+        }
+
+        function setPinModeDigitalInput(pin) {
+            var msg = JSON.stringify({"command": "set_mode_digital_input", "pin": pin});
+            socket.send(msg);
+
+        }
+
+        function setPinModeDigitalOutput(pin) {
+            var msg = JSON.stringify({"command": "set_mode_digital_output", "pin": pin});
+            socket.send(msg);
+
+        }
+
+        function setPinModePWM(pin) {
+            var msg = JSON.stringify({"command": "set_mode_pwm", "pin": pin});
+            socket.send(msg);
+
+        }
+
+        function digitalWrite(pin, value) {
+            msg = JSON.stringify({"command": "digital_write", "pin": pin, "value": value});
+            socket.send(msg);
+        }
+
+        function disableDigitalReporting(pin) {
+            msg = JSON.stringify({"command": "disable_digital_reporting", "pin": pin});
+            socket.send(msg);
+        }
+
+        function enableDigitalReporting(pin) {
+            msg = JSON.stringify({"command": "enable_digital_reporting", "pin": pin});
+            socket.send(msg);
+        }
+
+        function disableAnalogReporting(pin) {
+            msg = JSON.stringify({"command": "disable_analog_reporting", "pin": pin});
+            socket.send(msg);
+        }
+
+        function enbleAnalogReporting(pin) {
+            msg = JSON.stringify({"command": "endable_analog_reporting", "pin": pin});
+            socket.send(msg);
+        }
+
+
+        function playTone() {
+            pin = document.getElementById("tonePin").value;
+            pin = parseInt(pin, 10);
+            var frequency = document.getElementById("freq").value;
+            frequency = parseInt(frequency, 10);
+            var duration = document.getElementById("duration").value;
+            duration = parseInt(duration, 10);
+            msg = JSON.stringify({"command": "set_mode_tone", "pin": pin } )
+            socket.send(msg);
+
+            msg = JSON.stringify({"command": "play_tone", "pin": pin, "freq": frequency,
+                "duration": duration});
+            console.log(msg);
+            socket.send(msg);
+        }
+
+        function sonarRead() {
+            var trigger = document.getElementById("sonarTriggerPin").value;
+            var echo = document.getElementById("sonarEchoPin").value;
+            trigger = parseInt(trigger, 10);
+            echo = parseInt(echo, 10);
+
+
+            msg = JSON.stringify({"command": "set_mode_sonar", "trigger": trigger,
+            "echo": echo});
+            socket.send(msg);
+
+        }
+
+        function runStepMotor() {
+            console.log('runStepMotor');
+            var pin1 = document.getElementById("stepperPin1").value;
+            pin1 = parseInt(pin1, 10);
+            var pin2 = document.getElementById("stepperPin2").value;
+            pin2 = parseInt(pin2, 10);
+            var pin3 = document.getElementById("stepperPin3").value;
+            pin3 = parseInt(pin3, 10);
+            var pin4 = document.getElementById("stepperPin4").value;
+            pin4 = parseInt(pin4, 10);
+
+            var pins = [pin1, pin2, pin3, pin4]
+            var stepsPerRev = 512;
+            var speed = 20;
+
+            var steps = document.getElementById("numSteps").value;
+            steps = parseInt(steps, 10);
+
+            msg = JSON.stringify({"command": "set_mode_stepper",
+                "pins": pins, "steps_per_revolution": 20});
+            socket.send(msg);
+
+
+            msg = JSON.stringify({"command": "stepper_write", "motor_speed": speed,
+                    "number_of_steps": steps});
+            console.log(msg);
+            socket.send(msg);
+
+        }
+
+
+        function i2cWrite() {
+            var writeAddress = document.getElementById("i2cWriteAddress").value;
+            var writeData = document.getElementById("i2cWriteData").value;
+            var dummyPin = 0;
+            var writeData = JSON.parse("[" + writeData + "]");
+
+            msg = JSON.stringify({"command": "set_mode_i2c"});
+            socket.send(msg);
+
+
+            msg = JSON.stringify({
+                "command": "i2c_write",
+                "pin": parseInt(dummyPin, 10),
+                "addr": parseInt(writeAddress, 10),
+                "data": writeData
+            });
+            console.log(msg);
+            socket.send(msg);
+        }
+
+        function i2cReadRequest() {
+            var i2cAddress = document.getElementById("i2cReadAddress").value;
+            var i2cRegister = document.getElementById("i2cReadRegister").value;
+            var i2cNumBytes = document.getElementById("i2cReadNumBytes").value;
+
+            msg = JSON.stringify({"command": "set_mode_i2c"});
+            socket.send(msg);
+
+            msg = JSON.stringify({
+                "command": "i2c_read",
+                "pin": 0,
+                "addr": parseInt(i2cAddress, 10),
+                "register": parseInt(i2cRegister, 10),
+                "number_of_bytes": parseInt(i2cNumBytes, 10),
+            });
+            console.log(msg);
+            socket.send(msg);
+
+        }
+
+
+    </script>
+</form>
+</body>
+</html>

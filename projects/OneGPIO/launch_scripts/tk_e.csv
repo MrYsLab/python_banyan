@@ -1,0 +1,3 @@
+command_string,spawn,topic,append_bp_address,auto_restart,wait
+python3 ../esp_8266/esp8266_gateway.py -i 192.168.2.185,no,local,no,no,0
+python3 ../shared/banyan_tkinter_demo.py -d esp8266,no,local,no,no,0
