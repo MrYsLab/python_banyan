@@ -73,16 +73,6 @@ class RpiGateway(GatewayBase):
 
         print('pigpiod is running version: ', self.pi.get_pigpio_version())
 
-        # if we are going to use a backplane on the local computer
-        # let's start it up if it is not already running
-
-        if kwargs['back_plane_ip_address'] is None:
-            try:
-                run(['backplane'])
-            except zmq.ZMQError as e:
-                # already started - just keep going
-                pass
-
         # variables to hold instances of sonar and stepper
         self.sonar = None
         self.stepper = None

@@ -1,0 +1,3 @@
+command_string,spawn,topic,append_bp_address,auto_restart,wait
+python3 ../raspberry_pi/rpi_gateway.py,no,local,no,no,0
+python3 ../shared/blinker.py -d rpi -g 4,no,local,no,no,0
