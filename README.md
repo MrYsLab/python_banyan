@@ -4,10 +4,13 @@
 
 The Python Banyan Framework is a lightweight, reactive framework used to
 create flexible, non-blocking, event driven, asynchronous applications.
-It was designed primarily to aid in the implementation of real-time physical computing applications
- for devices such as
- the Raspberry Pi, ESP8266,  and Arduino,
-but may easily be applied to projects outside of the physical programming domain.
+
+Python Banyan comes with [full documentation](https://mryslab.github.io/python_banyan/#)
+ that includes a [User's Guide](https://mryslab.github.io/python_banyan/#users_guide/) 
+ with hands-on examples, as well documentation for the
+ [OneGPIO Project](https://mryslab.github.io/python_banyan/#gpio_intro/) 
+ that allows you to quickly and easily build reusable GPIO projects for the
+ Arduino, ESP-8266, and Raspberry Pi.
 
 It is being used by [Palace Games](https://www.raspberrypi.org/blog/raspberry-pi-escape-room/)
 to concurrently monitor hundreds of real-time sensors and actuators.
@@ -21,15 +24,10 @@ multiple computers without having to change source code.
 [Java](https://github.com/MrYsLab/javabanyan). Components written in any of these languages can interact with components of a differing language without modification.
 * Runs on Python 2 or Python 3 (recommended).
 
-New Features Introduced in 3.0
-* An MQTT Gateway to interconnect MQTT and Banyan networks so that data may be shared.
-* A new "learn by example" [User's Guide](https://mryslab.github.io/python_banyan/) is provided.
-* A component launcher that will allows you to launch Banyan components on a single 
-computer or multiple computers, all from a single command.
 
-Use pip to install. View the full [installation instructions](https://mryslab.github.io/python_banyan/install/#installing-python-banyan_1)
+To install,  view the full [installation instructions.](https://mryslab.github.io/python_banyan/install/#installing-python-banyan_1)
 
-A Sample Banyan Component:
+A Simple Banyan Echo Server:
 
 ```
 import sys
@@ -66,6 +64,63 @@ class EchoServer(BanyanBase):
         
         # extract the message number from the payload
         print('Message number:', payload['message_number'])
+
+```
+
+A Simple Banyan Echo Client:
+
+```
+import sys
+from python_banyan.banyan_base import BanyanBase
+
+
+class EchoClient(BanyanBase):
+    """
+    This is a simple echo client derived from the BanyanBase class. 
+    It sends out a series of messages and expects an
+    echo reply from the server.
+    """
+
+    def __init__(self):
+
+        # initialize the parent
+        super(EchoClient, self).__init__(process_name='EchoClient')
+
+        # accept banyan messages with the topic of reply
+        self.set_subscriber_topic('reply')
+
+        # sequence number of messages and total number of messages to send
+        self.message_number = self.number_of_messages = 10
+
+        # send the first message - make sure that the server is already started
+        self.publish_payload({'message_number': self.message_number}, 'echo')
+
+        # get the reply messages
+        try:
+            self.receive_loop()
+        except KeyboardInterrupt:
+            self.clean_up()
+            sys.exit(0)
+
+    def incoming_message_processing(self, topic, payload):
+        """
+        Process incoming messages received from the echo client
+        :param topic: Message Topic string
+        :param payload: Message Data
+        """
+
+        # When a message is received and its number is zero, finish up.
+        if payload['message_number'] == 0:
+            print(str(self.number_of_messages) + ' messages sent and received. ')
+            input('Press enter to exit.')
+            self.clean_up()
+            sys.exit(0)
+        # bump the message number and send the message out
+        else:
+            self.message_number -= 1
+            if self.message_number >= 0:
+                self.publish_payload({'message_number': self.message_number}, 'echo')
+
 
 ```
 
