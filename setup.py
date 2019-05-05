@@ -5,7 +5,7 @@ with open('pypi_desc.md') as f:
 
 setup(
     name='python-banyan',
-    version='3.2',
+    version='3.3',
     packages=[
         'python_banyan',
         'python_banyan.banyan_base',
@@ -21,12 +21,12 @@ setup(
     ],
     install_requires=[
         'pyzmq',
-        'u-msgpack-python',
         'msgpack-python',
         'numpy>=1.9',
         'msgpack-numpy',
         'psutil',
-        'apscheduler'
+        'apscheduler',
+        'websockets'
     ],
 
     entry_points={
