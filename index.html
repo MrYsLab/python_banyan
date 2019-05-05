@@ -1,338 +1,254 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="None">
   
-  <link rel="shortcut icon" href="img/favicon.ico">
-  <title>User's Guide - Python Banyan</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="None">
+    
+    
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Python Banyan</title>
+    <link href="./css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="./css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="./css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 
-  <link rel="stylesheet" href="css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "User's Guide";
-    var mkdocs_page_input_path = "index.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="js/jquery-2.1.1.min.js" defer></script>
-  <script src="js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/bootstrap-3.3.7.min.js"></script>
+    <script src="./js/highlight.pack.js"></script>
+    
+      <script src="./js/elasticlunr.min.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '.';
+      var is_top_frame = (window === window.parent);
+        
+        var pageToc = [
+        ];
+
+    </script>
+    <script src="./js/base.js"></script> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
 
-  <div class="wy-grid-for-nav">
-
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> Python Banyan</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="./search.html">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href=".">User's Guide</a>
-    <ul class="subnav">
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
             
-    <li class="toctree-l2"><a href="#what-is-python-banyan">What is Python Banyan?</a></li>
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-right wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+    </div>
+
+    
     
 
-    <li class="toctree-l2"><a href="#a-little-more-detail-about-python-banyan">A Little More Detail About Python Banyan</a></li>
     
-        <ul>
+    <a href="" class="wm-top-brand wm-top-link wm-vcenter">
+      
+      <div class="wm-top-title">
+        Python Banyan<br>
         
-            <li><a class="toctree-l3" href="#banyan-base-classes">Banyan Base Classes</a></li>
-        
-            <li><a class="toctree-l3" href="#banyan-protocol-messages">Banyan Protocol Messages</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l2"><a href="#where-is-python-banyan-being-used">Where Is Python Banyan Being Used?</a></li>
-    
-
-    <li class="toctree-l2"><a href="#banyan-application-design">Banyan Application Design</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#some-design-guidelines">Some Design Guidelines</a></li>
-        
-        </ul>
-    
-
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="install/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Python Banyan By Example</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="examples_intro/">Introduction</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="example1/">Tutorial 1  - A Simple Echo Server/Client</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="example2/">Tutorial 2  - Adding Command Line Options To A Component</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="example3/">Tutorial 3  - Distributed Applications</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="example4/">Tutorial 4  - Applications From Components On Differing Platforms</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="example5/">Tutorial 5  - Debugging Using The Monitor</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="example6/">Tutorial 6  - Integrating With A GUI Event Loop</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="example7/">Tutorial 7  - Installing Components As Executable Modules</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="example8/">Tutorial 8  - Using the Banyan Launcher</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="example9/">Tutorial 9  - Connecting To Multiple Backplanes</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="example10/">Tutorial 10 - Connecting Banyan To An MQTT Network</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="example11/">Tutorial 11 - Physical Computing And GPIO</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="benchmark/">Comparing Banyan and MQTT</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="about/">About</a>
-	    </li>
-          
-        </ul>
       </div>
-      &nbsp;
-    </nav>
+    </a>
+  </div>
+</nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">Python Banyan</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
+  <div id="main-content" class="wm-page-top-frame">
     
-      
-    
-    <li>User's Guide</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        <li class="wm-toc-li wm-toc-lev1 "><a href="" class="wm-article-link wm-toc-text">Welcome</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">User's Guide</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="users_guide/" class="wm-article-link wm-toc-text">What Is The Python Banyan?</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="install/" class="wm-article-link wm-toc-text">Installation</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="examples_intro/" class="wm-article-link wm-toc-text">Introduction To The Tutorials</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="example1/" class="wm-article-link wm-toc-text">Tutorial 1  - A Simple Echo Server/Client</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="example2/" class="wm-article-link wm-toc-text">Tutorial 2  - Adding Command Line Options To A Component</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="example3/" class="wm-article-link wm-toc-text">Tutorial 3  - Distributed Applications</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="example4/" class="wm-article-link wm-toc-text">Tutorial 4  - Applications From Components On Differing Platforms</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="example5/" class="wm-article-link wm-toc-text">Tutorial 5  - Debugging Using The Monitor</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="example6/" class="wm-article-link wm-toc-text">Tutorial 6  - Integrating With A GUI Event Loop</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="example7/" class="wm-article-link wm-toc-text">Tutorial 7  - Installing Components As Executable Modules</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="example8/" class="wm-article-link wm-toc-text">Tutorial 8  - Using the Banyan Launcher</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="example9/" class="wm-article-link wm-toc-text">Tutorial 9  - Connecting To Multiple Backplanes</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="example10/" class="wm-article-link wm-toc-text">Tutorial 10 - Connecting Banyan To An MQTT Network</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="example11/" class="wm-article-link wm-toc-text">Tutorial 11 - Physical Computing And GPIO</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="benchmark/" class="wm-article-link wm-toc-text">Comparing Banyan and MQTT</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="about/" class="wm-article-link wm-toc-text">About</a>
+</li>
   </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <p><img align="left" src="./images/BanyanTree4.png"></p>
-<p><center><span style="color:#990033; font-family:Georgia; font-size:4em;">Python Banyan</span></center></p>
-<p><center><span style="color:#990033; font-family:Georgia; font-size:3em;"><em>A User's Guide</em></span></center></p>
-<p>Last Modified February 15 2019</p>
-<hr />
-<h1 id="what-is-python-banyan">What is Python Banyan?</h1>
-<p>Python Banyan is a lightweight, <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">reactive</a> framework used to
-create <a href="http://ptgmedia.pearsoncmg.com/images/9780134602417/samplepages/9780134602417.pdf">flexible</a>, <a href="https://www.allthingsdistributed.com/historical/archives/000486.html">non-blocking, event
-driven,
-asynchronous</a> applications.
-It was designed primarily to aid in the implementation of real-time physical computing applications
- for devices such as
- the Raspberry Pi, ESP8266,  and Arduino,
-but may easily be applied to projects outside of the physical programming domain.</p>
-<p>Banyan uses a <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">publish/subscribe</a>
- model that is similar to <a href="https://en.wikipedia.org/wiki/MQTT">MQTT</a>, but is much faster than MQTT in
- real-time control and data monitoring applications.
- A <a href="benchmark/#benchmark">benchmark comparison</a> of Banyan
-and MQTT is provided later in this guide to illustrate Banyan's efficiency.
-If your application requires connectivity to an MQTT broker, a <a href="example10">Gateway</a> is provided.</p>
-<p>Most traditional physical computing libraries or frameworks use an <em>object oriented</em> model,
-that yield a single,
-tightly coupled, monolithic executable image. Python Banyan uses an extension of the object oriented model, called
-the <em><a href="https://en.wikipedia.org/wiki/Component-based_software_engineering">component based</a> <a href="https://en.wikipedia.org/wiki/Service-oriented_architecture">service oriented architectural</a></em>
-model. A <strong><em>component based</em></strong> application consists of a set of independent, loosely
-coupled <strong><em>components</em></strong>, that communicate with one another through a set
-of platform independent, user defined, protocol messages transmitted over a TCP network.</p>
-<p>A Banyan application is composed of a set of <em>components</em> running concurrently as separate processes.
-These <em>components</em> can be developed using a single language platform such as Python, or developed using any of the other Banyan frameworks.
-There are versions of Banyan available for <a href="https://github.com/MrYsLab/js-banyan">JavaScript</a>, <a href="https://github.com/MrYsLab/rb_banyan">Ruby</a>,
- and <a href="https://github.com/MrYsLab/javabanyan">Java</a>. Components developed using dissimilar languages can be combined
- without modification, to form a single, cohesive application.</p>
-<p>Banyan uses a central message distribution mechanism called the <strong><em>Backplane</em></strong>. When first starting a Banyan application,
-the <em>Backplane</em> is brought on-line, followed by
-the application's components.
-At startup, each
- <em>component</em> automatically
-"plugs" itself into the <em>Backplane</em> establishing a TCP/IP communication channel between itself and the Backplane.</p>
-<p>After communication is established, components may publish messages <em>to</em> the Backplane, receive messages from other components or both
-publish and receive messages. A major feature of Python Banyan
-is that it has the capability to incorporate <a href="http://www.numpy.org/">Numpy</a> data into a protocol message
- seamlessly and easily.</p>
-<p>Without modification, a Banyan application's components can run on a single computer or distributed across multiple computers.
-This will be <a href="example3/">demonstrated later</a> on in this document.</p>
-<h1 id="a-little-more-detail-about-python-banyan"><em>A Little More Detail About Python Banyan</em></h1>
-<h2 id="banyan-base-classes">Banyan Base Classes</h2>
-<p>All Banyan components are created by inheriting from one of the supplied Banyan base classes.
- The base class methods are overridden as needed to
- support the component's specific needs.</p>
-<p>The base classes act as a wrapper for the <a href="http://zeromq.org/">ZeroMQ</a> embeddable networking library that has been configured
- to operate in a Publish/Subscribe networking pattern.
-In addition, the base class encodes and decodes protocol messages for efficient network transmission,
-using <a href="https://msgpack.org/index.html">MessagePack</a>.</p>
-<h2 id="banyan-protocol-messages">Banyan Protocol Messages</h2>
-<p>Banyan protocol messages consist of 2 parts, a "topic" and a "payload".</p>
-<h3 id="the-topic-string">The Topic String</h3>
-<p>A message topic consists of a simple string. To receive messages, a component
-subscribes to one or more topics. A subscribing component receives all messages published
-containing the desired topic.</p>
-<h4 id="prefix-matching">Prefix Matching</h4>
-<p>When a message is received, the topic is compared to the subscribed topic, and if it matches,
-the message is placed on the component's receive queue. Any topic that begins with the subscribed topic string
-is considered a match even if the received message topic contains additional text.
- For example, if you subscribe to the topic <strong>"abcd"</strong>, and a message is received
-with a topic of <strong>"abcde"</strong>, the "abcde" message will be placed on the receive queue. Any messages that have topics
-that begin with the subscribed topic string are considered a match even though the topic may contain additional text.</p>
-<h3 id="the-message-payload">The Message Payload</h3>
-<p>Message payloads consist of a Python dictionary type structure, containing one or more name/value items.
- By utilizing a dictionary, message data can be quickly de-referenced and processed.</p>
-<p>Because Banyan messages are not computer language specific, components written in other computer Languages, such as
- JavaScript, can be used within a Python Banyan application. A simple <a href="example4/">JavaScript demo</a> is provided as one
- of the included examples.</p>
-<h1 id="where-is-python-banyan-being-used">Where Is Python Banyan Being Used?</h1>
-<p>Commercially, Python Banyan has been chosen by Palace Games in San Francisco to monitor and control
-their <a href="https://palace-games.com/edison-escape-room/">Palace Games Edison Room</a>.
- The Edison room contains several hundred sensors and actuators, and Banyan helps tie all the devices
-and their associated micro-controllers together, allowing them to
-communicate quickly and transparently with one another. Banyan supports data transfers of Numpy data,
-which the Edison
-room uses to efficiently model their data. You can read about Palace Games on the
-<a href="https://www.raspberrypi.org/blog/raspberry-pi-escape-room/">Raspberry Pi Blog</a>.</p>
-<p>Banyan is also being used in numerous physical computing projects utilizing the Raspberry Pi, Arduino, and ESP8266.
-An earlier version of Python Banyan, called <a href="https://github.com/MrYsLab/razmq">razmq</a>, was used to control a Raspberry Pi robot.</p>
-<h1 id="banyan-application-design">Banyan Application Design</h1>
-<p>When designing a Banyan Component, it is good practice to keep it as small as
-possible. By limiting a component to a small area of concern, testing is greatly
-simplified and the potential for component reuse increases.</p>
-<h2 id="some-design-guidelines">Some Design Guidelines</h2>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">The OneGPIO Project</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="gpio_intro/" class="wm-article-link wm-toc-text">Introduction</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="common_messaging_protocol/" class="wm-article-link wm-toc-text">The OneGPIO Messaging Protocol</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="banyan_gateways/" class="wm-article-link wm-toc-text">OneGPIO Gateways</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="additional_gateways/" class="wm-article-link wm-toc-text">Additional Banyan Gateways</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="one_gpio_demos/" class="wm-article-link wm-toc-text">OneGPIO Demos</a>
+</li>
+  </ul>
+</li>
+
+  </ul>
+</nav>
+
+    <div class="wm-content-pane">
+      <iframe class="wm-article" name="article"></iframe>
+    </div>
+  </div>
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="users_guide/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="users_guide/" class="btn btn-xs btn-link">
+        What Is The Python Banyan?
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p><img src="images/BanyanTree.png" alt="BanyanTree" align=bottom style="float:left;margin-right:35px;
+width:250px;height:250px;">
+<br></br></p>
+<p><span style="text-align:center; color:#990033; font-family:times, serif; font-size:3em"> 
+  Programming
+  </span></p>
+<p><span style="text-align:center; color:#990033; font-family:times, serif; font-size:3em"> 
+   &nbsp;&nbsp; &nbsp;&nbsp; With
+  </span></p>
+<p><span style="text-align:center; color:#990033; font-family:times, serif; font-size:3em"> 
+  Python Banyan
+  </span></p>
+<p><br>
+<br>
+<p align="left"></p>
+<br>
+<span style="font-family:font-family:times, serif; font-size:1.0em;"><b>The Python Banyan Framework is a lightweight,
+ reactive framework used to create flexible, non-blocking, event driven, 
+ asynchronous applications. It was designed primarily to aid in the 
+ implementation of real-time physical computing applications for 
+ devices such as the Raspberry Pi, ESP8266,  and Arduino, but may easily 
+ be applied to projects outside of the physical programming domain.</b></span></p>
+<p><span style="font-family:Georgia; font-size:1.0em;"><b>Here you will learn:</b></span></p>
 <ul>
 <li>
-<p>A component should subscribe to the minimal number of message topics as possible.</p>
+<p><a href="users_guide/"><strong>How To Use Python Banyan</strong></a></p>
 </li>
 <li>
-<p>Keep messages as short as possible.</p>
-</li>
-<li>
-<p>Limit the component to its task at hand. For example if you wish to log application activity,
-create a specific logging component. All other components can take advantage of this logging facility
-in a consistent fashion. It also offloads logging I/O from the main component, promoting higher performance
-for the system as a whole.</p>
+<p><a href="gpio_intro/"><strong>How To Create Physical Computing Projects With The OneGPIO API Specification</strong></a></p>
 </li>
 </ul>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+<p><br>
+<br>
+<br></p>
+<p>Last Updated: 5 May 2019</p>
+
+  <br>
+    
+
+    
+    
       
-        <a href="install/" class="btn btn-neutral float-right" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="users_guide/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="users_guide/" class="btn btn-xs btn-link">
+        What Is The Python Banyan?
+      </a>
     </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-      
-        <span style="margin-left: 15px"><a href="install/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+    <br>
 </div>
-    <script>var base_url = '.';</script>
-    <script src="js/theme.js" defer></script>
-      <script src="search/main.js" defer></script>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
 
 </body>
 </html>
-
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-02-14 20:07:39
+Build Date UTC : 2019-05-05 15:25:05
 -->

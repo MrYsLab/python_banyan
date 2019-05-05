@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Introduction - Python Banyan</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "\"Standard\" Function Call GPIO API Libraries", url: "#_top", children: [
+          ]},
+          {title: "The Banyan OneGPIO API", url: "#the-banyan-onegpio-api", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../common_messaging_protocol/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../common_messaging_protocol/" class="btn btn-xs btn-link">
+        The OneGPIO Messaging Protocol
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../about/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../about/" class="btn btn-xs btn-link">
+        About
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p><span style="color:#990033; font-family:Georgia; font-size:3em;">Introducing OneGPIO</span></p>
+<p><strong><em>OneGPIO</em></strong> is a generalized GPIO specification and framework that will allow you to quickly construct 
+GPIO based
+<em>projects</em> that are both <em>target hardware</em> 
+and <em>computer language</em> independent. This independence is
+accomplished by taking advantage of 
+the 
+abstract nature of the <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/message_specification/OneGPIO.pdf">OneGPIO message set</a>
+and the <a href="../users_guide/">Python Banyan Framework.</a></p>
+<p>A OneGPIO project is typically comprised of 2 main elements - a single OneGPIO Application
+Component, and one or more OneGPIO Gateways. The application component is unique for each project,
+and the Gateways are reusable components that need no modification when going from one project to
+ another. </p>
+<p>The Application Component contains all the GPIO control logic for your application,
+as well as the logic to process report messages sent from the target hardware. It performs its
+control duties by assembling and publishing OneGPIO control
+messages, ultimately to be consumed by one or more OneGPIO
+Gateways, and by subscribing to receive OneGPIO report messages sent by the OneGPIO Gateways
+on behalf of the target hardware.</p>
+<p>Once you have a OneGPIO project functional for a specific target hardware set, you may run that project
+on different target hardware just by enabling the OneGPIO gateway for that target - no code changes
+needed. </p>
+<p><img alt="" src="../images/one_gpio.png" /></p>
+<p>Included with this distribution are several demonstration applications that use
+a single OneGPIO application component (or a variation of that component) to control
+Arduino, ESP-8266, and Raspberry Pi targets. </p>
+<p>For those in a hurry to see OneGPIO in action, you can skip to 
+the <a href="../one_gpio_demos/">demonstration section of this document.</a></p>
+<h2 id="standard-function-call-gpio-api-libraries">"Standard" Function Call GPIO API Libraries</h2>
+<p>GPIO API libraries, such as <a href="http://abyz.me.uk/rpi/pigpio/"><em>pigpio</em></a> 
+and <a href="https://gpiozero.readthedocs.io/en/stable/"><em>Gpiozero</em></a> 
+(supporting the Raspberry Pi), and
+<a href="https://mryslab.github.io/pymata-express/"><em>pymata-express</em></a>, 
+(supporting the Arduino), all provide software abstractions for GPIO
+control. All of these libraries are written in Python and use function
+or method calls to implement the API. </p>
+<p>Using any of these libraries essentially result in the same
+electrical outcomes, but they have widely differing syntax structures.</p>
+<p>For example, if we wish to take advantage of PWM functionality to set an LED's 
+illumination level or a motor's speed, 
+we might utilize a specific GPIO API library.</p>
+<p>The table below illustrates the PWM API interface for the three libraries mentioned
+above.</p>
+<table>
+<thead>
+<tr>
+<th>GPIO Operation</th>
+<th>pigpio</th>
+<th>Gpiozero</th>
+<th>pymata-express</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Set Pin To PWM Mode</td>
+<td>pi.set_mode(PIN, pigpio.OUTPUT)</td>
+<td>led = PWMLED(PIN)</td>
+<td>set_pin_mode_pwm(PIN)</td>
+</tr>
+<tr>
+<td>Set PWM Pin Value To 50%</td>
+<td>pi.set_PWM_dutycycle(PIN, 128)</td>
+<td>led.value = 0.5</td>
+<td>analog_write(PIN, 128)</td>
+</tr>
+</tbody>
+</table>
+<p>As you can plainly see, each library has its own unique way of expressing GPIO operations.</p>
+<p>Because of the syntax differences, it makes
+porting a hardware project from one hardware platform to another,
+a laborious and tedious process, not to mention being error prone and time consuming.
+It also severely hampers the possibility of code reuse for future projects.</p>
+<h2 id="the-banyan-onegpio-api">The Banyan OneGPIO API</h2>
+<p>OneGPIO takes advantage of the portable nature of Banyan protocol messages to
+provide a unified GPIO API. In addition to the OneGPIO GPIO message specification,
+the OneGPIO concept specifies a framework for building specialized Banyan components,
+ called Banyan GPIO Gateways. These specialized components translate 
+OneGPIO messages to and from a specific hardware platform. The OneGPIO project
+includes fully functional Banyan Gateways for the Arduino, 
+ESP-8266 and Raspberry Pi.</p>
+<p>A single OneGPIO control component can control a single hardware target, or
+multiple targets simultaneously without any code changes. </p>
+<p>All OneGPIO Gateways
+are derived from a Gateway Base class making it easy to create new
+Banyan Gateways. </p>
+<p>You may use the included <a href="../banyan_gateways/">OneGPIO Gateways</a> as is, 
+or you may easily customize them to meet your
+specific needs.</p>
+<p>In the following sections we will:</p>
+<ul>
+<li>Discuss the OneGPIO messaging protocol</li>
+<li>Discuss Banyan OneGPIO Gateway internals</li>
+<li>
+<p>Discuss the included demonstration programs</p>
+<ul>
+<li>Demonstrate a single OneGPIO Application Component that can blink an LED on an Arduino, ESP-8266, or Raspberry Pi</li>
+<li>Demonstrate how a single OneGPIO tkinter Application Component is able to control
+a Raspberry Pi, Arduino and ESP-8266</li>
+</ul>
+<p><img alt="" src="../images/tk_banyan.png" /></p>
+<ul>
+<li>Demonstrate a Banyan WebSocket gateway that allows an HTML web page to control
+any of the 3 hardware platforms</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../images/web_banyan.png" /></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../common_messaging_protocol/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../common_messaging_protocol/" class="btn btn-xs btn-link">
+        The OneGPIO Messaging Protocol
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../about/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../about/" class="btn btn-xs btn-link">
+        About
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
