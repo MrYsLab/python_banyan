@@ -1,3 +1,0 @@
-command_string,spawn,topic,append_bp_address,auto_restart,wait
-python ../raspberry_pi/bg4rpi.py,no,local,no,no,0
-python ../shared/banyan_tkinter_demo.py -d rpi,no,local,no,no,0
