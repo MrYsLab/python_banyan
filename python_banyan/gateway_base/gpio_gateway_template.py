@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-crickit_gateway.py
+crickit_gatewaySAVE.py
 
  Copyright (c) 2017-2019 Alan Yorinks All right reserved.
 
@@ -32,6 +32,9 @@ class GpioGatewayTemplate(GatewayBase):
 
     Search for GpioGatewayTemplate and gpio_gateway_template, and then replace
     with a names of your own making.
+
+    Change the -l and -n options at the bottom of this file
+    to be consistent with the specific board type
     """
 
     # noinspection PyDefaultArgument,PyRedundantParentheses
@@ -53,19 +56,24 @@ class GpioGatewayTemplate(GatewayBase):
 
         """
         # initialize the parent
-        super(GpioGatewayTemplate, self).__init__(subscriber_list=subscriber_list,
-                                             back_plane_ip_address=kwargs[
-                                                 'back_plane_ip_address'],
-                                             subscriber_port=kwargs[
-                                                 'subscriber_port'],
-                                             publisher_port=kwargs[
-                                                 'publisher_port'],
-                                             process_name=kwargs[
-                                                 'process_name'],
-                                             board_type=kwargs['board_type']
-                                             )
-        # for neopixel control
-        self.pixels = None
+        super(GpioGatewayTemplate, self).__init__(
+            subscriber_list=subscriber_list,
+            back_plane_ip_address=kwargs[
+                'back_plane_ip_address'],
+            subscriber_port=kwargs[
+                'subscriber_port'],
+            publisher_port=kwargs[
+                'publisher_port'],
+            process_name=kwargs[
+                'process_name'],
+            board_type=kwargs['board_type']
+            )
+        # start the banyan receive loop
+        try:
+            self.receive_loop()
+        except KeyboardInterrupt:
+            self.clean_up()
+            sys.exit(0)
 
     def init_pins_dictionary(self):
         """
@@ -316,10 +324,10 @@ def gpio_gateway_template():
                         help="This parameter identifies the target GPIO "
                              "device")
     parser.add_argument("-l", dest="subscriber_list",
-                        default="from_crickit_gui", nargs='+',
+                        default="from_device_gui", nargs='+',
                         help="Banyan topics space delimited: topic1 topic2 "
                              "topic3")
-    parser.add_argument("-n", dest="process_name", default="CrickitGateway",
+    parser.add_argument("-n", dest="process_name", default="DeviceGateway",
                         help="Set process name in banner")
     parser.add_argument("-p", dest="publisher_port", default='43124',
                         help="Publisher IP port")
@@ -338,7 +346,8 @@ def gpio_gateway_template():
         'publisher_port': args.publisher_port,
         'subscriber_port': args.subscriber_port,
         'process_name': args.process_name,
-        'loop_time': float(args.loop_time) }
+        'loop_time': float(args.loop_time),
+        'board_type': args.board_type}
 
     try:
         app = GpioGatewayTemplate(args.subscriber_list, **kw_options)
