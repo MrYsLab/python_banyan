@@ -123,9 +123,7 @@ class BanyanBase(object):
                 raise RuntimeError('Backplane is not running - please start it.')
             # determine this computer's IP address
             s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            # use the google dns
-            s.connect(('8.8.8.8', 0))
-            self.back_plane_ip_address = s.getsockname()[0]
+            self.back_plane_ip_address = socket.gethostbyname(socket.gethostname())
 
         self.subscriber_port = subscriber_port
         self.publisher_port = publisher_port
