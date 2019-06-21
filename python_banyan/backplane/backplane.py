@@ -58,7 +58,7 @@ class BackPlane:
 
         # use the google dns to figure out the machine's address and use that address for the backplane.
         # this precludes the necessity of having a network configuration file.
-        s.connect(('8.8.8.8', 0))
+        s.connect(('github.com', 80))
         self.bp_ip_address = s.getsockname()[0]
 
         print('\n******************************************')
