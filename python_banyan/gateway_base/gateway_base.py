@@ -42,10 +42,11 @@ class GatewayBase(BanyanBase):
     SONAR_MODE = 10
     WILD_CARD_MODE = 11
 
-    # board types
+    # target gpio device types types
     ARDUINO = 0
     RPi = 1
     ESP8266 = 2
+    CRICKIT = 3
 
     # noinspection PyDefaultArgument,PyRedundantParentheses
     def __init__(self, back_plane_ip_address=None, subscriber_port='43125',
