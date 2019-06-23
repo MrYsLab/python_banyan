@@ -29,8 +29,14 @@ class TestBanyanBase(object):
         b = BanyanBase()
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         # use the google dns
-        s.connect(('8.8.8.8', 0))
-        back_plane_ip_address = s.getsockname()[0]
+        try:
+            s.connect(('8.8.8.8', 1))
+            back_plane_ip_address = s.getsockname()[0]
+        except:
+            back_plane_ip_address = '127.0.0.1'
+        finally:
+            s.close()
+
         b.clean_up()
         assert b.back_plane_ip_address == back_plane_ip_address
 

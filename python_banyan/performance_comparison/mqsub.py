@@ -47,8 +47,13 @@ class MQSUB(mqtt.Client):
         # determine current IP address of the local computer
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         # use the google dns
-        s.connect(('8.8.8.8', 0))
-        self.ip_address = s.getsockname()[0]
+        try:
+            s.connect(('8.8.8.8', 1))
+            self.ip_address = s.getsockname()[0]
+        except:
+            self.ip_address = '127.0.0.1'
+        finally:
+            s.close()
 
         self.connect(self.ip_address, 1883, 60)
         self.subscribe("test", 0)
