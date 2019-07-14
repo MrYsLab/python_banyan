@@ -232,9 +232,9 @@ are then added to a Python dictionary called kw_options.</p>
    142                          help=&quot;Subscriber IP port&quot;)
    143      parser.add_argument(&quot;-t&quot;, dest=&quot;loop_time&quot;, default=&quot;.1&quot;,
    144                          help=&quot;Event Loop Timer in seconds&quot;)
-   145
+   145  
    146      args = parser.parse_args()
-   147
+   147  
    148      if args.back_plane_ip_address == 'None':
    149          args.back_plane_ip_address = None
    150      kw_options = {'back_plane_ip_address': args.back_plane_ip_address,
@@ -243,24 +243,23 @@ are then added to a Python dictionary called kw_options.</p>
    153                    'subscriber_port': args.subscriber_port,
    154                    'process_name': args.process_name,
    155                    'loop_time': float(args.loop_time)}
-   156
+   156  
    157      # replace with the name of your class
-   158      app = EchoCmdClient(**kw_options)
-   159
-   160      # signal handler function called when Control-C occurs
-   161      def signal_handler(signal, frame):
-   162          print(&quot;Control-C detected. See you soon.&quot;)
-   163          app.clean_up()
-   164          sys.exit(0)
-   165
-   166      # listen for SIGINT
-   167      signal.signal(signal.SIGINT, signal_handler)
-   168      signal.signal(signal.SIGTERM, signal_handler)
-   169
-   170
+   158      EchoCmdClient(**kw_options)
+   159  
+   160  
+   161  # signal handler function called when Control-C occurs
+   162  def signal_handler(sig, frame):
+   163      raise KeyboardInterrupt
+   164  
+   165  
+   166  # listen for SIGINT
+   167  signal.signal(signal.SIGINT, signal_handler)
+   168  signal.signal(signal.SIGTERM, signal_handler)
+   169  
+   170  
    171  if __name__ == '__main__':
    172      echo_cmdline_client()
-
 </code></pre>
 
 <h2 id="using-the-m-option">Using The -m Option</h2>

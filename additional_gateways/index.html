@@ -348,21 +348,20 @@ to WebSocket client on line 163</p>
    202      # get the event loop
    203      loop = asyncio.get_event_loop()
    204  
-   205      app = WsGateway(*subscription_list, **kw_options, event_loop=loop)
+   205      WsGateway(*subscription_list, **kw_options, event_loop=loop)
    206  
-   207      # noinspection PyUnusedLocal
-   208      def signal_handler(sig, frame):
-   209          print(&quot;Control-C detected. See you soon.&quot;)
-   210          app.clean_up()
-   211          sys.exit(0)
+   207  
+   208  def signal_handler(sig, frame):
+   209      print('Exiting Through Signal Handler')
+   210      raise KeyboardInterrupt
+   211  
    212  
-   213      # listen for SIGINT
-   214      signal.signal(signal.SIGINT, signal_handler)
-   215      signal.signal(signal.SIGTERM, signal_handler)
+   213  # listen for SIGINT
+   214  signal.signal(signal.SIGINT, signal_handler)
+   215  signal.signal(signal.SIGTERM, signal_handler)
    216  
-   217  
-   218  if __name__ == '__main__':
-   219      ws_gateway()
+   217  if __name__ == '__main__':
+   218      ws_gateway()
 </code></pre>
 
 <p>Lines 167-219 implement the standard way of instantiating a 
