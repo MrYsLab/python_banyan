@@ -107,21 +107,17 @@ def monitor():
     else:
         kw_options['numpy'] = False
 
-    my_monitor = Monitor(**kw_options)
+    Monitor(**kw_options)
 
-    # my_monitor.start()
+# signal handler function called when Control-C occurs
+# noinspection PyShadowingNames,PyUnusedLocal
+def signal_handler(sig, frame):
+    print('Exiting Through Signal Handler')
+    raise KeyboardInterrupt
 
-    # signal handler function called when Control-C occurs
-    # noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal
-    def signal_handler(signal, frame):
-        print('Control-C detected. See you soon.')
-
-        my_monitor.clean_up()
-        sys.exit(0)
-
-    # listen for SIGINT
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
+# listen for SIGINT
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
 
 
 if __name__ == '__main__':

@@ -27,7 +27,7 @@ import zmq
 import zmq.utils.win32
 
 
-# noinspection PyMethodMayBeStatic
+# noinspection PyMethodMayBeStatic,PyBroadException
 class BackPlane:
     """
     This class instantiates a ZeroMQ forwarder that acts as the python_banyan software backplane.
@@ -58,6 +58,7 @@ class BackPlane:
 
         # use the google dns to figure out the machine's address and use that address for the backplane.
         # this precludes the necessity of having a network configuration file.
+        # noinspection PyPep8
         try:
             s.connect(('8.8.8.8', 1))
             self.bp_ip_address = s.getsockname()[0]
@@ -165,17 +166,17 @@ def bp():
     backplane = BackPlane(**kw_options)
     backplane.run_back_plane()
 
-    # signal handler function called when Control-C occurs
-    # noinspection PyShadowingNames,PyUnusedLocal
-    def signal_handler(signal, frame):
-        print('Control-C detected. See you soon.')
 
-        backplane.clean_up()
-        sys.exit(0)
+# signal handler function called when Control-C occurs
+# noinspection PyShadowingNames,PyUnusedLocal
+def signal_handler(sig, frame):
+    print('Exiting Through Signal Handler')
+    raise KeyboardInterrupt
 
-    # listen for SIGINT
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
+
+# listen for SIGINT
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
 
 
 if __name__ == '__main__':

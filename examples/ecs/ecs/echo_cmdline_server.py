@@ -97,18 +97,19 @@ def echo_cmdline_server():
                   'loop_time': float(args.loop_time)}
 
     # replace with the name of your class
-    app = EchoCmdServer(**kw_options)
+    EchoCmdServer(**kw_options)
 
-    # signal handler function called when Control-C occurs
-    def signal_handler(signal, frame):
-        print("Control-C detected. See you soon.")
-        app.clean_up()
-        sys.exit(0)
 
-    # listen for SIGINT
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
+# signal handler function called when Control-C occurs
+# noinspection PyUnusedLocal
+def signal_handler(sig, frame):
+    print('Exiting Through Signal Handler')
+    raise KeyboardInterrupt
 
+
+# listen for SIGINT
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
 
 if __name__ == '__main__':
     echo_cmdline_server()
