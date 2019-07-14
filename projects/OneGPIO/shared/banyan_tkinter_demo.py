@@ -487,17 +487,17 @@ def banyan_tkinter_demo():
                   'device_type': args.device_type}
 
     # replace with the name of your class
-    app = BanyanTkinterDemo(**kw_options)
+    BanyanTkinterDemo(**kw_options)
 
-    # signal handler function called when Control-C occurs
-    def signal_handler(signal, frame):
-        print("Control-C detected. See you soon.")
-        app.clean_up()
-        sys.exit(0)
 
-    # listen for SIGINT
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
+def signal_handler(sig, frame):
+    print('Exiting Through Signal Handler')
+    raise KeyboardInterrupt
+
+
+# listen for SIGINT
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
 
 
 if __name__ == '__main__':

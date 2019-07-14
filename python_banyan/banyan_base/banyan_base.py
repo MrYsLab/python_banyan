@@ -294,16 +294,16 @@ class BanyanBase(object):
 #     except KeyboardInterrupt:
 #         sys.exit()
 #
-#     # signal handler function called when Control-C occurs
-#     # noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal
-#     def signal_handler(signal, frame):
-#         print("Control-C detected. See you soon.")
-#         app.clean_up()
-#         sys.exit(0)
+# signal handler function called when Control-C occurs
+# noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal
+# def signal_handler(sig, frame):
+#     print('Exiting Through Signal Handler')
+#     raise KeyboardInterrupt
 #
-#     # listen for SIGINT
-#     signal.signal(signal.SIGINT, signal_handler)
-#     signal.signal(signal.SIGTERM, signal_handler)
+#
+# # listen for SIGINT
+# signal.signal(signal.SIGINT, signal_handler)
+# signal.signal(signal.SIGTERM, signal_handler)
 #
 #
 # if __name__ == '__main__':

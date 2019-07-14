@@ -67,7 +67,7 @@ class GpioGatewayTemplate(GatewayBase):
             process_name=kwargs[
                 'process_name'],
             board_type=kwargs['board_type']
-            )
+        )
         # start the banyan receive loop
         try:
             self.receive_loop()
@@ -350,20 +350,21 @@ def gpio_gateway_template():
         'board_type': args.board_type}
 
     try:
-        app = GpioGatewayTemplate(args.subscriber_list, **kw_options)
+        GpioGatewayTemplate(args.subscriber_list, **kw_options)
     except KeyboardInterrupt:
         sys.exit()
 
-    # noinspection PyUnusedLocal
-    def signal_handler(sig, frame):
-        print("Control-C detected. See you soon.")
-        app.clean_up()
-        sys.exit(0)
 
-    # listen for SIGINT
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
+# signal handler function called when Control-C occurs
+# noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal
+def signal_handler(sig, frame):
+    print('Exiting Through Signal Handler')
+    raise KeyboardInterrupt
 
+
+# listen for SIGINT
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
 
 if __name__ == '__main__':
     # replace with name of function you defined above

@@ -30,7 +30,6 @@ import time
 import itertools
 import msgpack
 import msgpack_numpy as m
-import umsgpack
 import zmq
 import os
 
@@ -373,16 +372,17 @@ class BanyanBaseMulti(object):
 #     # optionally start the receive loop here or start it in your __init__
 #     app.receive_loop()
 #
-#     # signal handler function called when Control-C occurs
-#     # noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal
-#     def signal_handler(signal, frame):
-#         print("Control-C detected. See you soon.")
-#         app.clean_up()
-#         sys.exit(0)
 #
-#     # listen for SIGINT
-#     signal.signal(signal.SIGINT, signal_handler)
-#     signal.signal(signal.SIGTERM, signal_handler)
+# signal handler function called when Control-C occurs
+# noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal
+# def signal_handler(sig, frame):
+#     print('Exiting Through Signal Handler')
+#     raise KeyboardInterrupt
+#
+#
+# # listen for SIGINT
+# signal.signal(signal.SIGINT, signal_handler)
+# signal.signal(signal.SIGTERM, signal_handler)
 #
 #
 # if __name__ == '__main__':

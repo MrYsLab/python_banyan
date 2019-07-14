@@ -509,18 +509,17 @@ def esp8266_gateway():
     # replace with the name of your class
     Esp8266Gateway(args.subscriber_list, **kw_options)
 
-    app = Esp8266Gateway()
+    Esp8266Gateway()
 
-    # noinspection PyUnusedLocal
-    def signal_handler(sig, frame):
-        print("Control-C detected. See you soon.")
-        app.clean_up()
-        sys.exit(0)
 
-    # listen for SIGINT
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
+def signal_handler(sig, frame):
+    print('Exiting Through Signal Handler')
+    raise KeyboardInterrupt
 
+
+# listen for SIGINT
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
 
 if __name__ == '__main__':
     # replace with name of function you defined above

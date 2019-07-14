@@ -406,20 +406,19 @@ def rpi_gateway():
         'loop_time': float(args.loop_time)}
 
     try:
-        app = RpiGateway(args.subscriber_list, **kw_options)
+        RpiGateway(args.subscriber_list, **kw_options)
     except KeyboardInterrupt:
         sys.exit()
 
-    # noinspection PyUnusedLocal
-    def signal_handler(sig, frame):
-        print("Control-C detected. See you soon.")
-        app.pi.stop()
-        app.clean_up()
-        sys.exit(0)
 
-    # listen for SIGINT
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
+def signal_handler(sig, frame):
+    print('Exiting Through Signal Handler')
+    raise KeyboardInterrupt
+
+
+# listen for SIGINT
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
 
 
 if __name__ == '__main__':

@@ -400,7 +400,7 @@ def arduino_gateway():
                         help="Banyan topics space delimited: topic1 topic2 topic3")
     parser.add_argument("-n", dest="process_name",
                         default="ArduinoGateway", help="Set process name in "
-                                                    "banner")
+                                                       "banner")
     parser.add_argument("-p", dest="publisher_port", default='43124',
                         help="Publisher IP port")
     parser.add_argument("-r", dest="publisher_topic",
@@ -433,21 +433,17 @@ def arduino_gateway():
         sys.exit(0)
 
 
-def _signal_handler(sig, frame):
-    # if core is not None:
-    print('\nYou pressed Ctrl+C')
-    # task = asyncio.ensure_future(core.shutdown())
-    # asyncio.get_event_loop().run_until_complete(task)
-    sys.exit(1)
+# signal handler function called when Control-C occurs
+# noinspection PyShadowingNames,PyUnusedLocal
+def signal_handler(sig, frame):
+    print('Exiting Through Signal Handler')
+    raise KeyboardInterrupt
 
 
-signal.signal(signal.SIGINT, _signal_handler)
-signal.signal(signal.SIGTERM, _signal_handler)
-# server = PymataIOT(core)
-
+# listen for SIGINT
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
 
 if __name__ == '__main__':
     # replace with name of function you defined above
     arduino_gateway()
-
-

@@ -21,7 +21,7 @@ multi_driver.py
 import argparse
 import signal
 import sys
-import time
+
 
 from python_banyan.banyan_base_multi import BanyanBaseMulti
 
@@ -30,6 +30,7 @@ class MultiDriver(BanyanBaseMulti):
     """
     This class sends messages to 2 backplanes and monitors the reply packets
     """
+
     def __init__(self, back_plane_csv_file=None,
                  number_of_messages=10, process_name='MultiDriver', loop_time=0.01):
         """
@@ -126,20 +127,19 @@ def multi_driver():
                   'process_name': args.process_name,
                   'loop_time': float(args.loop_time)}
 
-    # replace with the name of your class
-    app = MultiDriver(**kw_options)
+    MultiDriver(**kw_options)
 
-    # signal handler function called when Control-C occurs
-    # noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal
-    def signal_handler(signal, frame):
-        print("Control-C detected. See you soon.")
-        app.clean_up()
-        sys.exit(0)
 
-    # listen for SIGINT
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
+# signal handler function called when Control-C occurs
+# noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal
+def signal_handler(sig, frame):
+    print('Exiting Through Signal Handler')
+    raise KeyboardInterrupt
 
+
+# listen for SIGINT
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
 
 if __name__ == '__main__':
     # replace with name of function you defined above

@@ -202,18 +202,17 @@ def ws_gateway():
     # get the event loop
     loop = asyncio.get_event_loop()
 
-    app = WsGateway(*subscription_list, **kw_options, event_loop=loop)
+    WsGateway(*subscription_list, **kw_options, event_loop=loop)
 
-    # noinspection PyUnusedLocal
-    def signal_handler(sig, frame):
-        print("Control-C detected. See you soon.")
-        app.clean_up()
-        sys.exit(0)
 
-    # listen for SIGINT
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
+def signal_handler(sig, frame):
+    print('Exiting Through Signal Handler')
+    raise KeyboardInterrupt
 
+
+# listen for SIGINT
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
 
 if __name__ == '__main__':
     ws_gateway()

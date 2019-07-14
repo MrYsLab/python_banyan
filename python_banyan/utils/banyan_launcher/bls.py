@@ -35,6 +35,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from python_banyan.banyan_base import BanyanBase
 
 
+# noinspection PyTypeChecker
 class BLS(BanyanBase):
     """
     This is the banyan launcher server. It reads a user .csv
@@ -426,18 +427,17 @@ def bls():
     # replace with the name of your class
     BLS(**kw_options)
 
-    # signal handler function called when Control-C occurs
-    # noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal
-    def signal_handler(signal, frame):
-        print("Control-C detected. See you soon.")
-        sys.exit(0)
 
-    # listen for SIGINT
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
+# signal handler function called when Control-C occurs
+# noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal
+def signal_handler(sig, frame):
+    print('Exiting Through Signal Handler')
+    raise KeyboardInterrupt
 
-    # signal.signal(signal.SIGKILL, signal_handler)
 
+# listen for SIGINT
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
 
 if __name__ == '__main__':
     # replace with name of function you defined above

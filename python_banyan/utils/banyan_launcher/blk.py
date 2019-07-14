@@ -30,7 +30,6 @@ class BLK(BanyanBase):
     """
 
     def __init__(self):
-
         super(BLK, self).__init__(process_name='Launcher Killer')
 
         self.publish_payload({'exit': 'exit'}, 'killall')
@@ -41,16 +40,17 @@ class BLK(BanyanBase):
 def blk():
     BLK()
 
-    # signal handler function called when Control-C occurs
-    # noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal
-    def signal_handler(signal, frame):
-        print("Control-C detected. See you soon.")
-        sys.exit(0)
 
-    # listen for SIGINT
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
+# signal handler function called when Control-C occurs
+# noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal
+def signal_handler(sig, frame):
+    print('Exiting Through Signal Handler')
+    raise KeyboardInterrupt
 
+
+# listen for SIGINT
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
 
 if __name__ == '__main__':
     # replace with name of function you defined above
