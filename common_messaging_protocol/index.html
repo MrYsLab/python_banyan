@@ -100,20 +100,17 @@ report contains the key word <strong><em>report</em></strong></p>
 <p>In general, a GPIO pin must have its mode set before use. 
 For example to set a pin to digital output mode, you would use the following
 message template:</p>
-<table>
-<thead>
-<tr>
-<th align="center">GPIO Operation</th>
-<th align="center">OneGPIO Message</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">Set Pin To Digital Output Mode</td>
-<td align="center">{"command": "set_mode_digital_output", "pin": PIN, "tag":”TAG” }</td>
-</tr>
-</tbody>
+<table style="width:100%">
+  <tr>
+    <th>GPIO Operation</th>
+    <th>OneGPIO Message</th> 
+  </tr>
+  <tr>
+    <td>Set Pin To Digital Output Mode</td>
+    <td>{"command": "set_mode_digital_output", "pin": PIN, "tag":”TAG” } </td>
+  </tr>
 </table>
+
 <p>When setting a pin mode, you have the option to name or <strong><em>tag</em></strong> the pin. 
 This helps to improve code readability when interacting with that pin.
 You may reference the pin using either its tag or pin number interchangeably.
@@ -127,20 +124,17 @@ to set pin 4 as a <strong>digital output</strong> pin and tag the pin with <stro
 <p>All OneGPIO message <em>keys</em> are strings. Within the OneGPIO message specification, if a <em>value</em> is <em>not</em>
 within quotes, then it is specified as an integer, otherwise, it is specified as a string.</p>
 <p>The OneGpio command to set the state of a digital output pin is:</p>
-<table>
-<thead>
-<tr>
-<th align="center">GPIO Operation</th>
-<th align="center">&nbsp;&nbsp;&nbsp;             OneGPIO Message</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">Set Digital Output Pin State</td>
-<td align="center">&nbsp;&nbsp;&nbsp;{"command": "digital_write", "pin": PIN, "tag": "TAG", "value": VALUE}</td>
-</tr>
-</tbody>
+<table style="width:100%">
+  <tr>
+    <th>GPIO Operation</th>
+    <th>OneGPIO Message</th> 
+  </tr>
+  <tr>
+    <td>Set Digital Output Pin State</td>
+    <td>{"command": "digital_write", "pin": PIN, "tag": "TAG", "value": VALUE}</td>
+  </tr>
 </table>
+
 <p>Now that the pin mode has been set with a tag, we can set the green LED to <em>on</em> with the following
 message: </p>
 <p><strong>{'command': 'digital_write', 'tag': 'green_led', 'value': 1 }</strong></p>
