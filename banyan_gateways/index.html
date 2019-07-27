@@ -88,7 +88,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h1 id="introduction-to-onegpio-gateways">Introduction To OneGPIO Gateways</h1>
 <p>A <em>OneGPIO Gateway</em> is a specialized Banyan component that is target-hardware specific. 
- It it subscribes to and translates OneGPIO command messages to and from native target hardware 
+ It subscribes to and translates OneGPIO command messages to and from native target hardware 
  GPIO API calls. OneGPIO Gateways for the <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/arduino_uno/arduino_gateway.py">Arduino</a>, 
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/esp_8266/esp8266_gateway.py">ESP-8266,</a>
  and <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/raspberry_pi/rpi_gateway.py">Raspberry Pi</a> are included with this distribution.</p>
@@ -193,7 +193,7 @@ topics may be added at any time during run-time.</p>
 <p>Line 82 creates an empty <em>pins_dictionary</em>. This dictionary is used by each
 hardware specific gateway to store pin information, such the pin's mode and current state.</p>
 <p>Line 87 creates an empty <em>tags_dictionary</em>. When a pin mode is set and a tag is provided,
-the tag, an entry is made into this dictionary with the tag as its key and the pin number as the entry's value.</p>
+an entry is made into this dictionary with the tag as its key and the pin number as the entry's value.</p>
 <p>Line 89 calls the <em>init_pins_dictionary</em> method. See the discussion below for line 126 for
 more information about this method.</p>
 <pre><code>    91          # initialize the parent
@@ -316,7 +316,7 @@ to easily add hardware specific commands not found in the command dictionary.</p
 in the derived class. Lines 179-186 are an illustration of the analog_write method. All the
 other command methods follow a similar pattern (lines 170-378).</p>
 <h1 id="some-specific-command-examples">Some Specific Command Examples</h1>
-<p>To illustrate the flexibility of using the OneGPIO specification, let's look an 
+<p>To illustrate the flexibility of using the OneGPIO specification, let's look 
 at some sample OneGPIO command implementations. Both examples
 presented below are from the Raspberry Pi Gateway.</p>
 <h2 id="adding-a-custom-spin-to-the-command">Adding A <em>Custom Spin</em> To The Command</h2>
