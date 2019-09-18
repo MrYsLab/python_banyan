@@ -1474,8 +1474,8 @@
             echo = parseInt(echo, 10);
 
 
-            msg = JSON.stringify({"command": "set_mode_sonar", "trigger": trigger,
-            "echo": echo});
+            msg = JSON.stringify({"command": "set_mode_sonar", "trigger_pin": trigger,
+            "echo_pin": echo});
             socket.send(msg);
 
         }
