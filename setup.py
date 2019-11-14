@@ -5,7 +5,7 @@ with open('pypi_desc.md') as f:
 
 setup(
     name='python-banyan',
-    version='3.6',
+    version='3.7',
     packages=[
         'python_banyan',
         'python_banyan.banyan_base',

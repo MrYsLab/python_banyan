@@ -123,4 +123,3 @@ class EchoClient(BanyanBase):
 
 ```
 
-This project was developed with [Pycharm](https://www.jetbrains.com/pycharm/) ![logo](https://github.com/MrYsLab/python_banyan/blob/master/images/icon_PyCharm.png)

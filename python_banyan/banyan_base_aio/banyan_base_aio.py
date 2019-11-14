@@ -112,8 +112,8 @@ class BanyanBaseAIO(object):
                 p = psutil.Process(pid)
                 try:
                     p_command = p.cmdline()
-                except psutil.AccessDenied:
-                    # occurs in Windows - ignore
+                # ignore these psutil exceptions
+                except (psutil.AccessDenied, psutil.ZombieProcess):
                     continue
                 try:
                     if any('backplane' in s for s in p_command):
