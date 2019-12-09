@@ -24,6 +24,7 @@ import socket
 import asyncio
 import msgpack
 import msgpack_numpy as m
+import sys
 import zmq
 import psutil
 
@@ -51,8 +52,8 @@ class BanyanBaseAIO(object):
     def __init__(self, back_plane_ip_address=None, subscriber_port='43125',
                  publisher_port='43124', process_name='None', numpy=False,
                  external_message_processor=None, receive_loop_idle_addition=None,
-                 connect_time=0.3, subscriber_list=None, event_loop=None,
-                 auto_begin=False):
+                 connect_time=0.3, subscriber_list=None, event_loop=None):
+
         """
         The __init__ method sets up all the ZeroMQ "plumbing"
 
@@ -97,6 +98,9 @@ class BanyanBaseAIO(object):
         if event_loop:
             self.event_loop = event_loop
         else:
+            # fix for "not implemented" bugs in Python 3.8
+            if sys.platform == 'win32':
+                asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
             self.event_loop = asyncio.get_event_loop()
 
         # if using numpy apply the msgpack_numpy monkey patch
@@ -144,8 +148,6 @@ class BanyanBaseAIO(object):
         print('Subscriber Port = ' + self.subscriber_port)
         print('Publisher  Port = ' + self.publisher_port)
         print('************************************************************')
-
-        # self.event_loop.run_until_complete(self.begin())
 
     # noinspection PyUnresolvedReferences
     async def begin(self):

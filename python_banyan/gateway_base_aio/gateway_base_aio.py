@@ -21,6 +21,7 @@ gateway_base_aio.py
 """
 
 import asyncio
+import sys
 from python_banyan.banyan_base_aio import BanyanBaseAIO
 
 
@@ -70,10 +71,13 @@ class GatewayBaseAIO(BanyanBaseAIO):
         if board_type:
             self.board_type = board_type
 
-        # set up the event loop
         if event_loop:
             self.event_loop = event_loop
+
+        # fix for "not implemented" bugs in Python 3.8
         else:
+            if sys.platform == 'win32':
+                asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
             self.event_loop = asyncio.get_event_loop()
 
         if subscriber_list:
@@ -155,11 +159,8 @@ class GatewayBaseAIO(BanyanBaseAIO):
         try:
             command = payload['command']
         except KeyError:
-            print(payload)
+            print('incoming_message_processed KeyErrer', payload)
             raise
-
-        # pin = None
-        # tag = ''
 
         # if a tag is provided and the tag is in the dictionary, fetch
         # the associated pin number
