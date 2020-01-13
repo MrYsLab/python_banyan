@@ -1,4 +1,0 @@
-command_string,spawn,topic,append_bp_address,auto_restart,wait
-monitor,yes,local,no,no,0
-server,yes,local,no,yes,0
-client,yes,local,no,no,0

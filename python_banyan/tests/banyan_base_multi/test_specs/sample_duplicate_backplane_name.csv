@@ -1,7 +1,0 @@
-backplane_name,ip_address,subscriber_port,subscriber_topic,publisher_port
-LEDS,192.168.2.191,43125,"[Red_LED, Green_LED,Blue_LED]",43124
-LEDS,192.168.2.193,43125,"","",43124
-Motors,192.168.2.191,43125,"[Run_Motors]",""
-Sensors,192.168.2.191,"","",4312
-LEDS,192.168.2.193,43125,"","",43124
-LEDS,192.168.2.193,43125,"","",43124

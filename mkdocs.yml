@@ -1,0 +1,30 @@
+site_name: Python Banyan
+markdown_extensions:
+    - tables
+
+nav:
+      - Welcome: index.md
+      - User's Guide:
+        - What Is Python Banyan?: users_guide.md
+        - Installation: install.md
+        - Introduction To The Tutorials: examples_intro.md
+        - Tutorial 1  - A Simple Echo Server/Client: example1.md
+        - Tutorial 2  - Adding Command Line Options To A Component: example2.md
+        - Tutorial 3  - Distributed Applications: example3.md
+        - Tutorial 4  - Applications From Components On Differing Platforms: example4.md
+        - Tutorial 5  - Debugging Using The Monitor: example5.md
+        - Tutorial 6  - Integrating With A GUI Event Loop: example6.md
+        - Tutorial 7  - Installing Components As Executable Modules: example7.md
+        - Tutorial 8  - Using the Banyan Launcher: example8.md
+        - Tutorial 9  - Connecting To Multiple Backplanes: example9.md
+        - Tutorial 10 - Connecting Banyan To An MQTT Network: example10.md
+        - Tutorial 11 - Physical Computing And GPIO: example11.md
+        - Comparing Banyan and MQTT: benchmark.md
+        - About: about.md
+      - The OneGPIO Project:
+          - Introduction: gpio_intro.md
+          - The OneGPIO Messaging Protocol: common_messaging_protocol.md
+          - OneGPIO Gateways: banyan_gateways.md
+          - Additional Banyan Gateways: additional_gateways.md
+          - OneGPIO Demos: one_gpio_demos.md
+theme: 'windmill'

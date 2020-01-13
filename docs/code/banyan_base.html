@@ -1,0 +1,121 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module banyan_base</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>banyan_base</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/afy/PycharmProjects/python_banyan_guide/docs/code/banyan_base.py">/home/afy/PycharmProjects/python_banyan_guide/docs/code/banyan_base.py</a></font></td></tr></table>
+    <p><tt>Copyright&nbsp;(c)&nbsp;2016&nbsp;Alan&nbsp;Yorinks&nbsp;All&nbsp;right&nbsp;reserved.<br>
+&nbsp;<br>
+This&nbsp;program&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or<br>
+modify&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public<br>
+License&nbsp;as&nbsp;published&nbsp;by&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation;&nbsp;either<br>
+version&nbsp;3&nbsp;of&nbsp;the&nbsp;License,&nbsp;or&nbsp;(at&nbsp;your&nbsp;option)&nbsp;any&nbsp;later&nbsp;version.<br>
+&nbsp;<br>
+This&nbsp;library&nbsp;is&nbsp;distributed&nbsp;in&nbsp;the&nbsp;hope&nbsp;that&nbsp;it&nbsp;will&nbsp;be&nbsp;useful,<br>
+but&nbsp;WITHOUT&nbsp;ANY&nbsp;WARRANTY;&nbsp;without&nbsp;even&nbsp;the&nbsp;implied&nbsp;warranty&nbsp;of<br>
+MERCHANTABILITY&nbsp;or&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE.&nbsp;&nbsp;See&nbsp;the&nbsp;GNU<br>
+General&nbsp;Public&nbsp;License&nbsp;for&nbsp;more&nbsp;details.<br>
+&nbsp;<br>
+You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;Lesser&nbsp;General&nbsp;Public<br>
+License&nbsp;along&nbsp;with&nbsp;this&nbsp;library;&nbsp;if&nbsp;not,&nbsp;write&nbsp;to&nbsp;the&nbsp;Free&nbsp;Software<br>
+Foundation,&nbsp;Inc.,&nbsp;51&nbsp;Franklin&nbsp;St,&nbsp;Fifth&nbsp;Floor,&nbsp;Boston,&nbsp;MA&nbsp;&nbsp;02110-1301&nbsp;&nbsp;USA</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="argparse.html">argparse</a><br>
+<a href="signal.html">signal</a><br>
+</td><td width="25%" valign=top><a href="socket.html">socket</a><br>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+<a href="umsgpack.html">umsgpack</a><br>
+</td><td width="25%" valign=top><a href="zmq.html">zmq</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="banyan_base.html#BanyanBase">BanyanBase</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BanyanBase">class <strong>BanyanBase</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;is&nbsp;the&nbsp;base&nbsp;class&nbsp;for&nbsp;all&nbsp;Python&nbsp;Banyan&nbsp;components.<br>
+It&nbsp;encapsulates&nbsp;zeromq&nbsp;and&nbsp;message&nbsp;pack<br>
+functionality.&nbsp;It&nbsp;methods&nbsp;should&nbsp;be&nbsp;overridden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;the<br>
+derived&nbsp;class&nbsp;to&nbsp;meet&nbsp;the&nbsp;needs&nbsp;of&nbsp;the&nbsp;component.<br>
+&nbsp;<br>
+To&nbsp;import&nbsp;into&nbsp;&nbsp;the&nbsp;derived&nbsp;class&nbsp;use:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;python_banyan.banyan_base&nbsp;import&nbsp;<a href="#BanyanBase">BanyanBase</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="BanyanBase-__init__"><strong>__init__</strong></a>(self, back_plane_ip_address<font color="#909090">=None</font>, subscriber_port<font color="#909090">='43125'</font>, publisher_port<font color="#909090">='43124'</font>, process_name<font color="#909090">='None'</font>, loop_time<font color="#909090">=0.1</font>)</dt><dd><tt>The&nbsp;__init__&nbsp;method&nbsp;sets&nbsp;up&nbsp;all&nbsp;the&nbsp;ZeroMQ&nbsp;"plumbing"<br>
+&nbsp;<br>
+:param&nbsp;back_plane_ip_address:&nbsp;banyan_base&nbsp;back_planeIP&nbsp;Address&nbsp;-<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;specified,&nbsp;it&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;local&nbsp;computer<br>
+:param&nbsp;subscriber_port:&nbsp;banyan_base&nbsp;back&nbsp;plane&nbsp;subscriber&nbsp;port.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;must&nbsp;match&nbsp;that&nbsp;of&nbsp;the&nbsp;banyan_base&nbsp;backplane<br>
+:param&nbsp;publisher_port:&nbsp;banyan_base&nbsp;back&nbsp;plane&nbsp;publisher&nbsp;port.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;must&nbsp;match&nbsp;that&nbsp;of&nbsp;the&nbsp;banyan_base&nbsp;backplane<br>
+:param&nbsp;process_name:&nbsp;Component&nbsp;identifier<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="BanyanBase-clean_up"><strong>clean_up</strong></a>(self)</dt><dd><tt>Clean&nbsp;up&nbsp;before&nbsp;exiting&nbsp;-&nbsp;override&nbsp;if&nbsp;additional&nbsp;cleanup&nbsp;is&nbsp;necessary<br>
+&nbsp;<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="BanyanBase-incoming_message_processing"><strong>incoming_message_processing</strong></a>(self, topic, payload)</dt><dd><tt>Override&nbsp;this&nbsp;method&nbsp;with&nbsp;a&nbsp;custom&nbsp;python_banyan&nbsp;message<br>
+processor&nbsp;for&nbsp;subscribed&nbsp;messages<br>
+&nbsp;<br>
+:param&nbsp;topic:&nbsp;Message&nbsp;Topic&nbsp;string<br>
+:param&nbsp;payload:&nbsp;Message&nbsp;Data<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="BanyanBase-publish_payload"><strong>publish_payload</strong></a>(self, payload, topic<font color="#909090">=''</font>)</dt><dd><tt>This&nbsp;method&nbsp;will&nbsp;publish&nbsp;a&nbsp;python_banyan&nbsp;payload&nbsp;and&nbsp;its&nbsp;associated&nbsp;topic<br>
+&nbsp;<br>
+:param&nbsp;payload:&nbsp;Protocol&nbsp;message&nbsp;to&nbsp;be&nbsp;published<br>
+:param&nbsp;topic:&nbsp;A&nbsp;string&nbsp;value<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="BanyanBase-receive_loop"><strong>receive_loop</strong></a>(self)</dt><dd><tt>This&nbsp;is&nbsp;the&nbsp;receive&nbsp;loop&nbsp;for&nbsp;zmq&nbsp;messages.<br>
+&nbsp;<br>
+It&nbsp;is&nbsp;assumed&nbsp;that&nbsp;this&nbsp;method&nbsp;will&nbsp;be&nbsp;overwritten&nbsp;to&nbsp;meet&nbsp;the&nbsp;needs<br>
+of&nbsp;the&nbsp;application&nbsp;and&nbsp;to&nbsp;handle&nbsp;received&nbsp;messages.<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="BanyanBase-set_subscriber_topic"><strong>set_subscriber_topic</strong></a>(self, topic)</dt><dd><tt>This&nbsp;method&nbsp;sets&nbsp;a&nbsp;subscriber&nbsp;topic.<br>
+&nbsp;<br>
+You&nbsp;can&nbsp;subscribe&nbsp;to&nbsp;multiple&nbsp;topics&nbsp;by&nbsp;calling&nbsp;this&nbsp;method&nbsp;for<br>
+each&nbsp;topic.<br>
+&nbsp;<br>
+:param&nbsp;topic:&nbsp;A&nbsp;topic&nbsp;string<br>
+:return:</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-banyan_base"><strong>banyan_base</strong></a>()</dt></dl>
+</td></tr></table>
+</body></html>
