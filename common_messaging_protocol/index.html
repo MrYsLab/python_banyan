@@ -94,7 +94,7 @@ from the target hardware.
  Because the Gateway is translating native report messages into OneGPIO messages, 
  it has the freedom to add
 additional data to the report message, such as a timestamp.</p>
-<p><img alt="" src="../images/one_gpio_messages.png" /></p>
+<p><img align="center" src="../images/one_gpio_messages.png"></p>
 <p>A command message contains the keyword <strong><em>command,</em></strong> and a
 report contains the keyword <strong><em>report</em></strong></p>
 <p>In general, a GPIO pin must have its mode set before use. 
@@ -121,7 +121,7 @@ However, if you wish to use a tag, the <strong><em>tag must be set when the pin 
 <p>The <em>pin tag</em> to <em>pin number</em> mapping is automatically maintained within
 the OneGPIO Gateways.</p>
 <p>To illustrate let's populate the 'set_mode_digital_output' command message
-to set pin 4 as a <strong>digital output</strong> pin and tag the pin with <strong>"green_led</strong>.</p>
+to set pin 4 as a <strong>digital output</strong> pin and tag the pin with <strong>"green_led"</strong>.</p>
 <p><strong>{'command': 'set_mode_digital_output', 'pin': 4, 'tag': 'green_led' }</strong></p>
 <p>Notice that <strong><em>pin</em></strong> is an integer and not a string.</p>
 <p>All OneGPIO message <em>keys</em> are strings. Within the OneGPIO message specification, if a <em>value</em> is <em>not</em>

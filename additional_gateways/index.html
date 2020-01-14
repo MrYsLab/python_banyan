@@ -197,7 +197,7 @@ if you need to.</p>
 WebSocket clients. An empty array, <em>self.active_sockets</em> is created
 on line 75 to store a record for each connected socket.</p>
 <p>Lines 79-85 start the WebSocket server. When a client connects
-to the WebSocket server, the <em>wgs</em> method is called
+to the WebSocket server, the <em>wsg</em> method is called
 on line 79.</p>
 <p>For information about the WebSocket server, please go to this
 <a href="https://github.com/aaugustin/websockets">link</a>.</p>
@@ -251,7 +251,7 @@ ID string is used to create subscription topic strings that the WebSocket Gatewa
 <p>An entry for the socket connection is created and added to the active_websockets array.
 The entry is used to dispatch messages to the correct WebSocket during data transfer. This is
 accomplished on lines 118-119.</p>
-<p>Line 122 creates an asyncio task to receive WebSocket messages from any connected WebSocket client continuously.
+<p>Line 122 creates an asyncio task to continuously receive WebSocket messages from any connected WebSocket client.
  This task passes these messages to the <em>receive_data</em> method
 for further processing.</p>
 <pre><code>   124      async def receive_data(self, websocket, publisher_topic):
@@ -308,8 +308,8 @@ of the message as a key, it looks up the associated WebSocket in the
 <em>active_sockets</em> array and publishes the message to the correct WebSocket.</p>
 <p>On lines 152-154, if the gateway provided a timestamp, the timestamp
  is formatted and appended to the report message.
-Line 156 encodes the message as a JSON message sends the message
-to WebSocket client on line 163</p>
+Line 156 encodes the message as a JSON message and sends the message
+to the WebSocket client on line 163.</p>
 <pre><code>   167  def ws_gateway():
    168      # allow user to bypass the IP address auto-discovery. This is necessary if the component resides on a computer
    169      # other than the computing running the backplane.

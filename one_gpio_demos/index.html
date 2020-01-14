@@ -78,7 +78,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h1 id="introduction-to-the-demos">Introduction To The Demos</h1>
 <p>In this section, we will introduce three demonstration programs
-that control the Arduino, ESP8266, and Raspberry Pi hardware targets,
+that control the Arduino, ESP-8266, and Raspberry Pi hardware targets,
 using common OneGPIO Application Components.</p>
 <p>The demo programs included are:</p>
 <ol>
@@ -233,7 +233,7 @@ python3 ../shared/blinker.py -d esp8266 -g 13,no,local,no,no,0
 that the esp8266_gateway is running on. This is specified with the <strong>-i</strong> option on the second line. For my
 environment, that address is 192.168.2.183, but yours is likely to be different.</p>
 <p>The second change you may need to make is on the third line, the <strong>-g</strong> option. This option sets the pin
-number for the connected LED. The default is set to 10 - modify this value to meet your needs. The blinker.py
+number for the connected LED. The default is set to 13 - modify this value to meet your needs. The blinker.py
 script also needs to have the target hardware type defined using the -d option. </p>
 <p>To run this demo:</p>
 <ol>
@@ -253,7 +253,7 @@ utilizes the <a href="http://abyz.me.uk/rpi/pigpio/python.html">pigpio API libra
 <p>When the Raspberry Pi Gateway is invoked, it will check to see if the pigpio daemon is currently running.
 If not, it will automatically start it. The pigpio library may report an error, as shown
 in this screenshot.</p>
-<p><img alt="" src="../images/rpi_gateway.png" /></p>
+<p><img align="center" src="../images/rpi_gateway.png"></p>
 <p>It can safely be ignored since the gateway will automatically start
 the daemon. The daemon will continue running even after the gateway is closed.</p>
 <p>Let's look at the <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/launch_scripts/b_r.csv">b_r.csv</a> launcher specification file in the launch_scripts directory.</p>
@@ -283,7 +283,7 @@ allow you to interact with the target hardware remotely.  A common python script
 is used for all three targets and is a OneGPIO Application Component. The target type is supplied as a command-line parameter when
 invoking banyan_tkinter_demo. This is provided in each of the launcher specification files.</p>
 <h3 id="tkinter-demo-station-functions">Tkinter Demo Station Functions</h3>
-<p><img alt="" src="../images/tkinter_arduino.png" /></p>
+<p><img align="center" src="../images/tkinter_arduino.png"></p>
 <p>The Tkinter Demo Station for the Arduino is shown above. No matter the target hardware, the
 Tkinter Demo Station for all of the target hardware types share common capabilities.</p>
 <h4 id="digital-output-control">Digital Output Control</h4>
@@ -318,7 +318,7 @@ python3 ../shared/banyan_tkinter_demo.py -d arduino,no,local,no,no,0
 <p>The bls command starts the Banyan Launcher server, and the -f option instructs bls
 to load the tk_a.csv specification file.</p>
 <p>You should see a tkinter window for the Arduino appear.</p>
-<p><img alt="" src="../images/tkinter_arduino.png" /></p>
+<p><img align="center" src="../images/tkinter_arduino.png"></p>
 <h3 id="running-the-tkinter-demonstration-station-for-the-esp-8266">Running The Tkinter Demonstration Station For The ESP-8266</h3>
 <p>Let's look at the <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/launch_scripts/tk_e.csv">tk_e.csv</a> launcher specification file in the launch_scripts directory.</p>
 <pre><code>command_string,spawn,topic,append_bp_address,auto_restart,wait
@@ -340,7 +340,7 @@ running the esp8266 gateway. This is done on line 2 of the file with the
 <p>The bls command starts the Banyan Launcher server, and the -f option instructs bls
 to load the tk_e.csv specification file.</p>
 <p>You should see a tkinter window for the ESP-8266 appear.</p>
-<p><img alt="" src="../images/tk_inter_demo.png" /></p>
+<p><img align="center" src="../images/tk_inter_demo.png"></p>
 <h3 id="running-the-tkinter-demonstration-station-for-raspberry-pi">Running The Tkinter Demonstration Station For Raspberry Pi</h3>
 <p>Let's look at the <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/launch_scripts/tk_r.csv">tk_r.csv</a> launcher specification file in the launch_scripts directory.</p>
 <pre><code>command_string,spawn,topic,append_bp_address,auto_restart,wait
@@ -360,7 +360,7 @@ python3 ../shared/banyan_tkinter_demo.py -d rpi,no,local,no,no,0
 <p>The bls command starts the Banyan Launcher server, and the -f option instructs bls
 to load the tk_r.csv specification file.</p>
 <p>You should see a tkinter window for the Raspberry Pi appear.</p>
-<p><img alt="" src="../images/tkinter_rpi.png" /></p>
+<p><img align="center" src="../images/tkinter_rpi.png"></p>
 <h2 id="banyan-demonstration-station-web-pages">Banyan Demonstration Station Web Pages</h2>
 <p>Once again, the Banyan launcher will be used to run Web page demos.
 The launcher will start the Backplane, the Gateway for the hardware target,
@@ -373,7 +373,7 @@ page loaded.</p>
 <p>The pages of the Demonstration Station may vary slightly between hardware targets. But
 all use the OneGPIO messaging specification, allowing the target hardware gateway to
 handle the messaging.</p>
-<p><img alt="" src="../images/demo_station_arduino.png" /></p>
+<p><img align="center" src="../images/demo_station_arduino.png"></p>
 <p>There is a common set of functions, selected by tab, for all of the targets:</p>
 <ol>
 <li>Digital Input</li>
@@ -389,8 +389,8 @@ handle the messaging.</p>
 i2c converter.</p>
 <p>The digital and analog tabs will display a timestamp for the last
 change to an enabled pin, as well as the pin's value:</p>
-<p><img alt="" src="../images/web_digital_input.png" /></p>
-<p><img alt="" src="../images/web_analog_input.png" /></p>
+<p><img align="center" src="../images/web_digital_input.png"></p>
+<p><img align="center" src="../images/web_analog_input.png"></p>
 <h3 id="running-the-web-demo-station-for-the-arduino">Running The Web Demo Station For The Arduino</h3>
 <p>Let's look at the 
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/launch_scripts/h_a.csv">h_a.csv</a> launcher specification file in the launch_scripts directory.</p>
@@ -410,7 +410,7 @@ python3 ../shared/open_browser.py,no,local,no,no,5
 </code></pre>
 
 <h3 id="running-the-web-demo-station-for-the-esp-8266">Running The Web Demo Station For The ESP-8266</h3>
-<p><img alt="" src="../images/esp_web_page.png" /></p>
+<p><img align="center" src="../images/esp_web_page.png"></p>
 <p>Let's look at the 
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/launch_scripts/h_e.csv">h_e.csv</a> launcher specification file in the launch_scripts directory.</p>
 <pre><code>command_string,spawn,topic,append_bp_address,auto_restart,wait
@@ -444,7 +444,7 @@ launcher messages. The <em>-b</em> option is the IP address of the PC, where we 
 <p>You will most likely have to modify the IP address when executing this command. The <em>topic</em> may be
 any string as long as both bls and blc use the same string.</p>
 <p>Here is what you will see on the Raspberry Pi after starting blc:</p>
-<p><img alt="" src="../images/rpi_blc.png" /></p>
+<p><img align="center" src="../images/rpi_blc.png"></p>
 <p>Now, let's look at the
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/launch_scripts/h_r_dist.csv">h_r_dist.csv</a> launcher specification file in the launch_scripts directory.</p>
 <pre><code>command_string,spawn,topic,append_bp_address,auto_restart,wait
@@ -480,7 +480,7 @@ ACKrpi_remote: python3 ../raspberry_pi/rpi_gateway.py -b 192.168.2.186 PID = 621
 
 <p>The Web browser will be launched on the PC. </p>
 <p>We then check the Raspberry Pi and see that the Raspberry Pi Gateway was started:</p>
-<p><img alt="" src="../images/rpi_blc2.png" /></p>
+<p><img align="center" src="../images/rpi_blc2.png"></p>
 <p>We may now start using the Web page on our PC to control the Raspberry Pi remotely.</p>
 <h3 id="killing-all-the-processes">Killing All The Processes</h3>
 <p>To kill all the processes on both computers, open another terminal window on your pc
@@ -523,7 +523,7 @@ python3 ../shared/open_browser.py rpi PID = 10916 KILLED
 
 <p>And now,  if we look at the terminal window on the Rasbpberry Pi where we invoked
 blc, we see:</p>
-<p><img alt="" src="../images/rpi_blc3.png" /></p>
+<p><img align="center" src="../images/rpi_blc3.png"></p>
 <p><br>
 <br>
 Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
