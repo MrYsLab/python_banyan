@@ -91,31 +91,31 @@ Because only one event loop can run within any given thread of execution,
 we need to find a way for both event loops to coexist.</p>
 <p>One solution is to
 create a multi-threaded application with each event loop running
-in its own thread. This however, introduces unnecessary
-complexity, and complicates the testing and debug efforts.</p>
+in its own thread. This, however, introduces unnecessary
+complexity and complicates the testing and debugging efforts.</p>
 <p>If you are using a GUI that provides a callback hook to allow you to link
 your own code into the GUI's event loop, a much simpler solution is at hand.
 The <a href="https://docs.python.org/3/library/tk.html">tkinter GUI framework</a>
  provides such a hook, and we will integrate Banyan into our GUI using this technique.
-Note that many other GUI frameworks also provide a callback hook and the techniques
-shown here may be applied in a similar fashion to those frameworks. The <a href="https://github.com/dddomodossola/remi">remi library</a>
+Note that many other GUI frameworks also provide a callback hook, and the techniques
+shown here may be applied similarly to those frameworks. The <a href="https://github.com/dddomodossola/remi">remi library,</a>
  for example, uses a method called <em>idle</em> to provide the callback hook.</p>
 <p>The tkinter callback hook method is called <a href="http://effbot.org/tkinterbook/widget.htm"><strong><em>after</em></strong></a>.
 We will pass in 2 parameters to <em>after</em>, a sleep time
 in milliseconds, and the user callback function that is called after the sleep time expires.</p>
 <p>The example code shown below illustrates integrating the Banyan receive_loop
  into the GUI event loop using the <em>after</em> method. Some discussion of tkinter will be provided
- for clarity, but a detailed
+ for clarity. However, a detailed
 discussion of the tkinter framework is beyond the scope of this document.
 <a href="https://smile.amazon.com/Modern-Tkinter-Busy-Python-Developers-ebook/dp/B0071QDNLO/ref=sr_1_9?ie=UTF8&amp;qid=1528656765&amp;sr=8-9&amp;keywords=tkinter+book">This ebook</a>
-provides a succinct and useful discussion of building GUIs with tkinter.</p>
+offers a concise and useful discussion of building GUIs with tkinter.</p>
 <h2 id="running-the-example">Running The Example</h2>
-<p>Make sure that Backplane and <a href="../example1#the-server">server</a> are running. Next start
+<p>Make sure that backplane and <a href="../example1#the-server">server</a> are running. Next start
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/tk_echo_client.py"><em>tk_echo_client.py</em>.</a>
-After starting the GUI client code, you should see the GUI shown at the top of this section appear on your screen
+After starting the GUI client code, you should see the GUI shown at the top of this section appear on your screen,
 and the console should display something similar to this:</p>
 <p><img align="center" src="../images/tk_echo_console.png"></p>
-<p>If you press the "Send Messages" button you should the "Messages Sent" field
+<p>If you press the "Send Messages" button, you should the "Messages Sent" field
 update to a value of 10. If you start the Monitor before pressing the "Send
 Messages" button, you can verify the contents of the messages.</p>
 <h2 id="exploring-the-example-code">Exploring The Example Code</h2>
@@ -123,10 +123,11 @@ Messages" button, you can verify the contents of the messages.</p>
 <h3 id="importing-tkinter">Importing tkinter</h3>
 <p>Lines 27 through 34 handle the tkinter differences for Python 2 and 3 and allow a single code source to service both tkinter
 versions.</p>
-<p>Lines 37 through 39 import not only the BanyanBase class, but MessagePack
-and ZeroMQ because we are going to incorporate parts of the Python Banyan receive_loop into
-the tkinter mainloop, and our GUI component needs direct access to those packages.</p>
-<p>Lines 62 through 68 prepare for initializing the parent BanyanBase class in line 71.</p>
+<p>Lines 37 through 39 import not only the BanyanBase class but MessagePack
+and ZeroMQ. Our GUI component needs direct access to these packages
+because portions of the Python Banyan receive_loop will be placed in
+the tkinter mainloop.</p>
+<p>Lines 62 through 68 prepare for initializing the parent BanyanBase class on line 71.</p>
 <p>Lines 77 and 78 subscribe to all topics of interest.</p>
 <h3 id="breaking-into-the-gui-event-loop">Breaking Into The GUI Event Loop</h3>
 <p>Line 149 uses the <em>tkinter</em> <strong><em>after</em></strong> method. The first parameter specifies a delay
@@ -134,7 +135,7 @@ in milliseconds
 before the callback function specified by the second parameter is called.</p>
 <p>In this example, the callback function is the <em>get_message</em> method defined on line 156. This method
 is essentially the same code normally run in the BanyanBase receive_loop. It checks to see if there any
-Banyan messages to process and if there are, it processes them. If there are no messages available, line 169 re-arms
+Banyan messages to process, and if there are, it processes them. If there are no messages available, line 169 re-arms
 the <em>tkinter</em> <strong><em>after</em></strong> method to check for Banyan messages within the GUI event loop.</p>
 <pre><code>     1  #!/usr/bin/env python
      2
@@ -372,6 +373,10 @@ the <em>tkinter</em> <strong><em>after</em></strong> method to check for Banyan 
    234      gui_client()
 
 </code></pre>
+
+<p><br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
 
   <br>
     

@@ -84,21 +84,21 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="an-echo-server-client-example">An Echo Server-Client Example</h1>
-<p>In this section we will build a simple echo server-client application
+<p>In this section, we will build a simple echo server-client application
  using the Python Banyan Framework.</p>
 <p>First, we will run the demo and then examine the code for both the server
 and client Banyan components.</p>
 <h2 id="running-the-example">Running The Example</h2>
 <p>The Backplane is installed as an executable module when Python Banyan is installed.
 By typing 'backplane' in a command or terminal window, the Backplane will start.</p>
-<p>The components, simple_echo_server.py and simple_echo_client.py are invoked
+<p>The components, simple_echo_server.py, and simple_echo_client.py, are invoked
 from the command line using the typical method to start a Python program.</p>
-<p>The following screen shots were taken on a Linux computer running Python 3
+<p>The following screenshots were taken on a Linux computer running Python 3,
 and that is why the <em>python3</em> command is displayed. You may
-run these examples on Linux, Windows, Mac or Raspberry using either
+run these examples on Linux, Windows, Mac or, Raspberry using either
 Python 2 or Python 3. Simply substitute your system's specific python command
 to run the examples.</p>
-<h3 id="first-start-the-backplane-in-a-terminal-window">First start the Backplane in a terminal window.</h3>
+<h3 id="first-start-the-backplane-in-a-terminal-window">First, start the Backplane in a terminal window.</h3>
 <pre><code>backplane
 </code></pre>
 
@@ -117,7 +117,7 @@ and type:</p>
 <pre><code>python3 simple_echo_client.py
 </code></pre>
 
-<p>A standard Banyan header is printed to the console for the client and the client begins
+<p>A standard Banyan header is printed to the console for the client, and the client begins
 sending its messages.</p>
 <p>When the client completes sending all of its messages, the console for the client will indicate
 the number of messages sent and received.</p>
@@ -125,9 +125,9 @@ the number of messages sent and received.</p>
 <p>The console for the server will display all of the message numbers it received</p>
 <p><img align="center" src="../images/simple_server_done.png"></p>
 <h2 id="the-server">The Server</h2>
-<p>The role of the server is to simply wait for "echo" topic messages to arrive
+<p>The role of the server is to simply wait for the "echo" topic messages to arrive
 and then to extract the message's payload and publish a "reply" topic message.</p>
-<h3 id="examining-the-code">Examining The Code</h3>
+<h3 id="examining-the-code">Examining the Code</h3>
 <p>Let's look at the code below:</p>
 <p>Lines 20 through 22 import the component's required modules.</p>
 <p>Line 22 illustrates the standard syntax used to import the BanyanBase base class.</p>
@@ -163,15 +163,14 @@ and then to extract the message's payload and publish a "reply" topic message.</
     29      &quot;&quot;&quot;
 </code></pre>
 
-<p>Lines 31 through 44 define the <a href="../examples_intro/#95_init__">__init__</a> method.
-To keep things simple, this method does not accept any parameters.</p>
+<p>Lines 31 through 44 define the <a href="../examples_intro/#95_init__">__init__</a> method.</p>
 <p>When inheriting from another class, the parent class must be initialized.</p>
 <p>Line 34 initializes the parent and sets the parent's
  <a href="../examples_intro/#process_name"><em>process_name</em></a> parameter. The process_name is printed to the console when the component is
  first invoked. All other default values are accepted as is.</p>
 <p>Line 37 calls the BanyanBase method <a href="../examples_intro/#set_subscriber_topic"><em>set_subscriber_topic</em></a> to subscribe to 'echo' messages.</p>
 <p>Line 41 calls the BanyanBase method <a href="../examples_intro/#receive_loop"><em>receive_loop</em></a> to wait for incoming messages.</p>
-<p>Line 42 through 44 trap a Control-C entered by the user. The inherited BanyanBase <a href="../examples_intro/#clean_up"><em>clean_up</em></a> method
+<p>Line 42 through 44 traps a Control-C entered by the user. The inherited BanyanBase <a href="../examples_intro/#clean_up"><em>clean_up</em></a> method
 is called to close the ZeroMQ connections. The program is then exited.</p>
 <pre><code>    31      def __init__(self, ):
     32
@@ -194,7 +193,7 @@ Whenever a message is received by the <em>receive_loop</em>, it calls <em>incomi
 <p>The <em>incoming_message_processing</em> method requires two parameters, a
 topic string, and a payload. Both the topic and payload are decoded within the receive_loop, so they
 are ready for use by the <em>incoming_message_processing</em> method.</p>
-<p>Line 53 republishes the payload just received, setting the topic to 'reply'. The message number
+<p>Line 53 republishes the payload just received, setting the topic to 'reply,' The message number
 of the received message is then printed to the console.</p>
 <pre><code>    46      def incoming_message_processing(self, topic, payload):
     47          &quot;&quot;&quot;
@@ -226,15 +225,15 @@ call the instantiation function.</p>
 </code></pre>
 
 <h2 id="the-client">The Client</h2>
-<p>The role of the client is to publish 'echo' messages and to maintain a message sequencing number
-that is incorporated into the payload. Shortly after being invoked, the client
+<p>The role of the client is to publish 'echo' messages. It maintains a message sequencing number,
+incorporated into the payload. Shortly after being invoked, the client
 sends out the first 'echo' message. It then waits for a 'reply' message from the server before
 publishing the next message.</p>
 <p>The messaging sequencing number is decremented after each message is published.
-When the sequencing number reaches zero, the final message is published and the client halts.</p>
-<h3 id="examining-the-code_1">Examining The Code</h3>
+When the sequencing number reaches zero, the final message is published, and the client halts.</p>
+<h3 id="examining-the-code_1">Examining the Code</h3>
 <p>The code for the client is very similar to that of the <a href="#examining-the-code">server</a>.
-In this section the major differences between the client and server are highlighted.</p>
+In this section, the major differences between the client and server are highlighted.</p>
 <p>Line 38 calls the inherited BanyanBase method <em>set_subscriber_topic</em> to subscribe to
 'reply' messages.</p>
 <p>Line 41 establishes
@@ -299,12 +298,13 @@ incoming 'reply' message.</p>
 </code></pre>
 
 <p>Line 53 is the <em>incoming_message_processing</em> method.</p>
-<p>Line 62 tests the sequencing value of the 'reply' message. If 0, indicating the final message was sent and received,
-lines 63 through 66 print
+<p>Line 62 tests the sequencing value of the 'reply' message. When the sequencing value is set to 0,
+the final message was sent and received.
+Lines 63 through 66 print
 the total number of messages sent and received to the console,
 and the user is asked to press <em>enter</em> to exit the program.</p>
-<p>Lines 69 through 71 process non-terminating 'reply'messages.
-The message number is decremented by 1 and the next 'echo' message is then built
+<p>Lines 69 through 71 process non-terminating 'reply' messages.
+The message number is decremented by 1, and the next 'echo' message is then built
 and published.</p>
 <pre><code>    53      def incoming_message_processing(self, topic, payload):
     54          &quot;&quot;&quot;
@@ -335,6 +335,10 @@ and published.</p>
     79      echo_client()
 
 </code></pre>
+
+<p><br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
 
   <br>
     

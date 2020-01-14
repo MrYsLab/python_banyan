@@ -89,12 +89,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
  is a Banyan component that can subscribe to receive MQTT messages
 from the MQTT network, and then forward those messages to the Banyan network.
 It also can subscribe to receive Banyan messages, and then forward those to the MQTT network.</p>
-<p>The MQTT Gateway is installed as a command line executable when 
+<p>The MQTT Gateway is installed as a command-line executable when
 Python Banyan is installed. To invoke the MQTT Gateway, open a terminal
 window and type:</p>
 <p><strong>mgw</strong></p>
-<p>There are several optional command line parameters
-available in mgw, but for the examples that will follow, the defaults will be accepted.</p>
+<p>There are several optional command-line parameters
+available in mgw. For the examples that follow, the default values are accepted</p>
 <p>Here is a list of all the optional parameters.</p>
 <pre><code>mgw -h
 
@@ -125,7 +125,7 @@ optional arguments:
 
 </code></pre>
 
-<p>When the MQTT Gateway is invoked it automatically connects to both the Banyan Backplane and to the MQTT Broker.</p>
+<p>When the MQTT Gateway is invoked, it automatically connects to both the Banyan Backplane and to the MQTT Broker.</p>
 <p>Before running the following examples, make sure that you
 have a <a href="https://mosquitto.org/">mosquitto broker</a> and a <a href="../examples_intro/#starting-the-backplane">Python Banyan
 Backplane</a> running.</p>
@@ -156,7 +156,7 @@ my_client.disconnect()
 <p>The <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/mqtt_gateway/sub.py">MQTT subscriber</a>
  that connects to an MQTT broker,
 and subscribes to 2 topics. The <strong>mqtt_network</strong> messages are for messages originated
-on the mqtt network. The <strong>from_banyan</strong> messages are messages that were originated on the
+on the MQTT network. The <strong>from_banyan</strong> messages are messages that were originated on the
 Banyan network. For this first example, no messages are originated from the Banyan network.</p>
 <pre><code>import paho.mqtt.client as mqtt
 import json
@@ -189,7 +189,7 @@ my_client.loop_forever()
 
 </code></pre>
 
-<p>First we start the subscriber, and then the publisher. The subscriber prints
+<p>First, we start the subscriber, and then the publisher. The subscriber prints
 any messages it receives. Here is the subscriber console output after
 running the publisher:</p>
 <pre><code>python3 sub.py
@@ -214,7 +214,7 @@ MQTT Gateway Connected to MQTT localhost:1883 with result code 0.
 
 </code></pre>
 
-<p>If it not already running, start the MQTT subsriber, sub.py.</p>
+<p>If it not already running, start the MQTT subscriber, sub.py.</p>
 <p>To generate a message from Banyan to the MQTT network, we will use a Banyan component called
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/mqtt_gateway/bpub.py">bpub.py:</a></p>
 <pre><code>from python_banyan.banyan_base import BanyanBase
@@ -252,12 +252,12 @@ Connected with result code 0
 {'from_banyan': 'hello_mqtt_world'}
 </code></pre>
 
-<p>The gateway received a Banyan message, translated it to an MQTT message, published
-this message on the MQTT network and the translated message
+<p>The Gateway received a Banyan message, translated it to an MQTT message, published
+this message on the MQTT network, and the translated message
 was received by the MQTT subscriber.</p>
 <h2 id="example-3-publishing-an-mqtt-message-to-the-banyan-network">Example 3: Publishing an MQTT Message To the Banyan Network</h2>
 <p>In this example, an MQTT message will be published by pub.py.
-The MQTT Gateway will receive this message and it will then translate 
+The MQTT Gateway will receive this message, and it will then translate
 this message to a Banyan message and publish
 the message to the Banyan network.</p>
 <p>A Banyan component called <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/mqtt_gateway/bsub.py"><strong>bsub.py</strong></a> 
@@ -300,11 +300,11 @@ b = Bsub()
 
 </code></pre>
 
-<p>And finally start the MQTT publisher pub.py</p>
+<p>And finally, start the MQTT publisher pub.py</p>
 <pre><code>python3 pub.py
 </code></pre>
 
-<p>Looking at console for bsub.py we that the message was received from the MQTT
+<p>Looking at the console for bsub.py, we that the message was received from the MQTT
 network and received by the Banyan network.</p>
 <pre><code>python3 bsub.py
 
@@ -316,6 +316,10 @@ Loop Time = 0.1 seconds
 ************************************************************
 from_mqtt {'from_mqtt_client': 'hello'}
 </code></pre>
+
+<p><br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
 
   <br>
     

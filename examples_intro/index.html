@@ -38,7 +38,7 @@
           ]},
           {title: "The Banyan Backplane", url: "#the-banyan-backplane", children: [
               {title: "Starting the Backplane", url: "#starting-the-backplane" },
-              {title: "The Backplane's Command Line Options", url: "#the-backplanes-command-line-options" },
+              {title: "The Backplane's Command-Line Options", url: "#the-backplanes-command-line-options" },
               {title: "Always Start The Backplane First", url: "#always-start-the-backplane-first" },
           ]},
           {title: "Python Banyan Base Classes", url: "#python-banyan-base-classes", children: [
@@ -50,7 +50,7 @@
               {title: "incoming_message_processing", url: "#incoming_message_processing" },
               {title: "clean_up", url: "#clean_up" },
           ]},
-          {title: "A Template For Component Command Line Options", url: "#a-template-for-component-command-line-options", children: [
+          {title: "A Template For Component Command-Line Options", url: "#a-template-for-component-command-line-options", children: [
           ]},
           {title: "The Examples", url: "#the-examples", children: [
               {title: "Where To Find The Example Source Code", url: "#where-to-find-the-example-source-code" },
@@ -107,68 +107,68 @@ applications. The tutorials help to demonstrate Python Banyan's features,
  as well as the
 set of utilities that are part of the <a href="https://github.com/MrYsLab/python_banyan"><strong><em>python-banyan</em></strong></a> package.</p>
 <h1 id="the-key-elements-of-python-banyan">The Key Elements of Python Banyan</h1>
-<p>There are two key components of the Banyan Framework, the <strong><em>Backplane</em></strong> that acts as
+<p>There are two key components of the Banyan Framework, the <strong><em>backplane</em></strong> that acts as a
 communication hub, and the <strong><em>Banyan Components</em></strong> where you implement your design. This section
 will discuss these two elements.</p>
 <h1 id="the-banyan-backplane">The Banyan Backplane</h1>
 <p>When you install Python Banyan, an executable file called <strong><em>backplane</em></strong>,
-is automatically installed on your computer. The Backplane is implemented as a ZeroMQ <em>device</em>
+is automatically installed on your computer. The backplane is implemented as a ZeroMQ <em>device</em>
 called a <a href="http://learning-0mq-with-pyzmq.readthedocs.io/en/latest/pyzmq/devices/forwarder.html"><strong><em>Forwarder</em></strong></a>.</p>
-<p>When connecting to the Backplane, all components utilize common, well-known IP addresses and port numbers.
-As a result, routing is greatly simplified, and for most cases
+<p>When connecting to the backplane, all components utilize common, well-known IP addresses and port numbers.
+As a result, routing is greatly simplified, and in most cases,
 eliminates the need for maintaining a routing table.</p>
 <p>Because a Banyan component automatically attempts to
-"plug" itself into the Backplane when first invoked, <strong><em>the backplane,
+"plug" itself into the backplane when first invoked, <strong><em>the backplane
 must be started before starting any other components.</em></strong></p>
-<p>If you forget to start Backplane first, the component will raise a RunTimeError
+<p>If you forget to start backplane first, the component will raise a RunTimeError
 exception.</p>
-<p>In general, a Banyan application uses a single instance of the Backplane,
-however, it is possible to have multiple Backplanes running in a single
+<p>In general, a Banyan application uses a single instance of the backplane.
+However, it is possible to have multiple backplanes running in a single
 application. Using multiple backplanes will be covered in a <a href="../example9/#example9/">later section</a>.</p>
-<p>Since the Backplane is not normally modified by the user, its code will not be discussed here, but
+<p>Since the backplane is not usually modified by the user, its code will not be discussed here, but
 if you wish, you may view
-<a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/backplane/backplane.py">the Backplane source code here</a>.</p>
+<a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/backplane/backplane.py">the backplane source code here</a>.</p>
 <h2 id="starting-the-backplane">Starting the Backplane</h2>
-<p>To start the Backplane, open a command or terminal window and type:</p>
+<p>To start the backplane, open a command or terminal window and type:</p>
 <pre><code>backplane
 </code></pre>
 
 <p><img align="center" src="../images/backplane_start.png"></p>
-<p>After starting the Backplane, you will see a standard Python Banyan header for the Backplane.</p>
-<p>The <strong>Backplane name</strong> is displayed. The default is "Backplane" and normally, this default is accepted.
+<p>After starting the backplane, you will see a standard Python Banyan header for the Backplane.</p>
+<p>The <strong>backplane name</strong> is displayed. The default is "Backplane," and usually, this default is accepted.
 You may change it
-using a <a href="#the-backplanes-command-line-options">command line option described below</a></p>
-<p>The Backplane's <strong>IP Address</strong> is shown next to the Backplane name. The Backplane
-always uses the <strong>IP address</strong> of the computer on which it is run and is not user
-configurable. This address is auto-discovered.</p>
+using a <a href="#the-backplanes-command-line-options">command-line option described below</a></p>
+<p>The backplane's <strong>IP Address</strong> is shown next to the backplane name. The backplane
+always uses the <strong>IP address</strong> of the computer on which it is run and
+is not user-configurable. This address is auto-discovered.</p>
 <p>The <strong>Subscriber and Publisher Ports</strong> are also displayed. For applications
-that will run on a single computer the default ports should be accepted. These
-values are user configurable, in case you need to modify them.</p>
-<p>The <strong>Loop Time</strong> sets the iteration time for the Backplane's idle loop. Normally
-the default should be accepted, but it can be altered to fine tune the application's
+that will run on a single computer, the default ports should be accepted. These
+values are user-configurable, in case you need to modify them.</p>
+<p>The <strong>Loop Time</strong> sets the iteration time for the backplane's idle loop. Usually,
+the default should be accepted, but it can be altered to fine-tune the application's
 CPU utilization.</p>
-<h2 id="the-backplanes-command-line-options">The Backplane's Command Line Options</h2>
-<p>To see the command line options for the Backplane type:</p>
+<h2 id="the-backplanes-command-line-options">The Backplane's Command-Line Options</h2>
+<p>To see the command-line options for the backplane type:</p>
 <pre><code>backplane -h
 </code></pre>
 
 <p><img align="center" src="../images/backplane_help.png"></p>
-<p>To specify a command line option, provide the option and its parameter
+<p>To specify a command-line option, provide the option and its parameter
 value. Multiple options may be set if desired.</p>
 <pre><code>backplane -n MyBackplane -p 12345 -s 54321 -t .01
 </code></pre>
 
-<p>In the example above, the backplane name, the publisher port, the subscriber port
-and the loop time have all been customized.</p>
+<p>In the above, the parameters backplane name, the publisher port, the subscriber port,
+and loop time have all been customized.</p>
 <h2 id="always-start-the-backplane-first">Always Start The Backplane First</h2>
-<p>A Python Banyan component expects the Backplane to be running when it is instantiated.
-If you forget to start the Backplane, the component will raise a RunTimeException.</p>
+<p>A Python Banyan component expects the backplane to be running when it is instantiated.
+If you forget to start the backplane, the component will raise a RunTimeException.</p>
 <p><img align="center" src="../images/no_backplane_running.png"></p>
 <h1 id="python-banyan-base-classes">Python Banyan Base Classes</h1>
 <p>Most Python Banyan components need only to connect to a single Backplane and are built
  by inheriting from the <strong><em>banyan_base</em></strong>
 base class, <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/banyan_base/banyan_base.py">banyan_base.py</a>.</p>
-<p>If you need to create your application using multiple Backplanes (a rare occurrence),
+<p>If you need to create your application using multiple backplanes (a rare occurrence),
 please refer to <a href="../example9/#example9/">this section</a> for a discussion of the <strong><em>banyan_base_multi</em></strong> class.</p>
 <h2 id="the-banyanbase-class">The BanyanBase Class</h2>
 <p>The methods of the BanyanBase class
@@ -179,20 +179,20 @@ are discussed in <a href="#the-banyanbase-class">detail</a> below.</p>
 <p><strong>__init__</strong> - This method initializes the class. A derived class
 often overrides this method to add additional initialization parameters
 as well as being a convenient place to add subscription topics.
-The Banyan event loop may started in this method, but it should be done so
+The Banyan event loop may be started in this method, but it should be done so
 as the last line of the overridden
-method, since a call to <em>receive_loop</em> will not return.</p>
+method since a call to <em>receive_loop</em> will not return.</p>
 </li>
 <li>
-<p><strong>set_subscriber_topic</strong> - This method is usually <strong>not</strong> overridden and is used as is.
+<p><strong>set_subscriber_topic</strong> - This method is usually <strong>not</strong> overridden and is used as-is.
 This method is called for each subscription topic.</p>
 </li>
 <li>
-<p><strong>publish_payload</strong> - This method is usually <strong>not</strong> overridden and used as is.
+<p><strong>publish_payload</strong> - This method is usually <strong>not</strong> overridden and used as-is.
 This method will format the message and send it to the backplane.</p>
 </li>
 <li>
-<p><strong>receive_loop</strong> - This method is usually <strong>not</strong> overridden and used as is.
+<p><strong>receive_loop</strong> - This method is usually <strong>not</strong> overridden and used as-is.
 This method waits to receive messages that have topics that have been subscribed to.
 When a message is received, it calls the <strong>incoming_message_processing</strong> method.</p>
 </li>
@@ -200,7 +200,7 @@ When a message is received, it calls the <strong>incoming_message_processing</st
 <p><strong>incoming_message_processing</strong> - This method <strong>must</strong> be overridden to handle incoming messages.</p>
 </li>
 <li>
-<p><strong>clean_up</strong> - This method maybe overridden to add any additional clean-up for a terminating component.</p>
+<p><strong>clean_up</strong> - This method may be overridden to add any additional clean-up for a terminating component.</p>
 </li>
 </ol>
 <p>To get a better understanding of the base class, let's look at the code line by line. You can skip this
@@ -229,11 +229,11 @@ section and move on to the <a href="../example1/">examples</a> and return later 
 
 </code></pre>
 
-<p>Lines 20 through 36 list the packages required by banyan_base.py. All required packages are
+<p>Lines 20 through 36 lists the packages required by banyan_base.py. All required packages are
 automatically installed when the Python Banyan distribution is first installed.</p>
 <p>Note that lines 25 through 27 are commented out.
-A template for creating command line options for your component is provided at the bottom of the file.
-This is totally optional, but if you wish to use the template, you will need to uncomment out lines 25 through 27.</p>
+A template for creating command-line options for your component is provided at the bottom of the file.
+This is totally optional, but if you wish to use the template, you will need to uncomment outlines 25 through 27.</p>
 <p>The template will be discussed at the <a href="#a-template-for-component-command-line-options">end of this discussion</a>.</p>
 <pre><code>    20  from __future__ import unicode_literals
     21
@@ -280,7 +280,7 @@ The examples will demonstrate how to import BanyanBase.</p>
     55      &quot;&quot;&quot;
 </code></pre>
 
-<p>The base class consists of 6 methods and the following is a discussion of each of the
+<p>The base class consists of 6 methods, and the following is a discussion of each of the
 methods.</p>
 <h2 id="95_init__">__init__</h2>
 <p>The __init__ method is overwritten as needed. A subscription to specific topics is
@@ -295,24 +295,24 @@ for each topic.</p>
 
 </code></pre>
 
-<p>Line 57 through 59 constitute the parameter list for the <strong><em>__init</em></strong>__ method.
+<p>Line 57 through 59 constitutes the parameter list for the <strong><em>_</em>init</strong>___ method.
 Notice that all of the parameters contain default values, and in most cases accepting the defaults
 is all that you need.</p>
-<p>Lines 63 through 83 document the parameters (and are discussed below).</p>
+<p>Lines 63 through 83 documents the parameters (and are discussed below).</p>
 <h3 id="back_plane_ip_address">back_plane_ip_address</h3>
 <p>The default for this parameter is <em>None</em>. The component will discover the IP
-address of the local computer and assume that the Backplane is also running on this
-computer. If the component is running on a computer different from the one that the Backplane is running,
-then this parameter will need to match the IP address of the Backplane.</p>
+address of the local computer and assume that the backplane is also running on this
+computer. If the component is running on a computer different from the one that the backplane is running,
+then this parameter will need to match the IP address of the backplane.</p>
 <pre><code>    64          :param back_plane_ip_address: banyan_base back_planeIP Address -
     65                                        if not specified, it will be set to the
     66                                        local computer.
 </code></pre>
 
 <h3 id="subscriber-and-publisher-ports">subscriber and publisher ports</h3>
-<p>These are default IP ports dictated by those set for the Backplane. Normally these are
-not changed, but may be if there are any port conflicts or if you are running in a system
-that has more than one Backplane running on a computer.</p>
+<p>These are default IP ports dictated by those set for the backplane. Normally the
+defaults are accepted. However, they may be modified if there are any port conflicts, or if you are running in a system
+that has more than one backplane running on a computer.</p>
 <pre><code>    68          :param subscriber_port: banyan_base back plane subscriber port.
     69                 This must match that of the banyan_base backplane
     70
@@ -322,7 +322,7 @@ that has more than one Backplane running on a computer.</p>
 </code></pre>
 
 <h3 id="process_name">process_name</h3>
-<p>This sets the name shown in the component's console header for identification purposes. If not set
+<p>This sets the name shown in the component's console header for identification purposes. If not set,
 the name of the component will be 'None'.</p>
 <pre><code>    74          :param process_name: Component identifier in banner at component startup.
     75
@@ -338,15 +338,14 @@ the greater the CPU utilization for the component.</p>
 
 <h3 id="numpy">numpy</h3>
 <p>If the component requires numpy data handling,
-then set this parameter to <em>True</em> to serialize the data in an
-efficient manner.</p>
+then set this parameter to <em>True</em> to serialize the data efficiently.</p>
 <pre><code>    78          :param numpy: Set true if you wish to include numpy matrices in your messages.
     79
 </code></pre>
 
 <h3 id="external_message_processor">external_message_processor</h3>
-<p>Normally all incoming messages are handled within the component itself. If specified, message processing
-will be done outside of the component and act in a similar fashion to a callback.</p>
+<p>Normally all incoming messages are handled within the Banyan component itself. If specified, message processing
+will be done outside of the component and act similarly to a callback.</p>
 <pre><code>    80          :param external_message_processor: external method to process messages
     81
 </code></pre>
@@ -362,10 +361,10 @@ The function or method should be non-blocking.</p>
 </code></pre>
 
 <h3 id="connect_time">connect_time</h3>
-<p>This parameter allows for the connection between the component and Backplane to complete.
+<p>This parameter allows for the connection between the component and backplane to complete.
 It prevents race conditions between trying to publish a message before the connection
 has been established.</p>
-<pre><code>85          :param connect_time: a short delay to allow the component to connect to the Backplane
+<pre><code>85          :param connect_time: a short delay to allow the component to connect to the backplane
 </code></pre>
 <p>The actual class code for the method follows the parameter documentation strings.</p>
 <p>Line 89 allows for the possibility of multiple inheritance.
@@ -376,7 +375,7 @@ has been established.</p>
 
 </code></pre>
 
-<p>Line 91 declares a flag which is set when the check for a running Backplane takes place.</p>
+<p>Line 91 declares a flag which is set when the check for a running backplane takes place.</p>
 <p>Lines 93 through 97 assign the input parameters to instance variables.</p>
 <pre><code>    91          self.backplane_exists = False
     92
@@ -396,13 +395,13 @@ numpy parameter was set to True.</p>
 </code></pre>
 
 <p>Lines 103 through 105 set the IP address for the backplane if one was specified.</p>
-<p>If no Backplane IP address was specified, Lines 107 through 121 checks to
-see if there is a Backplane currently running.
-If a Backplane is running, the <em>self.backplane_exists</em> flag is set to True.</p>
-<p><strong>NOTE:</strong> Unlike when both the component and Backplane are running on the same computer,
-when a remote Backplane is being used, that is the component and Backplane are running
-on different computers, the component cannot check for an existing running Backplane.
-Therefore in this case, it is the user's responsibility to check for a running remote Backplane.</p>
+<p>If no backplane IP address was specified, Lines 107 through 121 checks to
+see if there is a backplane currently running.
+If a backplane is running, the <em>self.backplane_exists</em> flag is set to True.</p>
+<p><strong>NOTE:</strong> Unlike when both the component and backplane are running on the same computer,
+but on a remote backplane,
+the component cannot check for an existing running Backplane.
+Therefore, in this case, it is the user's responsibility to check for a running remote backplane.</p>
 <pre><code>   103          # If no back plane address was specified, determine the IP address of the local machine
    104          if back_plane_ip_address:
    105              self.back_plane_ip_address = back_plane_ip_address
@@ -425,11 +424,11 @@ Therefore in this case, it is the user's responsibility to check for a running r
 
 </code></pre>
 
-<p>Lines 123 through 124 checks to see if a local Backplane was found.
-If not, a RunTimeError is raised. If a Backplane was detected as running, lines 125 through  129 retrieve the IP address of
+<p>Lines 123 through 124 checks to see if a local backplane was found.
+If not, a RunTimeError is raised. If a backplane was detected as running, lines 125 through  129 retrieve the IP address of
 the local computer
 and then sets the backplane_ip_address to that address.</p>
-<p>Lines 131 through 134 continue setting instance variables from input parameters.
+<p>Lines 131 through 134 continue setting instance variables from input parameters
 received by the __init__ method.</p>
 <pre><code>   123              if not self.backplane_exists:
    124                  raise RuntimeError('Backplane is not running - please start it.')
@@ -457,10 +456,10 @@ the <em>process_name</em>, <em>backplane_ip_address</em>, <em>subscriber_port</e
    142
 </code></pre>
 
-<p>Lines 143 through 151 establish ZeroMQ publish and subscribe connections to the Backplane.</p>
+<p>Lines 143 through 151 establish ZeroMQ publish and subscribe connections to the backplane.</p>
 <p>Line 154 calls <em>time.sleep</em> to wait for the duration of the connect_time value.
- This allows enough time for both the publisher and subscriber connections
-to be estalished.</p>
+ This allows for enough time for both the publisher and subscriber connections
+to be established.</p>
 <pre><code>   143          # establish the zeromq sub and pub sockets and connect to the backplane
    144          self.context = zmq.Context()
    145          self.subscriber = self.context.socket(zmq.SUB)
@@ -504,13 +503,13 @@ parameter. This method is called for each subscribed topic.</p>
 <p>Line 171 defines the <em>publish_payload</em> method. It accepts two parameters,
 a message <strong><em>payload</em></strong> that by convention is in the form of a Python
  dictionary. The dictionary may contain one or more key/value pairs.
- The second pararmeter is a message <strong><em>topic</em></strong> that must be in
+ The second parameter is a message <strong><em>topic</em></strong> that must be in
  the form of a valid string.</p>
 <p>Lines 181 through 182 validate that the topic is a string. If the topic
 is not of string type, then a TypeError exception is raised.</p>
 <p>Lines 185 through 188 select the messagepack version to use to encode
 the payload for transmission across the network. If the numpy parameter
-was set, then messagepack_numpy is selected for use, otherwise standard messagepack
+was set, then messagepack_numpy is selected for use. Otherwise, standard messagepack
 is selected.</p>
 <p>Line 190 encodes the topic for transmission across the network.</p>
 <p>Line 191 publishes the message by calling ZeroMQ <em>send_multipart</em>.</p>
@@ -593,7 +592,7 @@ messagepack_numpy.</p>
  to process the message. Line 216 handles the case for numpy data,
 and 218 for non-numpy data.</p>
 <h3 id="when-no-messages-are-available">When No Messages Are Available</h3>
-<p>When the ZeroMQ <em>recv_mutlipart</em> method is called and no data
+<p>When the ZeroMQ <em>recv_mutlipart</em> method is called, and no data
  is available on the subscription queue, ZeroMQ raises a <strong><em>zmq.error.Again</em></strong> exception.
  The exception handler constitutes the idle portion of the Python Banyan event loop.
  During idle time, the
@@ -627,7 +626,7 @@ parameter.</p>
 <h2 id="clean_up">clean_up</h2>
 <p>This method may be overridden. It is normally called before terminating the component.
 It closes both the publisher and subscriber connections and terminates the
-ZeroMQ session for the component. You may add any additional cleanup that your component may require.</p>
+ZeroMQ session for the component. You may add any additional clean-up that your component may require.</p>
 <pre><code>   242      def clean_up(self):
    243          &quot;&quot;&quot;
    244          Clean up before exiting - override if additional cleanup is necessary
@@ -638,8 +637,8 @@ ZeroMQ session for the component. You may add any additional cleanup that your c
    249          self.context.term()
 </code></pre>
 
-<h1 id="a-template-for-component-command-line-options">A Template For Component Command Line Options</h1>
-<p>If you would like to provide the facility to specify command line options
+<h1 id="a-template-for-component-command-line-options">A Template For Component Command-Line Options</h1>
+<p>If you would like to provide the facility to specify command-line options
 for a component, the following is a template to do so.</p>
 <p>This will be explained in detail in a <a href="../example2">later section</a>.</p>
 <pre><code>   251  # When creating a derived component, replicate the code below and replace
@@ -706,6 +705,9 @@ for a component, the following is a template to do so.</p>
 how to build and use Python Banyan components.</p>
 <h2 id="where-to-find-the-example-source-code">Where To Find The Example Source Code</h2>
 <p>The code for all the examples may be found on <a href="https://github.com/MrYsLab/python_banyan/tree/master/examples">GitHub</a>.</p>
+<p><br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
 
   <br>
     

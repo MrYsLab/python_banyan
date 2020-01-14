@@ -85,22 +85,22 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="mqtt-gateway">MQTT Gateway</h1>
-<p>If you need to interconnect with MQTT, an Banyan MQTT Gateway has been provided.
+<p>If you need to interconnect with MQTT, a Banyan MQTT Gateway has been provided.
 This gateway has been documented <a href="../example10/">here.</a></p>
 <h1 id="websocket-gateway">WebSocket Gateway</h1>
 <p>The OneGPIO Demo Examples include Web pages to control an
 Arduino, ESP-8266, and Raspberry Pi. The WebPages publish
-commands via a WebSocket connection. This gateway will translate
-the WebSocket command messages to OneGPIO command messages and OneGPIO
-reporter messages to WebSocket reporter messages in order to display reports
-on the Web page.</p>
+commands via a WebSocket connection. This gateway translates
+the WebSocket command messages to OneGPIO command messages. It also translates OneGPIO
+reporter messages to WebSocket reporter messages to allow reports
+to be displayed on the Web page.</p>
 <p>The WebSocket IP address that this component uses is <em>localhost</em> since it is intended to be
 used in conjunction with a Web Browser running on the same computer as the Gateway.
-The WebSocketIP port is fixed to value of 9000. If you need to, you can modify the
+The WebSocket IP port is fixed to a value of 9000. If you need to, you can modify the
 supplied code to allow the user to modify these values on the command line.</p>
 <p><strong><em>IMPORTANT NOTE</em></strong>
 The WebSocket Gateway utilizes a Python asyncio WebSocket library.
-It requires that Python 3.7 or greater be used. </p>
+It requires that Python 3.7 or higher be used.</p>
 <h2 id="a-quick-overview-of-the-wsgateway-component">A Quick Overview Of The WsGateway Component</h2>
 <p>The Banyan WebSocket Gateway is an executable Banyan component. It follows the
 command line patterns exposed in the Banyan User's Guide:</p>
@@ -190,14 +190,14 @@ optional arguments:
 <p>In this section of code, the necessary packages are imported and we
 define the WsGateway class, which is derived from BanyanBaseAIO.</p>
 <p>Being an asyncio based class, one of the parameters 
-that may be passed to this class is an asyncio event loop. Normally
+that may be passed to this class is an asyncio event loop. Usually,
 the default event loop is used, but you can supply your own event loop
 if you need to.</p>
 <p>This component implements a WebSocket server that permits connections to multiple
 WebSocket clients. An empty array, <em>self.active_sockets</em> is created
 on line 75 to store a record for each connected socket.</p>
 <p>Lines 79-85 start the WebSocket server. When a client connects
-to the WebSocket server the <em>wgs</em> method is called 
+to the WebSocket server, the <em>wgs</em> method is called
 on line 79.</p>
 <p>For information about the WebSocket server, please go to this
 <a href="https://github.com/aaugustin/websockets">link</a>.</p>
@@ -245,14 +245,14 @@ Line 96 establishes the zeromq subscriber and publisher sockets for this compone
 <p>Line 99 waits to receive initial identification data from a WebSocket client. This data 
 is used to create a subscription topic for the WebSocket Gateway. </p>
 <p>Using the <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/arduino_uno/arduino.html">Arduino Demo Station Page</a> 
-as an example, the ID string sent as a WebSocket message from the Web page is "to_arduino_gateway". This
+as an example, the ID string sent as a WebSocket message from the Web page is "to_arduino_gateway." This
 ID string is used to create subscription topic strings that the WebSocket Gateway
  uses for its operation. This is accomplished on lines 112-115.</p>
 <p>An entry for the socket connection is created and added to the active_websockets array.
 The entry is used to dispatch messages to the correct WebSocket during data transfer. This is
 accomplished on lines 118-119.</p>
-<p>Line 122 creates an asyncio task to continuously receive WebSocket messages
-from any connected WebSocket client. This task passes these messages to the <em>receive_data</em> method
+<p>Line 122 creates an asyncio task to receive WebSocket messages from any connected WebSocket client continuously.
+ This task passes these messages to the <em>receive_data</em> method
 for further processing.</p>
 <pre><code>   124      async def receive_data(self, websocket, publisher_topic):
    125          &quot;&quot;&quot;
@@ -306,7 +306,7 @@ processing method, overwritten to process OneGPIO messages received from
 the target hardware in the form of a report message. Using the topic
 of the message as a key, it looks up the associated WebSocket in the 
 <em>active_sockets</em> array and publishes the message to the correct WebSocket.</p>
-<p>On lines 152-154, if the gateway provided a time stamp, the time stamp
+<p>On lines 152-154, if the gateway provided a timestamp, the timestamp
  is formatted and appended to the report message.
 Line 156 encodes the message as a JSON message sends the message
 to WebSocket client on line 163</p>
@@ -366,6 +366,9 @@ to WebSocket client on line 163</p>
 
 <p>Lines 167-219 implement the standard way of instantiating a 
 Banyan component.</p>
+<p><br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
 
   <br>
     

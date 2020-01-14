@@ -92,17 +92,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
  GPIO API calls. OneGPIO Gateways for the <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/arduino_uno/arduino_gateway.py">Arduino</a>, 
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/esp_8266/esp8266_gateway.py">ESP-8266,</a>
  and <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/raspberry_pi/rpi_gateway.py">Raspberry Pi</a> are included with this distribution.</p>
-<p>To make it easier to create a OneGPIO Gateway, a base class, called
-<a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/gateway_base/gateway_base.py"><strong><em>GatewayBase</em></strong></a> 
-is made available. This class encapsulates both BanyanBase functionality as well as
+<p>A base class, called
+<a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/gateway_base/gateway_base.py"><strong><em>GatewayBase,</em></strong></a>
+is made available to simplify the task of creating a OneGPIO Gateway. This class encapsulates both BanyanBase functionality as well as
 OneGPIO Gateway functionality. When implementing a OneGPIO Gateway, you may choose
 any target GPIO API. For example, in creating the Raspberry Pi Gateway, the <em>pigpio</em> library
 was chosen. If you prefer to use some other API, there are no restrictions to do so.</p>
 <p>There is also a Python asyncio version of the base class, called
- <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/gateway_base_aio/gateway_base_aio.py"><strong><em>GatewayBaseAIO</em></strong></a>
-. This additional base class,
+ <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/gateway_base_aio/gateway_base_aio.py"><strong><em>GatewayBaseAIO</em></strong>.</a>
+ This additional base class,
 was necessary to support the pymata-express asyncio GPIO library for the Arduino. It is very
-similar to the GatewayBase class and so it will not be discussed here.</p>
+similar to the GatewayBase class, and so it will not be discussed here.</p>
 <h1 id="understanding-the-gatewaybase-class">Understanding The GatewayBase Class</h1>
 <p>Let's look at the <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/gateway_base/gateway_base.py">code.</a> 
 Below are code sections that are followed by a discussion. </p>
@@ -191,9 +191,9 @@ parameter that will allow the user to supply a board type id.</p>
 is used as the lone entry into the subscriber_list. Of course, subscription
 topics may be added at any time during run-time.</p>
 <p>Line 82 creates an empty <em>pins_dictionary</em>. This dictionary is used by each
-hardware specific gateway to store pin information, such the pin's mode and current state.</p>
-<p>Line 87 creates an empty <em>tags_dictionary</em>. When a pin mode is set and a tag is provided,
-an entry is made into this dictionary with the tag as its key and the pin number as the entry's value.</p>
+hardware-specific gateway to store pin information, such as the pin's mode and current state.</p>
+<p>Line 87 creates an empty <em>tags_dictionary</em>. When setting a pin mode, if a tag is provided,
+an entry is made into this dictionary. The tag is used as a key, and the pin number is the entry's value.</p>
 <p>Line 89 calls the <em>init_pins_dictionary</em> method. See the discussion below for line 126 for
 more information about this method.</p>
 <pre><code>    91          # initialize the parent
@@ -252,8 +252,8 @@ key is a method <em>reference</em> that will be called on line 161 below.</p>
    131          raise NotImplementedError
 </code></pre>
 
-<p>This method <strong><em>must be</em></strong>  overwritten by each hardware specific OneGPiO Gateway, even if not needed.
-This is to insure that you have not forgotten to implement this method.</p>
+<p>This method <strong><em>must be</em></strong>  overwritten by each hardware-specific OneGPiO Gateway, even if not needed.
+This is to ensure that you have not forgotten to implement this method.</p>
 <pre><code>   133      def incoming_message_processing(self, topic, payload):
    134          &quot;&quot;&quot;
    135          Messages are sent here from the receive_loop
@@ -293,15 +293,15 @@ This is to insure that you have not forgotten to implement this method.</p>
 
 <p>Lines 133-168 implement the Banyan <em>incoming_message_processing</em> method. Received OneGPIO
 commands are processed by this method.</p>
-<p>Line 141-145 retrieve the <em>command</em> key string of the OneGPIO
+<p>Line 141-145 retrieves the <em>command</em> key string of the OneGPIO
 incoming message. </p>
 <p>Line 149 checks to see if an optional <em>tag</em> key is in the message.</p>
 <p>If it is, lines 149-158 process the tag. If the tag is not in the <em>tags_dictionary</em>,
 the tag and its associated pin number are added to the dictionary.</p>
-<p>Lines 160-165 check to see if the value of the <em>command</em> key is within the command_dictionary.
-It if is, the command method is called.</p>
-<p>If it is not found, the <em>additional_banyan_messages</em> method is called. This allows you
-to easily add hardware specific commands not found in the command dictionary.</p>
+<p>Lines 160-165 checks to see if the value of the <em>command</em> key is within the command_dictionary.
+If it is, the command method is called.</p>
+<p>If it is not found, the <em>additional_banyan_messages</em> method is called.
+ This allows you to add hardware-specific commands not found in the command dictionary easily.</p>
 <pre><code>   179      def analog_write(self, topic, payload):
    180          &quot;&quot;&quot;
    181          This method will pass any messages not handled by this class to the
@@ -324,7 +324,7 @@ presented below are from the Raspberry Pi Gateway.</p>
 you can go beyond a simple one to one mapping between the OneGPIO command and
 the underlying GPIO API.</p>
 <p>Let's look at <em>set_mode_digital_input</em> for the Raspberry Pi. The Raspberry Pi
-Gateway uses the pigpio GPIO library. Of course you can use
+Gateway uses the pigpio GPIO library. Of course, you can use
 any GPIO library you wish to choose.</p>
 <pre><code>   def set_mode_digital_input(self, topic, payload):
         &quot;&quot;&quot;
@@ -345,16 +345,20 @@ any GPIO library you wish to choose.</p>
 
 <p>The pin number is extracted from the OneGPIO payload. The pin mode is set within
  the <em>pins_dictionary</em> for the pin.</p>
-<p>Next it performs 4 <em>pigpio</em> functions. It sets a glitch filter to debounce the pin, it sets
-the pin as an input, it sets the pull-up resistor to the <em>down</em> state and finally it sets a callback
-method to be called whenever there is a state change for that pin.</p>
+<p>Next, it performs 4 <em>pigpio</em> functions.</p>
+<ul>
+<li>A glitch filter to debounce the pin.</li>
+<li>The pin mode is set to <strong><em>input</em></strong>.</li>
+<li>The internal pull-up/pull-down resistor for the pin is set to <strong><em>pull-down</em></strong>.</li>
+<li>A callback method is set. This method is called whenever there is a state change for the pin.</li>
+</ul>
 <p>The OneGPIO Application Component has no knowledge of all of this underlying logic.
-It simply sends the command to set the pin mode to digital input, and the OneGPIO Gateway
+It merely sends the command to set the pin mode to digital input, and the OneGPIO Gateway
 interprets the behavior for the specific target hardware.</p>
 <h2 id="adding-some-more-spin">Adding Some More <em>Spin</em></h2>
-<p>The Raspberry Pi GPIO does not directly support analog input. Again,
-since you can define the meaning of a command, you can have the gateway
-implement anything you choose to do, including using an external device to perform the desired functionality.</p>
+<p>The Raspberry Pi GPIO does not directly support analog input. But
+since you control the definition of a command, the gateway
+can implement anything you choose, including using an external device to perform analog input.</p>
 <p>Here we implement analog input for the Raspberry Pi by using a PFC8591
 A/D converter.</p>
 <pre><code>    def set_mode_analog_input(self, topic, payload):
@@ -387,6 +391,9 @@ A/D converter.</p>
 <p>The A/D device is i2c based and so this method implements the i2c communication.
 The method retrieves the current value for one of the 4 channels supported by the
 PCF8591 A/D converter and then publishes that value using a OneGPIO report message.</p>
+<p><br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
 
   <br>
     

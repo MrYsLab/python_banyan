@@ -91,8 +91,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h2 id="installing-your-components-as-executable-modules">Installing Your Components As Executable Modules</h2>
 <p>There are times when it is more convenient to start a Banyan component
-using the command line without having to specifically invoke the Python
-interpreter.</p>
+using the command-line without having to invoke the Python interpreter explicitly.</p>
 <p>For example, instead of starting the server with:</p>
 <pre><code>python simple_echo_server.py
 </code></pre>
@@ -102,13 +101,13 @@ interpreter.</p>
 </code></pre>
 
 <p>Fortunately, the Python <a href="https://setuptools.readthedocs.io/en/latest/">setuptools</a>
-provide a fairly simple way to install a Python script as a command line executable.</p>
-<p>The setuptools can perform the installation in a platform independent way, so no matter if you are running
-Windows, Mac or Linux, no code changes are necessary and installation is performed
+provide a reasonably simple way to install a Python script as a command-line executable.</p>
+<p>The setuptools can perform the installation in a platform-independent way. So no matter if you are running
+Windows, Mac, or Linux, no code changes are necessary, and installation is performed
 consistently across all platforms.</p>
 <h2 id="creating-a-package-directory-structure">Creating A Package Directory Structure</h2>
-<p>The first thing you need to do is to setup a directory structure for setuptools to use.
-Setuptools expects a very specific directory structure.</p>
+<p>The first thing you need to do is to set up a directory structure for setuptools to use.
+Setuptools expects a specific directory structure.</p>
 <p>Here is a directory structure for an example project called <em>ecs</em>.</p>
 <pre><code>ecs
 ├── ecs
@@ -120,14 +119,14 @@ Setuptools expects a very specific directory structure.</p>
 </code></pre>
 
 <p>You can find a copy of this directory and all of its files on <a href="https://github.com/MrYsLab/python_banyan/tree/master/examples/ecs">GitHub.</a></p>
-<p>We start with a top level directory called ecs. The ecs directory contains
-the <em>setup.py</em> file, and another directory, with the package name <em>ecs</em>.
+<p>We start with a top-level directory called ecs. The ecs directory contains
+the <em>setup.py</em> file, in addition to a directory with the package name. The package name is also <em>ecs</em>.
 This second directory holds the package's source files, as well as
-<em>__init__.py</em>. This file is empty, but identifies this directory as a <em>python package</em>
+<em>__init__.py</em>. Even though this file is empty, it identifies the directory as a <em>python package</em>
 for setuptools.</p>
 <p>The <em>setup.py</em> file will be configured to install the three Python source files as executables
 called
-<em>server</em>, <em>client</em> and <em>gui</em>. To perform the installation, we will
+<em>server</em>, <em>client,</em> and <em>gui</em>. To perform the installation, we will
 use the <a href="https://pip.pypa.io/en/stable/"><em>pip</em></a> facility.</p>
 <h2 id="setuppy">setup.py</h2>
 <p>Let's start by looking at the setup.py file shown below.</p>
@@ -162,34 +161,34 @@ use the <a href="https://pip.pypa.io/en/stable/"><em>pip</em></a> facility.</p>
 
 <p>Line 1 imports setup from setuptools.</p>
 <p>Lines 3 through 25 define the <em>setup</em> function required by setuptools.</p>
-<p>Line 4 is the name parameter which specifies the name we wish to give to our package.</p>
+<p>Line 4 is the name parameter that specifies the name we wish to give to our package.</p>
 <p>Line 5 is the version number. We can change the version as we make changes.</p>
-<p>Line 6 is a list of packages that make up our package. A package can be comprised of set of packages
+<p>Line 6 is a list of packages that make up our package. A package can be comprised of a set of packages,
 and therefore it is expressed as a list. For our purposes, we only have one package.</p>
 <p>Lines 9 through 16 is a list of packages our package requires to run.</p>
 <p>Lines 18 through 24 defines a dictionary called <em>entry_points</em> that contains a single
 key called <em>console_scripts</em>, with a list of 3 strings as its value.</p>
-<p>For each of the three entries, the string to the left of the equals sign is the command line
-command name for the script. The string between the equals sign and the colon defines
+<p>For each of the three entries, the string to the left of the equals sign
+specifies the script command-line name.   The string between the equals sign and the colon defines
 the location of the python script, and the string after the colon defines the name of the function
 that will be called within the script to start it.</p>
-<p>Let's look at the format for the first executable, <em>'client'</em>.</p>
+<p>Let's look at the format for the first executable, <em>'client.'</em></p>
 <h3 id="executable-name">Executable Name</h3>
-<p>On the left of the equal sign is the name we wish to give the our executable, and in this
-case the name is <em>client</em>.</p>
+<p>On the left of the equal sign is the name we wish to give our executable, and in this
+case, the name is <em>client</em>.</p>
 <h3 id="location-of-the-file">Location Of The File</h3>
-<p>On the right of the equal sign, is a dotted notation of where the source file resides,
+<p>On the right of the equal sign is a dotted notation of where the source file resides,
 followed by a function within the file to be called to start the program.</p>
 <p>Line 20 specifies the file location as "ecs.echo_cmdline_client". The first
-part is the name of the package, "ecs". That is the directory that contains the source
-files. The second part is the file name within this directory, "echo_cmdline_client"</p>
+part is the name of the package, "ecs." That is the directory that contains the source
+files. The second part is the file name within this directory, "echo_cmdline_client."</p>
 <h3 id="startup-function">Startup Function</h3>
 <p>If we look at line 125 of the source code for the
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/echo_cmdline_client.py">client</a>, we see the function
-called "echo_cmdline_client" and this is the function we specify to start the component
-when we invoke "client" as a command line command.</p>
+called "echo_cmdline_client," and this is the function we specify to start the component
+when we invoke "client" as a command-line command.</p>
 <h2 id="installing-with-pip">Installing With <em>pip</em></h2>
-<p>To install our files as executables we first go to the directory that contains the
+<p>To install our files as executables, we first go to the directory that contains the
 <em>ecs</em> directory, for example, <em>python_banyan/python_banyan/examples</em>.</p>
 <p>We then type:</p>
 <pre><code>pip install ./ecs
@@ -198,9 +197,12 @@ when we invoke "client" as a command line command.</p>
 <p>to install using our local copy of the ecs package. If we did not specify "<em>./ecs</em>" and just
 used <em>ecs</em>, pip would try to access and install the package from <a href="https://pypi.org/">pypi</a>
  on the internet.</p>
-<p>Now, after starting the Backplane, you can start the server by simply typing
+<p>Now, after starting the backplane, you can start the server by simply typing
 "server" in a command window, and either "client" or "gui" in another command window
 to start a client.</p>
+<p><br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
 
   <br>
     

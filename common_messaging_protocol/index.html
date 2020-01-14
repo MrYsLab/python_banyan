@@ -81,7 +81,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="introduction-to-the-onegpio-message-api">Introduction To The <em>OneGPIO</em> Message API</h1>
-<p>Unlike traditional GPIO libraries that use a hardware specific <em>method call API</em> interface,
+<p>Unlike traditional GPIO libraries that use a hardware-specific <em>method call API</em> interface,
 OneGPIO uses a <strong><em>Banyan Messaging API</em></strong> interface. <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/message_specification/OneGPIO.pdf">The OneGPIO
 Specification</a> 
 provides Banyan message templates for all OneGPIO commands
@@ -92,13 +92,13 @@ GPIO command information to the target hardware.</p>
 <p>A <strong><em>OneGPIO Report Message</em></strong> is published by a OneGPIO Gateway, after receiving report data
 from the target hardware.
  Because the Gateway is translating native report messages into OneGPIO messages, 
- the has the freedom to add
-additional data to the report message, such as a time stamp.</p>
+ it has the freedom to add
+additional data to the report message, such as a timestamp.</p>
 <p><img alt="" src="../images/one_gpio_messages.png" /></p>
-<p>A command message contains the key word <strong><em>command</em></strong> and a 
-report contains the key word <strong><em>report</em></strong></p>
+<p>A command message contains the keyword <strong><em>command,</em></strong> and a
+report contains the keyword <strong><em>report</em></strong></p>
 <p>In general, a GPIO pin must have its mode set before use. 
-For example to set a pin to digital output mode, you would use the following
+For example, to set a pin to digital output mode, you would use the following
 message template:</p>
 <table>
 <thead>
@@ -125,11 +125,22 @@ to set pin 4 as a <strong>digital output</strong> pin and tag the pin with <stro
 <p><strong>{'command': 'set_mode_digital_output', 'pin': 4, 'tag': 'green_led' }</strong></p>
 <p>Notice that <strong><em>pin</em></strong> is an integer and not a string.</p>
 <p>All OneGPIO message <em>keys</em> are strings. Within the OneGPIO message specification, if a <em>value</em> is <em>not</em>
-within quotes, then it is specified as an integer, otherwise, it is specified as a string.</p>
+within quotes, then it is specified as an integer. Otherwise, it is specified as a string.</p>
 <p>The OneGpio command to set the state of a digital output pin is:</p>
-<p>|      GPIO Operation      |              OneGPIO Message             |</p>
-<p>|:------------------------:|:-------------------------------:|</p>
-<p>| Set Digital Output Pin State      | {"command": "digital_write", "pin": PIN, "tag": "TAG", "value": VALUE} |</p>
+<table>
+<thead>
+<tr>
+<th align="center">GPIO Operation</th>
+<th align="center">OneGPIO Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Set Digital Output Pin State</td>
+<td align="center">{"command": "digital_write", "pin": PIN, "tag": "TAG", "value": VALUE}</td>
+</tr>
+</tbody>
+</table>
 <p>Now that the pin mode has been set with a tag, we can set the green LED to <em>on</em> with the following
 message: </p>
 <p><strong>{'command': 'digital_write', 'tag': 'green_led', 'value': 1 }</strong></p>
@@ -142,6 +153,9 @@ tag or pin number when referencing the pin in a command.</p>
 change the pin number for the chosen
 hardware platform. This can easily be implemented using command line arguments
 when designing the component.  </p>
+<p><br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
 
   <br>
     

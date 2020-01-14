@@ -85,7 +85,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="benchmarking-banyan-and-mqtt">Benchmarking Banyan and MQTT</h1>
-<p>MQTT is a great tool if used for what it is designed - that is, publishing messages across the greater Internet.
+<p>MQTT is an excellent tool if used for what it is designed - that is, publishing messages across the greater Internet.
 But when traffic is limited to within a given LAN, MQTT is highly inefficient.</p>
 <p>We ran a simple benchmark comparing MQTT to Python Banyan.
 For each framework, the benchmark consists of a publisher that publishes 100000 messages and a subscriber that receives those messages.
@@ -102,7 +102,7 @@ The total transfer time is calculated for each, and total latency between the pu
 an Intel Core i5-2500K CPU running at 3.30GHz.</p>
 <p>Python 3.7.2 compiled with the --enable_optimizations flag set was used for both
 tests.</p>
-<p>Mosquitto version 1.4.15 and paho version 1.3.1 were used for the mqtt tests.</p>
+<p>Mosquitto version 1.4.15 and paho version 1.3.1 were used for the MQTT tests.</p>
 <h2 id="using-mqtt">Using MQTT</h2>
 <p>Here are the MQTT test results for the subscriber:</p>
 <pre><code>$ python3 mqsub.py
@@ -118,7 +118,7 @@ Task completed on:  Wed Feb 13 17:27:24 2019
 
 </code></pre>
 
-<p>We can see that it took a little over 4.18 seconds to send the and receive the 100000 messages.</p>
+<p>We can see that it took a little over 4.18 seconds to send and receive the 100000 messages.</p>
 <h2 id="using-python-banyan">Using Python Banyan</h2>
 <p>Here are the Banyan subscriber results:</p>
 <pre><code>$ python3 banyan_sub.py
@@ -148,16 +148,19 @@ Task completed at:  Wed Feb 13 17:38:42 2019
 
 </code></pre>
 
-<p>Looking at the results, Python Banyan was almost 2.5 times faster the MQTT.
-What is more interesting is the latency between the publishers and subscribers completions.
-Looking at the time stamps reported, MQTT had a latency of 1 seconds, while Banyan had a latency of 0 second.</p>
+<p>Looking at the results, Python Banyan was almost 2.5 times faster than the MQTT.
+What is more interesting is the latency between the publishers' and subscribers' completions.
+Looking at the time stamps reported, MQTT had a latency of 1 second, while Banyan had a latency of 0 seconds.</p>
 <h2 id="running-the-benchmarks-on-a-raspberry-pi">Running the Benchmarks On A Raspberry Pi</h2>
 <p>The tests were also run on a Raspberry Pi 3 with Raspbian Stretch March 2018 release
-updated and upgraded on February 14 2019.
+updated and upgraded on February 14, 2019.
 Python 3.6.4 was used for all tests.</p>
-<p>Mosquitto version 1.4.15 and paho version 1.3.1 were used for the mqtt tests.</p>
+<p>Mosquitto version 1.4.15 and paho version 1.3.1 were used for the MQTT tests.</p>
 <p>In this case, MQTT took a little over 36 seconds to complete and Banyan a little over 17.</p>
 <p>Latency for MQTT was approximately 7 seconds and for Banyan, approximately 1 second. </p>
+<p><br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
 
   <br>
     

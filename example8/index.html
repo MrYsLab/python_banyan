@@ -40,7 +40,7 @@
               {title: "The Launch Descriptor File", url: "#the-launch-descriptor-file" },
           ]},
           {title: "The Banyan Launch Server", url: "#the-banyan-launch-server", children: [
-              {title: "The Auto Restart Feature", url: "#the-auto-restart-feature" },
+              {title: "The Auto-Restart Feature", url: "#the-auto-restart-feature" },
               {title: "The Log File", url: "#the-log-file" },
           ]},
           {title: "The Banyan Launch Client", url: "#the-banyan-launch-client", children: [
@@ -97,11 +97,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h1 id="the-python-banyan-launcher">The Python Banyan Launcher</h1>
 <p>Launching a Banyan application often involves launching multiple
-individual Banyan components. The Python Banyan Launcher
-simplifies the launch process by allowing you to launch all the components
+individual Banyan components. The Python Banyan launcher
+simplifies the launch process by allowing you to start all the components
 from a single console command.</p>
-<p>This source code for the Banyan Launcher may be found on <a href="https://github.com/MrYsLab/python_banyan/tree/master/python_banyan/utils/banyan_launcher">GitHub.</a></p>
-<p><strong>NOTE:</strong> For Linux, Mac and Raspberry PI users, the Launcher requires <strong>xterm</strong> to be installed on your system.</p>
+<p>This source code for the Banyan launcher may be found on <a href="https://github.com/MrYsLab/python_banyan/tree/master/python_banyan/utils/banyan_launcher">GitHub.</a></p>
+<p><strong>NOTE:</strong> For Linux, Mac, and Raspberry PI users, the launcher requires <strong>xterm</strong> to be installed on your system.</p>
 <p><strong><em>Xterm is not required for Windows, so Windows users can skip to 
 <a href="../example8/#launching-components">Launching Components.</a></em></strong></p>
 <h2 id="testing-for-xterm">Testing For Xterm</h2>
@@ -120,10 +120,10 @@ then you will need to install xterm.</p>
 <h2 id="installing-xterm-for-mac">Installing Xterm For Mac</h2>
 <p>Please refer to <a href="https://support.apple.com/en-us/ht201341">these instructions.</a></p>
 <h2 id="launching-components">Launching Components</h2>
-<p>To demonstrate the use of the Launcher,  we will
-launch the <a href="../example5">Monitor</a>, the
+<p>To demonstrate the use of the launcher,  we will
+launch the <a href="../example5">monitor</a>, the
 <a href="../example1/#the-server">simple echo server</a> and
-<a href="../example2">command line echo client</a> that were installed as executable components in a
+<a href="../example2">command-line echo client</a>. All three were installed as executable components in a
  <a href="../example7">previous section</a> of this document.</p>
 <p>Launch instructions are specified by creating a comma delimited text file
  called the <strong><em>launch descriptor file</em></strong>. Let's examine the <em>launch descriptor file</em> in detail.</p>
@@ -144,8 +144,8 @@ client,yes,local,no,no,0
 
 </code></pre>
 
-<p><strong>command_string</strong> - this field is the command line command used to execute the component. For the example,
-the Launcher will start the <em>monitor</em>, and the <em>server and client</em> that were installed as executable modules
+<p><strong>command_string</strong> - this field is the command-line command used to execute the component. For this example,
+the launcher will start the <em>monitor</em> and the <em>server and client</em> that were installed as executable modules,
 as <a href="../example7">described earlier</a>.</p>
 <p>Note that the launcher will execute any command string we enter, so for example,
 if the file <em>simple_echo_server.py</em> is in the <em>/home/bob_files/demo</em> directory, we could specify the command
@@ -155,17 +155,17 @@ as</p>
 
 <p><strong>spawn</strong> - this field determines if the command will be executed in its own
  terminal window. If <strong>yes</strong>, a new window
-will be opened and all component console output will appear in this window. If this field is set to <strong>no</strong>,
- the component will be spawned within the common launcher terminal window and all console output will be placed
- in that window. There are screen shots below to demonstrate both cases.</p>
-<p><strong>topic</strong> - if component is to be run on the local machine, the topic must be set to <strong><em>local</em></strong>. If you wish
-to launch a component on a remote computer, than the <em>topic</em> must be set to something other than <strong><em>local</em></strong>. Note
-that the <em>topic</em> mentioned here is for the Launcher's purposes and does not affect the application.
+will be opened, and all component console output will appear in this window. If this field is set to <strong>no</strong>,
+ the component will be spawned within the common launcher terminal window, and all console output will be placed
+ in that window. There are screenshots below to demonstrate both cases.</p>
+<p><strong>topic</strong> - if a component is to be run on the local machine, the topic must be set to <strong><em>local</em></strong>. If you wish
+to launch a component on a remote computer, then the <em>topic</em> must be set to something other than <strong><em>local</em></strong>. Note
+that the <em>topic</em> mentioned here is for the launcher's purposes and does not affect the application.
 Remote launching will be demonstrated <a href="#the-banyan-launch-client">in the Banyan Launch Client section</a>.</p>
 <p><strong>append_bp_address</strong> - this field is used mainly when launching components on a remote computer.
-If set to <strong><em>yes</em></strong>, the Backplane IP address is appended to the command string with a
-<strong><em>-b option</em></strong>. The address is the IP address of the local computer. For example, if the Backplane IP address being used is
-192.168.1.100 and the descriptor entry for the <em>client</em> component was set as follows:</p>
+If set to <strong><em>yes</em></strong>, the backplane IP address is appended to the command string with a
+<strong><em>-b option</em></strong>. The address is the IP address of the local computer. For example, if the backplane IP address being used is
+192.168.1.100, and the descriptor entry for the <em>client</em> component was set as follows:</p>
 <pre><code>client,yes,remote1,yes,no,0
 </code></pre>
 
@@ -174,7 +174,7 @@ If set to <strong><em>yes</em></strong>, the Backplane IP address is appended to
 </code></pre>
 
 <p>When the component is launched on the remote computer, it will automatically connect to the backplane.
-The -b option is used assuming that the component was built using <a href="../example2">command line options</a>.</p>
+The -b option is used, assuming that the component was built using <a href="../example2">command-line options</a>.</p>
 <p><strong>auto_restart</strong> - if this field is set to <em>yes</em>, and
 the component crashes, it will
 automatically be restarted.</p>
@@ -184,13 +184,13 @@ automatically be restarted.</p>
 reads the <em>Launch Descriptor</em> file and launches the components specified by that file.
 The Banyan Launch Server is automatically installed as an executable when you installed
 Python Banyan. </p>
-<p>When invoking bls, if no launch descriptor file is specified using the -f command line option,
+<p>When invoking bls, if no launch descriptor file is specified using the -f command-line option,
 then bls will assume that a file called <em>launch.csv</em> is being used.</p>
-<p>Make sure you have copy of <em>launch.csv</em> in your current working directory.</p>
+<p>Make sure you have a copy of <em>launch.csv</em> in your current working directory.</p>
 <p>Let's execute bls:</p>
 <p><img align="center" src="../images/launcher1.png"></p>
-<p>We see a standard Banyan header, followed by a list of the components launched with their process ids.(PID).</p>
-<p>The launch server first checks to see if a backplane is currently running and if not will launch one before
+<p>We see a standard Banyan header, followed by a list of the components launched with their process IDs(PID).</p>
+<p>The launch server first checks to see if a backplane is currently running and, if not, will launch one before
 proceeding.</p>
 <p>It then launches each of the components specified in the launch descriptor file. Because we specified <em>spawn</em> for
 each component, a terminal window is invoked for each component.</p>
@@ -205,14 +205,14 @@ client,yes,local,no,no,0
 </code></pre>
 
 <p><img align="center" src="../images/launcher4.png"></p>
-<h2 id="the-auto-restart-feature">The Auto Restart Feature</h2>
-<p>We specified auto restart for the server in the launch descriptor file, so let's close the server window
+<h2 id="the-auto-restart-feature">The Auto-Restart Feature</h2>
+<p>We specified auto-restart for the server in the launch descriptor file, so let's close the server window
 that was opened by <em>bls</em> and see what happens.</p>
 <p><img align="center" src="../images/launcher2.png"></p>
-<p>When <strong><em>bls</em></strong> detects that server process died, it indicates this in
+<p>When <strong><em>bls</em></strong> detects that the server process died, it indicates this in
 the <strong><em>bls</em></strong> console and then relaunches the server. A new PID
 is generated for the relaunch.</p>
-<p>If we kill client, which does not have auto restart enabled, then we just see the "DIED" notification.</p>
+<p>If we kill the client, which does not have auto restart enabled, then we just see the "DIED" notification.</p>
 <p><img align="center" src="../images/launcher3.png"></p>
 <h2 id="the-log-file">The Log File</h2>
 <p>Anytime a process dies, it is not only noted on the screen, but an entry is placed in
@@ -220,21 +220,21 @@ is generated for the relaunch.</p>
 The log file, called banyan_launcher.log, is automatically generated and placed
 in the user's home directory.</p>
 <h1 id="the-banyan-launch-client">The Banyan Launch Client</h1>
-<p>To launch components remotely, the Banyan Launch Client (<strong>blc</strong>) is invoked on the
-remote computer.</p>
-<p>To demonstrate how to launch components remotely, we will distribute the components as
+<p>The Banyan Launch Client (<strong>blc</strong>) is invoked on the
+remote computer to launch components on the remote computer with a command on the local computer.</p>
+<p>To demonstrate how to launch components remotely, we will distribute the components, as
 shown below:</p>
 <p><img align="center" src="../images/blc1.png"></p>
-<p>The Ubuntu computer will run bls and the Backplane. Its IP address is 192.168.2.190</p>
+<p>The Ubuntu computer will run bls and the backplane. Its IP address is 192.168.2.190</p>
 <p>The Windows 10 computer will run blc and the client. Its IP address is 192.168.180</p>
 <p>The Raspberry Pi computer will run blc and the server. Its IP address is 192.168.189</p>
 <p>All we need to do is install the components on their respective computers
 and modify the launch configuration file. Then we start bls,
-in the case of this example, on the Ubuntu computer, and blc on the remote computers,
-Windows 10 and the Raspberry Pi.</p>
-<p><strong>NOTE:</strong> The configuration file only resides on the computer that runs <strong><em>bls</em></strong>. It
-will send all the launch information to the remote computers, and then the remote
-computers will manage the applications, including auto-restart if specified.</p>
+in the case of this example, on the Ubuntu computer and blc on the remote computers,
+Windows 10, and the Raspberry Pi.</p>
+<p><strong>NOTE:</strong> The configuration file only resides on the computer that runs <strong><em>bls</em></strong>.
+It will send all the launch information to the remote computers.
+The remote computers will then manage the applications, including auto-restart if specified.</p>
 <h2 id="modified-launch-descriptor-for-remote-launching">Modified Launch Descriptor For Remote Launching</h2>
 <pre><code>command_string,spawn,topic,append_bp_address,auto_restart,wait
 monitor,yes,local,no,no,0
@@ -242,18 +242,18 @@ server,yes,rpi_launch,yes,yes,0
 client,yes,windows_launch,yes,no,0
 </code></pre>
 
-<p>The lines for the <em>server</em> and <em>client</em> have been modified to set the append_bp_address field to <strong><em>yes</em></strong>,
-in addition to creating a unique topic string for each remote computer. For the echo server that will run on the Raspberry Pi,
-the topic string <strong>rpi_launch</strong> was chosen and for the Windows machine running the echo client,
+<p>The lines for the server and client have been modified to set the append_bp_address field to yes.
+ Also, a unique topic string is created for each remote computer.  For the echo server that will run on the Raspberry Pi,
+the topic string <strong>rpi_launch</strong> was chosen, and for the Windows machine running the echo client,
 <strong>windows_launch</strong> was chosen.</p>
 <h2 id="invoking-the-banyan-launch-client">Invoking The Banyan Launch Client</h2>
 <p>Make sure that you have installed Python Banyan on your computer, which will automatically
-install the Banyan Launcher programs.</p>
-<p>The <strong>blc</strong> application requires 2 command line arguments to be supplied on the command line.
+install the Banyan launcher programs.</p>
+<p>The <strong>blc</strong> application requires 2 command-line arguments to be supplied on the command-line.
  If the required arguments are not supplied, then <strong><em>blc</em></strong> will exit with an error message.</p>
-<p>The first required command line argument
-is the application's backplane IP address and the second is the topic string
-that the remote computer will be listening for to receive its launch instructions.</p>
+<p>The first required command-line argument
+is the application's backplane IP address. The second required field is the topic string
+that the remote computer subscribes to receive its launch instructions.</p>
 <p>For the Windows machine, <strong>blc</strong> is started with the following command:</p>
 <pre><code>blc -b 192.168.2.190 -t windows_launch
 </code></pre>
@@ -265,34 +265,40 @@ that the remote computer will be listening for to receive its launch instruction
 <p>You may start <strong>bls</strong> and the <strong>blc</strong> instances in any order.</p>
 <p>When <strong>bls</strong> starts, it will publish Banyan messages with the topics specified in the
 Launch Configuration File, and the payload will contain the details of the launch for the component.</p>
-<p>Using the monitor, we can capture the messages being sent by <strong>bls</strong> as shown below.</p>
+<p>Using the monitor, we can capture the messages being sent by <strong>bls,</strong> as shown below.</p>
 <p><img align="center" src="../images/blc22.png"></p>
-<p>After starting <strong><em>bls</em></strong> we see the following:</p>
+<p>After starting <strong><em>bls,</em></strong> we see the following:</p>
 <p><img align="center" src="../images/blc3.png"></p>
-<p>The Backplane and Monitor have been started on the local computer.</p>
+<p>The backplane and monitor have been started on the local computer.</p>
 <p>We next start <strong><em>blc</em></strong> on the Raspberry Pi computer and see the following:</p>
 <p><img align="center" src="../images/blc_rpi_1.png"></p>
 <p>The Raspberry Pi is awaiting the launch message from <strong><em>bls</em></strong>.</p>
 <p>When we start <strong><em>blc</em></strong> on the Windows computer, we see a similar screen:</p>
 <p><img align="center" src="../images/blc_windows1.png"></p>
-<p>When the launch messages are received on the remote computers we see the following:</p>
+<p>When the launch messages are received on the remote computers, we see the following:</p>
 <p><img align="center" src="../images/blc_rpi2.png"></p>
 <p><img align="center" src="../images/blc_windows2.png"></p>
-<p>After the program is launched on the remote machine by <strong><em>blc</em></strong> we see the name of the program
-and its process ID (PID) that is assigned by the remote machine.</p>
+<p>After <strong><em>blc</em></strong> launches a program on the remote computer,
+ the name of the program and its process ID (PID), assigned by the remote machine,  is displayed.</p>
 <p>The local instance of <strong><em>bls</em></strong> reflects the handshake between the local and remote computers:</p>
 <p><img align="center" src="../images/bls_remote_1.png"></p>
 <p>The PIDs used by the remote computers are shown on the screen.</p>
 <h1 id="killing-the-application">Killing The Application</h1>
-<p>To kill all local and remote components of the application,
-we use another utility called Banyan Launch Kill (<strong>blk</strong>), that was installed
-on your computer when you installed Python Banyan. We simply open up a new command terminal on the local
-computer and type <em>blk</em>.</p>
-<p>When we do this we see the following on the local computer and remote computers,
+<p>The Banyan Launch Kill (<strong>blk</strong>) utility allows you to kill all the
+local and remote components by issuing a command on  the local computer. The blk utility is installed
+automatically when python-banyan.</p>
+<p>To use blk, open a terminal or command window and type:</p>
+<pre><code>blk
+</code></pre>
+
+<p>When we do this, we see the following on the local computer and remote computers,
 showing that all processes were killed successfully.</p>
 <p><img align="center" src="../images/blk_bls.png"></p>
 <p><img align="center" src="../images/blk_rpi.png"></p>
 <p><img align="center" src="../images/blk_windows.png"></p>
+<p><br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
 
   <br>
     

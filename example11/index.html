@@ -82,21 +82,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="gpio-control">GPIO Control</h1>
-<p>In this section we will look at a simple example illustrating
+<p>In this section, we will look at a simple example illustrating
 GPIO control of a Raspberry Pi using Python Banyan.</p>
 <p>The problem we will solve is this:</p>
-<p>When a user presses a mechanical push button, an LED will light up
+<p>When a user presses a mechanical push button, an LED will light up,
 and a Banyan message will be published. The Banyan message
 contains the state change details of the push button -
- the GPIO pin number, the current state of the button and a time
- tick to indicate when the change occurred
- .
-When the user releases the pushbutton, the LED will be
-extinguished and another message will be published indicating the new state
+ the GPIO pin number, the current state of the button, and a time
+ tick to indicate when the change occurred.</p>
+<p>When the user releases the pushbutton, the LED will be
+extinguished, and another message will be published, indicating the new state
 change.</p>
 <p>For ease of use, all examples will use a Raspberry Pi Model 3 connected to
 a <a href="http://pibrella.com/">Pibrella</a> hat. The Pibrella has a push button and
-several LEDs. This precludes us from have to wire individual components to the
+several LEDs. This precludes us from having to wire individual components to the
 Raspberry Pi.</p>
 <p>For GPIO control, the <a href="http://abyz.me.uk/rpi/pigpio/">pigpio</a> GPIO library will
 be used.</p>
@@ -203,7 +202,7 @@ named <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/sin
 <p>Line 21 imports the pigpio library.</p>
 <p>Lines 49 through 60 set the pin mode for both the push button
 and the LED.</p>
-<p>Note: The pibrella requires that the pull-down resistor be enabled on the
+<p>Note: The Pibrella requires that the pull-down resistor be enabled on the
 Raspberry Pi. Line 52 enables the pull-down resistor.</p>
 <p>A "glitch" filter is set on line 56 to prevent the push button from
 generating multiple events from a single press or release of the
@@ -213,11 +212,11 @@ pressed or released.</p>
 <p>Line 64 calls the base class receive_loop method that will
 keep the loop running until the user quits the program.</p>
 <p>The callback method is contained in lines 68 through 92.</p>
-<p>When the user presses or releases the pushbutton this method will be
+<p>When the user presses or releases the pushbutton, the callback method will be
 called by pigpio.</p>
 <p>Lines 84 and 85 print a message to the console containing the
 parameters passed by pigpio to this method.</p>
-<p>On line 87 the LED is set to the reported state, and finally
+<p>On line 87, the LED is set to the reported state. Finally,
 lines 89-92 create and publish a Banyan message about the push button
 event.</p>
 <p>Here is the output on the console after pressing and releasing the
@@ -251,6 +250,10 @@ button {'time_tick': 3857470672, 'pushbutton state': 0, 'gpio_pin': 11}
 button {'time_tick': 3858747310, 'pushbutton state': 1, 'gpio_pin': 11}
 button {'time_tick': 3859867653, 'pushbutton state': 0, 'gpio_pin': 11}
 </code></pre>
+
+<p><br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
 
   <br>
     

@@ -101,27 +101,27 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="multi-backplane-applications">Multi-Backplane Applications</h1>
-<p>For the vast majority of Banyan applications, a single Backplane is all that is needed to
+<p>For the vast majority of Banyan applications, a single backplane is all that is needed to
 handle all the
-application's messaging needs. When using a single Backplane configuration, there is no need to manually perform
-message routing, since all components automatically connect to a <a href="../examples_intro/#the-banyan-backplane">common Backplane.</a></p>
-<p>There are occasions however, where you might like to design your component so that it
- has the ability to communicate with more than one Backplane. Some possible
+application's messaging needs. When using a single backplane configuration, there is no need to manually perform
+message routing, since all components automatically connect to a <a href="../examples_intro/#the-banyan-backplane">common backplane.</a></p>
+<p>There are occasions, however, where you might like to design your component so that it
+ can to communicate with more than one backplane. Some possible
  scenarios for this configuration would be to provide message load balancing or a better
- separation of operational concerns. To support these type of configurations,
- a new base class, <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/banyan_base_multi/banyan_base_multi.py"><strong><em>BanyanBaseMulti</em></strong></a>
+ separation of operational concerns. To support these types of configurations,
+ a new base class, <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/banyan_base_multi/banyan_base_multi.py"><strong><em>BanyanBaseMulti</em></strong>,</a>
  is required.</p>
 <h1 id="the-banyan-base-multi-base-class">The <strong><em>Banyan Base Multi</em></strong> Base Class</h1>
-<p>In many ways the <strong><em>BanyanBaseMulti</em></strong>
+<p>In many ways, the <strong><em>BanyanBaseMulti</em></strong>
  base class
 is similar to the <a href="../examples_intro/#python-banyan-base-classes"><strong><em>BanyanBase</em></strong></a>
- class, but there is one major difference. A <em>BanyanBaseMulti</em> component requires that
-a Backplane routing table be provided at initialization. This table is known as the <em>routing specification file</em>.</p>
+ class, but there is one significant difference. A <em>BanyanBaseMulti</em> component requires that
+a backplane routing table be provided at initialization. This table is known as the <em>routing specification file</em>.</p>
 <p>Note: <em>BanyanBase</em> and <em>BanyanBaseMulti</em> components may communicate with each other without restriction.
 No coding changes or message format changes are required.</p>
 <h2 id="the-routing-specification-file-for-banyanbasemulti">The Routing Specification File For <strong><em>BanyanBaseMulti</em></strong></h2>
-<p>Every BanyanBaseMulti component requires access to a unique comma
-delimited routing specification file. The name and path of this file
+<p>Every BanyanBaseMulti component requires access to a unique comma-delimited
+ routing specification file. The name and path of this file
 is a required component input parameter.</p>
 <p>Let's explore the format of the specification file.</p>
 <p>The header and first line of a routing specification file is:</p>
@@ -132,22 +132,21 @@ is a required component input parameter.</p>
 <p>The <strong><em>backplane_name</em></strong> field is a unique ID string given to each of the connected backplanes.
 The IDs are used
 to de-reference publisher and subscriber connections.</p>
-<p>The <strong><em>ip_address</em></strong> field is the IP address of the given Backplane.
-Since more than one Backplane may be running on any given IP address, Backplanes that share
-a single IP address are
-differentiated by having unique subscriber and publisher ports.</p>
-<p>The <strong><em>subscriber_port</em></strong> specifies the subscriber port for the given Backplane.</p>
+<p>The <strong><em>ip_address</em></strong> field is the IP address of the given backplane.
+Backplanes that share a single IP address are differentiated by
+having unique subscriber and publisher ports.</p>
+<p>The <strong><em>subscriber_port</em></strong> specifies the subscriber port for the given backplane.</p>
 <p>The <strong><em>subscriber_topic</em></strong> is an optional Python list of subscriber topics that will be established at
-instantiation of the component. If a single topic is to be specified, it still must be
+the instantiation of the component. If a single topic is to be specified, it still must be
 entered as a Python list.</p>
 <p><strong>IMPORTANT NOTE:</strong> Even though the topics are strings, the individual topic strings
-must not be surrounded by quotes. Instead, the whole list, including the brackets,
-  is surrounded in quotes. In addition, there must
+must not be enclosed in quotes. Instead, the whole list, including the brackets,
+  is enclosed in quotes. Also, there must
 not be any spaces after the commas. For example, if the topics
 are <strong>start</strong>, and <strong>finish</strong>, the subscriber_topic field is specified as: <strong>"[start,finish]"</strong></p>
-<p>The <strong><em>publisher_port</em></strong> specifies the publisher port for the given Backplane.</p>
+<p>The <strong><em>publisher_port</em></strong> specifies the publisher port for the given backplane.</p>
 <p>Here is sample of a <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/banyan_base_multi/multi_driver_spec.csv"><em>routing specification file</em></a>
- for a component that connects to 5 Backplanes.</p>
+ for a component that connects to 5 backplanes.</p>
 <pre><code>backplane_name,ip_address,subscriber_port,subscriber_topic,publisher_port
 BP1,192.168.2.194,43127,&quot;[reply]&quot;,43126
 BP2,192.168.2.194,43125,&quot;[reply]&quot;,43124
@@ -191,7 +190,7 @@ Loop Time = 0.1 seconds
 
 <p>Notice that for BP1 and BP2, all fields are specified.
 Since they share a common IP address, their ports have different values.</p>
-<p>For BP3 no topic list was specified and therefore the "Subscribed to topic" for BPI3 shows no topics.</p>
+<p>For BP3, no topic list was specified, and therefore the "Subscribed to topic" for BPI3 shows no topics.</p>
 <p>BP4 specifies multiple subscriber topics and a subscriber port, but no publisher
 port. This is a valid case when the component does not publish any messages.</p>
 <p>BP5 has no subscriber port specified and no topics specified. Because there is no subscriber
@@ -271,12 +270,12 @@ BanyanBaseMulti.</p>
 
 <h2 id="95_init__">__init__</h2>
 <p>The <strong>__init__</strong> method requires the name and path to a routing specification file. Similar to a
-BanyanBase component, it accepts a process name, a loop_time and flag to process numpy data.</p>
+BanyanBase component, it accepts a process name, a loop_time, and a flag to process numpy data.</p>
 <p>Lines 87 and 88 establish "constants" for the socket types. This is used in the <a href="#find_socket"><em>find_socket</em></a>
 method discussed below.</p>
 <p>Lines 94 and 95 verify that a routing specification file can be found.</p>
 <p>Lines 100 through 108 establish instance variables used by the class.</p>
-<p>Lines 118 through 173 read and validate the routing specification file and print
+<p>Lines 118 through 173, read and validate the routing specification file and print
 out the component's "header" data to the console.</p>
 <pre><code>    68      def __init__(self, back_plane_csv_file=None, process_name='None',
     69                   loop_time=.1, numpy=False, connect_time=0.3):
@@ -488,7 +487,7 @@ socket connection.</p>
 <h2 id="publish_payload">publish_payload</h2>
 <p>The <strong><em>publish_payload</em></strong> method is very similar to that for BanyanBase. </p>
 <p><strong>IMPORTANT NOTE3:</strong> If the topic
-string is "BROADCAST" then the message is published to all Backplanes containing publisher
+string is "BROADCAST," then the message is published to all backplanes containing publisher
 ports as specified in the routing specification file.</p>
 <pre><code>   259      def publish_payload(self, payload, publisher_socket, topic=''):
    260          &quot;&quot;&quot;
@@ -595,20 +594,23 @@ are any messages that need to be processed, and if so, calls the <em>incoming_me
 
 <h1 id="a-simple-working-example">A Simple Working Example</h1>
 <p>This section provides a simple demonstration of a Banyan application that makes use
-of the BanyanBaseMulti base class. For this example, 2 Backplanes are invoked, each on a
-different computer. The example can be easily modified to run both Backplanes on a single
+of the BanyanBaseMulti base class. For this example, 2 backplanes are invoked, each on a
+different computer. The example can be easily modified to run both backplanes on a single
 computer by adjusting the values in the routing specification file.</p>
-<p>The application consists of 3 Banyan components in addition to the 2 Backplanes. The first component is a reuse of
-<a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/echo_cmdline_client.py"><strong><em>echo_cmdline_client.py</em></strong></a>. It resides on computer 1 . The second
+<p>In addition to the two backplanes, the application consists of three
+Banyan components. The first component is a reuse of
+<a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/echo_cmdline_client.py"><strong><em>echo_cmdline_client.py</em></strong>,</a> and it
+resides on computer1. The second
  component, <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/banyan_base_multi/simple_demo/multi_echo_server.py"><strong><em>multi_echo_server.py</em></strong></a>
-  derived from <em>BanyanBaseMulti</em>, resides on computer 1.
-The third component, <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/banyan_base_multi/simple_demo/notifier.py"><strong><em>notifier.py</em></strong></a>,
- derived from <em>BanyanBase</em> resides on computer 2.</p>
-<p>Backplane 1 resides on computer 1 and Backplane 2 resides on computer 2.</p>
-<p>The client publishes messages to Backplane 1 and the server echoes these messages back within Backplane 1. As each
-message is received by the server, it tests to see if the message number is 0, signaling end of messaging.
+  derived from <em>BanyanBaseMulti</em>
+  The third component, <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/banyan_base_multi/simple_demo/notifier.py"><strong><em>notifier.py</em></strong></a>,
+ derived from <em>BanyanBase,</em> resides on computer2.</p>
+<p>Backplane1 resides on computer1, and backplane2 resides on computer2.</p>
+<p>The client publishes messages to backplane1, and the server echoes these messages back within backplane1. As each
+message is received by the server, it tests to see if the message number is 0. Message number 0
+signals that this is the final message.
 If the message number is 0,
-the server then publishes a "notifier" message routed to Backplane 2.</p>
+the server then publishes a "notifier" message routed to backplane2.</p>
 <p><img align="center" src="../images/multix.png"></p>
 <h2 id="the-notifier">The Notifier</h2>
 <p>The code for the Notifier is extremely simple. It registers to receive messages with a 'notice' topic
@@ -684,23 +686,23 @@ and when a message is received, prints 'Notification Received':</p>
 <h2 id="the-echo-client">The Echo Client</h2>
 <p>We are reusing the <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/echo_cmdline_client.py"><em>echo_cmdline_client</em></a> unmodified.</p>
 <h2 id="the-multiechoserver">The MultiEchoServer</h2>
-<p>The Server is derived from BanyanBaseMulti.
-Lets begin by examining its associated <em>routing specification file</em>.</p>
+<p>The server is derived from BanyanBaseMulti.
+Let us begin by examining its associated <em>routing specification file</em>.</p>
 <h2 id="routing-specification-file">Routing Specification File</h2>
 <pre><code>backplane_name,ip_address,subscriber_port,subscriber_topic,publisher_port
 BP1,192.168.2.190,43125,&quot;[echo]&quot;,43124
 BP2,192.168.2.180,43125,&quot;[]&quot;,43124
 </code></pre>
 
-<p>BP1 is the Backplane that is running on 192.168.2.190 and the server subscribes to the <em>echo</em> topic on Backplane1.</p>
-<p>BP2 is the Backplane that is running 192.168.2.180 and the server publishes <em>notifier</em> messages
-to Backplane 2.</p>
+<p>BP1 is the backplane that is running on 192.168.2.190 and the server subscribes to the <em>echo</em> topic on backplane1.</p>
+<p>BP2 is the backplane that is running 192.168.2.180, and the server publishes <em>notifier</em> messages
+to backplane2.</p>
 <h2 id="the-multiechoserver-code">The MultiEchoServer Code</h2>
-<p>Lines 39 and 42 establish the sockets for each of the Backplanes. It uses the <a href="#find_socket"><em>find_socket</em></a> method to retrieve
-the publisher sockets for the Backplanes. It uses the names of the Backplanes from the <a href="#routing-specification-file">routing specification file</a>
+<p>Lines 39 and 42 establish the sockets for each of the backplanes. It uses the <a href="#find_socket"><em>find_socket</em></a> method to retrieve
+the publisher sockets for the backplanes. It uses the names of the backplanes from the <a href="#routing-specification-file">routing specification file</a>
 to retrieve the sockets.</p>
-<p>Line 59 echoes the incoming messages from the client, and if the message number is 0, then
-line 62 publishes a <em>notice</em> message to Backplane 2.</p>
+<p>Line 59 echoes the incoming messages from the client. If the message number is 0, then
+line 62 publishes a <em>notice</em> message to backplane2.</p>
 <pre><code>     1  &quot;&quot;&quot;
      2  multi_echo_server.py
      3  
@@ -776,18 +778,21 @@ line 62 publishes a <em>notice</em> message to Backplane 2.</p>
 </code></pre>
 
 <h2 id="running-the-example">Running The Example</h2>
-<p>First we start a Backplane, a Monitor and <em>multi_echo_server.py</em>, on 192.168.2.190.</p>
+<p>First, we start a backplane, a monitor and <em>multi_echo_server.py</em>, on 192.168.2.190.</p>
 <p><img align="center" src="../images/multi_server1.png"></p>
-<p>The next step is to start a Backplane <em>notifier.py</em>, on 192.168.2.180.</p>
+<p>The next step is to start a backplane <em>notifier.py</em> on 192.168.2.180.</p>
 <p><img align="center" src="../images/notifier1.png"></p>
-<p>Finally we start the echo client on 192.168.2.190. It sends
+<p>Finally, we start the echo client on 192.168.2.190. It sends
 its 10 messages. When the server receives message number 0, it sends
 its notification message.</p>
 <p><img align="center" src="../images/notifier2.png"></p>
-<p>Looking at the monitor on 192.168.2.190 we see:</p>
+<p>Looking at the monitor on 192.168.2.190, we see:</p>
 <p><img align="center" src="../images/multi_serv_mon2.png"></p>
 <p>And the monitor on 192.168.2.180 shows:</p>
 <p><img align="center" src="../images/notifier_mon2.png"></p>
+<p><br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
 
   <br>
     
