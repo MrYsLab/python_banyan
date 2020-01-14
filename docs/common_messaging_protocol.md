@@ -18,7 +18,8 @@ from the target hardware.
 additional data to the report message, such as a timestamp.
 
 
-![](../images/one_gpio_messages.png)
+<img align="center" src="../images/one_gpio_messages.png">
+
 
 A command message contains the keyword ***command,*** and a
 report contains the keyword ***report***

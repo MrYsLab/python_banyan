@@ -257,7 +257,8 @@ When the Raspberry Pi Gateway is invoked, it will check to see if the pigpio dae
 If not, it will automatically start it. The pigpio library may report an error, as shown
 in this screenshot.
 
-![](../images/rpi_gateway.png)
+<img align="center" src="../images/rpi_gateway.png">
+
 
 It can safely be ignored since the gateway will automatically start
 the daemon. The daemon will continue running even after the gateway is closed.
@@ -299,7 +300,8 @@ invoking banyan_tkinter_demo. This is provided in each of the launcher specifica
 
 ### Tkinter Demo Station Functions
 
-![](../images/tkinter_arduino.png)
+<img align="center" src="../images/tkinter_arduino.png">
+
 
 The Tkinter Demo Station for the Arduino is shown above. No matter the target hardware, the
 Tkinter Demo Station for all of the target hardware types share common capabilities.
@@ -352,7 +354,8 @@ to load the tk_a.csv specification file.
 
 You should see a tkinter window for the Arduino appear.
 
-![](../images/tkinter_arduino.png)
+<img align="center" src="../images/tkinter_arduino.png">
+
 
 ### Running The Tkinter Demonstration Station For The ESP-8266
 
@@ -383,7 +386,8 @@ to load the tk_e.csv specification file.
 
 You should see a tkinter window for the ESP-8266 appear.
 
-![](../images/tk_inter_demo.png)
+<img align="center" src="../images/tk_inter_demo.png">
+
 
 ### Running The Tkinter Demonstration Station For Raspberry Pi
 
@@ -411,8 +415,7 @@ to load the tk_r.csv specification file.
 
 You should see a tkinter window for the Raspberry Pi appear.
 
-![](../images/tkinter_rpi.png)
-
+<img align="center" src="../images/tkinter_rpi.png">
 
 
 
@@ -431,7 +434,7 @@ The pages of the Demonstration Station may vary slightly between hardware target
 all use the OneGPIO messaging specification, allowing the target hardware gateway to
 handle the messaging.
 
-![](../images/demo_station_arduino.png)
+<img align="center" src="../images/demo_station_arduino.png">
 
 
 There is a common set of functions, selected by tab, for all of the targets:
@@ -452,9 +455,9 @@ i2c converter.
 The digital and analog tabs will display a timestamp for the last
 change to an enabled pin, as well as the pin's value:
 
-![](../images/web_digital_input.png)
+<img align="center" src="../images/web_digital_input.png">
 
-![](../images/web_analog_input.png)
+<img align="center" src="../images/web_analog_input.png">
 
 
 ### Running The Web Demo Station For The Arduino
@@ -483,7 +486,8 @@ bls -f h_a.csv
 
 ### Running The Web Demo Station For The ESP-8266
 
-![](../images/esp_web_page.png)
+<img align="center" src="../images/esp_web_page.png">
+
 
 Let's look at the 
 [h_e.csv](https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/launch_scripts/h_e.csv) launcher specification file in the launch_scripts directory.
@@ -532,7 +536,7 @@ any string as long as both bls and blc use the same string.
 
 Here is what you will see on the Raspberry Pi after starting blc:
 
-![](../images/rpi_blc.png)
+<img align="center" src="../images/rpi_blc.png">
 
 Now, let's look at the
 [h_r_dist.csv](https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/launch_scripts/h_r_dist.csv) launcher specification file in the launch_scripts directory.
@@ -576,7 +580,8 @@ The Web browser will be launched on the PC.
 
 We then check the Raspberry Pi and see that the Raspberry Pi Gateway was started:
 
-![](../images/rpi_blc2.png)
+<img align="center" src="../images/rpi_blc2.png">
+
 
 We may now start using the Web page on our PC to control the Raspberry Pi remotely.
 
@@ -626,7 +631,7 @@ python3 ../shared/open_browser.py rpi PID = 10916 KILLED
 And now,  if we look at the terminal window on the Rasbpberry Pi where we invoked
 blc, we see:
 
-![](../images/rpi_blc3.png)
+<img align="center" src="../images/rpi_blc3.png">
 
 <br>
 <br>

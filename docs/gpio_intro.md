@@ -26,7 +26,7 @@ run on different target hardware, by simply enabling the OneGPIO hardware-specif
 No code changes are needed.
 
 
-![](../images/one_gpio.png)
+<img align="center" src="../images/one_gpio.png">
 
 
 Included with this distribution are several demonstration applications that use
@@ -101,13 +101,14 @@ In the following sections, we will:
     * Demonstrate how a single OneGPIO tkinter Application Component can control
 a Raspberry Pi, Arduino, and ESP-8266
 
-    ![](../images/tk_banyan.png)
+    <img align="center" src="../images/tk_banyan.png">
+
 
     * Demonstrate a Banyan WebSocket gateway that allows an HTML web page to control
 any of the 3 hardware platforms
 
+<img align="center" src="../images/web_banyan.png">
 
-![](../images/web_banyan.png)
 
 <br>
 <br>
