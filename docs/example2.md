@@ -211,7 +211,7 @@ Line 172 calls the *echo_cmdline_client* function on line 125 to invoke the clie
 We can now specify the number of messages that the client produces, while
 accepting the default values for all of the other parameters.
 
-Making sure that the Backplane and server are already running, we can start
+Making sure that the backplane and server are already running, we can start
 the new client, asking it to produce 20 messages.
 
 ```

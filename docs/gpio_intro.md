@@ -2,8 +2,8 @@
 
 ***OneGPIO*** is a generalized GPIO specification and framework that will
 allow you to construct GPIO based projects quickly.
-GPIO based
-*projects*. OneGPIO projects are both *target hardware*
+
+ OneGPIO projects are both *target hardware*
 and *computer language* independent. This independence is
 accomplished by taking advantage of 
 the 

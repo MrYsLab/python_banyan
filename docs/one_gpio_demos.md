@@ -1,7 +1,7 @@
 # Introduction To The Demos
 
 In this section, we will introduce three demonstration programs
-that control the Arduino, ESP8266, and Raspberry Pi hardware targets,
+that control the Arduino, ESP-8266, and Raspberry Pi hardware targets,
 using common OneGPIO Application Components.
 
 
@@ -229,7 +229,7 @@ that the esp8266_gateway is running on. This is specified with the **-i** option
 environment, that address is 192.168.2.183, but yours is likely to be different.
 
 The second change you may need to make is on the third line, the **-g** option. This option sets the pin
-number for the connected LED. The default is set to 10 - modify this value to meet your needs. The blinker.py
+number for the connected LED. The default is set to 13 - modify this value to meet your needs. The blinker.py
 script also needs to have the target hardware type defined using the -d option. 
 
 To run this demo:

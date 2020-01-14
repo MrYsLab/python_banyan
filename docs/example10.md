@@ -252,7 +252,7 @@ And finally, start the MQTT publisher pub.py
 python3 pub.py
 ```
 
-Looking at the console for bsub.py, we that the message was received from the MQTT
+Looking at the console for bsub.py, we see that the message was received from the MQTT
 network and received by the Banyan network.
 
 ```

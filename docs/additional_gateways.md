@@ -127,7 +127,7 @@ WebSocket clients. An empty array, *self.active_sockets* is created
 on line 75 to store a record for each connected socket.
 
 Lines 79-85 start the WebSocket server. When a client connects
-to the WebSocket server, the *wgs* method is called
+to the WebSocket server, the *wsg* method is called
 on line 79.
 
 For information about the WebSocket server, please go to this
@@ -188,7 +188,7 @@ An entry for the socket connection is created and added to the active_websockets
 The entry is used to dispatch messages to the correct WebSocket during data transfer. This is
 accomplished on lines 118-119.
 
-Line 122 creates an asyncio task to receive WebSocket messages from any connected WebSocket client continuously.
+Line 122 creates an asyncio task to continuously receive WebSocket messages from any connected WebSocket client.
  This task passes these messages to the *receive_data* method
 for further processing.
 
@@ -250,8 +250,8 @@ of the message as a key, it looks up the associated WebSocket in the
 
 On lines 152-154, if the gateway provided a timestamp, the timestamp
  is formatted and appended to the report message.
-Line 156 encodes the message as a JSON message sends the message
-to WebSocket client on line 163
+Line 156 encodes the message as a JSON message and sends the message
+to the WebSocket client on line 163.
 
 ```
    167	def ws_gateway():

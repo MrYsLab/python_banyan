@@ -42,7 +42,7 @@ The *pin tag* to *pin number* mapping is automatically maintained within
 the OneGPIO Gateways.
 
 To illustrate let's populate the 'set_mode_digital_output' command message
-to set pin 4 as a **digital output** pin and tag the pin with **"green_led**.
+to set pin 4 as a **digital output** pin and tag the pin with **"green_led"**.
 
 
 **{'command': 'set_mode_digital_output', 'pin': 4, 'tag': 'green_led' }**

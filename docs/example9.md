@@ -434,7 +434,7 @@ socket connection.
 
 The ***publish_payload*** method is very similar to that for BanyanBase. 
 
-**IMPORTANT NOTE3:** If the topic
+**IMPORTANT NOTE:** If the topic
 string is "BROADCAST," then the message is published to all backplanes containing publisher
 ports as specified in the routing specification file.
 

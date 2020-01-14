@@ -111,9 +111,11 @@ An "executive summary" of the methods follows:
 1. **\__init__** - This method initializes the class. A derived class
 often overrides this method to add additional initialization parameters
 as well as being a convenient place to add subscription topics.
-The Banyan event loop may be started in this method, but it should be done so
+The Banyan event loop, called *receive_loop*, may be started within this method. If you choose
+to start the *receive_loop* within \__init__, it should
+be called
 as the last line of the overridden
-method since a call to *receive_loop* will not return.
+method, since a call to *receive_loop* will not return.
 
 2. **set_subscriber_topic** - This method is usually **not** overridden and is used as-is.
 This method is called for each subscription topic.
@@ -238,7 +240,7 @@ for each topic.
 
 ```
 
-Line 57 through 59 constitutes the parameter list for the _____init_____ method.
+Line 57 through 59 constitutes the parameter list for the \__init__ method.
 Notice that all of the parameters contain default values, and in most cases accepting the defaults
 is all that you need.
 
@@ -323,7 +325,7 @@ The function or method should be non-blocking.
 
 ### connect_time
 This parameter allows for the connection between the component and backplane to complete.
-It prevents race conditions between trying to publish a message before the connection
+It prevents a race condition from occurring when trying to publish a message before the connection to the backplane
 has been established.
 
     85	        :param connect_time: a short delay to allow the component to connect to the backplane
@@ -371,10 +373,10 @@ If no backplane IP address was specified, Lines 107 through 121 checks to
 see if there is a backplane currently running.
 If a backplane is running, the *self.backplane_exists* flag is set to True.
 
-**NOTE:** Unlike when both the component and backplane are running on the same computer,
-but on a remote backplane,
-the component cannot check for an existing running Backplane.
-Therefore, in this case, it is the user's responsibility to check for a running remote backplane.
+**NOTE:** When the backplane is running on a remoter computer, the local component
+cannot detect the presence of the remote backplane. Thus, in this case,
+it is the user's responsibility to check for a running remote backplane.
+
 
 ```
    103	        # If no back plane address was specified, determine the IP address of the local machine
@@ -464,7 +466,7 @@ to be established.
 This method is not typically overridden.
 
 Line 156 defines the *set_subscriber_topic* method that requires a topic string
-parameter. This method is called for each subscribed topic.
+parameter. This method must be called for each subscribed topic.
 
 Lines 166 through 167 validate that the topic is a string. If
  the topic is not a string, then a ***TypeError*** is raised.
@@ -585,7 +587,7 @@ non-blocking flag set.
 ### When A Message Is Available
 If a message is available, it is assigned to the *data* variable on line 203.
 
-Line 204 checks to see if the numpy flag was set, and if it is, lines 205
+Line 204 checks to see if the numpy flag was set, and if it were, lines 205
 through 216 are executed to handle the numpy data.
 This code exists because a breaking change was added to the *messagepack_numpy*
 package by its author. This code is required to handle the latest and earlier versions of
