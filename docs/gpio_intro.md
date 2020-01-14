@@ -1,8 +1,9 @@
 <span style="color:#990033; font-family:Georgia; font-size:3em;">Introducing OneGPIO</span>
 
-***OneGPIO*** is a generalized GPIO specification and framework that will allow you to quickly construct 
+***OneGPIO*** is a generalized GPIO specification and framework that will
+allow you to construct GPIO based projects quickly.
 GPIO based
-*projects* that are both *target hardware* 
+*projects*. OneGPIO projects are both *target hardware*
 and *computer language* independent. This independence is
 accomplished by taking advantage of 
 the 
@@ -15,15 +16,15 @@ and the Gateways are reusable components that need no modification when going fr
  another. 
 
 The Application Component contains all the GPIO control logic for your application,
-as well as the logic to process report messages sent from the target hardware. It performs its
-control duties by assembling and publishing OneGPIO control
-messages, ultimately to be consumed by one or more OneGPIO
-Gateways, and by subscribing to receive OneGPIO report messages sent by the OneGPIO Gateways
-on behalf of the target hardware.
+as well as the logic to process report messages sent from the target hardware.
+A OneGPIO component is responsible for assembling and publishing OneGPIO control messages.
+Also, it subscribes to receive OneGPIO report messages that are sent from the OneGPIO Hardware
+Gateways, connected to target hardware.
 
-Once you have a OneGPIO project functional for a specific target hardware set, you may run that project
-on different target hardware just by enabling the OneGPIO gateway for that target - no code changes
-needed. 
+A working OneGPIO project designed for a specific target hardware set, is easily converted to
+run on different target hardware, by simply enabling the OneGPIO hardware-specific gateway.
+No code changes are needed.
+
 
 ![](../images/one_gpio.png)
 
@@ -65,7 +66,7 @@ As you can plainly see, each library has its own unique way of expressing GPIO o
 
 Because of the syntax differences, it makes
 porting a hardware project from one hardware platform to another,
-a laborious and tedious process, not to mention being error prone and time consuming.
+a laborious and tedious process, not to mention being error-prone and time-consuming.
 It also severely hampers the possibility of code reuse for future projects.
 
 ## The Banyan OneGPIO API
@@ -76,13 +77,13 @@ the OneGPIO concept specifies a framework for building specialized Banyan compon
  called Banyan GPIO Gateways. These specialized components translate 
 OneGPIO messages to and from a specific hardware platform. The OneGPIO project
 includes fully functional Banyan Gateways for the Arduino, 
-ESP-8266 and Raspberry Pi.
+ESP-8266, and Raspberry Pi.
 
 A single OneGPIO control component can control a single hardware target, or
 multiple targets simultaneously without any code changes. 
 
 All OneGPIO Gateways
-are derived from a Gateway Base class making it easy to create new
+are derived from a Gateway Base class, making it easy to create new
 Banyan Gateways. 
 
 
@@ -91,14 +92,14 @@ or you may easily customize them to meet your
 specific needs.
 
 
-In the following sections we will:
+In the following sections, we will:
 
 * Discuss the OneGPIO messaging protocol
 * Discuss Banyan OneGPIO Gateway internals
 * Discuss the included demonstration programs
     * Demonstrate a single OneGPIO Application Component that can blink an LED on an Arduino, ESP-8266, or Raspberry Pi
-    * Demonstrate how a single OneGPIO tkinter Application Component is able to control
-a Raspberry Pi, Arduino and ESP-8266
+    * Demonstrate how a single OneGPIO tkinter Application Component can control
+a Raspberry Pi, Arduino, and ESP-8266
 
     ![](../images/tk_banyan.png)
 
@@ -108,4 +109,6 @@ any of the 3 hardware platforms
 
 ![](../images/web_banyan.png)
 
-
+<br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved

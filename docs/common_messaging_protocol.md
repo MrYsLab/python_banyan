@@ -1,7 +1,7 @@
 # Introduction To The *OneGPIO* Message API
 
 
-Unlike traditional GPIO libraries that use a hardware specific *method call API* interface,
+Unlike traditional GPIO libraries that use a hardware-specific *method call API* interface,
 OneGPIO uses a ***Banyan Messaging API*** interface. [The OneGPIO
 Specification](https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/message_specification/OneGPIO.pdf) 
 provides Banyan message templates for all OneGPIO commands
@@ -14,22 +14,22 @@ GPIO command information to the target hardware.
 A ***OneGPIO Report Message*** is published by a OneGPIO Gateway, after receiving report data
 from the target hardware.
  Because the Gateway is translating native report messages into OneGPIO messages, 
- the has the freedom to add
-additional data to the report message, such as a time stamp.
+ it has the freedom to add
+additional data to the report message, such as a timestamp.
 
 
 ![](../images/one_gpio_messages.png)
 
-A command message contains the key word ***command*** and a 
-report contains the key word ***report***
+A command message contains the keyword ***command,*** and a
+report contains the keyword ***report***
 
 In general, a GPIO pin must have its mode set before use. 
-For example to set a pin to digital output mode, you would use the following
+For example, to set a pin to digital output mode, you would use the following
 message template:
 
 
 |      GPIO Operation      |              OneGPIO Message             |
-|:------------------------:|:-------------------------------:|
+|:------------------------: |:-------------------------------: |
 | Set Pin To Digital Output Mode      | {"command": "set_mode_digital_output", "pin": PIN, "tag":”TAG” } | 
 
 
@@ -51,14 +51,12 @@ to set pin 4 as a **digital output** pin and tag the pin with **"green_led**.
 Notice that ***pin*** is an integer and not a string.
 
 All OneGPIO message *keys* are strings. Within the OneGPIO message specification, if a *value* is *not*
-within quotes, then it is specified as an integer, otherwise, it is specified as a string.
+within quotes, then it is specified as an integer. Otherwise, it is specified as a string.
 
 The OneGpio command to set the state of a digital output pin is:
 
 |      GPIO Operation      |              OneGPIO Message             |
-
 |:------------------------:|:-------------------------------:|
-
 | Set Digital Output Pin State      | {"command": "digital_write", "pin": PIN, "tag": "TAG", "value": VALUE} |
 
 
@@ -79,5 +77,7 @@ change the pin number for the chosen
 hardware platform. This can easily be implemented using command line arguments
 when designing the component.  
 
-
+<br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved
 

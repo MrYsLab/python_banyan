@@ -7,14 +7,14 @@ The [MQTT Gateway](https://github.com/MrYsLab/python_banyan/blob/master/python_b
 from the MQTT network, and then forward those messages to the Banyan network.
 It also can subscribe to receive Banyan messages, and then forward those to the MQTT network.
 
-The MQTT Gateway is installed as a command line executable when 
+The MQTT Gateway is installed as a command-line executable when
 Python Banyan is installed. To invoke the MQTT Gateway, open a terminal
 window and type:
 
 __mgw__
 
-There are several optional command line parameters
-available in mgw, but for the examples that will follow, the defaults will be accepted.
+There are several optional command-line parameters
+available in mgw. For the examples that follow, the default values are accepted
 
 Here is a list of all the optional parameters.
 
@@ -47,7 +47,7 @@ optional arguments:
   -t LOOP_TIME          Event Loop Timer in seconds
   
 ```
-When the MQTT Gateway is invoked it automatically connects to both the Banyan Backplane and to the MQTT Broker.
+When the MQTT Gateway is invoked, it automatically connects to both the Banyan Backplane and to the MQTT Broker.
 
 Before running the following examples, make sure that you
 have a [mosquitto broker](https://mosquitto.org/) and a [Python Banyan
@@ -85,7 +85,7 @@ my_client.disconnect()
 The [MQTT subscriber](https://github.com/MrYsLab/python_banyan/blob/master/examples/mqtt_gateway/sub.py)
  that connects to an MQTT broker,
 and subscribes to 2 topics. The **mqtt_network** messages are for messages originated
-on the mqtt network. The **from_banyan** messages are messages that were originated on the
+on the MQTT network. The **from_banyan** messages are messages that were originated on the
 Banyan network. For this first example, no messages are originated from the Banyan network.
 
 ```
@@ -120,7 +120,7 @@ my_client.loop_forever()
 
 ```
 
-First we start the subscriber, and then the publisher. The subscriber prints
+First, we start the subscriber, and then the publisher. The subscriber prints
 any messages it receives. Here is the subscriber console output after
 running the publisher:
 ```
@@ -149,7 +149,7 @@ MQTT Gateway Connected to MQTT localhost:1883 with result code 0.
 
 ```
 
-If it not already running, start the MQTT subsriber, sub.py.
+If it not already running, start the MQTT subscriber, sub.py.
 
 To generate a message from Banyan to the MQTT network, we will use a Banyan component called
 [bpub.py:](https://github.com/MrYsLab/python_banyan/blob/master/examples/mqtt_gateway/bpub.py)
@@ -191,14 +191,14 @@ Connected with result code 0
 {'from_banyan': 'hello_mqtt_world'}
 ```
 
-The gateway received a Banyan message, translated it to an MQTT message, published
-this message on the MQTT network and the translated message
+The Gateway received a Banyan message, translated it to an MQTT message, published
+this message on the MQTT network, and the translated message
 was received by the MQTT subscriber.
 
 ## Example 3: Publishing an MQTT Message To the Banyan Network
 
 In this example, an MQTT message will be published by pub.py.
-The MQTT Gateway will receive this message and it will then translate 
+The MQTT Gateway will receive this message, and it will then translate
 this message to a Banyan message and publish
 the message to the Banyan network.
 
@@ -246,13 +246,13 @@ class Bsub(BanyanBase):
 b = Bsub()
 
 ```
-And finally start the MQTT publisher pub.py
+And finally, start the MQTT publisher pub.py
 
 ```
 python3 pub.py
 ```
 
-Looking at console for bsub.py we that the message was received from the MQTT
+Looking at the console for bsub.py, we that the message was received from the MQTT
 network and received by the Banyan network.
 
 ```
@@ -267,4 +267,7 @@ Loop Time = 0.1 seconds
 from_mqtt {'from_mqtt_client': 'hello'}
 ```
 
+<br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved
 

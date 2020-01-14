@@ -55,7 +55,7 @@ catch(err){
 }
 ```
 
-Compare it to the [Python version](../example1/#the-server) and you can easily
+Compare it to the [Python version,](../example1/#the-server) and you can easily
 see how similar they are.
 
 To run the example, first start the Backplane (it can be any of the Backplanes - Python, JavaScript,
@@ -71,3 +71,7 @@ single platform.
 
 No changes to the protocol messages or the code are necessary. The components, in conjunction with
 any of the Backplanes, create a cohesive, seamless application.
+
+<br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved

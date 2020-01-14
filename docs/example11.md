@@ -1,24 +1,24 @@
 
 # GPIO Control
 
-In this section we will look at a simple example illustrating
+In this section, we will look at a simple example illustrating
 GPIO control of a Raspberry Pi using Python Banyan.
 
 The problem we will solve is this:
 
-When a user presses a mechanical push button, an LED will light up
+When a user presses a mechanical push button, an LED will light up,
 and a Banyan message will be published. The Banyan message
 contains the state change details of the push button -
- the GPIO pin number, the current state of the button and a time
- tick to indicate when the change occurred
- .
+ the GPIO pin number, the current state of the button, and a time
+ tick to indicate when the change occurred.
+
 When the user releases the pushbutton, the LED will be
-extinguished and another message will be published indicating the new state
+extinguished, and another message will be published, indicating the new state
 change.
 
 For ease of use, all examples will use a Raspberry Pi Model 3 connected to
 a [Pibrella](http://pibrella.com/) hat. The Pibrella has a push button and
-several LEDs. This precludes us from have to wire individual components to the
+several LEDs. This precludes us from having to wire individual components to the
 Raspberry Pi.
 
 For GPIO control, the [pigpio](http://abyz.me.uk/rpi/pigpio/) GPIO library will
@@ -134,7 +134,7 @@ Line 21 imports the pigpio library.
 Lines 49 through 60 set the pin mode for both the push button
 and the LED.
 
-Note: The pibrella requires that the pull-down resistor be enabled on the
+Note: The Pibrella requires that the pull-down resistor be enabled on the
 Raspberry Pi. Line 52 enables the pull-down resistor.
 
 A "glitch" filter is set on line 56 to prevent the push button from
@@ -149,13 +149,13 @@ keep the loop running until the user quits the program.
 
 The callback method is contained in lines 68 through 92.
 
-When the user presses or releases the pushbutton this method will be
+When the user presses or releases the pushbutton, the callback method will be
 called by pigpio.
 
 Lines 84 and 85 print a message to the console containing the
 parameters passed by pigpio to this method.
 
-On line 87 the LED is set to the reported state, and finally
+On line 87, the LED is set to the reported state. Finally,
 lines 89-92 create and publish a Banyan message about the push button
 event.
 
@@ -197,3 +197,6 @@ button {'time_tick': 3858747310, 'pushbutton state': 1, 'gpio_pin': 11}
 button {'time_tick': 3859867653, 'pushbutton state': 0, 'gpio_pin': 11}
 ```
 
+<br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved

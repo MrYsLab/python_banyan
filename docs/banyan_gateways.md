@@ -6,18 +6,18 @@ A *OneGPIO Gateway* is a specialized Banyan component that is target-hardware sp
 [ESP-8266,](https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/esp_8266/esp8266_gateway.py)
  and [Raspberry Pi](https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/raspberry_pi/rpi_gateway.py) are included with this distribution.
  
-To make it easier to create a OneGPIO Gateway, a base class, called
-[***GatewayBase***](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/gateway_base/gateway_base.py) 
-is made available. This class encapsulates both BanyanBase functionality as well as
+A base class, called
+[***GatewayBase,***](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/gateway_base/gateway_base.py)
+is made available to simplify the task of creating a OneGPIO Gateway. This class encapsulates both BanyanBase functionality as well as
 OneGPIO Gateway functionality. When implementing a OneGPIO Gateway, you may choose
 any target GPIO API. For example, in creating the Raspberry Pi Gateway, the *pigpio* library
 was chosen. If you prefer to use some other API, there are no restrictions to do so.
 
 There is also a Python asyncio version of the base class, called
- [***GatewayBaseAIO***](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/gateway_base_aio/gateway_base_aio.py)
-. This additional base class,
+ [***GatewayBaseAIO***.](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/gateway_base_aio/gateway_base_aio.py)
+ This additional base class,
 was necessary to support the pymata-express asyncio GPIO library for the Arduino. It is very
-similar to the GatewayBase class and so it will not be discussed here.
+similar to the GatewayBase class, and so it will not be discussed here.
  
 # Understanding The GatewayBase Class
  
@@ -118,10 +118,10 @@ is used as the lone entry into the subscriber_list. Of course, subscription
 topics may be added at any time during run-time.
 
 Line 82 creates an empty *pins_dictionary*. This dictionary is used by each
-hardware specific gateway to store pin information, such the pin's mode and current state.
+hardware-specific gateway to store pin information, such as the pin's mode and current state.
 
-Line 87 creates an empty *tags_dictionary*. When a pin mode is set and a tag is provided,
-an entry is made into this dictionary with the tag as its key and the pin number as the entry's value.
+Line 87 creates an empty *tags_dictionary*. When setting a pin mode, if a tag is provided,
+an entry is made into this dictionary. The tag is used as a key, and the pin number is the entry's value.
 
 Line 89 calls the *init_pins_dictionary* method. See the discussion below for line 126 for
 more information about this method.
@@ -190,8 +190,8 @@ The \__init__ method concludes by subscribing to all the topics within the subsc
    131	        raise NotImplementedError
 ```
 
-This method ***must be***  overwritten by each hardware specific OneGPiO Gateway, even if not needed.
-This is to insure that you have not forgotten to implement this method.
+This method ***must be***  overwritten by each hardware-specific OneGPiO Gateway, even if not needed.
+This is to ensure that you have not forgotten to implement this method.
 
 ```
    133	    def incoming_message_processing(self, topic, payload):
@@ -234,7 +234,7 @@ This is to insure that you have not forgotten to implement this method.
 Lines 133-168 implement the Banyan *incoming_message_processing* method. Received OneGPIO
 commands are processed by this method.
 
-Line 141-145 retrieve the *command* key string of the OneGPIO
+Line 141-145 retrieves the *command* key string of the OneGPIO
 incoming message. 
 
 Line 149 checks to see if an optional *tag* key is in the message.
@@ -244,11 +244,11 @@ the tag and its associated pin number are added to the dictionary.
 
 
 
-Lines 160-165 check to see if the value of the *command* key is within the command_dictionary.
-It if is, the command method is called.
+Lines 160-165 checks to see if the value of the *command* key is within the command_dictionary.
+If it is, the command method is called.
 
-If it is not found, the *additional_banyan_messages* method is called. This allows you
-to easily add hardware specific commands not found in the command dictionary.
+If it is not found, the *additional_banyan_messages* method is called.
+ This allows you to add hardware-specific commands not found in the command dictionary easily.
 
 
 ```
@@ -279,7 +279,7 @@ you can go beyond a simple one to one mapping between the OneGPIO command and
 the underlying GPIO API.
 
 Let's look at *set_mode_digital_input* for the Raspberry Pi. The Raspberry Pi
-Gateway uses the pigpio GPIO library. Of course you can use
+Gateway uses the pigpio GPIO library. Of course, you can use
 any GPIO library you wish to choose.
 
 ```
@@ -304,20 +304,23 @@ any GPIO library you wish to choose.
 The pin number is extracted from the OneGPIO payload. The pin mode is set within
  the *pins_dictionary* for the pin.
 
-Next it performs 4 *pigpio* functions. It sets a glitch filter to debounce the pin, it sets
-the pin as an input, it sets the pull-up resistor to the *down* state and finally it sets a callback
-method to be called whenever there is a state change for that pin.
+Next, it performs 4 *pigpio* functions.
+
+* A glitch filter to debounce the pin.
+* The pin mode is set to ***input***.
+* The internal pull-up/pull-down resistor for the pin is set to ***pull-down***.
+* A callback method is set. This method is called whenever there is a state change for the pin.
 
 The OneGPIO Application Component has no knowledge of all of this underlying logic.
-It simply sends the command to set the pin mode to digital input, and the OneGPIO Gateway
+It merely sends the command to set the pin mode to digital input, and the OneGPIO Gateway
 interprets the behavior for the specific target hardware.
 
 
 ## Adding Some More *Spin*
 
-The Raspberry Pi GPIO does not directly support analog input. Again,
-since you can define the meaning of a command, you can have the gateway
-implement anything you choose to do, including using an external device to perform the desired functionality.
+The Raspberry Pi GPIO does not directly support analog input. But
+since you control the definition of a command, the gateway
+can implement anything you choose, including using an external device to perform analog input.
 
 Here we implement analog input for the Raspberry Pi by using a PFC8591
 A/D converter.
@@ -353,4 +356,6 @@ The A/D device is i2c based and so this method implements the i2c communication.
 The method retrieves the current value for one of the 4 channels supported by the
 PCF8591 A/D converter and then publishes that value using a OneGPIO report message.
 
-
+<br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved

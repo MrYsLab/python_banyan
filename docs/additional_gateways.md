@@ -1,25 +1,25 @@
 # MQTT Gateway
 
-If you need to interconnect with MQTT, an Banyan MQTT Gateway has been provided.
+If you need to interconnect with MQTT, a Banyan MQTT Gateway has been provided.
 This gateway has been documented [here.](../example10/)
 
 # WebSocket Gateway
 
 The OneGPIO Demo Examples include Web pages to control an
 Arduino, ESP-8266, and Raspberry Pi. The WebPages publish
-commands via a WebSocket connection. This gateway will translate
-the WebSocket command messages to OneGPIO command messages and OneGPIO
-reporter messages to WebSocket reporter messages in order to display reports
-on the Web page.
+commands via a WebSocket connection. This gateway translates
+the WebSocket command messages to OneGPIO command messages. It also translates OneGPIO
+reporter messages to WebSocket reporter messages to allow reports
+to be displayed on the Web page.
 
 The WebSocket IP address that this component uses is *localhost* since it is intended to be
 used in conjunction with a Web Browser running on the same computer as the Gateway.
-The WebSocketIP port is fixed to value of 9000. If you need to, you can modify the
+The WebSocket IP port is fixed to a value of 9000. If you need to, you can modify the
 supplied code to allow the user to modify these values on the command line.
 
 ***IMPORTANT NOTE***
 The WebSocket Gateway utilizes a Python asyncio WebSocket library.
-It requires that Python 3.7 or greater be used. 
+It requires that Python 3.7 or higher be used.
 
 
 ## A Quick Overview Of The WsGateway Component
@@ -118,7 +118,7 @@ In this section of code, the necessary packages are imported and we
 define the WsGateway class, which is derived from BanyanBaseAIO.
 
 Being an asyncio based class, one of the parameters 
-that may be passed to this class is an asyncio event loop. Normally
+that may be passed to this class is an asyncio event loop. Usually,
 the default event loop is used, but you can supply your own event loop
 if you need to.
 
@@ -127,7 +127,7 @@ WebSocket clients. An empty array, *self.active_sockets* is created
 on line 75 to store a record for each connected socket.
 
 Lines 79-85 start the WebSocket server. When a client connects
-to the WebSocket server the *wgs* method is called 
+to the WebSocket server, the *wgs* method is called
 on line 79.
 
 For information about the WebSocket server, please go to this
@@ -180,7 +180,7 @@ Line 99 waits to receive initial identification data from a WebSocket client. Th
 is used to create a subscription topic for the WebSocket Gateway. 
 
 Using the [Arduino Demo Station Page](https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/arduino_uno/arduino.html) 
-as an example, the ID string sent as a WebSocket message from the Web page is "to_arduino_gateway". This
+as an example, the ID string sent as a WebSocket message from the Web page is "to_arduino_gateway." This
 ID string is used to create subscription topic strings that the WebSocket Gateway
  uses for its operation. This is accomplished on lines 112-115.
 
@@ -188,8 +188,8 @@ An entry for the socket connection is created and added to the active_websockets
 The entry is used to dispatch messages to the correct WebSocket during data transfer. This is
 accomplished on lines 118-119.
 
-Line 122 creates an asyncio task to continuously receive WebSocket messages
-from any connected WebSocket client. This task passes these messages to the *receive_data* method
+Line 122 creates an asyncio task to receive WebSocket messages from any connected WebSocket client continuously.
+ This task passes these messages to the *receive_data* method
 for further processing.
 
 ```
@@ -248,7 +248,7 @@ the target hardware in the form of a report message. Using the topic
 of the message as a key, it looks up the associated WebSocket in the 
 *active_sockets* array and publishes the message to the correct WebSocket.
 
-On lines 152-154, if the gateway provided a time stamp, the time stamp
+On lines 152-154, if the gateway provided a timestamp, the timestamp
  is formatted and appended to the report message.
 Line 156 encodes the message as a JSON message sends the message
 to WebSocket client on line 163
@@ -310,3 +310,7 @@ to WebSocket client on line 163
 
 Lines 167-219 implement the standard way of instantiating a 
 Banyan component.
+
+<br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved

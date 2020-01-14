@@ -1,6 +1,6 @@
 # An Echo Server-Client Example
 
-In this section we will build a simple echo server-client application
+In this section, we will build a simple echo server-client application
  using the Python Banyan Framework.
 
 First, we will run the demo and then examine the code for both the server
@@ -11,16 +11,16 @@ and client Banyan components.
 The Backplane is installed as an executable module when Python Banyan is installed.
 By typing 'backplane' in a command or terminal window, the Backplane will start.
 
-The components, simple_echo_server.py and simple_echo_client.py are invoked
+The components, simple_echo_server.py, and simple_echo_client.py, are invoked
 from the command line using the typical method to start a Python program.
 
-The following screen shots were taken on a Linux computer running Python 3
+The following screenshots were taken on a Linux computer running Python 3,
 and that is why the *python3* command is displayed. You may
-run these examples on Linux, Windows, Mac or Raspberry using either
+run these examples on Linux, Windows, Mac or, Raspberry using either
 Python 2 or Python 3. Simply substitute your system's specific python command
 to run the examples.
 
-### First start the Backplane in a terminal window.
+### First, start the Backplane in a terminal window.
 
 ```
 backplane
@@ -49,7 +49,7 @@ and type:
 python3 simple_echo_client.py
 ```
 
-A standard Banyan header is printed to the console for the client and the client begins
+A standard Banyan header is printed to the console for the client, and the client begins
 sending its messages.
 
 When the client completes sending all of its messages, the console for the client will indicate
@@ -68,10 +68,10 @@ The console for the server will display all of the message numbers it received
 
 ## The Server
 
-The role of the server is to simply wait for "echo" topic messages to arrive
+The role of the server is to simply wait for the "echo" topic messages to arrive
 and then to extract the message's payload and publish a "reply" topic message.
 
-### Examining The Code
+### Examining the Code
 
 Let's look at the code below:
 
@@ -115,7 +115,7 @@ Line 25 declares the EchoServer component class. It inherits from the BanyanBase
 ```
 
 Lines 31 through 44 define the [\__init__](../examples_intro/#95_init__) method.
-To keep things simple, this method does not accept any parameters.
+
 
 When inheriting from another class, the parent class must be initialized.
 
@@ -127,7 +127,7 @@ Line 37 calls the BanyanBase method [*set_subscriber_topic*](../examples_intro/#
 
 Line 41 calls the BanyanBase method [*receive_loop*](../examples_intro/#receive_loop) to wait for incoming messages.
 
-Line 42 through 44 trap a Control-C entered by the user. The inherited BanyanBase [*clean_up*](../examples_intro/#clean_up) method
+Line 42 through 44 traps a Control-C entered by the user. The inherited BanyanBase [*clean_up*](../examples_intro/#clean_up) method
 is called to close the ZeroMQ connections. The program is then exited.
 
 ```
@@ -154,7 +154,7 @@ The *incoming_message_processing* method requires two parameters, a
 topic string, and a payload. Both the topic and payload are decoded within the receive_loop, so they
 are ready for use by the *incoming_message_processing* method.
 
-Line 53 republishes the payload just received, setting the topic to 'reply'. The message number
+Line 53 republishes the payload just received, setting the topic to 'reply,' The message number
 of the received message is then printed to the console.
 ```
     46	    def incoming_message_processing(self, topic, payload):
@@ -191,18 +191,18 @@ call the instantiation function.
 
 ## The Client
 
-The role of the client is to publish 'echo' messages and to maintain a message sequencing number
-that is incorporated into the payload. Shortly after being invoked, the client
+The role of the client is to publish 'echo' messages. It maintains a message sequencing number,
+incorporated into the payload. Shortly after being invoked, the client
 sends out the first 'echo' message. It then waits for a 'reply' message from the server before
 publishing the next message.
 
 The messaging sequencing number is decremented after each message is published.
-When the sequencing number reaches zero, the final message is published and the client halts.
+When the sequencing number reaches zero, the final message is published, and the client halts.
 
-### Examining The Code
+### Examining the Code
 
 The code for the client is very similar to that of the [server](#examining-the-code).
-In this section the major differences between the client and server are highlighted.
+In this section, the major differences between the client and server are highlighted.
 
 Line 38 calls the inherited BanyanBase method *set_subscriber_topic* to subscribe to
 'reply' messages.
@@ -274,13 +274,14 @@ incoming 'reply' message.
 
 Line 53 is the *incoming_message_processing* method.
 
-Line 62 tests the sequencing value of the 'reply' message. If 0, indicating the final message was sent and received,
-lines 63 through 66 print
+Line 62 tests the sequencing value of the 'reply' message. When the sequencing value is set to 0,
+the final message was sent and received.
+Lines 63 through 66 print
 the total number of messages sent and received to the console,
 and the user is asked to press *enter* to exit the program.
 
-Lines 69 through 71 process non-terminating 'reply'messages.
-The message number is decremented by 1 and the next 'echo' message is then built
+Lines 69 through 71 process non-terminating 'reply' messages.
+The message number is decremented by 1, and the next 'echo' message is then built
 and published.
 
 ```
@@ -313,5 +314,8 @@ and published.
     79	    echo_client()
 
 ```
+<br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved
 
 

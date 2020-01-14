@@ -21,7 +21,7 @@ or
 python3 -V
 ```
 
-You should see something similar to this screen shot:
+You should see something similar to this screenshot:
 
 ![](./images/windows_python.png)
 
@@ -45,8 +45,8 @@ During the installation process, if there is a checkbox to add Python 3.7 to you
 ![](./images/pythonInstall.png)
 
 ### Debian Based Linux Distribution Users
-If you are using a Debian based Linux, such as Ubuntu, Raspbian, etc., and wish to build the latest version,
-here are the build and installation instructions for version 3.7.2, the latest version as of this writing:
+To build the latest version of Python (version 3.8.1 at the time of this writing) for Debian based Linux releases, such as Ubuntu, Raspbian, etc.,
+use the following build instructions:
 
 1. sudo apt-get update
 1. sudo apt-get upgrade
@@ -59,7 +59,7 @@ here are the build and installation instructions for version 3.7.2, the latest v
 1. cd ~
 1. mkdir build
 1. cd build
-1. wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz
+1. wget https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tgz
 1. tar -zxvf Python-3.7.2.tgz
 1. cd Python-3.7.2
 1. ./configure
@@ -67,7 +67,7 @@ here are the build and installation instructions for version 3.7.2, the latest v
 1. sudo make install
 
 Install pip
-For debian based distributions:
+For Debian based distributions:
 ```
   sudo apt-get install pip3-python
 ```
@@ -79,7 +79,7 @@ Check with your distribution provider for the latest versions of Python.
 1. Install Python 3.7.2 from [https://www.python.org/downloads/](https://www.python.org/downloads/)
  or via [homebrew](http://brew.sh/)
 2. Download get-pip.py from [https://bootstrap.pypa.io/get-pip.py](https://bootstrap.pypa.io/get-pip.py) and
-install (this should already be installed if python was installed from python.org or homebrew):
+install (this should already be installed if Python was installed from python.org or homebrew):
 
 ```
 curl -O https://bootstrap.pypa.io/get-pip.py
@@ -89,7 +89,7 @@ sudo python3 get-pip.py
 
 ### Verify The Python Installation
 Refer to
- ["Checking To See If Python Is Installed"](#checking-for-an-existing-python-installation), 
+ ["Checking To See If Python Is Installed,"](#checking-for-an-existing-python-installation)
  above.
 
 
@@ -111,3 +111,6 @@ pip install python-banyan
 ```
 
 The code for Python Banyan can be found on [GitHub](https://github.com/MrYsLab/python_banyan).
+<br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved

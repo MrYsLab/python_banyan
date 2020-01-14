@@ -6,38 +6,38 @@ set of utilities that are part of the [***python-banyan***](https://github.com/M
 
 # The Key Elements of Python Banyan
 
-There are two key components of the Banyan Framework, the ***Backplane*** that acts as
+There are two key components of the Banyan Framework, the ***backplane*** that acts as a
 communication hub, and the ***Banyan Components*** where you implement your design. This section
 will discuss these two elements.
 
 # The Banyan Backplane
 
 When you install Python Banyan, an executable file called ***backplane***,
-is automatically installed on your computer. The Backplane is implemented as a ZeroMQ *device*
+is automatically installed on your computer. The backplane is implemented as a ZeroMQ *device*
 called a [***Forwarder***](http://learning-0mq-with-pyzmq.readthedocs.io/en/latest/pyzmq/devices/forwarder.html).
 
-When connecting to the Backplane, all components utilize common, well-known IP addresses and port numbers.
-As a result, routing is greatly simplified, and for most cases
+When connecting to the backplane, all components utilize common, well-known IP addresses and port numbers.
+As a result, routing is greatly simplified, and in most cases,
 eliminates the need for maintaining a routing table.
 
 Because a Banyan component automatically attempts to
-"plug" itself into the Backplane when first invoked, ***the backplane,
+"plug" itself into the backplane when first invoked, ***the backplane
 must be started before starting any other components.***
 
-If you forget to start Backplane first, the component will raise a RunTimeError
+If you forget to start backplane first, the component will raise a RunTimeError
 exception.
 
-In general, a Banyan application uses a single instance of the Backplane,
-however, it is possible to have multiple Backplanes running in a single
+In general, a Banyan application uses a single instance of the backplane.
+However, it is possible to have multiple backplanes running in a single
 application. Using multiple backplanes will be covered in a [later section](../example9/#example9/).
 
-Since the Backplane is not normally modified by the user, its code will not be discussed here, but
+Since the backplane is not usually modified by the user, its code will not be discussed here, but
 if you wish, you may view
-[the Backplane source code here](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/backplane/backplane.py).
+[the backplane source code here](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/backplane/backplane.py).
 
 ## Starting the Backplane
 
-To start the Backplane, open a command or terminal window and type:
+To start the backplane, open a command or terminal window and type:
 
 ```
 backplane
@@ -45,48 +45,48 @@ backplane
 
 <img align="center" src="../images/backplane_start.png">
 
-After starting the Backplane, you will see a standard Python Banyan header for the Backplane.
+After starting the backplane, you will see a standard Python Banyan header for the Backplane.
 
 
-The **Backplane name** is displayed. The default is "Backplane" and normally, this default is accepted.
+The **backplane name** is displayed. The default is "Backplane," and usually, this default is accepted.
 You may change it
-using a [command line option described below](#the-backplanes-command-line-options)
+using a [command-line option described below](#the-backplanes-command-line-options)
 
-The Backplane's **IP Address** is shown next to the Backplane name. The Backplane
-always uses the **IP address** of the computer on which it is run and is not user
-configurable. This address is auto-discovered.
+The backplane's **IP Address** is shown next to the backplane name. The backplane
+always uses the **IP address** of the computer on which it is run and
+is not user-configurable. This address is auto-discovered.
 
 The **Subscriber and Publisher Ports** are also displayed. For applications
-that will run on a single computer the default ports should be accepted. These
-values are user configurable, in case you need to modify them.
+that will run on a single computer, the default ports should be accepted. These
+values are user-configurable, in case you need to modify them.
 
-The **Loop Time** sets the iteration time for the Backplane's idle loop. Normally
-the default should be accepted, but it can be altered to fine tune the application's
+The **Loop Time** sets the iteration time for the backplane's idle loop. Usually,
+the default should be accepted, but it can be altered to fine-tune the application's
 CPU utilization.
 
-## The Backplane's Command Line Options
+## The Backplane's Command-Line Options
 
-To see the command line options for the Backplane type:
+To see the command-line options for the backplane type:
 ```
 backplane -h
 ```
 
 <img align="center" src="../images/backplane_help.png">
 
-To specify a command line option, provide the option and its parameter
+To specify a command-line option, provide the option and its parameter
 value. Multiple options may be set if desired.
 
 ```
 backplane -n MyBackplane -p 12345 -s 54321 -t .01
 ```
 
-In the example above, the backplane name, the publisher port, the subscriber port
-and the loop time have all been customized.
+In the above, the parameters backplane name, the publisher port, the subscriber port,
+and loop time have all been customized.
 
 ## Always Start The Backplane First
 
-A Python Banyan component expects the Backplane to be running when it is instantiated.
-If you forget to start the Backplane, the component will raise a RunTimeException.
+A Python Banyan component expects the backplane to be running when it is instantiated.
+If you forget to start the backplane, the component will raise a RunTimeException.
 
 <img align="center" src="../images/no_backplane_running.png">
 
@@ -97,7 +97,7 @@ Most Python Banyan components need only to connect to a single Backplane and are
  by inheriting from the ***banyan_base***
 base class, [banyan_base.py](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/banyan_base/banyan_base.py).
 
-If you need to create your application using multiple Backplanes (a rare occurrence),
+If you need to create your application using multiple backplanes (a rare occurrence),
 please refer to [this section](../example9/#example9/) for a discussion of the ***banyan_base_multi*** class.
 
 
@@ -111,23 +111,23 @@ An "executive summary" of the methods follows:
 1. **\__init__** - This method initializes the class. A derived class
 often overrides this method to add additional initialization parameters
 as well as being a convenient place to add subscription topics.
-The Banyan event loop may started in this method, but it should be done so
+The Banyan event loop may be started in this method, but it should be done so
 as the last line of the overridden
-method, since a call to *receive_loop* will not return.
+method since a call to *receive_loop* will not return.
 
-2. **set_subscriber_topic** - This method is usually **not** overridden and is used as is.
+2. **set_subscriber_topic** - This method is usually **not** overridden and is used as-is.
 This method is called for each subscription topic.
 
-3. **publish_payload** - This method is usually **not** overridden and used as is.
+3. **publish_payload** - This method is usually **not** overridden and used as-is.
 This method will format the message and send it to the backplane.
 
-4. **receive_loop** - This method is usually **not** overridden and used as is.
+4. **receive_loop** - This method is usually **not** overridden and used as-is.
 This method waits to receive messages that have topics that have been subscribed to.
 When a message is received, it calls the **incoming_message_processing** method.
 
 5. **incoming_message_processing** - This method **must** be overridden to handle incoming messages.
 
-6. **clean_up** - This method maybe overridden to add any additional clean-up for a terminating component.
+6. **clean_up** - This method may be overridden to add any additional clean-up for a terminating component.
 
 To get a better understanding of the base class, let's look at the code line by line. You can skip this
 section and move on to the [examples](../example1/) and return later if you need a more detailed explanation of the base class.
@@ -159,12 +159,12 @@ Lines 1 through 19 displays the license information.
 
 ```
 
-Lines 20 through 36 list the packages required by banyan_base.py. All required packages are
+Lines 20 through 36 lists the packages required by banyan_base.py. All required packages are
 automatically installed when the Python Banyan distribution is first installed.
 
 Note that lines 25 through 27 are commented out.
-A template for creating command line options for your component is provided at the bottom of the file.
-This is totally optional, but if you wish to use the template, you will need to uncomment out lines 25 through 27.
+A template for creating command-line options for your component is provided at the bottom of the file.
+This is totally optional, but if you wish to use the template, you will need to uncomment outlines 25 through 27.
 
 The template will be discussed at the [end of this discussion](#a-template-for-component-command-line-options).
 
@@ -220,7 +220,7 @@ The examples will demonstrate how to import BanyanBase.
 ```
 
 
-The base class consists of 6 methods and the following is a discussion of each of the
+The base class consists of 6 methods, and the following is a discussion of each of the
 methods.
 
 ## \__init__
@@ -238,17 +238,17 @@ for each topic.
 
 ```
 
-Line 57 through 59 constitute the parameter list for the _____init_____ method.
+Line 57 through 59 constitutes the parameter list for the _____init_____ method.
 Notice that all of the parameters contain default values, and in most cases accepting the defaults
 is all that you need.
 
-Lines 63 through 83 document the parameters (and are discussed below).
+Lines 63 through 83 documents the parameters (and are discussed below).
 
 ### back_plane_ip_address
 The default for this parameter is *None*. The component will discover the IP
-address of the local computer and assume that the Backplane is also running on this
-computer. If the component is running on a computer different from the one that the Backplane is running,
-then this parameter will need to match the IP address of the Backplane.
+address of the local computer and assume that the backplane is also running on this
+computer. If the component is running on a computer different from the one that the backplane is running,
+then this parameter will need to match the IP address of the backplane.
 
 ```
     64	        :param back_plane_ip_address: banyan_base back_planeIP Address -
@@ -257,9 +257,10 @@ then this parameter will need to match the IP address of the Backplane.
 ```
 
 ### subscriber and publisher ports
-These are default IP ports dictated by those set for the Backplane. Normally these are
-not changed, but may be if there are any port conflicts or if you are running in a system
-that has more than one Backplane running on a computer.
+These are default IP ports dictated by those set for the backplane. Normally the
+defaults are accepted. However, they may be modified if there are any port conflicts, or if you are running in a system
+that has more than one backplane running on a computer.
+
 
 ```
     68	        :param subscriber_port: banyan_base back plane subscriber port.
@@ -271,7 +272,7 @@ that has more than one Backplane running on a computer.
 ```
 
 ### process_name
-This sets the name shown in the component's console header for identification purposes. If not set
+This sets the name shown in the component's console header for identification purposes. If not set,
 the name of the component will be 'None'.
 
 ```
@@ -292,8 +293,7 @@ the greater the CPU utilization for the component.
 
 ### numpy
 If the component requires numpy data handling,
-then set this parameter to *True* to serialize the data in an
-efficient manner.
+then set this parameter to *True* to serialize the data efficiently.
 
 ```
     78	        :param numpy: Set true if you wish to include numpy matrices in your messages.
@@ -301,8 +301,8 @@ efficient manner.
 ```
 
 ### external_message_processor
-Normally all incoming messages are handled within the component itself. If specified, message processing
-will be done outside of the component and act in a similar fashion to a callback.
+Normally all incoming messages are handled within the Banyan component itself. If specified, message processing
+will be done outside of the component and act similarly to a callback.
 
 ```
     80	        :param external_message_processor: external method to process messages
@@ -322,11 +322,11 @@ The function or method should be non-blocking.
 ```
 
 ### connect_time
-This parameter allows for the connection between the component and Backplane to complete.
+This parameter allows for the connection between the component and backplane to complete.
 It prevents race conditions between trying to publish a message before the connection
 has been established.
 
-    85	        :param connect_time: a short delay to allow the component to connect to the Backplane
+    85	        :param connect_time: a short delay to allow the component to connect to the backplane
 
 
 The actual class code for the method follows the parameter documentation strings.
@@ -341,7 +341,7 @@ Line 89 allows for the possibility of multiple inheritance.
 
 ```
 
-Line 91 declares a flag which is set when the check for a running Backplane takes place.
+Line 91 declares a flag which is set when the check for a running backplane takes place.
 
 Lines 93 through 97 assign the input parameters to instance variables.
 
@@ -367,14 +367,14 @@ numpy parameter was set to True.
 
 Lines 103 through 105 set the IP address for the backplane if one was specified.
 
-If no Backplane IP address was specified, Lines 107 through 121 checks to
-see if there is a Backplane currently running.
-If a Backplane is running, the *self.backplane_exists* flag is set to True.
+If no backplane IP address was specified, Lines 107 through 121 checks to
+see if there is a backplane currently running.
+If a backplane is running, the *self.backplane_exists* flag is set to True.
 
-**NOTE:** Unlike when both the component and Backplane are running on the same computer,
-when a remote Backplane is being used, that is the component and Backplane are running
-on different computers, the component cannot check for an existing running Backplane.
-Therefore in this case, it is the user's responsibility to check for a running remote Backplane.
+**NOTE:** Unlike when both the component and backplane are running on the same computer,
+but on a remote backplane,
+the component cannot check for an existing running Backplane.
+Therefore, in this case, it is the user's responsibility to check for a running remote backplane.
 
 ```
    103	        # If no back plane address was specified, determine the IP address of the local machine
@@ -400,12 +400,12 @@ Therefore in this case, it is the user's responsibility to check for a running r
 ```
 
 
-Lines 123 through 124 checks to see if a local Backplane was found.
-If not, a RunTimeError is raised. If a Backplane was detected as running, lines 125 through  129 retrieve the IP address of
+Lines 123 through 124 checks to see if a local backplane was found.
+If not, a RunTimeError is raised. If a backplane was detected as running, lines 125 through  129 retrieve the IP address of
 the local computer
 and then sets the backplane_ip_address to that address.
 
-Lines 131 through 134 continue setting instance variables from input parameters.
+Lines 131 through 134 continue setting instance variables from input parameters
 received by the \__init__ method.
 
 
@@ -438,11 +438,11 @@ the *process_name*, *backplane_ip_address*, *subscriber_port*, *publisher_port*,
    142
 ```
 
-Lines 143 through 151 establish ZeroMQ publish and subscribe connections to the Backplane.
+Lines 143 through 151 establish ZeroMQ publish and subscribe connections to the backplane.
 
 Line 154 calls *time.sleep* to wait for the duration of the connect_time value.
- This allows enough time for both the publisher and subscriber connections
-to be estalished.
+ This allows for enough time for both the publisher and subscriber connections
+to be established.
 
 ```
    143	        # establish the zeromq sub and pub sockets and connect to the backplane
@@ -494,7 +494,7 @@ This method is typically not overridden.
 Line 171 defines the *publish_payload* method. It accepts two parameters,
 a message ***payload*** that by convention is in the form of a Python
  dictionary. The dictionary may contain one or more key/value pairs.
- The second pararmeter is a message ***topic*** that must be in
+ The second parameter is a message ***topic*** that must be in
  the form of a valid string.
 
 Lines 181 through 182 validate that the topic is a string. If the topic
@@ -502,7 +502,7 @@ is not of string type, then a TypeError exception is raised.
 
 Lines 185 through 188 select the messagepack version to use to encode
 the payload for transmission across the network. If the numpy parameter
-was set, then messagepack_numpy is selected for use, otherwise standard messagepack
+was set, then messagepack_numpy is selected for use. Otherwise, standard messagepack
 is selected.
 
 Line 190 encodes the topic for transmission across the network.
@@ -598,7 +598,7 @@ and 218 for non-numpy data.
 
 ### When No Messages Are Available
 
-When the ZeroMQ *recv_mutlipart* method is called and no data
+When the ZeroMQ *recv_mutlipart* method is called, and no data
  is available on the subscription queue, ZeroMQ raises a ***zmq.error.Again*** exception.
  The exception handler constitutes the idle portion of the Python Banyan event loop.
  During idle time, the
@@ -642,7 +642,7 @@ parameter.
 
 This method may be overridden. It is normally called before terminating the component.
 It closes both the publisher and subscriber connections and terminates the
-ZeroMQ session for the component. You may add any additional cleanup that your component may require.
+ZeroMQ session for the component. You may add any additional clean-up that your component may require.
 ```
    242	    def clean_up(self):
    243	        """
@@ -654,9 +654,9 @@ ZeroMQ session for the component. You may add any additional cleanup that your c
    249	        self.context.term()
 ```
 
-# A Template For Component Command Line Options
+# A Template For Component Command-Line Options
 
-If you would like to provide the facility to specify command line options
+If you would like to provide the facility to specify command-line options
 for a component, the following is a template to do so.
 
 This will be explained in detail in a [later section](../example2).
@@ -729,3 +729,7 @@ how to build and use Python Banyan components.
 ## Where To Find The Example Source Code
 
 The code for all the examples may be found on [GitHub](https://github.com/MrYsLab/python_banyan/tree/master/examples).
+
+<br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved

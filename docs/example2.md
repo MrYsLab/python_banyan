@@ -1,35 +1,35 @@
 # Modifying The Simple Echo Client
 
-Being able to set a component's parameters using command line options
-allow the user to easily modify the way a component operates.
+Being able to set a component's parameters using command-line options
+allows the user to change a component's behavior.
 
-To demonstrate, we will take the existing simple echo client and modify the
-code to allow the user to enter the Backplane IP address,
+To demonstrate, we will take the existing simple echo client. The
+code will be modified to allow the user, via command line,  to enter the Backplane IP address,
 the publisher and subscriber port numbers, the number of messages to
 send to the server, the process name to display on the
- banner, and the loop time, all via the command line.
+ banner, and the loop time.
 
-This example allows the user to specify, none, one or any combination
+This example allows the user to specify, none, one, or any combination
 of parameters, allowing maximum flexibility.
 
-To process user specified command line parameters, we will
+To process user-specified command-line parameters, we will
 use the [argparse library](https://docs.python.org/3/library/argparse.html).
 
-A code comparison will be provided for the modified code, in addition
-to any new code that is required in order to add the feature.
+A code comparison will be provided for the modified code.
+Any new code that is required is also shown for the feature.
 
-Once we modify the code, we will be able to print a help screen to the console, by simply
+Once we modify the code, we will be able to print a help screen to the console by merely
 invoking the program with
-a *-h* command line option. A list of all command line options will be displayed
+a *-h* command-line option. A list of all command-line options will be displayed
 for the user to choose from.
 
 <img align="center" src="../images/echo_cmdline_help.png">
 
-## Adding The Necessary Imports
+## Adding the Necessary Imports
 
 We will import the argparse package as well as the signal package
 to the original file. Argparse allows us to create the command
-line arguments, and signal allows us to trap and process a Control-C
+line arguments, and the signal enables us to trap and process a Control-C
 entered by the user.
 
 ```
@@ -43,7 +43,7 @@ Line 29 declares the name for our modified client.
 
 Lines 31 through 56 provide usage information.
 
-Lines 59 defines the \__init__ method and it accepts a dictionary
+Lines 59 defines the \__init__ method, and it accepts a dictionary
 of parameters, called *kwargs*. The kwargs dictionary is populated
 near the end of the program.
 
@@ -133,17 +133,17 @@ The rest of the class definition is unchanged.
 
 Here, we create a function that follows the class definition. This
 function, called echo_cmdline_client() will instantiate the class
-and parse for any command line options that the user may have specified.
+and parse for any command-line options that the user may have specified.
 
 This function is contained within lines 125 to 168.
 
 Line 126 creates an instance of an ArgumentParser.
 
-Lines 129 through 144 create the command line options and adds them
+Lines 129 through 144 create the command-line options and adds them
 to the argument parser.
 
 Line 146 creates a variable called *args* and populates args with
-the values for all of the command line options.
+the values for all of the command-line options.
 
 Lines 148 through 155 retrieve the option values using the defaults
 or the values provided by the user. The options
@@ -223,6 +223,10 @@ This command will produce 20 messages.
 Here is what the client console displays after running this command.
 
 <img align="center" src="../images/echo_client_20.png">
+
+<br>
+<br>
+Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved
 
 
 
