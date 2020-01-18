@@ -33,7 +33,7 @@ except ImportError:
     import tkFont as font
     import ttk
 
-import umsgpack
+import msgpack
 import zmq
 from python_banyan.banyan_base import BanyanBase
 
@@ -158,7 +158,7 @@ class TkEchoClient(BanyanBase):
         """
         try:
             data = self.subscriber.recv_multipart(zmq.NOBLOCK)
-            self.incoming_message_processing(data[0].decode(), umsgpack.unpackb(data[1]))
+            self.incoming_message_processing(data[0].decode(), msgpack.unpackb(data[1]))
             time.sleep(.001)
             self.root.after(1, self.get_message)
 
@@ -171,13 +171,13 @@ class TkEchoClient(BanyanBase):
                 self.root.destroy()
                 self.publisher.close()
                 self.subscriber.close()
-                self.context.term()
+                self.my_context.term()
                 sys.exit(0)
         except KeyboardInterrupt:
             self.root.destroy()
             self.publisher.close()
             self.subscriber.close()
-            self.context.term()
+            self.my_context.term()
             sys.exit(0)
 
     def incoming_message_processing(self, topic, payload):

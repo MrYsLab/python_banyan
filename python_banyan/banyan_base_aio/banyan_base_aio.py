@@ -90,7 +90,7 @@ class BanyanBaseAIO(object):
         self.receive_loop_idle_addition = receive_loop_idle_addition
         self.connect_time = connect_time
         self.subscriber_list = subscriber_list
-        self.context = None
+        self.my_context = None
         self.subscriber = None
         self.publisher = None
         self.the_task = None
@@ -152,14 +152,14 @@ class BanyanBaseAIO(object):
     # noinspection PyUnresolvedReferences
     async def begin(self):
         # establish the zeromq sub and pub sockets and connect to the backplane
-        if not self.context:
-            self.context = zmq.asyncio.Context()
+        if not self.my_context:
+            self.my_context = zmq.asyncio.Context()
         # noinspection PyUnresolvedReferences
-        self.subscriber = self.context.socket(zmq.SUB)
+        self.subscriber = self.my_context.socket(zmq.SUB)
         connect_string = "tcp://" + self.back_plane_ip_address + ':' + self.subscriber_port
         self.subscriber.connect(connect_string)
 
-        self.publisher = self.context.socket(zmq.PUB)
+        self.publisher = self.my_context.socket(zmq.PUB)
         connect_string = "tcp://" + self.back_plane_ip_address + ':' + self.publisher_port
         self.publisher.connect(connect_string)
 
@@ -275,4 +275,4 @@ class BanyanBaseAIO(object):
         """
         await self.publisher.close()
         await self.subscriber.close()
-        await self.context.term()
+        await self.my_context.term()

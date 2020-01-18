@@ -107,7 +107,7 @@ class BanyanBaseMulti(object):
         self.loop_time = loop_time
 
         # get a zeromq context
-        self.context = zmq.Context()
+        self.my_context = zmq.Context()
 
         # a list of dictionaries describing connections to the back planes
         self.backplane_table = []
@@ -128,13 +128,13 @@ class BanyanBaseMulti(object):
                 # setup a publisher and subscriber for each backplane
                 subscriber = None
                 if row['subscriber_port']:
-                    subscriber = self.context.socket(zmq.SUB)
+                    subscriber = self.my_context.socket(zmq.SUB)
                     connect_string = "tcp://" + row['ip_address'] + ':' + row['subscriber_port']
                     subscriber.connect(connect_string)
 
                 publisher = None
                 if row['publisher_port']:
-                    publisher = self.context.socket(zmq.PUB)
+                    publisher = self.my_context.socket(zmq.PUB)
                     connect_string = "tcp://" + row['ip_address'] + ':' + row['publisher_port']
                     publisher.connect(connect_string)
 
@@ -337,7 +337,7 @@ class BanyanBaseMulti(object):
                 element['publisher'].close()
             if element['subscriber']:
                 element['subscriber'].close()
-        self.context.term()
+        self.my_context.term()
 
 # When creating a derived component, replicate the code below and replace banyan_base_multi with a  name of your choice
 

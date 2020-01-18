@@ -172,13 +172,13 @@ class TkEchoClient(BanyanBase):
                 self.root.destroy()
                 self.publisher.close()
                 self.subscriber.close()
-                self.context.term()
+                self.my_context.term()
                 sys.exit(0)
         except KeyboardInterrupt:
             self.root.destroy()
             self.publisher.close()
             self.subscriber.close()
-            self.context.term()
+            self.my_context.term()
             sys.exit(0)
 
     def incoming_message_processing(self, topic, payload):
