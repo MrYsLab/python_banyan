@@ -311,13 +311,13 @@ the <em>tkinter</em> <strong><em>after</em></strong> method to check for Banyan 
    172                  self.root.destroy()
    173                  self.publisher.close()
    174                  self.subscriber.close()
-   175                  self.context.term()
+   175                  self.my_context.term()
    176                  sys.exit(0)
    177          except KeyboardInterrupt:
    178              self.root.destroy()
    179              self.publisher.close()
    180              self.subscriber.close()
-   181              self.context.term()
+   181              self.my_context.term()
    182              sys.exit(0)
    183
    184      def incoming_message_processing(self, topic, payload):

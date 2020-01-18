@@ -82,13 +82,13 @@ class BanyanBase:
         print('************************************************************')
 
         # establish the zeriomq sub and pub sockets and connect to the backplane
-        self.context = zmq.Context()
-        self.subscriber = self.context.socket(zmq.SUB)
+        self.my_context = zmq.Context()
+        self.subscriber = self.my_context.socket(zmq.SUB)
         connect_string = "tcp://" + self.back_plane_ip_address + ':' + \
                          self.subscriber_port
         self.subscriber.connect(connect_string)
 
-        self.publisher = self.context.socket(zmq.PUB)
+        self.publisher = self.my_context.socket(zmq.PUB)
         connect_string = "tcp://" + self.back_plane_ip_address + ':' + \
                          self.publisher_port
         self.publisher.connect(connect_string)
@@ -165,7 +165,7 @@ class BanyanBase:
         """
         self.publisher.close()
         self.subscriber.close()
-        self.context.term()
+        self.my_context.term()
         sys.exit(0)
 
 
