@@ -262,7 +262,7 @@ out the component's "header" data to the console.
    108	        self.loop_time = loop_time
    109	
    110	        # get a zeromq context
-   111	        self.context = zmq.Context()
+   111	        self.my_context = zmq.Context()
    112	
    113	        # a list of dictionaries describing connections to the back planes
    114	        self.backplane_table = []
@@ -283,13 +283,13 @@ out the component's "header" data to the console.
    129	                # setup a publisher and subscriber for each backplane
    130	                subscriber = None
    131	                if row['subscriber_port']:
-   132	                    subscriber = self.context.socket(zmq.SUB)
+   132	                    subscriber = self.my_context.socket(zmq.SUB)
    133	                    connect_string = "tcp://" + row['ip_address'] + ':' + row['subscriber_port']
    134	                    subscriber.connect(connect_string)
    135	
    136	                publisher = None
    137	                if row['publisher_port']:
-   138	                    publisher = self.context.socket(zmq.PUB)
+   138	                    publisher = self.my_context.socket(zmq.PUB)
    139	                    connect_string = "tcp://" + row['ip_address'] + ':' + row['publisher_port']
    140	                    publisher.connect(connect_string)
    141	
@@ -543,7 +543,7 @@ The ***clean_up*** method iterates through all the backplanes and closes their c
    345	                element['publisher'].close()
    346	            if element['subscriber']:
    347	                element['subscriber'].close()
-   348	        self.context.term()
+   348	        self.my_context.term()
 ```
 
 # A Simple Working Example

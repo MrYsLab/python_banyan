@@ -448,12 +448,12 @@ to be established.
 
 ```
    143	        # establish the zeromq sub and pub sockets and connect to the backplane
-   144	        self.context = zmq.Context()
-   145	        self.subscriber = self.context.socket(zmq.SUB)
+   144	        self.my_context = zmq.Context()
+   145	        self.subscriber = self.my_context.socket(zmq.SUB)
    146	        connect_string = "tcp://" + self.back_plane_ip_address + ':' + self.subscriber_port
    147	        self.subscriber.connect(connect_string)
    148
-   149	        self.publisher = self.context.socket(zmq.PUB)
+   149	        self.publisher = self.my_context.socket(zmq.PUB)
    150	        connect_string = "tcp://" + self.back_plane_ip_address + ':' + self.publisher_port
    151	        self.publisher.connect(connect_string)
    152
@@ -653,7 +653,7 @@ ZeroMQ session for the component. You may add any additional clean-up that your 
    246	        """
    247	        self.publisher.close()
    248	        self.subscriber.close()
-   249	        self.context.term()
+   249	        self.my_context.term()
 ```
 
 # A Template For Component Command-Line Options
