@@ -56,13 +56,18 @@ class GatewayBase(BanyanBase):
 
         :param back_plane_ip_address: banyan_base back_planeIP Address -
                if not specified, it will be set to the local computer
+
         :param subscriber_port: banyan_base back plane subscriber port.
                This must match that of the banyan_base backplane
+
         :param publisher_port: banyan_base back plane publisher port.
                                This must match that of the banyan_base
                                backplane
+
         :param process_name: Component identifier
+
         :param subscriber_list: a tuple or list of topics to be subscribed to
+
         :param board_type: micro-controller type ID
 
         """

@@ -47,10 +47,15 @@ class BanyanBaseMulti(object):
     backplane_name,ip_address,subscriber_port,subscriber_topic,publisher_port
 
     backplane_name: a unique identifier string for backplane - for informational purposes only
+
     ip_address: IP address of the computer that the backplane is running on
+
     subscriber_port: port number assigned to the backplane's subscriber port
+
     subscriber_topic: this is an optional list of subscription topics
+
     publisher_port: port number assigned to the backplane's publisher port
+
 
 
     There should be an entry in this file for each backplane that the component needs to connect to.

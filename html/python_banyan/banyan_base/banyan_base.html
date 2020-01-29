@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.7.5.dev2+gfcc2b1b" />
+<title>python_banyan.banyan_base.banyan_base API documentation</title>
+<meta name="description" content="banyan_base.py …" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>python_banyan.banyan_base.banyan_base</code></h1>
+</header>
+<section id="section-intro">
+<p>banyan_base.py</p>
+<p>Copyright (c) 2016-2019 Alan Yorinks All right reserved.</p>
+<p>Python Banyan is free software; you can redistribute it and/or
+modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+Version 3 as published by the Free Software Foundation; either
+or (at your option) any later version.
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU
+General Public License for more details.</p>
+<p>You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE
+along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+02110-1301
+USA</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+banyan_base.py
+
+ Copyright (c) 2016-2019 Alan Yorinks All right reserved.
+
+ Python Banyan is free software; you can redistribute it and/or
+ modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+ Version 3 as published by the Free Software Foundation; either
+ or (at your option) any later version.
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+
+ You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE
+ along with this library; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+&#34;&#34;&#34;
+from __future__ import unicode_literals
+
+# Use argparse and signal if you wish to implement the argparse
+# code located at the bottom of this file.
+
+# import argparse
+# import signal
+# import sys
+
+import socket
+import time
+import msgpack
+import msgpack_numpy as m
+import zmq
+import psutil
+
+
+class BanyanBase(object):
+    &#34;&#34;&#34;
+
+    This is the base class for all Python Banyan components,
+    encapsulating and acting as an abstraction layer for zeromq and message pack
+    functionality.
+
+    Banyan components are derived by inheriting from this class and
+    overriding its methods as necessary.
+
+    Banyan components have the capability to both publish and subscribe to user
+    defined messages using the Banyan backplane.
+
+    To import into  the derived class use:
+
+           from python_banyan.banyan_base import BanyanBase
+
+    &#34;&#34;&#34;
+
+    def __init__(self, back_plane_ip_address=None, subscriber_port=&#39;43125&#39;,
+                 publisher_port=&#39;43124&#39;, process_name=&#39;None&#39;, loop_time=.1, numpy=False,
+                 external_message_processor=None, receive_loop_idle_addition=None,
+                 connect_time=0.3):
+        &#34;&#34;&#34;
+        The __init__ method sets up all the ZeroMQ &#34;plumbing&#34;
+
+        :param back_plane_ip_address: banyan_base back_planeIP Address -
+                                      if not specified, it will be set to the
+                                      local computer.
+
+        :param subscriber_port: banyan_base back plane subscriber port.
+               This must match that of the banyan_base backplane
+
+        :param publisher_port: banyan_base back plane publisher port.
+                               This must match that of the banyan_base backplane.
+
+        :param process_name: Component identifier in banner at component startup.
+
+        :param loop_time: Receive loop sleep time.
+
+        :param numpy: Set true if you wish to include numpy matrices in your messages.
+
+        :param external_message_processor: external method to process messages
+
+        :param receive_loop_idle_addition: an external method called in the idle section
+                                           of the receive loop
+
+        :param connect_time: a short delay to allow the component to connect to the Backplane
+        &#34;&#34;&#34;
+
+        # call to super allows this class to be used in multiple inheritance scenarios when needed
+        super(BanyanBase, self).__init__()
+
+        self.backplane_exists = False
+
+        self.back_plane_ip_address = None
+        self.numpy = numpy
+        self.external_message_processor = external_message_processor
+        self.receive_loop_idle_addition = receive_loop_idle_addition
+        self.connect_time = connect_time
+
+        # if using numpy apply the msgpack_numpy monkey patch
+        if numpy:
+            m.patch()
+
+        # If no back plane address was specified, determine the IP address of the local machine
+        if back_plane_ip_address:
+            self.back_plane_ip_address = back_plane_ip_address
+        else:
+            # check for a running backplane
+            for pid in psutil.pids():
+                p = psutil.Process(pid)
+                try:
+                    p_command = p.cmdline()
+                except psutil.AccessDenied:
+                    # occurs in Windows - ignore
+                    continue
+                try:
+                    if any(&#39;backplane&#39; in s for s in p_command):
+                        self.backplane_exists = True
+                    else:
+                        continue
+                except UnicodeDecodeError:
+                    continue
+
+            if not self.backplane_exists:
+                raise RuntimeError(&#39;Backplane is not running - please start it.&#39;)
+            # determine this computer&#39;s IP address
+            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            # use the google dns
+            try:
+                s.connect((&#39;8.8.8.8&#39;, 1))
+                self.back_plane_ip_address = s.getsockname()[0]
+            except:
+                self.back_plane_ip_address = &#39;127.0.0.1&#39;
+            finally:
+                s.close()
+
+        self.subscriber_port = subscriber_port
+        self.publisher_port = publisher_port
+
+        self.loop_time = loop_time
+
+        print(&#39;\n************************************************************&#39;)
+        print(process_name + &#39; using Back Plane IP address: &#39; + self.back_plane_ip_address)
+        print(&#39;Subscriber Port = &#39; + self.subscriber_port)
+        print(&#39;Publisher  Port = &#39; + self.publisher_port)
+        print(&#39;Loop Time = &#39; + str(loop_time) + &#39; seconds&#39;)
+        print(&#39;************************************************************&#39;)
+
+        # establish the zeromq sub and pub sockets and connect to the backplane
+        self.my_context = zmq.Context()
+        self.subscriber = self.my_context.socket(zmq.SUB)
+        connect_string = &#34;tcp://&#34; + self.back_plane_ip_address + &#39;:&#39; + self.subscriber_port
+        self.subscriber.connect(connect_string)
+
+        self.publisher = self.my_context.socket(zmq.PUB)
+        connect_string = &#34;tcp://&#34; + self.back_plane_ip_address + &#39;:&#39; + self.publisher_port
+        self.publisher.connect(connect_string)
+
+        # Allow enough time for the TCP connection to the Backplane complete.
+        time.sleep(self.connect_time)
+
+    def set_subscriber_topic(self, topic):
+        &#34;&#34;&#34;
+        This method sets a subscriber topic.
+
+        You can subscribe to multiple topics by calling this method for
+        each topic.
+
+        :param topic: A topic string
+        &#34;&#34;&#34;
+
+        if not type(topic) is str:
+            raise TypeError(&#39;Subscriber topic must be python_banyan string&#39;)
+
+        self.subscriber.setsockopt(zmq.SUBSCRIBE, topic.encode())
+
+    def publish_payload(self, payload, topic=&#39;&#39;):
+        &#34;&#34;&#34;
+        This method will publish a python_banyan payload and its associated topic
+
+        :param payload: Protocol message to be published
+
+        :param topic: A string value
+        &#34;&#34;&#34;
+
+        # make sure the topic is a string
+        if not type(topic) is str:
+            raise TypeError(&#39;Publish topic must be python_banyan string&#39;, &#39;topic&#39;)
+
+        # create python_banyan message pack payload
+        if self.numpy:
+            message = msgpack.packb(payload, default=m.encode)
+        else:
+            message = msgpack.packb(payload, use_bin_type=True)
+
+        pub_envelope = topic.encode()
+        self.publisher.send_multipart([pub_envelope, message])
+
+    def receive_loop(self):
+        &#34;&#34;&#34;
+        This is the receive loop for Banyan messages.
+
+        This method may be overwritten to meet the needs
+        of the application before handling received messages.
+
+        &#34;&#34;&#34;
+        while True:
+            try:
+                data = self.subscriber.recv_multipart(zmq.NOBLOCK)
+                if self.numpy:
+                    payload2 = {}
+                    payload = msgpack.unpackb(data[1], object_hook=m.decode)
+                    # convert keys to strings
+                    # this compensates for the breaking change in msgpack-numpy 0.4.1 to 0.4.2
+                    for key, value in payload.items():
+                        if not type(key) == str:
+                            key = key.decode(&#39;utf-8&#39;)
+                            payload2[key] = value
+
+                    if payload2:
+                        payload = payload2
+                    self.incoming_message_processing(data[0].decode(), payload)
+                else:
+                    self.incoming_message_processing(data[0].decode(),
+                                                     msgpack.unpackb(data[1], raw=False))
+            # if no messages are available, zmq throws this exception
+            except zmq.error.Again:
+                try:
+                    if self.receive_loop_idle_addition:
+                        self.receive_loop_idle_addition()
+                    time.sleep(self.loop_time)
+                except KeyboardInterrupt:
+                    self.clean_up()
+                    raise KeyboardInterrupt
+
+    def incoming_message_processing(self, topic, payload):
+        &#34;&#34;&#34;
+        Override this method with a custom Banyan message processor for subscribed messages.
+
+        :param topic: Message Topic string.
+
+        :param payload: Message Data.
+        &#34;&#34;&#34;
+        if self.external_message_processor:
+            self.external_message_processor(topic, payload)
+        else:
+            print(&#39;this method should be overwritten in the child class&#39;, topic, payload)
+
+    def clean_up(self):
+        &#34;&#34;&#34;
+        Clean up before exiting - override if additional cleanup is necessary
+
+        &#34;&#34;&#34;
+        self.publisher.close()
+        self.subscriber.close()
+        self.my_context.term()
+
+# When creating a derived component, replicate the code below and replace
+# banyan_base with a name of your choice.
+
+# def banyan_base():
+#     # Allow user to bypass the IP address auto-discovery.
+#     # This is necessary if the component resides on a computer
+#     # other than the computing running the backplane.
+#
+#     parser = argparse.ArgumentParser()
+#     parser.add_argument(&#34;-b&#34;, dest=&#34;back_plane_ip_address&#34;, default=&#34;None&#34;,
+#                         help=&#34;None or IP address used by Back Plane&#34;)
+#
+#     # allow the user to specify a name for the component and have it shown on the console banner.
+#     # modify the default process name to one you wish to see on the banner.
+#     # change the default in the derived class to set the name
+#     parser.add_argument(&#34;-n&#34;, dest=&#34;process_name&#34;, default=&#34;YOUR PROCESS NAME&#34;, help=&#34;Set process name in banner&#34;)
+#
+#     parser.add_argument(&#34;-t&#34;, dest=&#34;loop_time&#34;, default=&#34;.1&#34;, help=&#34;Event Loop Timer in seconds&#34;)
+#
+#     args = parser.parse_args()
+#     kw_options = {}
+#
+#     if args.back_plane_ip_address != &#39;None&#39;:
+#         kw_options[&#39;back_plane_ip_address&#39;] = args.back_plane_ip_address
+#
+#     kw_options[&#39;process_name&#39;] = args.process_name
+#
+#     kw_options[&#39;loop_time&#39;] = float(args.loop_time)
+#
+#     # replace with the name of your class
+#     app = BanyanBase(**kw_options)
+#
+#     # optionally add any subscriber topics here
+#     app.set_subscriber_topic(&#39;python_banyan&#39;)
+#
+#     # optionally start the receive loop here or start it in your __init__
+#     try:
+#         app.receive_loop()
+#     except KeyboardInterrupt:
+#         sys.exit()
+#
+# signal handler function called when Control-C occurs
+# noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal
+# def signal_handler(sig, frame):
+#     print(&#39;Exiting Through Signal Handler&#39;)
+#     raise KeyboardInterrupt
+#
+#
+# # listen for SIGINT
+# signal.signal(signal.SIGINT, signal_handler)
+# signal.signal(signal.SIGTERM, signal_handler)
+#
+#
+# if __name__ == &#39;__main__&#39;:
+#     # replace with name of function you defined above
+#     banyan_base()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="python_banyan.banyan_base.banyan_base.BanyanBase"><code class="flex name class">
+<span>class <span class="ident">BanyanBase</span></span>
+<span>(</span><span>back_plane_ip_address=None, subscriber_port='43125', publisher_port='43124', process_name='None', loop_time=0.1, numpy=False, external_message_processor=None, receive_loop_idle_addition=None, connect_time=0.3)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>This is the base class for all Python Banyan components,
+encapsulating and acting as an abstraction layer for zeromq and message pack
+functionality.</p>
+<p>Banyan components are derived by inheriting from this class and
+overriding its methods as necessary.</p>
+<p>Banyan components have the capability to both publish and subscribe to user
+defined messages using the Banyan backplane.</p>
+<p>To import into
+the derived class use:</p>
+<pre><code>   from python_banyan.banyan_base import BanyanBase
+</code></pre>
+<p>The <strong>init</strong> method sets up all the ZeroMQ "plumbing"</p>
+<p>:param back_plane_ip_address: banyan_base back_planeIP Address -
+if not specified, it will be set to the
+local computer.</p>
+<p>:param subscriber_port: banyan_base back plane subscriber port.
+This must match that of the banyan_base backplane</p>
+<p>:param publisher_port: banyan_base back plane publisher port.
+This must match that of the banyan_base backplane.</p>
+<p>:param process_name: Component identifier in banner at component startup.</p>
+<p>:param loop_time: Receive loop sleep time.</p>
+<p>:param numpy: Set true if you wish to include numpy matrices in your messages.</p>
+<p>:param external_message_processor: external method to process messages</p>
+<p>:param receive_loop_idle_addition: an external method called in the idle section
+of the receive loop</p>
+<p>:param connect_time: a short delay to allow the component to connect to the Backplane</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BanyanBase(object):
+    &#34;&#34;&#34;
+
+    This is the base class for all Python Banyan components,
+    encapsulating and acting as an abstraction layer for zeromq and message pack
+    functionality.
+
+    Banyan components are derived by inheriting from this class and
+    overriding its methods as necessary.
+
+    Banyan components have the capability to both publish and subscribe to user
+    defined messages using the Banyan backplane.
+
+    To import into  the derived class use:
+
+           from python_banyan.banyan_base import BanyanBase
+
+    &#34;&#34;&#34;
+
+    def __init__(self, back_plane_ip_address=None, subscriber_port=&#39;43125&#39;,
+                 publisher_port=&#39;43124&#39;, process_name=&#39;None&#39;, loop_time=.1, numpy=False,
+                 external_message_processor=None, receive_loop_idle_addition=None,
+                 connect_time=0.3):
+        &#34;&#34;&#34;
+        The __init__ method sets up all the ZeroMQ &#34;plumbing&#34;
+
+        :param back_plane_ip_address: banyan_base back_planeIP Address -
+                                      if not specified, it will be set to the
+                                      local computer.
+
+        :param subscriber_port: banyan_base back plane subscriber port.
+               This must match that of the banyan_base backplane
+
+        :param publisher_port: banyan_base back plane publisher port.
+                               This must match that of the banyan_base backplane.
+
+        :param process_name: Component identifier in banner at component startup.
+
+        :param loop_time: Receive loop sleep time.
+
+        :param numpy: Set true if you wish to include numpy matrices in your messages.
+
+        :param external_message_processor: external method to process messages
+
+        :param receive_loop_idle_addition: an external method called in the idle section
+                                           of the receive loop
+
+        :param connect_time: a short delay to allow the component to connect to the Backplane
+        &#34;&#34;&#34;
+
+        # call to super allows this class to be used in multiple inheritance scenarios when needed
+        super(BanyanBase, self).__init__()
+
+        self.backplane_exists = False
+
+        self.back_plane_ip_address = None
+        self.numpy = numpy
+        self.external_message_processor = external_message_processor
+        self.receive_loop_idle_addition = receive_loop_idle_addition
+        self.connect_time = connect_time
+
+        # if using numpy apply the msgpack_numpy monkey patch
+        if numpy:
+            m.patch()
+
+        # If no back plane address was specified, determine the IP address of the local machine
+        if back_plane_ip_address:
+            self.back_plane_ip_address = back_plane_ip_address
+        else:
+            # check for a running backplane
+            for pid in psutil.pids():
+                p = psutil.Process(pid)
+                try:
+                    p_command = p.cmdline()
+                except psutil.AccessDenied:
+                    # occurs in Windows - ignore
+                    continue
+                try:
+                    if any(&#39;backplane&#39; in s for s in p_command):
+                        self.backplane_exists = True
+                    else:
+                        continue
+                except UnicodeDecodeError:
+                    continue
+
+            if not self.backplane_exists:
+                raise RuntimeError(&#39;Backplane is not running - please start it.&#39;)
+            # determine this computer&#39;s IP address
+            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            # use the google dns
+            try:
+                s.connect((&#39;8.8.8.8&#39;, 1))
+                self.back_plane_ip_address = s.getsockname()[0]
+            except:
+                self.back_plane_ip_address = &#39;127.0.0.1&#39;
+            finally:
+                s.close()
+
+        self.subscriber_port = subscriber_port
+        self.publisher_port = publisher_port
+
+        self.loop_time = loop_time
+
+        print(&#39;\n************************************************************&#39;)
+        print(process_name + &#39; using Back Plane IP address: &#39; + self.back_plane_ip_address)
+        print(&#39;Subscriber Port = &#39; + self.subscriber_port)
+        print(&#39;Publisher  Port = &#39; + self.publisher_port)
+        print(&#39;Loop Time = &#39; + str(loop_time) + &#39; seconds&#39;)
+        print(&#39;************************************************************&#39;)
+
+        # establish the zeromq sub and pub sockets and connect to the backplane
+        self.my_context = zmq.Context()
+        self.subscriber = self.my_context.socket(zmq.SUB)
+        connect_string = &#34;tcp://&#34; + self.back_plane_ip_address + &#39;:&#39; + self.subscriber_port
+        self.subscriber.connect(connect_string)
+
+        self.publisher = self.my_context.socket(zmq.PUB)
+        connect_string = &#34;tcp://&#34; + self.back_plane_ip_address + &#39;:&#39; + self.publisher_port
+        self.publisher.connect(connect_string)
+
+        # Allow enough time for the TCP connection to the Backplane complete.
+        time.sleep(self.connect_time)
+
+    def set_subscriber_topic(self, topic):
+        &#34;&#34;&#34;
+        This method sets a subscriber topic.
+
+        You can subscribe to multiple topics by calling this method for
+        each topic.
+
+        :param topic: A topic string
+        &#34;&#34;&#34;
+
+        if not type(topic) is str:
+            raise TypeError(&#39;Subscriber topic must be python_banyan string&#39;)
+
+        self.subscriber.setsockopt(zmq.SUBSCRIBE, topic.encode())
+
+    def publish_payload(self, payload, topic=&#39;&#39;):
+        &#34;&#34;&#34;
+        This method will publish a python_banyan payload and its associated topic
+
+        :param payload: Protocol message to be published
+
+        :param topic: A string value
+        &#34;&#34;&#34;
+
+        # make sure the topic is a string
+        if not type(topic) is str:
+            raise TypeError(&#39;Publish topic must be python_banyan string&#39;, &#39;topic&#39;)
+
+        # create python_banyan message pack payload
+        if self.numpy:
+            message = msgpack.packb(payload, default=m.encode)
+        else:
+            message = msgpack.packb(payload, use_bin_type=True)
+
+        pub_envelope = topic.encode()
+        self.publisher.send_multipart([pub_envelope, message])
+
+    def receive_loop(self):
+        &#34;&#34;&#34;
+        This is the receive loop for Banyan messages.
+
+        This method may be overwritten to meet the needs
+        of the application before handling received messages.
+
+        &#34;&#34;&#34;
+        while True:
+            try:
+                data = self.subscriber.recv_multipart(zmq.NOBLOCK)
+                if self.numpy:
+                    payload2 = {}
+                    payload = msgpack.unpackb(data[1], object_hook=m.decode)
+                    # convert keys to strings
+                    # this compensates for the breaking change in msgpack-numpy 0.4.1 to 0.4.2
+                    for key, value in payload.items():
+                        if not type(key) == str:
+                            key = key.decode(&#39;utf-8&#39;)
+                            payload2[key] = value
+
+                    if payload2:
+                        payload = payload2
+                    self.incoming_message_processing(data[0].decode(), payload)
+                else:
+                    self.incoming_message_processing(data[0].decode(),
+                                                     msgpack.unpackb(data[1], raw=False))
+            # if no messages are available, zmq throws this exception
+            except zmq.error.Again:
+                try:
+                    if self.receive_loop_idle_addition:
+                        self.receive_loop_idle_addition()
+                    time.sleep(self.loop_time)
+                except KeyboardInterrupt:
+                    self.clean_up()
+                    raise KeyboardInterrupt
+
+    def incoming_message_processing(self, topic, payload):
+        &#34;&#34;&#34;
+        Override this method with a custom Banyan message processor for subscribed messages.
+
+        :param topic: Message Topic string.
+
+        :param payload: Message Data.
+        &#34;&#34;&#34;
+        if self.external_message_processor:
+            self.external_message_processor(topic, payload)
+        else:
+            print(&#39;this method should be overwritten in the child class&#39;, topic, payload)
+
+    def clean_up(self):
+        &#34;&#34;&#34;
+        Clean up before exiting - override if additional cleanup is necessary
+
+        &#34;&#34;&#34;
+        self.publisher.close()
+        self.subscriber.close()
+        self.my_context.term()</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="python_banyan.gateway_base.gateway_base.GatewayBase" href="../gateway_base/gateway_base.html#python_banyan.gateway_base.gateway_base.GatewayBase">GatewayBase</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="python_banyan.banyan_base.banyan_base.BanyanBase.clean_up"><code class="name flex">
+<span>def <span class="ident">clean_up</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Clean up before exiting - override if additional cleanup is necessary</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clean_up(self):
+    &#34;&#34;&#34;
+    Clean up before exiting - override if additional cleanup is necessary
+
+    &#34;&#34;&#34;
+    self.publisher.close()
+    self.subscriber.close()
+    self.my_context.term()</code></pre>
+</details>
+</dd>
+<dt id="python_banyan.banyan_base.banyan_base.BanyanBase.incoming_message_processing"><code class="name flex">
+<span>def <span class="ident">incoming_message_processing</span></span>(<span>self, topic, payload)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Override this method with a custom Banyan message processor for subscribed messages.</p>
+<p>:param topic: Message Topic string.</p>
+<p>:param payload: Message Data.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def incoming_message_processing(self, topic, payload):
+    &#34;&#34;&#34;
+    Override this method with a custom Banyan message processor for subscribed messages.
+
+    :param topic: Message Topic string.
+
+    :param payload: Message Data.
+    &#34;&#34;&#34;
+    if self.external_message_processor:
+        self.external_message_processor(topic, payload)
+    else:
+        print(&#39;this method should be overwritten in the child class&#39;, topic, payload)</code></pre>
+</details>
+</dd>
+<dt id="python_banyan.banyan_base.banyan_base.BanyanBase.publish_payload"><code class="name flex">
+<span>def <span class="ident">publish_payload</span></span>(<span>self, payload, topic='')</span>
+</code></dt>
+<dd>
+<section class="desc"><p>This method will publish a python_banyan payload and its associated topic</p>
+<p>:param payload: Protocol message to be published</p>
+<p>:param topic: A string value</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def publish_payload(self, payload, topic=&#39;&#39;):
+    &#34;&#34;&#34;
+    This method will publish a python_banyan payload and its associated topic
+
+    :param payload: Protocol message to be published
+
+    :param topic: A string value
+    &#34;&#34;&#34;
+
+    # make sure the topic is a string
+    if not type(topic) is str:
+        raise TypeError(&#39;Publish topic must be python_banyan string&#39;, &#39;topic&#39;)
+
+    # create python_banyan message pack payload
+    if self.numpy:
+        message = msgpack.packb(payload, default=m.encode)
+    else:
+        message = msgpack.packb(payload, use_bin_type=True)
+
+    pub_envelope = topic.encode()
+    self.publisher.send_multipart([pub_envelope, message])</code></pre>
+</details>
+</dd>
+<dt id="python_banyan.banyan_base.banyan_base.BanyanBase.receive_loop"><code class="name flex">
+<span>def <span class="ident">receive_loop</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>This is the receive loop for Banyan messages.</p>
+<p>This method may be overwritten to meet the needs
+of the application before handling received messages.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def receive_loop(self):
+    &#34;&#34;&#34;
+    This is the receive loop for Banyan messages.
+
+    This method may be overwritten to meet the needs
+    of the application before handling received messages.
+
+    &#34;&#34;&#34;
+    while True:
+        try:
+            data = self.subscriber.recv_multipart(zmq.NOBLOCK)
+            if self.numpy:
+                payload2 = {}
+                payload = msgpack.unpackb(data[1], object_hook=m.decode)
+                # convert keys to strings
+                # this compensates for the breaking change in msgpack-numpy 0.4.1 to 0.4.2
+                for key, value in payload.items():
+                    if not type(key) == str:
+                        key = key.decode(&#39;utf-8&#39;)
+                        payload2[key] = value
+
+                if payload2:
+                    payload = payload2
+                self.incoming_message_processing(data[0].decode(), payload)
+            else:
+                self.incoming_message_processing(data[0].decode(),
+                                                 msgpack.unpackb(data[1], raw=False))
+        # if no messages are available, zmq throws this exception
+        except zmq.error.Again:
+            try:
+                if self.receive_loop_idle_addition:
+                    self.receive_loop_idle_addition()
+                time.sleep(self.loop_time)
+            except KeyboardInterrupt:
+                self.clean_up()
+                raise KeyboardInterrupt</code></pre>
+</details>
+</dd>
+<dt id="python_banyan.banyan_base.banyan_base.BanyanBase.set_subscriber_topic"><code class="name flex">
+<span>def <span class="ident">set_subscriber_topic</span></span>(<span>self, topic)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>This method sets a subscriber topic.</p>
+<p>You can subscribe to multiple topics by calling this method for
+each topic.</p>
+<p>:param topic: A topic string</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_subscriber_topic(self, topic):
+    &#34;&#34;&#34;
+    This method sets a subscriber topic.
+
+    You can subscribe to multiple topics by calling this method for
+    each topic.
+
+    :param topic: A topic string
+    &#34;&#34;&#34;
+
+    if not type(topic) is str:
+        raise TypeError(&#39;Subscriber topic must be python_banyan string&#39;)
+
+    self.subscriber.setsockopt(zmq.SUBSCRIBE, topic.encode())</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="python_banyan.banyan_base" href="index.html">python_banyan.banyan_base</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="python_banyan.banyan_base.banyan_base.BanyanBase" href="#python_banyan.banyan_base.banyan_base.BanyanBase">BanyanBase</a></code></h4>
+<ul class="">
+<li><code><a title="python_banyan.banyan_base.banyan_base.BanyanBase.clean_up" href="#python_banyan.banyan_base.banyan_base.BanyanBase.clean_up">clean_up</a></code></li>
+<li><code><a title="python_banyan.banyan_base.banyan_base.BanyanBase.incoming_message_processing" href="#python_banyan.banyan_base.banyan_base.BanyanBase.incoming_message_processing">incoming_message_processing</a></code></li>
+<li><code><a title="python_banyan.banyan_base.banyan_base.BanyanBase.publish_payload" href="#python_banyan.banyan_base.banyan_base.BanyanBase.publish_payload">publish_payload</a></code></li>
+<li><code><a title="python_banyan.banyan_base.banyan_base.BanyanBase.receive_loop" href="#python_banyan.banyan_base.banyan_base.BanyanBase.receive_loop">receive_loop</a></code></li>
+<li><code><a title="python_banyan.banyan_base.banyan_base.BanyanBase.set_subscriber_topic" href="#python_banyan.banyan_base.banyan_base.BanyanBase.set_subscriber_topic">set_subscriber_topic</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.7.5.dev2+gfcc2b1b</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
