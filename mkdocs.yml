@@ -8,6 +8,7 @@ nav:
         - What Is Python Banyan?: users_guide.md
         - Installation: install.md
         - Introduction To The Tutorials: examples_intro.md
+        - Base Class API Reference: api.md
         - Tutorial 1  - A Simple Echo Server/Client: example1.md
         - Tutorial 2  - Adding Command Line Options To A Component: example2.md
         - Tutorial 3  - Distributed Applications: example3.md
