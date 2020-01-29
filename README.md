@@ -12,6 +12,8 @@ Python Banyan comes with [full documentation](https://mryslab.github.io/python_b
  that allows you to quickly and easily build reusable GPIO projects for the
  Arduino, ESP-8266, and Raspberry Pi.
 
+Base class API's may be viewed [here.](http://htmlpreview.github.com/?https://github.com/MrYsLab/python_banyan/blob/master/html/python_banyan/index.html)
+
 It is being used by [Palace Games](https://www.raspberrypi.org/blog/raspberry-pi-escape-room/)
 to concurrently monitor hundreds of real-time sensors and actuators.
 
