@@ -17,8 +17,11 @@
 
 import argparse
 import asyncio
+import logging
+import pathlib
 import signal
 import sys
+
 
 from pymata_express.private_constants import PrivateConstants
 from pymata_express.pymata_express import PymataExpress
@@ -26,17 +29,20 @@ from pymata_express.pymata_express import PymataExpress
 from python_banyan.gateway_base_aio import GatewayBaseAIO
 
 
-# noinspection PyAbstractClass,PyMethodMayBeStatic,PyRedundantParentheses
+# noinspection PyAbstractClass,PyMethodMayBeStatic,PyRedundantParentheses,DuplicatedCode
 class ArduinoGateway(GatewayBaseAIO):
     # This class implements the GatewayBase interface adapted for asyncio.
     # It supports Arduino boards, tested with Uno.
 
     # NOTE: This class requires the use of Python 3.7 or above
 
+    # serial_port = None
+
     def __init__(self, *subscriber_list, back_plane_ip_address=None,
                  subscriber_port='43125',
                  publisher_port='43124', process_name='ArduinoGateway',
-                 event_loop=None, ):
+                 event_loop=None, keep_alive=False, com_port=None,
+                 arduino_instance_id=None, log=False):
         """
         Set up the gateway for operation
 
@@ -47,16 +53,42 @@ class ArduinoGateway(GatewayBaseAIO):
         :param process_name: name to display on the console
         :param event_loop: optional parameter to pass in an asyncio
                            event loop
+        :param keep_alive: if True, enable FirmataExpress keep-alives
+        :param com_port: force pymata-express to use this comport
+        :param arduino_instance: set an arduino instance id that must
+                                 be programmed into the FirmataExpress
+                                 sketch.
+        :param log: enable logging
         """
 
+        # set up logging if requested
+        self.log = log
+        if self.log:
+            fn = str(pathlib.Path.home()) + "/ardgw.log"
+            self.logger = logging.getLogger(__name__)
+            logging.basicConfig(filename=fn, filemode='w', level=logging.DEBUG)
+            sys.excepthook = self.my_handler
+
         # set the event loop to be used. accept user's if provided
-        if event_loop:
-            self.event_loop = event_loop
-        else:
-            self.event_loop = asyncio.get_event_loop()
+        self.event_loop = event_loop
 
         # instantiate pymata express to control the arduino
-        self.arduino = PymataExpress(loop=self.event_loop)
+        # if user want to pass in a com port, then pass it in
+        try:
+            if com_port:
+                self.arduino = PymataExpress(loop=self.event_loop,
+                                             com_port=com_port)
+            # if user wants to set an instance id, then pass it in
+            elif arduino_instance_id:
+                self.arduino = PymataExpress(loop=self.event_loop,
+                                             arduino_instance_id=arduino_instance_id)
+            # default settings
+            else:
+                self.arduino = PymataExpress(loop=self.event_loop)
+        except RuntimeError:
+            if self.log:
+                logging.exception("Exception occurred", exc_info=True)
+            raise
 
         # extract pin info from self.arduino
         self.number_of_digital_pins = len(self.arduino.digital_pins)
@@ -71,6 +103,9 @@ class ArduinoGateway(GatewayBaseAIO):
                                              publisher_port=publisher_port,
                                              process_name=process_name,
                                              )
+
+        self.first_analog_pin = self.arduino.first_analog_pin
+        self.keep_alive = keep_alive
 
     def init_pins_dictionary(self):
         """
@@ -101,6 +136,10 @@ class ArduinoGateway(GatewayBaseAIO):
     async def main(self):
         # call the inherited begin method located in banyan_base_aio
         await self.begin()
+
+        # start the keep alive on the Arduino if enabled
+        if self.keep_alive:
+            await self.arduino.keep_alive()
 
         # sit in an endless loop to receive protocol messages
         while True:
@@ -231,7 +270,8 @@ class ArduinoGateway(GatewayBaseAIO):
         :param payload: {"command": "set_mode_analog_input", "pin": “PIN”, "tag":”TAG” }
         """
         pin = payload["pin"]
-        self.pins_dictionary[pin][GatewayBaseAIO.PIN_MODE] = GatewayBaseAIO.ANALOG_INPUT_MODE
+        self.pins_dictionary[pin + self.first_analog_pin][GatewayBaseAIO.PIN_MODE] = \
+            GatewayBaseAIO.ANALOG_INPUT_MODE
         await self.arduino.set_pin_mode_analog_input(pin, self.analog_input_callback)
 
     async def set_mode_digital_input(self, topic, payload):
@@ -306,9 +346,7 @@ class ArduinoGateway(GatewayBaseAIO):
         self.pins_dictionary[trigger][GatewayBaseAIO.PIN_MODE] = GatewayBaseAIO.SONAR_MODE
         self.pins_dictionary[echo][GatewayBaseAIO.PIN_MODE] = GatewayBaseAIO.SONAR_MODE
 
-        await self.arduino.set_pin_mode_sonar(trigger, echo, cb=self.sonar_callback)
-
-
+        await self.arduino.set_pin_mode_sonar(trigger, echo, callback=self.sonar_callback)
 
     async def set_mode_stepper(self, topic, payload):
         """
@@ -350,17 +388,17 @@ class ArduinoGateway(GatewayBaseAIO):
         :param data:
         :return:
         """
-        # data = [pin, current reported value, pin_mode, timestamp]
-        self.pins_dictionary[data[0]][GatewayBaseAIO.LAST_VALUE] = data[1]
-        payload = {'report': 'digital_input', 'pin': data[0],
-                   'value': data[1], 'timestamp': data[3]}
+        # data = [pin mode, pin, current reported value, timestamp]
+        self.pins_dictionary[data[1]][GatewayBaseAIO.LAST_VALUE] = data[2]
+        payload = {'report': 'digital_input', 'pin': data[1],
+                   'value': data[2], 'timestamp': data[3]}
         await self.publish_payload(payload, 'from_arduino_gateway')
 
     async def analog_input_callback(self, data):
-        # data = [pin, current reported value, pin_mode, timestamp]
-        self.pins_dictionary[data[0] + self.first_analog_pin][GatewayBaseAIO.LAST_VALUE] = data[1]
-        payload = {'report': 'analog_input', 'pin': data[0],
-                   'value': data[1], 'timestamp': data[3]}
+        # data = [pin mode, pin, current reported value, timestamp]
+        self.pins_dictionary[data[1] + self.arduino.first_analog_pin][GatewayBaseAIO.LAST_VALUE] = data[2]
+        payload = {'report': 'analog_input', 'pin': data[1],
+                   'value': data[2], 'timestamp': data[3]}
         await self.publish_payload(payload, 'from_arduino_gateway')
 
     async def i2c_callback(self, data):
@@ -383,11 +421,22 @@ class ArduinoGateway(GatewayBaseAIO):
         :param data:
         :return:
         """
-        self.pins_dictionary[data[0]][GatewayBaseAIO.LAST_VALUE] = data[1]
-        payload = {'report': 'sonar_data', 'value': data[1]}
+        self.pins_dictionary[data[1]][GatewayBaseAIO.LAST_VALUE] = data[2]
+        payload = {'report': 'sonar_data', 'value': data[2]}
         await self.publish_payload(payload, 'from_arduino_gateway')
 
+    def my_handler(self, tp, value, tb):
+        """
+        for logging uncaught exceptions
+        :param tp:
+        :param value:
+        :param tb:
+        :return:
+        """
+        self.logger.exception("Uncaught exception: {0}".format(str(value)))
 
+
+# noinspection DuplicatedCode
 def arduino_gateway():
     # allow user to bypass the IP address auto-discovery. This is necessary if the component resides on a computer
     # other than the computing running the backplane.
@@ -395,9 +444,14 @@ def arduino_gateway():
     parser = argparse.ArgumentParser()
     parser.add_argument("-b", dest="back_plane_ip_address", default="None",
                         help="None or IP address used by Back Plane")
-    # allow the user to specify a name for the component and have it shown on the console banner.
-    # modify the default process name to one you wish to see on the banner.
-    # change the default in the derived class to set the name
+    parser.add_argument("-c", dest="com_port", default="None",
+                        help="Use this COM port instead of auto discovery")
+    parser.add_argument("-k", dest="keep_alive", default="True",
+                        help="Enable firmata-express keep-alive - set to True or False - default=False")
+    parser.add_argument("-i", dest="arduino_instance_id", default="None",
+                        help="Set an Arduino Instance ID and match it in FirmataExpress")
+    parser.add_argument("-l", dest="log", default="False",
+                        help="Set to True to turn logging on.")
     parser.add_argument("-m", dest="subscriber_list",
                         default="to_arduino_gateway", nargs='+',
                         help="Banyan topics space delimited: topic1 topic2 topic3")
@@ -421,18 +475,47 @@ def arduino_gateway():
         'process_name': args.process_name,
     }
 
+    keep_alive = args.keep_alive.lower()
+    if keep_alive == 'false':
+        keep_alive = False
+    else:
+        keep_alive = True
+
+    kw_options['keep_alive'] = keep_alive
+
+    log = args.log.lower()
+    if log == 'false':
+        log = False
+    else:
+        log = True
+
+    kw_options['log'] = log
+
     if args.back_plane_ip_address != 'None':
         kw_options['back_plane_ip_address'] = args.back_plane_ip_address
 
+    if args.com_port != 'None':
+        kw_options['com_port'] = args.com_port
+
+    if args.arduino_instance_id != 'None':
+        kw_options['arduino_instance_id'] = int(args.arduino_instance_id)
+
     # get the event loop
+    # this is for python 3.8
+    if sys.platform == 'win32':
+        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
     loop = asyncio.get_event_loop()
 
     # replace with the name of your class
     app = ArduinoGateway(subscriber_list, **kw_options, event_loop=loop)
     try:
         loop.run_until_complete(app.main())
-    except KeyboardInterrupt:
-        loop.run_until_complete(app.arduino.shutdown())
+    except (KeyboardInterrupt, asyncio.CancelledError, RuntimeError):
+        if app.log:
+            logging.exception("Exception occurred", exc_info=True)
+        loop.stop()
+        loop.close()
         sys.exit(0)
 
 
@@ -448,5 +531,4 @@ signal.signal(signal.SIGINT, signal_handler)
 signal.signal(signal.SIGTERM, signal_handler)
 
 if __name__ == '__main__':
-    # replace with name of function you defined above
     arduino_gateway()
