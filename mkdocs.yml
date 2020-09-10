@@ -28,4 +28,4 @@ nav:
           - OneGPIO Gateways: banyan_gateways.md
           - Additional Banyan Gateways: additional_gateways.md
           - OneGPIO Demos: one_gpio_demos.md
-theme: 'windmill'
+theme: 'material'

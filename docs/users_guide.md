@@ -16,13 +16,13 @@
 Python Banyan is a lightweight, [reactive](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754) framework used to
 create [flexible](http://ptgmedia.pearsoncmg.com/images/9780134602417/samplepages/9780134602417.pdf), [non-blocking, event-driven,
 asynchronous](https://www.allthingsdistributed.com/historical/archives/000486.html) applications.
-It was designed primarily to aid in the implementation of real-time physical computing applications
+It was designed primarily to aid in implementing real-time physical computing applications
  for devices such as
- the Raspberry Pi, ESP8266,  and Arduino,
-but may easily be applied to projects outside of the physical programming domain.
+ the Raspberry Pi, ESP8266,  and Arduino.
+Still, it may easily be applied to projects outside of the physical programming domain.
 
 Banyan uses a [publish/subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)
- model that is similar to [MQTT](https://en.wikipedia.org/wiki/MQTT) but is much faster than MQTT in
+ model similar to [MQTT](https://en.wikipedia.org/wiki/MQTT) but is much faster than MQTT in
  real-time control and data monitoring applications.
  A [benchmark comparison](benchmark/#benchmark) of Banyan
 and MQTT is provided later in this guide to illustrate Banyan's efficiency.
@@ -40,7 +40,7 @@ A Banyan application is composed of a set of *components* running concurrently a
 These *components* can be developed using a single language platform such as Python, or developed using any of the other Banyan frameworks.
 There are versions of Banyan available for [JavaScript](https://github.com/MrYsLab/js-banyan), [Ruby](https://github.com/MrYsLab/rb_banyan),
  and [Java](https://github.com/MrYsLab/javabanyan). Components developed using dissimilar languages can be combined
- without modification, to form a single, cohesive application.
+ without modification to form a single, cohesive application.
 
 Banyan uses a central message distribution mechanism called the ***Backplane***. When first starting a Banyan application,
 the *Backplane* is brought on-line, followed by
@@ -55,7 +55,7 @@ is that it can incorporate [Numpy](http://www.numpy.org/) data into a protocol m
  seamlessly and effortlessly.
 
 Without modification, a Banyan application's components can run on a single computer or distributed across multiple computers.
-This will be [demonstrated later](example3/) on in this document.
+These configurations will be [demonstrated later](example3/) on in this document.
 
 
 # *A Little More Detail About Python Banyan*
@@ -86,7 +86,7 @@ When a message is received, the topic is compared to the subscribed topic. If it
 the message is placed on the component's receive queue. Any topic that begins with the subscribed topic string
 is considered a match even if the received message topic contains additional text.
  For example, if you subscribe to the topic **"abcd,"** and a message is received
-with a topic of **"abcde,"** the "abcde" message will be placed on the receive queue. Any messages that have topics
+with a topic of **"abcde,"** the "abcde" message will be placed on the receive queue. Any messages with topics
 that begin with the subscribed topic string are considered a match even though the topic may contain additional text.
 
 ### The Message Payload
@@ -103,7 +103,7 @@ Commercially, Python Banyan has been chosen by Palace Games in San Francisco to 
 their [Palace Games Edison Room](https://palace-games.com/edison-escape-room/).
  The Edison room contains several hundred sensors and actuators. Banyan helps tie all the devices
 and their associated micro-controllers together, allowing them to
-communicate quickly and transparently with one another. Banyan supports data transfers of Numpy data,
+communicate quickly and transparently. Banyan supports data transfers of Numpy data,
 which the Edison
 room uses to model their data efficiently. You can read about Palace Games on the
 [Raspberry Pi Blog](https://www.raspberrypi.org/blog/raspberry-pi-escape-room/).

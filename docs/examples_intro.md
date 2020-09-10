@@ -1,16 +1,16 @@
-# Learn By Example
+## Learn By Example
 The tutorials included with this guide, provide samples of simple working
 applications. The tutorials help to demonstrate Python Banyan's features,
  as well as the
 set of utilities that are part of the [***python-banyan***](https://github.com/MrYsLab/python_banyan) package.
 
-# The Key Elements of Python Banyan
+## The Key Elements of Python Banyan
 
 There are two key components of the Banyan Framework, the ***backplane*** that acts as a
 communication hub, and the ***Banyan Components*** where you implement your design. This section
 will discuss these two elements.
 
-# The Banyan Backplane
+## The Banyan Backplane
 
 When you install Python Banyan, an executable file called ***backplane***,
 is automatically installed on your computer. The backplane is implemented as a ZeroMQ *device*
@@ -35,7 +35,7 @@ Since the backplane is not usually modified by the user, its code will not be di
 if you wish, you may view
 [the backplane source code here](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/backplane/backplane.py).
 
-## Starting the Backplane
+### Starting the Backplane
 
 To start the backplane, open a command or terminal window and type:
 
@@ -64,7 +64,7 @@ The **Loop Time** sets the iteration time for the backplane's idle loop. Usually
 the default should be accepted, but it can be altered to fine-tune the application's
 CPU utilization.
 
-## The Backplane's Command-Line Options
+### The Backplane's Command-Line Options
 
 To see the command-line options for the backplane type:
 ```
@@ -91,7 +91,7 @@ If you forget to start the backplane, the component will raise a RunTimeExceptio
 <img align="center" src="../images/no_backplane_running.png">
 
 
-# Python Banyan Base Classes
+## Python Banyan Base Class And Its Methods
 
 Most Python Banyan components need only to connect to a single Backplane and are built
  by inheriting from the ***banyan_base***
@@ -101,7 +101,7 @@ If you need to create your application using multiple backplanes (a rare occurre
 please refer to [this section](../example9/#example9/) for a discussion of the ***banyan_base_multi*** class.
 
 
-## The BanyanBase Class
+### The BanyanBase Class
 
 The methods of the BanyanBase class
 are discussed in [detail](#the-banyanbase-class) below.
@@ -225,7 +225,7 @@ The examples will demonstrate how to import BanyanBase.
 The base class consists of 6 methods, and the following is a discussion of each of the
 methods.
 
-## \__init__
+#### \__init__
 The \__init__ method is overwritten as needed. A subscription to specific topics is
 often established in this method by calling [set_subscriber_topic](#set_subscriber_topic)
 for each topic.
@@ -246,7 +246,7 @@ is all that you need.
 
 Lines 63 through 83 documents the parameters (and are discussed below).
 
-### back_plane_ip_address
+##### back_plane_ip_address
 The default for this parameter is *None*. The component will discover the IP
 address of the local computer and assume that the backplane is also running on this
 computer. If the component is running on a computer different from the one that the backplane is running,
@@ -258,7 +258,7 @@ then this parameter will need to match the IP address of the backplane.
     66	                                      local computer.
 ```
 
-### subscriber and publisher ports
+##### subscriber and publisher ports
 These are default IP ports dictated by those set for the backplane. Normally the
 defaults are accepted. However, they may be modified if there are any port conflicts, or if you are running in a system
 that has more than one backplane running on a computer.
@@ -273,7 +273,7 @@ that has more than one backplane running on a computer.
     73
 ```
 
-### process_name
+##### process_name
 This sets the name shown in the component's console header for identification purposes. If not set,
 the name of the component will be 'None'.
 
@@ -282,7 +282,7 @@ the name of the component will be 'None'.
     75
 ```
 
-### loop_time
+##### loop_time
 
 A Banyan component continuously checks for any incoming messages. If no messages are available,
 then the component will sleep for the specified loop time. The smaller the number,
@@ -293,7 +293,7 @@ the greater the CPU utilization for the component.
     77
 ```
 
-### numpy
+##### numpy
 If the component requires numpy data handling,
 then set this parameter to *True* to serialize the data efficiently.
 
@@ -302,7 +302,7 @@ then set this parameter to *True* to serialize the data efficiently.
     79
 ```
 
-### external_message_processor
+##### external_message_processor
 Normally all incoming messages are handled within the Banyan component itself. If specified, message processing
 will be done outside of the component and act similarly to a callback.
 
@@ -311,7 +311,7 @@ will be done outside of the component and act similarly to a callback.
     81
 ```
 
-### receive_loop_idle_addition
+##### receive_loop_idle_addition
 Normally the receive idle loop is executed when no messages are present.
 If you wish to perform some additional processing during
 idle time, set this parameter to the function or method that you would like to be called.
@@ -323,7 +323,7 @@ The function or method should be non-blocking.
     84	        """
 ```
 
-### connect_time
+##### connect_time
 This parameter allows for the connection between the component and backplane to complete.
 It prevents a race condition from occurring when trying to publish a message before the connection to the backplane
 has been established.
@@ -462,7 +462,7 @@ to be established.
    155
 ```
 
-## set_subscriber_topic
+### set_subscriber_topic
 This method is not typically overridden.
 
 Line 156 defines the *set_subscriber_topic* method that requires a topic string
@@ -490,7 +490,7 @@ Line 169 encodes the topic and registers it with ZeroMQ.
    169	        self.subscriber.setsockopt(zmq.SUBSCRIBE, topic.encode())
 ```
 
-## publish_payload
+### publish_payload
 This method is typically not overridden.
 
 Line 171 defines the *publish_payload* method. It accepts two parameters,
@@ -536,7 +536,7 @@ Line 191 publishes the message by calling ZeroMQ *send_multipart*.
 
 ```
 
-## receive_loop
+### receive_loop
 
 ```
    193	    def receive_loop(self):
@@ -584,7 +584,7 @@ To retrieve the next available
  message on the subscription queue, line 203 calls the ZeroMQ *recv_multipart* method with the
 non-blocking flag set.
 
-### When A Message Is Available
+#### When A Message Is Available
 If a message is available, it is assigned to the *data* variable on line 203.
 
 Line 204 checks to see if the numpy flag was set, and if it were, lines 205
@@ -598,7 +598,7 @@ The decoded topic string and payload are then passed to the
  to process the message. Line 216 handles the case for numpy data,
 and 218 for non-numpy data.
 
-### When No Messages Are Available
+#### When No Messages Are Available
 
 When the ZeroMQ *recv_mutlipart* method is called, and no data
  is available on the subscription queue, ZeroMQ raises a ***zmq.error.Again*** exception.
@@ -614,7 +614,7 @@ loop, a KeyboardInterrupt exception is raised.
 
 
 
-## incoming_message_processing
+### incoming_message_processing
 
 This method ***must*** be overridden to process the incoming messages.
 The decoded topic, in the form of a string, and decoded payload,
@@ -640,7 +640,7 @@ parameter.
    240	            print('this method should be overwritten in the child class', topic, payload)
 ```
 
-## clean_up
+### clean_up
 
 This method may be overridden. It is normally called before terminating the component.
 It closes both the publisher and subscriber connections and terminates the
@@ -656,7 +656,7 @@ ZeroMQ session for the component. You may add any additional clean-up that your 
    249	        self.my_context.term()
 ```
 
-# A Template For Component Command-Line Options
+## A Template For Component Command-Line Options
 
 If you would like to provide the facility to specify command-line options
 for a component, the following is a template to do so.
@@ -723,12 +723,12 @@ This will be explained in detail in a [later section](../example2).
 ```
 
 
-# The Examples
+## The Examples
 
 In the next section, we will begin using the hands-on demos to understand
 how to build and use Python Banyan components.
 
-## Where To Find The Example Source Code
+### Where To Find The Example Source Code
 
 The code for all the examples may be found on [GitHub](https://github.com/MrYsLab/python_banyan/tree/master/examples).
 

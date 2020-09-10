@@ -3,8 +3,8 @@
 ## Checking For An Existing Python Installation
 
 The first step in installing Python Banyan is to make sure you have Python
-installed on your computer. Python Banyan is both Python 2 and Python3 compatible,
-so if either version is installed on your computer, you are ready to start using Python Banyan.
+installed on your computer. Python Banyan is both Python 2 and Python3 compatible.
+If either version is installed on your computer, you are ready to start using Python Banyan.
 
 If you need to install Python on your system,
 then Python 3 is recommended.
@@ -40,7 +40,8 @@ and download the 3.7.2 (or later) distribution for your operating system.
 
 If you have Python 2.7 installed, you do not need to remove it.
 
-During the installation process, if there is a checkbox to add Python 3.7 to your path, make sure it is checked before proceeding with the installation.
+If there is a checkbox to add Python 3.7 to your path during the installation
+ process, make sure it is checked before proceeding with the installation.
 
 ![](./images/pythonInstall.png)
 
@@ -104,7 +105,7 @@ sudo pip3 install python-banyan
 **NOTE For Raspberry Pi Users**: When initially installing Python Banyan, it may take
 approximately 10 minutes to install. The installation requires some compilation.
 
-For **Windows** users type:
+For **Windows** users, type:
 
 ```
 pip install python-banyan
