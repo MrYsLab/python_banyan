@@ -1,4 +1,3 @@
-# Introduction To OneGPIO Gateways
 
 A *OneGPIO Gateway* is a specialized Banyan component that is target-hardware specific. 
  It subscribes to and translates OneGPIO command messages to and from native target hardware 
@@ -8,18 +7,18 @@ A *OneGPIO Gateway* is a specialized Banyan component that is target-hardware sp
  
 A base class, called
 [***GatewayBase,***](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/gateway_base/gateway_base.py)
-is made available to simplify the task of creating a OneGPIO Gateway. This class encapsulates both BanyanBase functionality as well as
+is made available to simplify creating a OneGPIO Gateway. This class encapsulates both BanyanBase functionality as well as
 OneGPIO Gateway functionality. When implementing a OneGPIO Gateway, you may choose
 any target GPIO API. For example, in creating the Raspberry Pi Gateway, the *pigpio* library
 was chosen. If you prefer to use some other API, there are no restrictions to do so.
 
 There is also a Python asyncio version of the base class, called
  [***GatewayBaseAIO***.](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/gateway_base_aio/gateway_base_aio.py)
- This additional base class,
+ This additional base class
 was necessary to support the pymata-express asyncio GPIO library for the Arduino. It is very
 similar to the GatewayBase class, and so it will not be discussed here.
  
-# Understanding The GatewayBase Class
+## Understanding The GatewayBase Class
  
 Let's look at the [code.](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/gateway_base/gateway_base.py) 
 Below are code sections that are followed by a discussion. 
@@ -244,7 +243,7 @@ the tag and its associated pin number are added to the dictionary.
 
 
 
-Lines 160-165 checks to see if the value of the *command* key is within the command_dictionary.
+Lines 160-165 check to see if the value of the *command* key is within the command_dictionary.
 If it is, the command method is called.
 
 If it is not found, the *additional_banyan_messages* method is called.
@@ -266,7 +265,7 @@ The remainder of the class is the set of command methods that need to be overwri
 in the derived class. Lines 179-186 are an illustration of the analog_write method. All the
 other command methods follow a similar pattern (lines 170-378).
    
-# Some Specific Command Examples
+## Some Specific Command Examples
 
 To illustrate the flexibility of using the OneGPIO specification, let's look 
 at some sample OneGPIO command implementations. Both examples
@@ -352,9 +351,9 @@ A/D converter.
                    'value': value}
         self.publish_payload(payload, 'from_rpi_gateway')
 ``` 
-The A/D device is i2c based and so this method implements the i2c communication.
+The A/D device is i2c based, and so this method implements the i2c communication.
 The method retrieves the current value for one of the 4 channels supported by the
-PCF8591 A/D converter and then publishes that value using a OneGPIO report message.
+PCF8591 A/D converter. It then publishes that value using a OneGPIO report message.
 
 <br>
 <br>

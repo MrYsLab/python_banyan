@@ -1,8 +1,7 @@
 
 # GPIO Control
 
-In this section, we will look at a simple example illustrating
-GPIO control of a Raspberry Pi using Python Banyan.
+This section will look at a simple example illustrating GPIO control of a Raspberry Pi using Python Banyan.
 
 The problem we will solve is this:
 
@@ -12,19 +11,18 @@ contains the state change details of the push button -
  the GPIO pin number, the current state of the button, and a time
  tick to indicate when the change occurred.
 
-When the user releases the pushbutton, the LED will be
-extinguished, and another message will be published, indicating the new state
-change.
+When the user releases the pushbutton, the LED will be extinguished. 
+Another message will be published, indicating the new state change.
 
-For ease of use, all examples will use a Raspberry Pi Model 3 connected to
-a [Pibrella](http://pibrella.com/) hat. The Pibrella has a push button and
+All examples will use a Raspberry Pi Model 3 connected to a [Pibrella](http://pibrella.com/) hat for ease of use. 
+The Pibrella has a push button and
 several LEDs. This precludes us from having to wire individual components to the
 Raspberry Pi.
 
 For GPIO control, the [pigpio](http://abyz.me.uk/rpi/pigpio/) GPIO library will
 be used.
 
-## A Simple Solution
+## A Simple Solution To GPIO Control Of A Raspberry Pi
 
 Let's begin by looking at a simple example
 named [single.py](https://github.com/MrYsLab/python_banyan/blob/master/examples/single.py).
@@ -144,7 +142,7 @@ button.
 Line 59 establishes a callback for when the button is either
 pressed or released.
 
-Line 64 calls the base class receive_loop method that will
+Line 64 calls the base class receive_loop method to
 keep the loop running until the user quits the program.
 
 The callback method is contained in lines 68 through 92.

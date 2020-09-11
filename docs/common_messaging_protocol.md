@@ -11,7 +11,7 @@ abstraction of GPIO operations.
 A ***OneGPIO Command Message*** is published by a OneGPIO Application Component to transmit 
 GPIO command information to the target hardware.
 
-A ***OneGPIO Report Message*** is published by a OneGPIO Gateway, after receiving report data
+A ***OneGPIO Report Message*** is published by a OneGPIO Gateway after receiving report data
 from the target hardware.
  Because the Gateway is translating native report messages into OneGPIO messages, 
  it has the freedom to add
@@ -42,8 +42,8 @@ However, if you wish to use a tag, the ***tag must be set when the pin mode is s
 The *pin tag* to *pin number* mapping is automatically maintained within
 the OneGPIO Gateways.
 
-To illustrate let's populate the 'set_mode_digital_output' command message
-to set pin 4 as a **digital output** pin and tag the pin with **"green_led"**.
+To illustrate, let's populate the 'set_mode_digital_output' command message
+to set pin 4 as a **digital output** pin and tag the pin with **"green_led."**
 
 
 **{'command': 'set_mode_digital_output', 'pin': 4, 'tag': 'green_led' }**
@@ -52,7 +52,7 @@ to set pin 4 as a **digital output** pin and tag the pin with **"green_led"**.
 Notice that ***pin*** is an integer and not a string.
 
 All OneGPIO message *keys* are strings. Within the OneGPIO message specification, if a *value* is *not*
-within quotes, then it is specified as an integer. Otherwise, it is specified as a string.
+within quotes, it is specified as an integer. Otherwise, it is specified as a string.
 
 The OneGpio command to set the state of a digital output pin is:
 
@@ -61,7 +61,7 @@ The OneGpio command to set the state of a digital output pin is:
 | Set Digital Output Pin State      | {"command": "digital_write", "pin": PIN, "tag": "TAG", "value": VALUE} |
 
 
-Now that the pin mode has been set with a tag, we can set the green LED to *on* with the following
+Now that the pin mode has been set with a tag, we can set the green LED to *ON* with the following
 message: 
 
 **{'command': 'digital_write', 'tag': 'green_led', 'value': 1 }**

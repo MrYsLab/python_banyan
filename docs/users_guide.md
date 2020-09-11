@@ -58,9 +58,9 @@ Without modification, a Banyan application's components can run on a single comp
 These configurations will be [demonstrated later](example3/) on in this document.
 
 
-# *A Little More Detail About Python Banyan*
+## *A Little More Detail About Python Banyan*
 
-## Banyan Base Classes
+### Banyan Base Classes
 All Banyan components are created by inheriting from one of the supplied Banyan base classes.
  The base class methods are overridden as needed to
  support the component's specific needs.
@@ -70,18 +70,18 @@ The base classes act as a wrapper for the [ZeroMQ](http://zeromq.org/) embeddabl
 Also, the base class encodes and decodes protocol messages for efficient network transmission,
 using [MessagePack](https://msgpack.org/index.html).
 
-## Banyan Protocol Messages
+### Banyan Protocol Messages
 
 Banyan protocol messages consist of 2 parts, a "topic" and a "payload."
 
-### The Topic String
+#### The Topic String
 
 A message topic consists of a simple string. For a component to receive messages
 with a set of given topics, a component
 subscribes to receive messages for each topic. A subscribing component receives all messages published
 containing the desired topic.
 
-#### Prefix Matching
+##### Prefix Matching
 When a message is received, the topic is compared to the subscribed topic. If it matches,
 the message is placed on the component's receive queue. Any topic that begins with the subscribed topic string
 is considered a match even if the received message topic contains additional text.
@@ -89,7 +89,7 @@ is considered a match even if the received message topic contains additional tex
 with a topic of **"abcde,"** the "abcde" message will be placed on the receive queue. Any messages with topics
 that begin with the subscribed topic string are considered a match even though the topic may contain additional text.
 
-### The Message Payload
+#### The Message Payload
 
  Message payloads consist of a Python dictionary type structure, containing one or more name/value items.
  By utilizing a dictionary, message data can be quickly de-referenced and processed.
@@ -98,7 +98,7 @@ that begin with the subscribed topic string are considered a match even though t
  JavaScript, can be used within a Python Banyan application. A simple [JavaScript demo](example4/) is provided as one
  of the included examples.
 
-# Where Is Python Banyan Being Used?
+## Where Is Python Banyan Being Used?
 Commercially, Python Banyan has been chosen by Palace Games in San Francisco to monitor and control
 their [Palace Games Edison Room](https://palace-games.com/edison-escape-room/).
  The Edison room contains several hundred sensors and actuators. Banyan helps tie all the devices
@@ -111,7 +111,7 @@ room uses to model their data efficiently. You can read about Palace Games on th
 Banyan is also being used in numerous physical computing projects utilizing the Raspberry Pi, Arduino, and ESP8266.
 An earlier version of Python Banyan, called [razmq](https://github.com/MrYsLab/razmq), was used to control a Raspberry Pi robot.
 
-# Banyan Application Design
+## Banyan Application Design
 
 When designing a Banyan Component, it is good practice to keep it as small as
 possible. By limiting a component to a small area of concern, testing is greatly

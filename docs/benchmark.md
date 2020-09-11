@@ -21,7 +21,7 @@ an Intel Core i5-2500K CPU running at 3.30GHz.
 Python 3.7.2 compiled with the --enable_optimizations flag set was used for both
 tests.
 
-Mosquitto version 1.4.15 and paho version 1.3.1 were used for the MQTT tests.
+Mosquitto version 1.4.15 and paho version 1.3.1 was used for the MQTT tests.
 
 ## Using MQTT
 
@@ -92,9 +92,9 @@ Python 3.6.4 was used for all tests.
 
 Mosquitto version 1.4.15 and paho version 1.3.1 were used for the MQTT tests.
 
-In this case, MQTT took a little over 36 seconds to complete and Banyan a little over 17.
+In this case, MQTT took a little over 36 seconds to complete, and Banyan a little over 17.
 
-Latency for MQTT was approximately 7 seconds and for Banyan, approximately 1 second. 
+Latency for MQTT was approximately 7 seconds, and for Banyan, approximately 1 second. 
 
 <br>
 <br>

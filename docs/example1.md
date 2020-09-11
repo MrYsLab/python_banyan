@@ -11,7 +11,7 @@ and client Banyan components.
 The Backplane is installed as an executable module when Python Banyan is installed.
 By typing 'backplane' in a command or terminal window, the Backplane will start.
 
-The components, simple_echo_server.py, and simple_echo_client.py, are invoked
+The components, simple_echo_server.py, and simple_echo_client.py are invoked
 from the command line using the typical method to start a Python program.
 
 The following screenshots were taken on a Linux computer running Python 3,
@@ -49,11 +49,10 @@ and type:
 python3 simple_echo_client.py
 ```
 
-A standard Banyan header is printed to the console for the client, and the client begins
-sending its messages.
+A standard Banyan header is printed to the client's console, and the client begins sending its messages.
 
-When the client completes sending all of its messages, the console for the client will indicate
-the number of messages sent and received.
+When the client completes sending all of its messages, 
+the client's console will indicate the number of messages sent and received.
 
 <img align="center" src="../images/simple_echo_client.png">
 
@@ -66,12 +65,11 @@ The console for the server will display all of the message numbers it received
 
 
 
-## The Server
+## Examining The Server Code
 
-The role of the server is to simply wait for the "echo" topic messages to arrive
-and then to extract the message's payload and publish a "reply" topic message.
+The server's role is to simply wait for the "echo" topic messages
+ to arrive and then to extract the message's payload and publish a "reply" topic message.
 
-### Examining the Code
 
 Let's look at the code below:
 
@@ -147,11 +145,11 @@ is called to close the ZeroMQ connections. The program is then exited.
     44	            sys.exit(0)
 ```
 
-Lines 46 through 55 override the base class [*incoming_message_process*](../examples_intro/#incoming_message_processing) method.
+Lines 46 through 55 overrides the base class [*incoming_message_process*](../examples_intro/#incoming_message_processing) method.
 Whenever a message is received by the *receive_loop*, it calls *incoming_message_processing* to process the message.
 
 The *incoming_message_processing* method requires two parameters, a
-topic string, and a payload. Both the topic and payload are decoded within the receive_loop, so they
+topic string and a payload. Both the topic and payload are decoded within the receive_loop, so they
 are ready for use by the *incoming_message_processing* method.
 
 Line 53 republishes the payload just received, setting the topic to 'reply,' The message number
@@ -169,7 +167,6 @@ of the received message is then printed to the console.
     55
 ```
 
-### Instantiation Function
 Lines 61 through 62 create a function to instantiate the EchoServer class.
 This function is added so that we can install our component as an executable
 file in our system if we desire to do so. Installing Components as executable modules
@@ -189,7 +186,7 @@ call the instantiation function.
 
 ```
 
-## The Client
+## Examining The Client Code
 
 The role of the client is to publish 'echo' messages. It maintains a message sequencing number,
 incorporated into the payload. Shortly after being invoked, the client
@@ -199,8 +196,6 @@ publishing the next message.
 The messaging sequencing number is decremented after each message is published.
 When the sequencing number reaches zero, the final message is published, and the client halts.
 
-### Examining the Code
-
 The code for the client is very similar to that of the [server](#examining-the-code).
 In this section, the major differences between the client and server are highlighted.
 
@@ -208,7 +203,7 @@ Line 38 calls the inherited BanyanBase method *set_subscriber_topic* to subscrib
 'reply' messages.
 
 Line 41 establishes
-instance variables to keep track of the current message sequencing number in addition to
+instance variables to keep track of the current message sequencing number and
 the total messages sent. Both are initialized to a value of 10.
 
 Line 44 publishes

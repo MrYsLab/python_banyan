@@ -2,8 +2,8 @@
 
 <img align="center" src="../images/gui_client.png">
 
-In this section, we will demonstrate how to create a Banyan compatible GUI client
-for the [simple echo server](../example1/#the-server) example.
+This section will demonstrate how to create a Banyan compatible GUI client for the 
+[simple echo server](../example1/#the-server) example.
 
 Both Banyan and GUI frameworks are implemented using *event loops*.
 Because only one event loop can run within any given thread of execution,
@@ -16,65 +16,65 @@ complexity and complicates the testing and debugging efforts.
 
 If you are using a GUI that provides a callback hook to allow you to link
 your own code into the GUI's event loop, a much simpler solution is at hand.
-The [tkinter GUI framework](https://docs.python.org/3/library/tk.html)
- provides such a hook, and we will integrate Banyan into our GUI using this technique.
-Note that many other GUI frameworks also provide a callback hook, and the techniques
-shown here may be applied similarly to those frameworks. The [remi library,](https://github.com/dddomodossola/remi)
+The [Tkinter GUI framework](https://docs.python.org/3/library/tk.html)
+ provides such a hook, and we will integrate Banyan into our GUI using this technique. Note that many other GUI 
+ frameworks also provide a callback hook. 
+ The techniques shown here may also be applied similarly to those frameworks.  
+ The [remi library,](https://gthub.com/dddomodossola/remi)
  for example, uses a method called *idle* to provide the callback hook.
 
-The tkinter callback hook method is called [***after***](http://effbot.org/tkinterbook/widget.htm).
+The Tkinter callback hook method is called [***after***](http://effbot.org/Tkinterbook/widget.htm).
 We will pass in 2 parameters to *after*, a sleep time
-in milliseconds, and the user callback function that is called after the sleep time expires.
+in milliseconds, and the user callback function called when the sleep time expires.
 
 The example code shown below illustrates integrating the Banyan receive_loop
- into the GUI event loop using the *after* method. Some discussion of tkinter will be provided
+ into the GUI event loop using the *after* method. Some discussion of Tkinter will be provided
  for clarity. However, a detailed
-discussion of the tkinter framework is beyond the scope of this document.
-[This ebook](https://smile.amazon.com/Modern-Tkinter-Busy-Python-Developers-ebook/dp/B0071QDNLO/ref=sr_1_9?ie=UTF8&qid=1528656765&sr=8-9&keywords=tkinter+book)
-offers a concise and useful discussion of building GUIs with tkinter.
+discussion of the Tkinter framework is beyond the scope of this document.
+[This ebook](https://smile.amazon.com/Modern-Tkinter-Busy-Python-Developers-ebook/dp/B0071QDNLO/ref=sr_1_9?ie=UTF8&qid=1528656765&sr=8-9&keywords=Tkinter+book)
+offers a concise and useful discussion of building GUIs with Tkinter.
 
 ## Running The Example
 
-Make sure that backplane and [server](../example1#the-server) are running. Next start
+Make sure that the backplane and [server](../example1#the-server) are running. Next, start
 [*tk_echo_client.py*.](https://github.com/MrYsLab/python_banyan/blob/master/examples/tk_echo_client.py)
 After starting the GUI client code, you should see the GUI shown at the top of this section appear on your screen,
 and the console should display something similar to this:
 
 <img align="center" src="../images/tk_echo_console.png">
 
-If you press the "Send Messages" button, you should the "Messages Sent" field
-update to a value of 10. If you start the Monitor before pressing the "Send
-Messages" button, you can verify the contents of the messages.
+If you press the "Send Messages" button, you should the "Messages Sent" field update to 10.
+If you start the Monitor before pressing the "Send Messages" button, you can verify the messages' contents.
 
 
 ## Exploring The Example Code
 
 The code is shown below.
 
-### Importing tkinter
+### Importing Tkinter
 
-Lines 27 through 34 handle the tkinter differences for Python 2 and 3 and allow a single code source to service both tkinter
+Lines 27 through 34 handle the Tkinter differences for Python 2 and 3 and allow a single code source to service both Tkinter
 versions.
 
 Lines 37 through 39 import not only the BanyanBase class but MessagePack
-and ZeroMQ. Our GUI component needs direct access to these packages
+and ZeroMQ as well. Our GUI component needs direct access to these packages
 because portions of the Python Banyan receive_loop will be placed in
-the tkinter mainloop.
+the Tkinter mainloop.
 
-Lines 62 through 68 prepare for initializing the parent BanyanBase class on line 71.
+Lines 62 through 68 are in preparation for initializing the parent BanyanBase class on line 71.
 
 Lines 77 and 78 subscribe to all topics of interest.
 
 ### Breaking Into The GUI Event Loop
 
-Line 149 uses the *tkinter* ***after*** method. The first parameter specifies a delay
+Line 149 uses the *Tkinter* ***after*** method. The first parameter specifies a delay
 in milliseconds
 before the callback function specified by the second parameter is called.
 
 In this example, the callback function is the *get_message* method defined on line 156. This method
 is essentially the same code normally run in the BanyanBase receive_loop. It checks to see if there any
 Banyan messages to process, and if there are, it processes them. If there are no messages available, line 169 re-arms
-the *tkinter* ***after*** method to check for Banyan messages within the GUI event loop.
+the *Tkinter* ***after*** method to check for Banyan messages within the GUI event loop.
 ```
      1	#!/usr/bin/env python
      2
@@ -103,9 +103,9 @@ the *tkinter* ***after*** method to check for Banyan messages within the GUI eve
     25
     26	# python 2/3 compatibility
     27	try:
-    28	    from tkinter import *
-    29	    from tkinter import font
-    30	    from tkinter import ttk
+    28	    from Tkinter import *
+    29	    from Tkinter import font
+    30	    from Tkinter import ttk
     31	except ImportError:
     32	    from Tkinter import *
     33	    import tkFont as font

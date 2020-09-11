@@ -5,15 +5,15 @@ handle all the
 application's messaging needs. When using a single backplane configuration, there is no need to manually perform
 message routing, since all components automatically connect to a [common backplane.](../examples_intro/#the-banyan-backplane)
 
-There are occasions, however, where you might like to design your component so that it
- can to communicate with more than one backplane. Some possible
+However, there are occasions where you might like to design your component 
+so that it can communicate with more than one backplane. Some possible
  scenarios for this configuration would be to provide message load balancing or a better
  separation of operational concerns. To support these types of configurations,
  a new base class, [***BanyanBaseMulti***,](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/banyan_base_multi/banyan_base_multi.py)
  is required.
  
 
-# The ***Banyan Base Multi*** Base Class
+## The ***Banyan Base Multi*** Base Class
 
 In many ways, the ***BanyanBaseMulti***
  base class
@@ -50,7 +50,7 @@ having unique subscriber and publisher ports.
 
 The ***subscriber_port*** specifies the subscriber port for the given backplane.
 
-The ***subscriber_topic*** is an optional Python list of subscriber topics that will be established at
+The ***subscriber_topic*** is an optional Python list of subscriber topics established at
 the instantiation of the component. If a single topic is to be specified, it still must be
 entered as a Python list.
 
@@ -202,7 +202,7 @@ Lines 1 through 66 should seem very similar to those for the
     66	    """
 ```
 
-## \__init__
+### \__init__
 
 The **\__init__** method requires the name and path to a routing specification file. Similar to a
 BanyanBase component, it accepts a process name, a loop_time, and a flag to process numpy data.
@@ -333,11 +333,11 @@ out the component's "header" data to the console.
    179	            print('Loop Time = ' + str(loop_time) + ' seconds\n')
    180	            print('************************************************************')
 ```
-## find_socket
+### find_socket
 
-The ***find_socket*** method accepts a backplane name as specified in the routing
-specification table, and a socket type (publisher or subscriber) as input parameters. It returns
-a socket connection for publishing messages to, or receiving messages from the specified backplane.
+The ***find_socket*** method accepts a backplane name specified in the routing
+ specification table and a socket type (publisher or subscriber) as input parameters. It returns
+a socket connection for publishing messages to or receiving messages from the specified backplane.
 
 ```
    182	    def find_socket(self, backplane, socket_type):
@@ -366,7 +366,7 @@ a socket connection for publishing messages to, or receiving messages from the s
    205	        else:
    206	            raise ValueError(socket_type + ' is an illegal socket_type')
 ```
-## set_subscriber_topic
+### set_subscriber_topic
 
 The ***set_subscriber_topic*** method associates a subscription topic with the given subscriber_socket
 connection.
@@ -400,7 +400,7 @@ connection.
    234	
 ```
 
-## unsubscribe_topic
+### unsubscribe_topic
 
 The ***unsubscribe_topic*** method allows one to unsubscribe from a topic for a backplane subscriber
 socket connection.
@@ -430,13 +430,13 @@ socket connection.
    257	            raise ValueError('set_subscriber_topic: socket is None')
 
 ```
-## publish_payload
+### publish_payload
 
 The ***publish_payload*** method is very similar to that for BanyanBase. 
 
 **IMPORTANT NOTE:** If the topic
 string is "BROADCAST," then the message is published to all backplanes containing publisher
-ports as specified in the routing specification file.
+ports specified in the routing specification file.
 
 ```
    259	    def publish_payload(self, payload, publisher_socket, topic=''):
@@ -478,9 +478,9 @@ ports as specified in the routing specification file.
    295	            else:
    296	                raise ValueError('Invalid publisher socket')
 ```
-## receive_loop
-The ***receive_loop*** cycles through all of the backplane subscriber sockets to see if there
-are any messages that need to be processed, and if so, calls the *incoming_message_processing* method.
+### receive_loop
+The ***receive_loop*** cycles through all of the backplane subscriber sockets to see if any 
+messages need to be processed. If so, it calls the *incoming_message_processing* method.
 ```
    298	    def receive_loop(self):
    299	        """
@@ -510,7 +510,7 @@ are any messages that need to be processed, and if so, calls the *incoming_messa
    323	                    raise
    324
 ```
-## incoming_message_processing
+### incoming_message_processing
 
 This method needs to be overridden to handle the incoming messages.
 ```
@@ -527,7 +527,7 @@ This method needs to be overridden to handle the incoming messages.
    335	        print('this method should be overwritten in the child class', topic, payload)
 ```
 
-## clean_up
+### clean_up
 
 The ***clean_up*** method iterates through all the backplanes and closes their connections.
 
@@ -546,12 +546,12 @@ The ***clean_up*** method iterates through all the backplanes and closes their c
    348	        self.my_context.term()
 ```
 
-# A Simple Working Example
+## A Simple Working Example
 
 This section provides a simple demonstration of a Banyan application that makes use
 of the BanyanBaseMulti base class. For this example, 2 backplanes are invoked, each on a
-different computer. The example can be easily modified to run both backplanes on a single
-computer by adjusting the values in the routing specification file.
+different computer. The example can be easily modified to run both backplanes 
+on a single computer by adjusting the routing specification file's values.
 
 In addition to the two backplanes, the application consists of three
 Banyan components. The first component is a reuse of
@@ -572,7 +572,7 @@ the server then publishes a "notifier" message routed to backplane2.
 
 <img align="center" src="../images/multix.png">
 
-## The Notifier
+### The Notifier
 
 The code for the Notifier is extremely simple. It registers to receive messages with a 'notice' topic
 and when a message is received, prints 'Notification Received':
@@ -645,16 +645,16 @@ and when a message is received, prints 'Notification Received':
     65	    notifier()
 
 ```
-## The Echo Client
+### The Echo Client
 
 We are reusing the [*echo_cmdline_client*](https://github.com/MrYsLab/python_banyan/blob/master/examples/echo_cmdline_client.py) unmodified.
 
-## The MultiEchoServer
+### The MultiEchoServer
 
 The server is derived from BanyanBaseMulti.
 Let us begin by examining its associated *routing specification file*.
 
-## Routing Specification File
+### Routing Specification File
 
 ```
 backplane_name,ip_address,subscriber_port,subscriber_topic,publisher_port
@@ -750,8 +750,7 @@ line 62 publishes a *notice* message to backplane2.
 ```
 ## Running The Example
 
-First, we start a backplane, a monitor and *multi_echo_server.py*, on 192.168.2.190.
-
+First, we start a backplane, a monitor and multi_echo_server.py on 192.168.2.190.
 <img align="center" src="../images/multi_server1.png">
 
 The next step is to start a backplane *notifier.py* on 192.168.2.180.

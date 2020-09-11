@@ -1,18 +1,18 @@
 # Introduction To The Demos
 
-In this section, we will introduce three demonstration programs
-that control the Arduino, ESP-8266, and Raspberry Pi hardware targets,
-using common OneGPIO Application Components.
+
+This section will introduce three demonstration programs that control the Arduino, 
+ESP-8266, and Raspberry Pi hardware targets, using common OneGPIO Application Components.
 
 
 The demo programs included are:
 
 1. An LED blink program.
-2. A tkinter GPIO Demonstration Station.
+2. A Tkinter GPIO Demonstration Station.
 3. A Web-based GPIO Demonstration Station.
 
-A single OneGPIO Application Component is provided for the blink demo,
-and one for the tkinter demo, each containing the
+A single OneGPIO Application Component is provided for the blink demo
+and one for the Tkinter demo, each containing the
 GPIO control logic to run their respective demos.
 
  For the Web Demonstration
@@ -31,8 +31,8 @@ Make sure that you have the newest version of
 [***python-banyan***](../install/#installing-python-banyan_1) on your computer.
 You can upgrade to the latest version using the [pip *--upgrade* option.](https://packaging.python.org/tutorials/installing-packages/#upgrading-packages)
 
-To run the demos, in addition to installing Python Banyan, you will need to download the latest python-banyan distribution
- files to your computer.  To download,
+In addition to installing Python Banyan, you will need to download the 
+latest python-banyan distribution files to your computer to run the demos.  To download,
 go to the [Python Banyan Github Web page](https://github.com/MrYsLab/python_banyan) and
 click on the green download button and unzip to any directory.
 
@@ -49,7 +49,7 @@ The launcher requires a command-line option to load a Launcher specification fil
 specification files have been provided for each demo and for each platform. Modifications
 that you may need to be made to these files will be covered in each demo section.
 
-### Python 3.7
+#### Python 3.7
 
 Both the Arduino Gateway and WebSocket Gateway requires the use of Python 3.7 or higher.
 
@@ -66,7 +66,7 @@ the Raspberry Pi.](../one_gpio_demos/#banyan-demonstration-station-web-pages)
 
 
 
-For Windows users, since the Windows Operating System is not dependent upon Python, it is probably
+Since the Windows Operating System is not dependent upon Python, it is probably
 easiest to install the latest version of Python3 on your computer from
 python.org(https://www.python.org/).
 
@@ -84,8 +84,8 @@ on your Arduino.
 ### ESP-8266
 
 A NodeMCU ESP-8266 development module was used to test the demo programs.
-A custom MicroPython script was developed to work with the ESP-8266 Gateway.
-This script must be installed on the ESP-8266 and may be found 
+AA custom MicroPython script was developed to work with the 
+ESP-8266 Gateway, and this script must be installed on the ESP-8266.  It and may be found
 [here.](https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/esp_8266/esp_8266.py)
  
 This script is a "minified" version to allow it to fit on the device. A fully commented file
@@ -100,7 +100,7 @@ The ampy command-line I use is: **ampy -p /dev/ttyUSB0 put esp_8266.py**
 
 You will need to re-power the board after flashing. The red LED should 
 flash and then stay lit. It will extinguish when the board
-successfully connects to the ESP8266 OneGPIO Gateway.
+successfully connects to the ESP-8266 OneGPIO Gateway.
 
 **NOTE:** You will need to know the TCP/IP address of your ESP-8266
 and present that as a command-line argument to the ESP-8266 Gateway.
@@ -128,8 +128,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 
 ```
-If no errors are reported, you are good to go. If you see an import error,
-then you will need to move a copy of pigpio.py to the virtual environment manually.
+If no errors are reported, you are good to go. 
+If you see an import error, you will need to manually move a copy of pigpio.py to the virtual environment.
 
 If you are using the version of pigpio included with the Raspbian distribution,
 you can find pipgio.py in the /usr/lib/python3/dist-packages/ directory.
@@ -147,12 +147,12 @@ Here is the general template for this path:
 ~/.pyenv/versions/PYTHON VERSION/VIRTUAL ENVIRONMENT NAME/lib/PYTHON VERSION WITHOUT LAST NUMBER/site-packages/
 
 
-# The Demo Examples
+## The Demo Examples
 
 All of the demos are launched using the Banyan Launcher. The launcher specification files utilize a relative
 path to access the components for the applications. As a result, you must
 maintain the directory structure of the python-banyan distribution. If you haven't downloaded
-the distribution as of yet, you may do so by
+the distribution yet, you may do so by
 clicking on the green download button found on [this link](https://github.com/MrYsLab/python_banyan)
  and then unzip the files.
 
@@ -162,27 +162,27 @@ directory or the
 [projects/OneGPIO/launch_scripts_for_windows](https://github.com/MrYsLab/python_banyan/tree/master/projects/OneGPIO/launch_scripts_for_windows)
 directory. 
 
-In those directories, you will find the Banyan Launcher specification files used for each demonstration and for
-each hardware target.
+You will find the Banyan Launcher specification files used for each 
+demonstration and for each hardware target in those directories.
 
 The difference between the Windows and non-Windows specifications files is that the command
 to invoke python is different. Windows uses ***python***, while the other platforms use ***python3.***
 
 
 The specification files are csv (comma-separated value) files. They may need to be modified
-for your specific environment, and those modifications will be discussed within the discussions for each specific
+for your specific environment. Those modifications will be discussed within the discussions for each specific
 demonstration.
 
 
 
-## Blink Demo
+### Blink Demo
 
 
 You can view the source code for the 
 [blink demo here.](https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/shared/blinker.py)
 
 
-### Running The Blink Demo On The Arduino
+#### Running The Blink Demo On The Arduino
 
 To run this demo for the Arduino, you must use Python 3.7 or higher, as mentioned above.
 
@@ -215,7 +215,7 @@ to load the b_a.csv specification file.
 When you hit return, everything needed to run this demo will be loaded, and you should see
 the LED on the pin you specified blink.
 
-### Running The Blink Demo On The ESP-8266
+#### Running The Blink Demo On The ESP-8266
 
 Let's look at the [b_e.csv](https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/launch_scripts/b_e.csv) launcher specification file in the launch_scripts directory.
 
@@ -248,7 +248,7 @@ When you hit return, everything needed to run this demo will be loaded, and you 
 the LED on the pin you specified blink.
 
 
-### Running The Blink Demo On The Raspberry Pi
+#### Running The Blink Demo On The Raspberry Pi
 
 The [Raspberry Pi Gateway](https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/raspberry_pi/rpi_gateway.py)
 utilizes the [pigpio API library.](http://abyz.me.uk/rpi/pigpio/python.html)
@@ -291,8 +291,8 @@ the LED on the pin you specified blink.
 
 ## Tkinter Demo Station
 
-The Tkinter Demo Station is a GUI application that will
-allow you to interact with the target hardware remotely.  A common python script,
+The Tkinter Demo Station is a GUI application that will allow you to remotely interact with the target hardware. 
+ A common python script,
 [banyan_tkinter_demo.py,](https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/shared/blinker.py)
 is used for all three targets and is a OneGPIO Application Component. The target type is supplied as a command-line parameter when
 invoking banyan_tkinter_demo. This is provided in each of the launcher specification files.
@@ -304,17 +304,16 @@ invoking banyan_tkinter_demo. This is provided in each of the launcher specifica
 
 
 The Tkinter Demo Station for the Arduino is shown above. No matter the target hardware, the
-Tkinter Demo Station for all of the target hardware types share common capabilities.
+Tkinter Demo Station for all target hardware types share common capabilities.
 
 #### Digital Output Control
 
-The Tkinter Demo Station allows you to set the state of a digital output pin. To use this feature, you
-first select the pin number, then the output value for the pin, and finally you set the state by pressing
-the **Set Output State** button
+The Tkinter Demo Station allows you to set the state of a digital output pin. To use this feature, you first select the pin number, 
+then the pin's output value, and finally, you set the state by pressing the **Set Output State** button.
 
 #### PWM Output Control
 
-To set a pin for PWM output, first, select the pin number and then use the slider to set its output value.
+To set a PWM output pin, first, select the pin number and then use the slider to set its output value.
 
 #### Buzzer Tone Control
 
@@ -324,7 +323,7 @@ button to generate the tone.
 #### Digital Input
 
 Select and enable digital input for a pin by clicking on the white box to the left of the pin number.
-The box to the right of the pin number will be black if the pin value is zero and red if it is a one.
+The box to the pin number's right will be black if the pin value is zero and red if it is a one. 
 If a pin is enabled for digital input, its current state will be shown in real-time.
 
 
@@ -352,7 +351,7 @@ bls -f tk_a.csv
 The bls command starts the Banyan Launcher server, and the -f option instructs bls
 to load the tk_a.csv specification file.
 
-You should see a tkinter window for the Arduino appear.
+You should see a Tkinter window for the Arduino appear.
 
 <img align="center" src="../images/tkinter_arduino.png">
 
@@ -384,7 +383,7 @@ bls -f tk_e.csv
 The bls command starts the Banyan Launcher server, and the -f option instructs bls
 to load the tk_e.csv specification file.
 
-You should see a tkinter window for the ESP-8266 appear.
+You should see a Tkinter window for the ESP-8266 appear.
 
 <img align="center" src="../images/tk_inter_demo.png">
 
@@ -413,7 +412,7 @@ bls -f tk_r.csv
 The bls command starts the Banyan Launcher server, and the -f option instructs bls
 to load the tk_r.csv specification file.
 
-You should see a tkinter window for the Raspberry Pi appear.
+You should see a Tkinter window for the Raspberry Pi appear.
 
 <img align="center" src="../images/tkinter_rpi.png">
 
@@ -421,9 +420,8 @@ You should see a tkinter window for the Raspberry Pi appear.
 
 ## Banyan Demonstration Station Web Pages
 Once again, the Banyan launcher will be used to run Web page demos.
-The launcher will start the Backplane, the Gateway for the hardware target,
-the WebSocket Gateway, and it will start your Web browser with the correct HTML
-page loaded.
+The launcher will start the Backplane, the Gateway for the hardware target, 
+the WebSocket Gateway.  It will also start your Web browser with the correct HTML page loaded.
 
 By clicking on the following links, you may view the HTML pages for the
 [Arduino](https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/arduino_uno/arduino.html),
@@ -453,7 +451,7 @@ There is a common set of functions, selected by tab, for all of the targets:
 i2c converter.
 
 The digital and analog tabs will display a timestamp for the last
-change to an enabled pin, as well as the pin's value:
+change to an enabled pin, and the pin's value:
 
 <img align="center" src="../images/web_digital_input.png">
 
@@ -516,9 +514,9 @@ bls -f h_e.csv
 
 ### Running The Web Demo Station For The Raspberry Pi Without Python 3.7 Installed
 
-If you do not have Python 3.7 or higher, installed on your Raspberry Pi, you may still run this demo.
+If you do not have Python 3.7 or higher installed on your Raspberry Pi, you may still run this demo.
 Because Banyan allows us to distribute Banyan components across computers, we run
-the Web server, and WebSocket Gateway on our PC and the Raspberry Pi Gateway on the
+the Web server and WebSocket Gateway on our PC and the Raspberry Pi Gateway on the
 Raspberry Pi.
 
 The launcher was designed to handle these situations. First, we need to start the
@@ -528,7 +526,7 @@ Banyan Launcher Client (blc) on the Raspberry Pi using a command-line similar to
 blc -t rpi_remote -b 192.168.2.186
 ```
 
-The *-t* option is a topic that will used when the Banyan Launcher Server (bls) publishes its
+The *-t* option is a topic that will be used when the Banyan Launcher Server (bls) publishes its
 launcher messages. The *-b* option is the IP address of the PC, where we will launch bls.
 
 You will most likely have to modify the IP address when executing this command. The *topic* may be
@@ -587,8 +585,7 @@ We may now start using the Web page on our PC to control the Raspberry Pi remote
 
 ### Killing All The Processes
 
-To kill all the processes on both computers, open another terminal window on your pc
-and type blk (the Banyan Launch Killer):
+To kill all the computers' processes, open another terminal window on your pc and type blk (the Banyan Launch Killer):
 ```
 $ blk
 

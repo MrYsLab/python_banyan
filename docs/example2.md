@@ -4,7 +4,7 @@ Being able to set a component's parameters using command-line options
 allows the user to change a component's behavior.
 
 To demonstrate, we will take the existing simple echo client. The
-code will be modified to allow the user, via command line,  to enter the Backplane IP address,
+code will be modified to allow the user to do the following via the command line. Enter the Backplane IP address,
 the publisher and subscriber port numbers, the number of messages to
 send to the server, the process name to display on the
  banner, and the loop time.
@@ -29,7 +29,7 @@ for the user to choose from.
 
 We will import the argparse package as well as the signal package
 to the original file. Argparse allows us to create the command
-line arguments, and the signal enables us to trap and process a Control-C
+line arguments. The signal enables us to trap and process a Control-C
 entered by the user.
 
 ```
@@ -132,8 +132,8 @@ The rest of the class definition is unchanged.
 ### Adding A Startup Function After The Class Definition
 
 Here, we create a function that follows the class definition. This
-function, called echo_cmdline_client() will instantiate the class
-and parse for any command-line options that the user may have specified.
+function, called echo_cmdline_client(), will instantiate the class
+and parse any command-line options that the user may have specified.
 
 This function is contained within lines 125 to 168.
 
@@ -208,17 +208,16 @@ Line 172 calls the *echo_cmdline_client* function on line 125 to invoke the clie
 ```
 
 ## Using The -m Option
-We can now specify the number of messages that the client produces, while
-accepting the default values for all of the other parameters.
+We can now specify the number of messages the client produces while accepting the other parameters' default values.
 
-Making sure that the backplane and server are already running, we can start
+Ensuring that the backplane and server are already running, we can start
 the new client, asking it to produce 20 messages.
 
 ```
 python3 echo_cmdline_client.py -m 20
 ```
 
-This command will produce 20 messages.
+This command will create 20 messages.
 
 Here is what the client console displays after running this command.
 

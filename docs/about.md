@@ -1,10 +1,10 @@
-# Contact Information
+## Contact Information
 
 If you have any questions or comments, please send email to:
 
 <MisterYsLab@gmail.com>
 
-# License
+## License
 
 GNU AFFERO GENERAL PUBLIC LICENSE
 

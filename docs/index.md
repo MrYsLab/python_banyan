@@ -24,17 +24,13 @@ width:350px;height:350px;">
  devices such as the Raspberry Pi, ESP8266,  and Arduino. Still, it may easily be applied to 
  projects outside of the physical programming domain. </span>
 
+# This Guide Contains The Following Sections:
 
-<span style="font-family:Georgia; font-size:1.0em;"> Here you will learn:</span>
-
-
-* [**How To Use Python Banyan**](users_guide.md) using a learn-by-example approach
+* [How To Use Python Banyan](users_guide.md) using a learn-by-example approach.
+ * [How To Create Portable Physical Computing Projects Using The OneGPIO API Specification](gpio_intro.md).
  
-* [**How To Create Portable Physical Computing Projects Using The OneGPIO API Specification**](gpio_intro.md)
-
+ 
 <br>
-<br>
-
 Last Updated: 29 January 2020 &nbsp; &nbsp; &nbsp; python-banyan version: v3.9
 <br>
 <br>

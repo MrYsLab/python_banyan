@@ -23,9 +23,9 @@ nav:
         - Comparing Banyan and MQTT: benchmark.md
         - About: about.md
       - The OneGPIO Project:
-          - Introduction: gpio_intro.md
+          - Introducing OneGPIO: gpio_intro.md
           - The OneGPIO Messaging Protocol: common_messaging_protocol.md
-          - OneGPIO Gateways: banyan_gateways.md
+          - An Introduction To OneGPIO Gateways: banyan_gateways.md
           - Additional Banyan Gateways: additional_gateways.md
           - OneGPIO Demos: one_gpio_demos.md
 theme: 'material'

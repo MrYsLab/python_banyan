@@ -1,9 +1,9 @@
-# MQTT Gateway
+## MQTT Gateway
 
 If you need to interconnect with MQTT, a Banyan MQTT Gateway has been provided.
 This gateway has been documented [here.](../example10/)
 
-# WebSocket Gateway
+## WebSocket Gateway
 
 The OneGPIO Demo Examples include Web pages to control an
 Arduino, ESP-8266, and Raspberry Pi. The WebPages publish
@@ -45,7 +45,7 @@ optional arguments:
   -s SUBSCRIBER_PORT    Subscriber IP port
 ```
 
-## A Quick Look At The Internals
+### A Quick Look At The WsGateway Internals
 
 Once again, a block of code will be presented, followed by a discussion.
 
@@ -268,7 +268,7 @@ to the WebSocket client on line 163.
    178	                                                                "from_ESP8266_gateway, "
    179	                                                                "from_rpi_gateway, "
    180	                                                                "from_microbit_gateway", nargs='+',
-   181	                        help="A space delimited list of topics")
+   181	                        help="A space-delimited list of topics")
    182	    parser.add_argument("-n", dest="process_name", default="WebSocket Gateway",
    183	                        help="Set process name in banner")
    184	    parser.add_argument("-p", dest="publisher_port", default='43124',

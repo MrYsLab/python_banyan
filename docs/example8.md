@@ -40,19 +40,25 @@ Please refer to [these instructions.](https://support.apple.com/en-us/ht201341)
 
 ## Launching Components
 
-To demonstrate the use of the launcher,  we will
+To demonstrate the launcher's ue\se,  we will
 launch the [monitor](../example5), the
-[simple echo server](../example1/#the-server) and
-[command-line echo client](../example2). All three were installed as executable components in a
+[simple echo server](../example1/#the-server), and
+[command-line echo client](../example2). 
+To demonstrate the launcher's use, we will launch the [monitor](../example5), 
+[simple echo server](../example1/#the-server),
+[command-line echo client](../example2). 
+
+All three were installed as executable components in a
  [previous section](../example7) of this document.
+ 
+ 
 
  Launch instructions are specified by creating a comma delimited text file
  called the ***launch descriptor file***. Let's examine the *launch descriptor file* in detail.
 
 ## The Launch Descriptor File
 
-For each Python Banyan component we wish to launch, there is a corresponding
-launch description entry placed in the *launch descriptor file*.
+For each Python Banyan component we wish to launch, a corresponding launch description entry is placed in the *launch descriptor file*.
 
 Let's look at the contents of [*launch.csv*](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/utils/banyan_launcher/launch.csv)
 , the comma delimited text file we will use to launch
@@ -71,8 +77,8 @@ The first line of the file contains the descriptor for each of the entry fields.
 command_string,spawn,topic,append_bp_address,auto_restart,wait
 
 ```
-**command_string** - this field is the command-line command used to execute the component. For this example,
-the launcher will start the *monitor* and the *server and client* that were installed as executable modules,
+**command_string** - this field is the command-line command used to execute the component. 
+For this example, the launcher will start the monitor, the server, and client installed as executable modules,
 as [described earlier](../example7).
 
 Note that the launcher will execute any command string we enter, so for example,
@@ -96,8 +102,9 @@ Remote launching will be demonstrated [in the Banyan Launch Client section](#the
 
 **append_bp_address** - this field is used mainly when launching components on a remote computer.
 If set to ***yes***, the backplane IP address is appended to the command string with a
-***-b option***. The address is the IP address of the local computer. For example, if the backplane IP address being used is
-192.168.1.100, and the descriptor entry for the *client* component was set as follows:
+***-b option***. The address is the IP address of the local computer. For example, if the backplane IP address is 
+used is 192.168.1.100, 
+the descriptor entry for the client component was set as follows:
 ```
 client,yes,remote1,yes,no,0
 ```
@@ -157,8 +164,8 @@ client,yes,local,no,no,0
 
 ## The Auto-Restart Feature
 
-We specified auto-restart for the server in the launch descriptor file, so let's close the server window
-that was opened by *bls* and see what happens.
+We specified auto-restart for the server in the launch descriptor file. Let's close the server window
+opened by *bls* and see what happens.
 
 <img align="center" src="../images/launcher2.png">
 
@@ -166,7 +173,7 @@ When ***bls*** detects that the server process died, it indicates this in
 the ***bls*** console and then relaunches the server. A new PID
 is generated for the relaunch.
 
-If we kill the client, which does not have auto restart enabled, then we just see the "DIED" notification.
+If we kill the client, which does not have auto restart enabled, then we see the "DIED" notification.
 
 <img align="center" src="../images/launcher3.png">
 
@@ -218,7 +225,7 @@ the topic string **rpi_launch** was chosen, and for the Windows machine running 
 
 ## Invoking The Banyan Launch Client
 
-Make sure that you have installed Python Banyan on your computer, which will automatically
+Ensure that you have installed Python Banyan on your computer, which will automatically
 install the Banyan launcher programs.
 
 The **blc** application requires 2 command-line arguments to be supplied on the command-line.
@@ -241,7 +248,7 @@ blc -b 192.168.2.190 -t rpi_launch
 You may start **bls** and the **blc** instances in any order.
 
 When **bls** starts, it will publish Banyan messages with the topics specified in the
-Launch Configuration File, and the payload will contain the details of the launch for the component.
+Launch Configuration File. The payload will contain the details of the launch for the component.
 
 Using the monitor, we can capture the messages being sent by **bls,** as shown below.
 
@@ -269,8 +276,8 @@ When the launch messages are received on the remote computers, we see the follow
 
 <img align="center" src="../images/blc_windows2.png">
 
-After ***blc*** launches a program on the remote computer,
- the name of the program and its process ID (PID), assigned by the remote machine,  is displayed.
+After ***blc*** launches a program on the remote computer, 
+the program's name and process ID (PID), assigned by the remote machine, are displayed.
 
 The local instance of ***bls*** reflects the handshake between the local and remote computers:
 

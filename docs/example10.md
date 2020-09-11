@@ -37,17 +37,17 @@ optional arguments:
   -d MQTT_PORT          MQTT Port Number
   -e BANYAN_PUB_TOPIC   Topic for messages to MQTT
   -g BANYAN_SUB_TOPICS [BANYAN_SUB_TOPICS ...]
-                        Banyan topics space delimited: topic1 topic2 topic3
+                        Banyan topics space-delimited: topic1 topic2 topic3
   -i MQTT_PUB_TOPIC     Topic for messages sent to MQTT
   -j MQTT_SUB_TOPICS [MQTT_SUB_TOPICS ...]
-                        MQTT topics space delimited: topic1 topic2 topic3
+                        MQTT topics space-delimited: topic1 topic2 topic3
   -n PROCESS_NAME       Set process name in banner
   -p PUBLISHER_PORT     Publisher IP port
   -s SUBSCRIBER_PORT    Subscriber IP port
   -t LOOP_TIME          Event Loop Timer in seconds
   
 ```
-When the MQTT Gateway is invoked, it automatically connects to both the Banyan Backplane and to the MQTT Broker.
+When the MQTT Gateway is invoked, it automatically connects to both the Banyan Backplane and the MQTT Broker.
 
 Before running the following examples, make sure that you
 have a [mosquitto broker](https://mosquitto.org/) and a [Python Banyan
@@ -83,7 +83,7 @@ my_client.disconnect()
 ### MQTT Subscriber
 
 The [MQTT subscriber](https://github.com/MrYsLab/python_banyan/blob/master/examples/mqtt_gateway/sub.py)
- that connects to an MQTT broker,
+ connects to an MQTT broker
 and subscribes to 2 topics. The **mqtt_network** messages are for messages originated
 on the MQTT network. The **from_banyan** messages are messages that were originated on the
 Banyan network. For this first example, no messages are originated from the Banyan network.
@@ -120,7 +120,7 @@ my_client.loop_forever()
 
 ```
 
-First, we start the subscriber, and then the publisher. The subscriber prints
+First, we start the subscriber and then the publisher. The subscriber prints
 any messages it receives. Here is the subscriber console output after
 running the publisher:
 ```
@@ -134,7 +134,7 @@ Connected with result code 0
 Start the MQTT Gateway by opening a terminal window and typing:
 mgw
 
-The Gateway connects to the Python Backplane and to the MQTT broker
+The Gateway connects to the Python Backplane and the MQTT broker
 
 ```
 $ mgw
@@ -191,14 +191,13 @@ Connected with result code 0
 {'from_banyan': 'hello_mqtt_world'}
 ```
 
-The Gateway received a Banyan message, translated it to an MQTT message, published
-this message on the MQTT network, and the translated message
-was received by the MQTT subscriber.
+The Gateway received a Banyan message, translated it to an MQTT message,
+ published this message on the MQTT network, and received the translated message by the MQTT subscriber.
 
 ## Example 3: Publishing an MQTT Message To the Banyan Network
 
 In this example, an MQTT message will be published by pub.py.
-The MQTT Gateway will receive this message, and it will then translate
+The MQTT Gateway will receive this message. It will then translate
 this message to a Banyan message and publish
 the message to the Banyan network.
 

@@ -1,4 +1,4 @@
-## Installing Your Components As Executable Modules
+# Installing Your Components As Executable Modules
 
 There are times when it is more convenient to start a Banyan component
 using the command-line without having to invoke the Python interpreter explicitly.
@@ -100,9 +100,8 @@ Lines 18 through 24 defines a dictionary called *entry_points* that contains a s
 key called *console_scripts*, with a list of 3 strings as its value.
 
 For each of the three entries, the string to the left of the equals sign
-specifies the script command-line name.   The string between the equals sign and the colon defines
-the location of the python script, and the string after the colon defines the name of the function
-that will be called within the script to start it.
+specifies the script command-line name. The string between the equals sign and the colon defines the python script's location, 
+and the string after the colon defines the name of the function that will be called within the script to start it.
 
 Let's look at the format for the first executable, *'client.'*
 
@@ -111,8 +110,8 @@ On the left of the equal sign is the name we wish to give our executable, and in
 case, the name is *client*.
 
 ### Location Of The File
-On the right of the equal sign is a dotted notation of where the source file resides,
-followed by a function within the file to be called to start the program.
+On the right of the equal sign is a dotted notation of where the source file resides. 
+This is followed by a function within the file to be called to start the program.
 
 Line 20 specifies the file location as "ecs.echo_cmdline_client". The first
 part is the name of the package, "ecs." That is the directory that contains the source
@@ -121,7 +120,7 @@ files. The second part is the file name within this directory, "echo_cmdline_cli
 ### Startup Function
 If we look at line 125 of the source code for the
 [client](https://github.com/MrYsLab/python_banyan/blob/master/examples/echo_cmdline_client.py), we see the function
-called "echo_cmdline_client," and this is the function we specify to start the component
+called "echo_cmdline_client." This is the function we specify to start the component
 when we invoke "client" as a command-line command.
 
 

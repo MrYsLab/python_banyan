@@ -1,4 +1,4 @@
-<span style="color:#990033; font-family:Georgia; font-size:3em;">Introducing OneGPIO</span>
+
 
 ***OneGPIO*** is a generalized GPIO specification and framework that will
 allow you to construct GPIO based projects quickly.
@@ -11,8 +11,8 @@ abstract nature of the [OneGPIO message set](https://github.com/MrYsLab/python_b
 and the [Python Banyan Framework.](../users_guide/)
  
 A OneGPIO project is typically comprised of 2 main elements - a single OneGPIO Application
-Component, and one or more OneGPIO Gateways. The application component is unique for each project,
-and the Gateways are reusable components that need no modification when going from one project to
+Component and one or more OneGPIO Gateways. The application component is unique for each project.
+The Gateways are reusable components that need no modification when going from one project to
  another. 
 
 The Application Component contains all the GPIO control logic for your application,
@@ -21,8 +21,8 @@ A OneGPIO component is responsible for assembling and publishing OneGPIO control
 Also, it subscribes to receive OneGPIO report messages that are sent from the OneGPIO Hardware
 Gateways, connected to target hardware.
 
-A working OneGPIO project designed for a specific target hardware set, is easily converted to
-run on different target hardware, by simply enabling the OneGPIO hardware-specific gateway.
+A working OneGPIO project designed for a specific target hardware set is easily converted to
+run on different target hardware by merely enabling the OneGPIO hardware-specific gateway.
 No code changes are needed.
 
 
@@ -33,15 +33,15 @@ Included with this distribution are several demonstration applications that use
 a single OneGPIO application component (or a variation of that component) to control
 Arduino, ESP-8266, and Raspberry Pi targets. 
 
-For those in a hurry to see OneGPIO in action, you can skip to 
-the [demonstration section of this document.](../one_gpio_demos/)
+For those in a hurry to see OneGPIO in action, 
+you can skip to this document's [demonstration section of this document.](../one_gpio_demos/)
 
 ## "Standard" Function Call GPIO API Libraries
 
 GPIO API libraries, such as [*pigpio*](http://abyz.me.uk/rpi/pigpio/) 
 and [*Gpiozero*](https://gpiozero.readthedocs.io/en/stable/) 
 (supporting the Raspberry Pi), and
-[*pymata-express*](https://mryslab.github.io/pymata-express/), 
+[*pymata-express*](https://mryslab.github.io/pymata-express/) 
 (supporting the Arduino), all provide software abstractions for GPIO
 control. All of these libraries are written in Python and use function
 or method calls to implement the API. 
@@ -49,9 +49,8 @@ or method calls to implement the API.
 Using any of these libraries essentially result in the same
 electrical outcomes, but they have widely differing syntax structures.
 
-For example, if we wish to take advantage of PWM functionality to set an LED's 
-illumination level or a motor's speed, 
-we might utilize a specific GPIO API library.
+For example, suppose we wish to take advantage of PWM functionality to
+ set an LED's illumination level or a motor's speed. In that case, we might utilize a specific GPIO API library.
 
 The table below illustrates the PWM API interface for the three libraries mentioned
 above.
@@ -65,7 +64,7 @@ above.
 As you can plainly see, each library has its own unique way of expressing GPIO operations.
 
 Because of the syntax differences, it makes
-porting a hardware project from one hardware platform to another,
+porting a hardware project from one hardware platform to another
 a laborious and tedious process, not to mention being error-prone and time-consuming.
 It also severely hampers the possibility of code reuse for future projects.
 
@@ -79,7 +78,7 @@ OneGPIO messages to and from a specific hardware platform. The OneGPIO project
 includes fully functional Banyan Gateways for the Arduino, 
 ESP-8266, and Raspberry Pi.
 
-A single OneGPIO control component can control a single hardware target, or
+A single OneGPIO control component can control a single hardware target or
 multiple targets simultaneously without any code changes. 
 
 All OneGPIO Gateways
@@ -98,7 +97,7 @@ In the following sections, we will:
 * Discuss Banyan OneGPIO Gateway internals
 * Discuss the included demonstration programs
     * Demonstrate a single OneGPIO Application Component that can blink an LED on an Arduino, ESP-8266, or Raspberry Pi
-    * Demonstrate how a single OneGPIO tkinter Application Component can control
+    * Demonstrate how a single OneGPIO Tkinter Application Component can control
 a Raspberry Pi, Arduino, and ESP-8266
 
     <img align="center" src="../images/tk_banyan.png">
