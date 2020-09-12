@@ -24,7 +24,7 @@ Still, it may easily be applied to projects outside of the physical programming 
 Banyan uses a [publish/subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)
  model similar to [MQTT](https://en.wikipedia.org/wiki/MQTT) but is much faster than MQTT in
  real-time control and data monitoring applications.
- A [benchmark comparison](/benchmark/#benchmark) of Banyan
+ A [benchmark comparison](benchmark/#benchmark) of Banyan
 and MQTT is provided later in this guide to illustrate Banyan's efficiency.
 If your application requires connectivity to an MQTT broker, a [Gateway](/example10) is provided.
 
