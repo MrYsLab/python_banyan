@@ -24,9 +24,9 @@ Still, it may easily be applied to projects outside of the physical programming 
 Banyan uses a [publish/subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)
  model similar to [MQTT](https://en.wikipedia.org/wiki/MQTT) but is much faster than MQTT in
  real-time control and data monitoring applications.
- A [benchmark comparison](benchmark/#benchmark) of Banyan
+ A [benchmark comparison](benchmark.md) of Banyan
 and MQTT is provided later in this guide to illustrate Banyan's efficiency.
-If your application requires connectivity to an MQTT broker, a [Gateway](/example10) is provided.
+If your application requires connectivity to an MQTT broker, a [Gateway](example10.md) is provided.
 
 Most traditional physical computing libraries or frameworks use an *object-oriented* model
 that yields a single,
@@ -55,7 +55,7 @@ is that it can incorporate [Numpy](http://www.numpy.org/) data into a protocol m
  seamlessly and effortlessly.
 
 Without modification, a Banyan application's components can run on a single computer or distributed across multiple computers.
-These configurations will be [demonstrated later](/example3/) on in this document.
+These configurations will be [demonstrated later](example3.md) on in this document.
 
 
 ## *A Little More Detail About Python Banyan*
