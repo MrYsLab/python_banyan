@@ -31,7 +31,8 @@ width:350px;height:350px;">
  
  
 <br>
-Last Updated: 29 January 2020 &nbsp; &nbsp; &nbsp; python-banyan version: v3.9
+Last Updated: 12 September, 2020 &nbsp; &nbsp; &nbsp; python-banyan version: v3.9
+<br>
 <br>
 <br>
 Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved
