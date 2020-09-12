@@ -99,11 +99,14 @@ base class, [banyan_base.py](https://github.com/MrYsLab/python_banyan/blob/maste
 If you need to create your application using multiple backplanes (a rare occurrence),
 please refer to [this section](../example9/#example9/) for a discussion of the ***banyan_base_multi*** class.
 
+There is also a Python asyncio version of the base class called [banyan_base_aio.py.](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/banyan_base_aio/banyan_base_aio.py)
+
+
 
 ### The BanyanBase Class Methods
 
 The methods of the BanyanBase class
-are discussed in [detail](#the-banyanbase-class) below.
+are discussed in detail below.
 
 An "executive summary" of the methods follows:
 
@@ -128,7 +131,7 @@ When a message is received, it calls the **incoming_message_processing** method.
 
 5. **incoming_message_processing** - This method **must** be overridden to handle incoming messages.
 
-6. **clean_up** - This method may be overridden to add any additional clean-up for a terminating component.
+6. **clean_up** - This method may be overridden to add any additional clean-up for terminating a component.
 
 To better understand the base class, let's look at the code line by line.  You can skip this
 section and move on to the [examples](../example1/) and return later if you need a more detailed explanation of the base class.
@@ -249,7 +252,7 @@ Lines 64 through 85 documents each the parameters and are discussed below,
 The default for this parameter is *None*. The component will discover the
  local computer's IP address and assume that the backplane 
  is also running on this computer. 
- Suppose the component is running on a computer other than the one that the backplane is running on. 
+ If the component is running on a computer other than the one that the backplane is running on. 
  In that case, this parameter will need to match the IP address of the running backplane.
 
 ```

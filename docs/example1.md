@@ -196,7 +196,7 @@ publishing the next message.
 The messaging sequencing number is decremented after each message is published.
 When the sequencing number reaches zero, the final message is published, and the client halts.
 
-The code for the client is very similar to that of the [server](#examining-the-code).
+The code for the client is very similar to that of the [server](#examining-the-server-code).
 In this section, the major differences between the client and server are highlighted.
 
 Line 38 calls the inherited BanyanBase method *set_subscriber_topic* to subscribe to

@@ -3,11 +3,14 @@
 Being able to set a component's parameters using command-line options
 allows the user to change a component's behavior.
 
-To demonstrate, we will take the existing simple echo client. The
-code will be modified to allow the user to do the following via the command line. Enter the Backplane IP address,
-the publisher and subscriber port numbers, the number of messages to
-send to the server, the process name to display on the
- banner, and the loop time.
+To demonstrate, we will use the existing simple echo client. The
+code will be modified to allow the user to do the following via the command line:
+
+* Specify the Backplane IP address
+* Specify the publisher and subscriber port numbers
+* Specify the number of messages to send to the server
+* Specify a process name to display on the banner
+* Specify the loop time
 
 This example allows the user to specify, none, one, or any combination
 of parameters, allowing maximum flexibility.
@@ -151,7 +154,7 @@ are then added to a Python dictionary called kw_options.
 
 Line 158 instantiates the class, passing in the kw_options.
 
-Lines 161 through 164 add a signal handler to trap a user enteredControl-C.
+Lines 161 through 164 add a signal handler to trap a user entered Control-C.
 
 Line 172 calls the *echo_cmdline_client* function on line 125 to invoke the client.
 

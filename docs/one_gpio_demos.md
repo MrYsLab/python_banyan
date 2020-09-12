@@ -68,7 +68,7 @@ the Raspberry Pi.](../one_gpio_demos/#banyan-demonstration-station-web-pages)
 
 Since the Windows Operating System is not dependent upon Python, it is probably
 easiest to install the latest version of Python3 on your computer from
-python.org(https://www.python.org/).
+[python.org](https://www.python.org/).
 
 
 

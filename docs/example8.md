@@ -40,12 +40,9 @@ Please refer to [these instructions.](https://support.apple.com/en-us/ht201341)
 
 ## Launching Components
 
-To demonstrate the launcher's ue\se,  we will
+To demonstrate the launcher's use,  we will
 launch the [monitor](../example5), the
 [simple echo server](../example1/#the-server), and
-[command-line echo client](../example2). 
-To demonstrate the launcher's use, we will launch the [monitor](../example5), 
-[simple echo server](../example1/#the-server),
 [command-line echo client](../example2). 
 
 All three were installed as executable components in a
@@ -95,12 +92,12 @@ will be opened, and all component console output will appear in this window. If 
  the component will be spawned within the common launcher terminal window, and all console output will be placed
  in that window. There are screenshots below to demonstrate both cases.
 
-**topic** - if a component is to be run on the local machine, the topic must be set to ***local***. If you wish
+__topic__ - if a component is to be run on the local machine, the topic must be set to ***local***. If you wish
 to launch a component on a remote computer, then the *topic* must be set to something other than ***local***. Note
 that the *topic* mentioned here is for the launcher's purposes and does not affect the application.
 Remote launching will be demonstrated [in the Banyan Launch Client section](#the-banyan-launch-client).
 
-**append_bp_address** - this field is used mainly when launching components on a remote computer.
+__append_bp_address__ - this field is used mainly when launching components on a remote computer.
 If set to ***yes***, the backplane IP address is appended to the command string with a
 ***-b option***. The address is the IP address of the local computer. For example, if the backplane IP address is 
 used is 192.168.1.100, 
@@ -197,16 +194,16 @@ shown below:
 
 The Ubuntu computer will run bls and the backplane. Its IP address is 192.168.2.190
 
-The Windows 10 computer will run blc and the client. Its IP address is 192.168.180
+The Windows 10 computer will run blc and the client. Its IP address is 192.168.2.180
 
-The Raspberry Pi computer will run blc and the server. Its IP address is 192.168.189
+The Raspberry Pi computer will run blc and the server. Its IP address is 192.168.2.189
 
 All we need to do is install the components on their respective computers
 and modify the launch configuration file. Then we start bls,
 in the case of this example, on the Ubuntu computer and blc on the remote computers,
 Windows 10, and the Raspberry Pi.
 
-**NOTE:** The configuration file only resides on the computer that runs ***bls***.
+__NOTE:__ The configuration file only resides on the computer that runs ***bls***.
 It will send all the launch information to the remote computers.
 The remote computers will then manage the applications, including auto-restart if specified.
 
@@ -228,7 +225,7 @@ the topic string **rpi_launch** was chosen, and for the Windows machine running 
 Ensure that you have installed Python Banyan on your computer, which will automatically
 install the Banyan launcher programs.
 
-The **blc** application requires 2 command-line arguments to be supplied on the command-line.
+The __blc__ application requires 2 command-line arguments to be supplied on the command-line.
  If the required arguments are not supplied, then ***blc*** will exit with an error message.
 
  The first required command-line argument

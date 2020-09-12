@@ -18,6 +18,7 @@ The WebSocket IP port is fixed to a value of 9000. If you need to, you can modif
 supplied code to allow the user to modify these values on the command line.
 
 ***IMPORTANT NOTE***
+
 The WebSocket Gateway utilizes a Python asyncio WebSocket library.
 It requires that Python 3.7 or higher be used.
 

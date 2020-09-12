@@ -20,10 +20,10 @@ The [Tkinter GUI framework](https://docs.python.org/3/library/tk.html)
  provides such a hook, and we will integrate Banyan into our GUI using this technique. Note that many other GUI 
  frameworks also provide a callback hook. 
  The techniques shown here may also be applied similarly to those frameworks.  
- The [remi library,](https://gthub.com/dddomodossola/remi)
+ The [remi library,](https://github.com/dddomodossola/remi)
  for example, uses a method called *idle* to provide the callback hook.
 
-The Tkinter callback hook method is called [***after***](http://effbot.org/Tkinterbook/widget.htm).
+The Tkinter callback hook method is called [***after***](https://www.tutorialspoint.com/after-method-in-python-tkinter).
 We will pass in 2 parameters to *after*, a sleep time
 in milliseconds, and the user callback function called when the sleep time expires.
 
@@ -32,7 +32,8 @@ The example code shown below illustrates integrating the Banyan receive_loop
  for clarity. However, a detailed
 discussion of the Tkinter framework is beyond the scope of this document.
 [This ebook](https://smile.amazon.com/Modern-Tkinter-Busy-Python-Developers-ebook/dp/B0071QDNLO/ref=sr_1_9?ie=UTF8&qid=1528656765&sr=8-9&keywords=Tkinter+book)
-offers a concise and useful discussion of building GUIs with Tkinter.
+offers a concise and useful discussion of building GUIs with Tkinter. An online version may be found
+[here](https://tkdocs.com/tutorial/index.html).
 
 ## Running The Example
 
