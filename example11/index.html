@@ -10,16 +10,16 @@
       
       
       
-      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.6">
     
     
       
-        <title>Tutorial 10 - Connecting Banyan To An MQTT Network - Python Banyan</title>
+        <title>Tutorial 11 - Physical Computing And GPIO - Python Banyan</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.4b9ffd7b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b9ffd7b.min.css">
       
       
     
@@ -48,7 +48,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#connecting-banyan-applications-to-mqtt" class="md-skip">
+        <a href="#gpio-control" class="md-skip">
           Skip to content
         </a>
       
@@ -59,7 +59,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="." title="Python Banyan" class="md-header-nav__button md-logo" aria-label="Python Banyan">
+    <a href=".." title="Python Banyan" class="md-header-nav__button md-logo" aria-label="Python Banyan">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -76,7 +76,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Tutorial 10 - Connecting Banyan To An MQTT Network
+              Tutorial 11 - Physical Computing And GPIO
             
           </span>
         </div>
@@ -133,7 +133,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Python Banyan" class="md-nav__button md-logo" aria-label="Python Banyan">
+    <a href=".." title="Python Banyan" class="md-nav__button md-logo" aria-label="Python Banyan">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -150,7 +150,7 @@
 
 
   <li class="md-nav__item">
-    <a href="index.html" title="Welcome" class="md-nav__link">
+    <a href=".." title="Welcome" class="md-nav__link">
       Welcome
     </a>
   </li>
@@ -189,7 +189,7 @@
 
 
   <li class="md-nav__item">
-    <a href="users_guide.html" title="What Is Python Banyan?" class="md-nav__link">
+    <a href="../users_guide/" title="What Is Python Banyan?" class="md-nav__link">
       What Is Python Banyan?
     </a>
   </li>
@@ -201,7 +201,7 @@
 
 
   <li class="md-nav__item">
-    <a href="install.html" title="Installation" class="md-nav__link">
+    <a href="../install/" title="Installation" class="md-nav__link">
       Installation
     </a>
   </li>
@@ -213,7 +213,7 @@
 
 
   <li class="md-nav__item">
-    <a href="examples_intro.html" title="Introduction To The Tutorials" class="md-nav__link">
+    <a href="../examples_intro/" title="Introduction To The Tutorials" class="md-nav__link">
       Introduction To The Tutorials
     </a>
   </li>
@@ -225,7 +225,7 @@
 
 
   <li class="md-nav__item">
-    <a href="api.html" title="Base Class API Reference" class="md-nav__link">
+    <a href="../api/" title="Base Class API Reference" class="md-nav__link">
       Base Class API Reference
     </a>
   </li>
@@ -237,7 +237,7 @@
 
 
   <li class="md-nav__item">
-    <a href="example1.html" title="Tutorial 1 - A Simple Echo Server/Client" class="md-nav__link">
+    <a href="../example1/" title="Tutorial 1 - A Simple Echo Server/Client" class="md-nav__link">
       Tutorial 1  - A Simple Echo Server/Client
     </a>
   </li>
@@ -249,7 +249,7 @@
 
 
   <li class="md-nav__item">
-    <a href="example2.html" title="Tutorial 2 - Adding Command Line Options To A Component" class="md-nav__link">
+    <a href="../example2/" title="Tutorial 2 - Adding Command Line Options To A Component" class="md-nav__link">
       Tutorial 2  - Adding Command Line Options To A Component
     </a>
   </li>
@@ -261,7 +261,7 @@
 
 
   <li class="md-nav__item">
-    <a href="example3.html" title="Tutorial 3 - Distributed Applications" class="md-nav__link">
+    <a href="../example3/" title="Tutorial 3 - Distributed Applications" class="md-nav__link">
       Tutorial 3  - Distributed Applications
     </a>
   </li>
@@ -273,7 +273,7 @@
 
 
   <li class="md-nav__item">
-    <a href="example4.html" title="Tutorial 4 - Applications From Components On Differing Platforms" class="md-nav__link">
+    <a href="../example4/" title="Tutorial 4 - Applications From Components On Differing Platforms" class="md-nav__link">
       Tutorial 4  - Applications From Components On Differing Platforms
     </a>
   </li>
@@ -285,7 +285,7 @@
 
 
   <li class="md-nav__item">
-    <a href="example5.html" title="Tutorial 5 - Debugging Using The Monitor" class="md-nav__link">
+    <a href="../example5/" title="Tutorial 5 - Debugging Using The Monitor" class="md-nav__link">
       Tutorial 5  - Debugging Using The Monitor
     </a>
   </li>
@@ -297,7 +297,7 @@
 
 
   <li class="md-nav__item">
-    <a href="example6.html" title="Tutorial 6 - Integrating With A GUI Event Loop" class="md-nav__link">
+    <a href="../example6/" title="Tutorial 6 - Integrating With A GUI Event Loop" class="md-nav__link">
       Tutorial 6  - Integrating With A GUI Event Loop
     </a>
   </li>
@@ -309,7 +309,7 @@
 
 
   <li class="md-nav__item">
-    <a href="example7.html" title="Tutorial 7 - Installing Components As Executable Modules" class="md-nav__link">
+    <a href="../example7/" title="Tutorial 7 - Installing Components As Executable Modules" class="md-nav__link">
       Tutorial 7  - Installing Components As Executable Modules
     </a>
   </li>
@@ -321,7 +321,7 @@
 
 
   <li class="md-nav__item">
-    <a href="example8.html" title="Tutorial 8 - Using the Banyan Launcher" class="md-nav__link">
+    <a href="../example8/" title="Tutorial 8 - Using the Banyan Launcher" class="md-nav__link">
       Tutorial 8  - Using the Banyan Launcher
     </a>
   </li>
@@ -333,8 +333,20 @@
 
 
   <li class="md-nav__item">
-    <a href="example9.html" title="Tutorial 9 - Connecting To Multiple Backplanes" class="md-nav__link">
+    <a href="../example9/" title="Tutorial 9 - Connecting To Multiple Backplanes" class="md-nav__link">
       Tutorial 9  - Connecting To Multiple Backplanes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example10/" title="Tutorial 10 - Connecting Banyan To An MQTT Network" class="md-nav__link">
+      Tutorial 10 - Connecting Banyan To An MQTT Network
     </a>
   </li>
 
@@ -354,14 +366,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Tutorial 10 - Connecting Banyan To An MQTT Network
+        Tutorial 11 - Physical Computing And GPIO
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
         </span>
       </label>
     
-    <a href="example10.html" title="Tutorial 10 - Connecting Banyan To An MQTT Network" class="md-nav__link md-nav__link--active">
-      Tutorial 10 - Connecting Banyan To An MQTT Network
+    <a href="./" title="Tutorial 11 - Physical Computing And GPIO" class="md-nav__link md-nav__link--active">
+      Tutorial 11 - Physical Computing And GPIO
     </a>
     
       
@@ -380,43 +392,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#example-1-pure-mqtt-publish-and-subscribe" class="md-nav__link">
-    Example 1: Pure MQTT Publish And Subscribe
+  <a href="#a-simple-solution-to-gpio-control-of-a-raspberry-pi" class="md-nav__link">
+    A Simple Solution To GPIO Control Of A Raspberry Pi
   </a>
   
-    <nav class="md-nav" aria-label="Example 1: Pure MQTT Publish And Subscribe">
+    <nav class="md-nav" aria-label="A Simple Solution To GPIO Control Of A Raspberry Pi">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#mqtt-publisher" class="md-nav__link">
-    MQTT Publisher
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mqtt-subscriber" class="md-nav__link">
-    MQTT Subscriber
+  <a href="#the-code-line-by-line" class="md-nav__link">
+    The Code Line By Line
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-2-publishing-a-banyan-message-to-the-mqtt-network" class="md-nav__link">
-    Example 2: Publishing a Banyan Message To the MQTT Network
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-3-publishing-an-mqtt-message-to-the-banyan-network" class="md-nav__link">
-    Example 3: Publishing an MQTT Message To the Banyan Network
-  </a>
   
 </li>
       
@@ -433,19 +424,7 @@
 
 
   <li class="md-nav__item">
-    <a href="example11.html" title="Tutorial 11 - Physical Computing And GPIO" class="md-nav__link">
-      Tutorial 11 - Physical Computing And GPIO
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="benchmark.html" title="Comparing Banyan and MQTT" class="md-nav__link">
+    <a href="../benchmark/" title="Comparing Banyan and MQTT" class="md-nav__link">
       Comparing Banyan and MQTT
     </a>
   </li>
@@ -457,7 +436,7 @@
 
 
   <li class="md-nav__item">
-    <a href="about.html" title="About" class="md-nav__link">
+    <a href="../about/" title="About" class="md-nav__link">
       About
     </a>
   </li>
@@ -499,7 +478,7 @@
 
 
   <li class="md-nav__item">
-    <a href="gpio_intro.html" title="Introducing OneGPIO" class="md-nav__link">
+    <a href="../gpio_intro/" title="Introducing OneGPIO" class="md-nav__link">
       Introducing OneGPIO
     </a>
   </li>
@@ -511,7 +490,7 @@
 
 
   <li class="md-nav__item">
-    <a href="common_messaging_protocol.html" title="The OneGPIO Messaging Protocol" class="md-nav__link">
+    <a href="../common_messaging_protocol/" title="The OneGPIO Messaging Protocol" class="md-nav__link">
       The OneGPIO Messaging Protocol
     </a>
   </li>
@@ -523,7 +502,7 @@
 
 
   <li class="md-nav__item">
-    <a href="banyan_gateways.html" title="An Introduction To OneGPIO Gateways" class="md-nav__link">
+    <a href="../banyan_gateways/" title="An Introduction To OneGPIO Gateways" class="md-nav__link">
       An Introduction To OneGPIO Gateways
     </a>
   </li>
@@ -535,7 +514,7 @@
 
 
   <li class="md-nav__item">
-    <a href="additional_gateways.html" title="Additional Banyan Gateways" class="md-nav__link">
+    <a href="../additional_gateways/" title="Additional Banyan Gateways" class="md-nav__link">
       Additional Banyan Gateways
     </a>
   </li>
@@ -547,7 +526,7 @@
 
 
   <li class="md-nav__item">
-    <a href="one_gpio_demos.html" title="OneGPIO Demos" class="md-nav__link">
+    <a href="../one_gpio_demos/" title="OneGPIO Demos" class="md-nav__link">
       OneGPIO Demos
     </a>
   </li>
@@ -584,43 +563,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#example-1-pure-mqtt-publish-and-subscribe" class="md-nav__link">
-    Example 1: Pure MQTT Publish And Subscribe
+  <a href="#a-simple-solution-to-gpio-control-of-a-raspberry-pi" class="md-nav__link">
+    A Simple Solution To GPIO Control Of A Raspberry Pi
   </a>
   
-    <nav class="md-nav" aria-label="Example 1: Pure MQTT Publish And Subscribe">
+    <nav class="md-nav" aria-label="A Simple Solution To GPIO Control Of A Raspberry Pi">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#mqtt-publisher" class="md-nav__link">
-    MQTT Publisher
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mqtt-subscriber" class="md-nav__link">
-    MQTT Subscriber
+  <a href="#the-code-line-by-line" class="md-nav__link">
+    The Code Line By Line
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-2-publishing-a-banyan-message-to-the-mqtt-network" class="md-nav__link">
-    Example 2: Publishing a Banyan Message To the MQTT Network
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-3-publishing-an-mqtt-message-to-the-banyan-network" class="md-nav__link">
-    Example 3: Publishing an MQTT Message To the Banyan Network
-  </a>
   
 </li>
       
@@ -640,237 +598,172 @@
                   
                 
                 
-                <h1 id="connecting-banyan-applications-to-mqtt">Connecting Banyan Applications To MQTT</h1>
-<p><img align="center" src="../images/mqtt_gateway.png"></p>
-<p>The <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/utils/mqtt_gateway/mqtt_gateway.py">MQTT Gateway</a>
- is a Banyan component that can subscribe to receive MQTT messages
-from the MQTT network, and then forward those messages to the Banyan network.
-It also can subscribe to receive Banyan messages, and then forward those to the MQTT network.</p>
-<p>The MQTT Gateway is installed as a command-line executable when
-Python Banyan is installed. To invoke the MQTT Gateway, open a terminal
-window and type:</p>
-<p><strong>mgw</strong></p>
-<p>There are several optional command-line parameters
-available in mgw. For the examples that follow, the default values are accepted</p>
-<p>Here is a list of all the optional parameters.</p>
-<pre><code>mgw -h
-
-usage: mqtt_gateway.py [-h] [-a MQTT_IP_ADDRESS] [-b BACK_PLANE_IP_ADDRESS]
-                       [-d MQTT_PORT] [-e BANYAN_PUB_TOPIC]
-                       [-g BANYAN_SUB_TOPICS [BANYAN_SUB_TOPICS ...]]
-                       [-i MQTT_PUB_TOPIC]
-                       [-j MQTT_SUB_TOPICS [MQTT_SUB_TOPICS ...]]
-                       [-n PROCESS_NAME] [-p PUBLISHER_PORT]
-                       [-s SUBSCRIBER_PORT] [-t LOOP_TIME]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -a MQTT_IP_ADDRESS    IP address of mqtt broker
-  -b BACK_PLANE_IP_ADDRESS
-                        None or IP address used by Back Plane
-  -d MQTT_PORT          MQTT Port Number
-  -e BANYAN_PUB_TOPIC   Topic for messages to MQTT
-  -g BANYAN_SUB_TOPICS [BANYAN_SUB_TOPICS ...]
-                        Banyan topics space-delimited: topic1 topic2 topic3
-  -i MQTT_PUB_TOPIC     Topic for messages sent to MQTT
-  -j MQTT_SUB_TOPICS [MQTT_SUB_TOPICS ...]
-                        MQTT topics space-delimited: topic1 topic2 topic3
-  -n PROCESS_NAME       Set process name in banner
-  -p PUBLISHER_PORT     Publisher IP port
-  -s SUBSCRIBER_PORT    Subscriber IP port
-  -t LOOP_TIME          Event Loop Timer in seconds
-
+                <h1 id="gpio-control">GPIO Control</h1>
+<p>This section will look at a simple example illustrating GPIO control of a Raspberry Pi using Python Banyan.</p>
+<p>The problem we will solve is this:</p>
+<p>When a user presses a mechanical push button, an LED will light up,
+and a Banyan message will be published. The Banyan message
+contains the state change details of the push button -
+ the GPIO pin number, the current state of the button, and a time
+ tick to indicate when the change occurred.</p>
+<p>When the user releases the pushbutton, the LED will be extinguished. 
+Another message will be published, indicating the new state change.</p>
+<p>All examples will use a Raspberry Pi Model 3 connected to a <a href="http://pibrella.com/">Pibrella</a> hat for ease of use. 
+The Pibrella has a push button and
+several LEDs. This precludes us from having to wire individual components to the
+Raspberry Pi.</p>
+<p>For GPIO control, the <a href="http://abyz.me.uk/rpi/pigpio/">pigpio</a> GPIO library will
+be used.</p>
+<h2 id="a-simple-solution-to-gpio-control-of-a-raspberry-pi">A Simple Solution To GPIO Control Of A Raspberry Pi</h2>
+<p>Let's begin by looking at a simple example
+named <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/single.py">single.py</a>.</p>
+<h3 id="the-code-line-by-line">The Code Line By Line</h3>
+<pre><code> 1  """
+ 2   Copyright (c) 2016-2019 Alan Yorinks All right reserved.
+ 3
+ 4   This program is free software; you can redistribute it and/or
+ 5   modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+ 6   Version 3 as published by the Free Software Foundation; either
+ 7   or (at your option) any later version.
+ 8   This library is distributed in the hope that it will be useful,
+ 9   but WITHOUT ANY WARRANTY; without even the implied warranty of
+10   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+11   General Public License for more details.
+12
+13   You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE
+14   along with this library; if not, write to the Free Software
+15   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+16
+17  """
+18
+19  import sys
+20
+21  import pigpio
+22
+23  from python_banyan.banyan_base import BanyanBase
+24
+25
+26  class Single(BanyanBase):
+27      """
+28      This class will monitor a push button connected to a
+29      Raspberry Pi. When the button is pressed, an LED will light,
+30      and message will be published with changed state of the input pin.
+31      """
+32
+33      def __init__(self, push_button=11, led=4, publish_topic='button'):
+34          """
+35          This method initialize the class for operation
+36          :param push_button: push_button pin
+37          :param led: led pin
+38          :param publish_topic: publishing topic
+39          """
+40
+41          # initialize the parent
+42          super(Single, self).__init__(process_name='Single')
+43
+44          # make the input parameters available to the entire class
+45          self.push_button = push_button
+46          self.led = led
+47          self.publish_topic = publish_topic
+48
+49          # initialize the GPIO pins using pigpio
+50          self.pi = pigpio.pi()
+51          self.pi.set_mode(self.push_button, pigpio.INPUT)
+52          self.pi.set_pull_up_down(self.push_button, pigpio.PUD_DOWN)
+53          self.pi.set_mode(led, pigpio.OUTPUT)
+54
+55          # set a glitch filter to debounce the switch
+56          self.pi.set_glitch_filter(push_button, 100)
+57
+58          # set a callback for when the button is pressed
+59          self.pi.callback(self.push_button, pigpio.EITHER_EDGE,
+60                           self.button_callback)
+61
+62          # this will keep the program running forever
+63          try:
+64              self.receive_loop()
+65          except KeyboardInterrupt:
+66              sys.exit(0)
+67
+68      def button_callback(self, gpio, level, tick):
+69          """
+70          This method receives a change in state of the
+71          pushbutton.
+72
+73          It will print the current state to the console
+74          and reflect that state by turning the LED on
+75          or OFF based on the state.
+76
+77          It will also publish a message containing the state
+78          change.
+79
+80          :param gpio: pin number
+81          :param level: pin level
+82          :param tick: timer tick
+83          """
+84          print('The pushbutton state is {} on pin {} '
+85                'and changed at tick {}'.format(level, gpio, tick))
+86
+87          self.pi.write(self.led, level)
+88
+89          # create a publishing payload
+90          payload = {'pushbutton state': level, 'gpio_pin': gpio,
+91                     'time_tick':tick}
+92          self.publish_payload(payload, self.publish_topic)
+93
+94
+95  Single()
 </code></pre>
-
-<p>When the MQTT Gateway is invoked, it automatically connects to both the Banyan Backplane and the MQTT Broker.</p>
-<p>Before running the following examples, make sure that you
-have a <a href="https://mosquitto.org/">mosquitto broker</a> and a <a href="../examples_intro/#starting-the-backplane">Python Banyan
-Backplane</a> running.</p>
-<h2 id="example-1-pure-mqtt-publish-and-subscribe">Example 1: Pure MQTT Publish And Subscribe</h2>
-<p>This example will publish a simple MQTT message to be received by a simple
-MQTT subscriber.</p>
-<h3 id="mqtt-publisher">MQTT Publisher</h3>
-<p>Below is the code for a simple <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/mqtt_gateway/pub.py">MQTT publisher</a>
- that publishes a single message and exits.</p>
-<pre><code>import json
-
-import paho.mqtt.client as mqtt
-
-# This is a simple MQTT publisher example.
-# It connects to an MQTT broker, builds a payload and
-# then publishes the message with a topic of &quot;mqtt_network&quot;.
-
-my_client = mqtt.Client()
-my_client.connect(&quot;localhost&quot;, 1883, 60)
-z = {'from_mqtt_client': 'hello'}
-
-payload = json.dumps(z).encode()
-my_client.publish(&quot;mqtt_network&quot;, payload)
-my_client.disconnect()
-</code></pre>
-
-<h3 id="mqtt-subscriber">MQTT Subscriber</h3>
-<p>The <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/mqtt_gateway/sub.py">MQTT subscriber</a>
- connects to an MQTT broker
-and subscribes to 2 topics. The <strong>mqtt_network</strong> messages are for messages originated
-on the MQTT network. The <strong>from_banyan</strong> messages are messages that were originated on the
-Banyan network. For this first example, no messages are originated from the Banyan network.</p>
-<pre><code>import paho.mqtt.client as mqtt
-import json
-
-
-# This is a simple MQTT subscriber example.
-# It connects to an MQTT broker and
-# subscribes to &quot;mqtt_network&quot; messages
-# and prints a message when one is received.
-
-def on_connect(client, userdata, flags, rc):
-    print(&quot;Connected with result code &quot; + str(rc))
-    client.subscribe(&quot;mqtt_network&quot;)
-    client.subscribe(&quot;from_banyan&quot;)
-
-
-def on_message(client, userdata, msg):
-    m = msg.payload.decode()
-    x = json.loads(m)
-    print(x)
-
-
-my_client = mqtt.Client()
-my_client.connect(&quot;localhost&quot;, 1883, 60)
-
-my_client.on_connect = on_connect
-my_client.on_message = on_message
-
-my_client.loop_forever()
-
-</code></pre>
-
-<p>First, we start the subscriber and then the publisher. The subscriber prints
-any messages it receives. Here is the subscriber console output after
-running the publisher:</p>
-<pre><code>python3 sub.py
-Connected with result code 0
-{'from_mqtt_client': 'hello'}
-
-</code></pre>
-
-<h2 id="example-2-publishing-a-banyan-message-to-the-mqtt-network">Example 2: Publishing a Banyan Message To the MQTT Network</h2>
-<p>Start the MQTT Gateway by opening a terminal window and typing:
-mgw</p>
-<p>The Gateway connects to the Python Backplane and the MQTT broker</p>
-<pre><code>$ mgw
+<p>Line 21 imports the pigpio library.</p>
+<p>Lines 49 through 60 set the pin mode for both the push button
+and the LED.</p>
+<p>Note: The Pibrella requires that the pull-down resistor be enabled on the
+Raspberry Pi. Line 52 enables the pull-down resistor.</p>
+<p>A "glitch" filter is set on line 56 to prevent the push button from
+generating multiple events from a single press or release of the
+button.</p>
+<p>Line 59 establishes a callback for when the button is either
+pressed or released.</p>
+<p>Line 64 calls the base class receive_loop method to
+keep the loop running until the user quits the program.</p>
+<p>The callback method is contained in lines 68 through 92.</p>
+<p>When the user presses or releases the pushbutton, the callback method will be
+called by pigpio.</p>
+<p>Lines 84 and 85 print a message to the console containing the
+parameters passed by pigpio to this method.</p>
+<p>On line 87, the LED is set to the reported state. Finally,
+lines 89-92 create and publish a Banyan message about the push button
+event.</p>
+<p>Here is the output on the console after pressing and releasing the
+button twice:</p>
+<pre><code>python3 single.py
 
 ************************************************************
-MqttGateway using Back Plane IP address: 192.168.2.189
+Single using Back Plane IP address: 192.168.2.192
 Subscriber Port = 43125
 Publisher  Port = 43124
 Loop Time = 0.1 seconds
 ************************************************************
-MQTT Gateway Connected to MQTT localhost:1883 with result code 0.
-
+The pushbutton state is 1 on pin 11 and changed at tick 3856477239
+The pushbutton state is 0 on pin 11 and changed at tick 3857470672
+The pushbutton state is 1 on pin 11 and changed at tick 3858747310
+The pushbutton state is 0 on pin 11 and changed at tick 3859867653
 </code></pre>
 
-<p>If it not already running, start the MQTT subscriber, sub.py.</p>
-<p>To generate a message from Banyan to the MQTT network, we will use a Banyan component called
-<a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/mqtt_gateway/bpub.py">bpub.py:</a></p>
-<pre><code>from python_banyan.banyan_base import BanyanBase
-
-
-class Bpub(BanyanBase):
-    &quot;&quot;&quot;
-    This class will publish a message for the MqttGateway to forward to the MQTT network.
-    &quot;&quot;&quot;
-
-    def __init__(self):
-        &quot;&quot;&quot;
-        This is constructor for the Bpub class
-
-        &quot;&quot;&quot;
-
-        # initialize the base class
-        super(Bpub, self).__init__(process_name='Bpub')
-
-        # send a message to the MqttGateway
-        self.publish_payload({'from_banyan': 'hello_mqtt_world'}, 'to_mqtt')
-
-        # exit
-        self.clean_up()
-
-
-b = Bpub()
-</code></pre>
-
-<p>If we then start the <em>bpub.py</em> and look at the MQTT Subscriber's output, we see the message
-from Banyan was sent out over MQTT and received by the MQTT subscriber:</p>
-<pre><code>~/PycharmProjects/python_banyan$ python3 sub.py
-
-Connected with result code 0
-{'from_banyan': 'hello_mqtt_world'}
-</code></pre>
-
-<p>The Gateway received a Banyan message, translated it to an MQTT message,
- published this message on the MQTT network, and received the translated message by the MQTT subscriber.</p>
-<h2 id="example-3-publishing-an-mqtt-message-to-the-banyan-network">Example 3: Publishing an MQTT Message To the Banyan Network</h2>
-<p>In this example, an MQTT message will be published by pub.py.
-The MQTT Gateway will receive this message. It will then translate
-this message to a Banyan message and publish
-the message to the Banyan network.</p>
-<p>A Banyan component called <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/mqtt_gateway/bsub.py"><strong>bsub.py</strong></a> 
-subscribes to receive the translated message and will publish it to the console.</p>
-<p>To run this example, start the MQTT Gateway as we did in
-<a href="../example10/#example-2-publishing-a-banyan-message-to-the-mqtt-network">Example 2.</a></p>
-<p>Start bsub.py:</p>
-<pre><code>python3 bsub.py
-</code></pre>
-
-<pre><code>from python_banyan.banyan_base import BanyanBase
-
-
-class Bsub(BanyanBase):
-    &quot;&quot;&quot;
-    This class will receive any MQTT messages intercepted by MqttGateway
-    &quot;&quot;&quot;
-
-    def __init__(self):
-        &quot;&quot;&quot;
-        This is constructor for the Bpub class
-
-        &quot;&quot;&quot;
-
-        # initialize the base class
-        super(Bsub, self).__init__(process_name='Bsub')
-
-        # subscribe to receive MQTT messages processed
-        # by the MqttGateway
-        self.set_subscriber_topic('from_mqtt')
-
-        # start the receive_loop
-        self.receive_loop()
-
-    def incoming_message_processing(self, topic, payload):
-        print(topic, payload)
-
-
-b = Bsub()
-
-</code></pre>
-
-<p>And finally, start the MQTT publisher pub.py</p>
-<pre><code>python3 pub.py
-</code></pre>
-
-<p>Looking at the console for bsub.py, we see that the message was received from the MQTT
-network and received by the Banyan network.</p>
-<pre><code>python3 bsub.py
+<p>And here is the output from a Monitor session as the button is pressed
+and released.</p>
+<pre><code>$ monitor
 
 ************************************************************
-Bsub using Back Plane IP address: 192.168.2.189
+Monitor using Back Plane IP address: 192.168.2.192
 Subscriber Port = 43125
 Publisher  Port = 43124
 Loop Time = 0.1 seconds
 ************************************************************
-from_mqtt {'from_mqtt_client': 'hello'}
+button {'time_tick': 3856477239, 'pushbutton state': 1, 'gpio_pin': 11}
+button {'time_tick': 3857470672, 'pushbutton state': 0, 'gpio_pin': 11}
+button {'time_tick': 3858747310, 'pushbutton state': 1, 'gpio_pin': 11}
+button {'time_tick': 3859867653, 'pushbutton state': 0, 'gpio_pin': 11}
 </code></pre>
 
 <p><br>
@@ -894,7 +787,7 @@ Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="example9.html" title="Tutorial 9 - Connecting To Multiple Backplanes" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../example10/" title="Tutorial 10 - Connecting Banyan To An MQTT Network" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -903,19 +796,19 @@ Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Tutorial 9  - Connecting To Multiple Backplanes
+                Tutorial 10 - Connecting Banyan To An MQTT Network
               </div>
             </div>
           </a>
         
         
-          <a href="example11.html" title="Tutorial 11 - Physical Computing And GPIO" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../benchmark/" title="Comparing Banyan and MQTT" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Tutorial 11 - Physical Computing And GPIO
+                Comparing Banyan and MQTT
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -942,15 +835,15 @@ Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
       
     </div>
     
-      <script src="assets/javascripts/vendor.a0c4167b.min.js"></script>
-      <script src="assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../assets/javascripts/vendor.a0c4167b.min.js"></script>
+      <script src="../assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
-          base: ".",
+          base: "..",
           features: [],
           search: Object.assign({
-            worker: "assets/javascripts/worker/search.37585f48.min.js"
+            worker: "../assets/javascripts/worker/search.37585f48.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
