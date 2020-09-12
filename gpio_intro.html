@@ -10,16 +10,16 @@
       
       
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.6">
     
     
       
-        <title>Tutorial 5 - Debugging Using The Monitor - Python Banyan</title>
+        <title>Introducing OneGPIO - Python Banyan</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.4b9ffd7b.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.4b9ffd7b.min.css">
       
       
     
@@ -48,7 +48,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-banyan-monitor" class="md-skip">
+        <a href="#standard-function-call-gpio-api-libraries" class="md-skip">
           Skip to content
         </a>
       
@@ -59,7 +59,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href=".." title="Python Banyan" class="md-header-nav__button md-logo" aria-label="Python Banyan">
+    <a href="." title="Python Banyan" class="md-header-nav__button md-logo" aria-label="Python Banyan">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -76,7 +76,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Tutorial 5  - Debugging Using The Monitor
+              Introducing OneGPIO
             
           </span>
         </div>
@@ -133,7 +133,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Python Banyan" class="md-nav__button md-logo" aria-label="Python Banyan">
+    <a href="." title="Python Banyan" class="md-nav__button md-logo" aria-label="Python Banyan">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -150,7 +150,7 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Welcome" class="md-nav__link">
+    <a href="index.html" title="Welcome" class="md-nav__link">
       Welcome
     </a>
   </li>
@@ -160,12 +160,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       User's Guide
@@ -189,7 +187,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../users_guide/" title="What Is Python Banyan?" class="md-nav__link">
+    <a href="users_guide.html" title="What Is Python Banyan?" class="md-nav__link">
       What Is Python Banyan?
     </a>
   </li>
@@ -201,7 +199,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../install/" title="Installation" class="md-nav__link">
+    <a href="install.html" title="Installation" class="md-nav__link">
       Installation
     </a>
   </li>
@@ -213,7 +211,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../examples_intro/" title="Introduction To The Tutorials" class="md-nav__link">
+    <a href="examples_intro.html" title="Introduction To The Tutorials" class="md-nav__link">
       Introduction To The Tutorials
     </a>
   </li>
@@ -225,7 +223,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/" title="Base Class API Reference" class="md-nav__link">
+    <a href="api.html" title="Base Class API Reference" class="md-nav__link">
       Base Class API Reference
     </a>
   </li>
@@ -237,7 +235,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../example1/" title="Tutorial 1 - A Simple Echo Server/Client" class="md-nav__link">
+    <a href="example1.html" title="Tutorial 1 - A Simple Echo Server/Client" class="md-nav__link">
       Tutorial 1  - A Simple Echo Server/Client
     </a>
   </li>
@@ -249,7 +247,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../example2/" title="Tutorial 2 - Adding Command Line Options To A Component" class="md-nav__link">
+    <a href="example2.html" title="Tutorial 2 - Adding Command Line Options To A Component" class="md-nav__link">
       Tutorial 2  - Adding Command Line Options To A Component
     </a>
   </li>
@@ -261,7 +259,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../example3/" title="Tutorial 3 - Distributed Applications" class="md-nav__link">
+    <a href="example3.html" title="Tutorial 3 - Distributed Applications" class="md-nav__link">
       Tutorial 3  - Distributed Applications
     </a>
   </li>
@@ -273,7 +271,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../example4/" title="Tutorial 4 - Applications From Components On Differing Platforms" class="md-nav__link">
+    <a href="example4.html" title="Tutorial 4 - Applications From Components On Differing Platforms" class="md-nav__link">
       Tutorial 4  - Applications From Components On Differing Platforms
     </a>
   </li>
@@ -283,20 +281,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="Tutorial 5 - Debugging Using The Monitor" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="example5.html" title="Tutorial 5 - Debugging Using The Monitor" class="md-nav__link">
       Tutorial 5  - Debugging Using The Monitor
     </a>
-    
   </li>
 
         
@@ -306,7 +295,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../example6/" title="Tutorial 6 - Integrating With A GUI Event Loop" class="md-nav__link">
+    <a href="example6.html" title="Tutorial 6 - Integrating With A GUI Event Loop" class="md-nav__link">
       Tutorial 6  - Integrating With A GUI Event Loop
     </a>
   </li>
@@ -318,7 +307,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../example7/" title="Tutorial 7 - Installing Components As Executable Modules" class="md-nav__link">
+    <a href="example7.html" title="Tutorial 7 - Installing Components As Executable Modules" class="md-nav__link">
       Tutorial 7  - Installing Components As Executable Modules
     </a>
   </li>
@@ -330,7 +319,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../example8/" title="Tutorial 8 - Using the Banyan Launcher" class="md-nav__link">
+    <a href="example8.html" title="Tutorial 8 - Using the Banyan Launcher" class="md-nav__link">
       Tutorial 8  - Using the Banyan Launcher
     </a>
   </li>
@@ -342,7 +331,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../example9/" title="Tutorial 9 - Connecting To Multiple Backplanes" class="md-nav__link">
+    <a href="example9.html" title="Tutorial 9 - Connecting To Multiple Backplanes" class="md-nav__link">
       Tutorial 9  - Connecting To Multiple Backplanes
     </a>
   </li>
@@ -354,7 +343,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../example10/" title="Tutorial 10 - Connecting Banyan To An MQTT Network" class="md-nav__link">
+    <a href="example10.html" title="Tutorial 10 - Connecting Banyan To An MQTT Network" class="md-nav__link">
       Tutorial 10 - Connecting Banyan To An MQTT Network
     </a>
   </li>
@@ -366,7 +355,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../example11/" title="Tutorial 11 - Physical Computing And GPIO" class="md-nav__link">
+    <a href="example11.html" title="Tutorial 11 - Physical Computing And GPIO" class="md-nav__link">
       Tutorial 11 - Physical Computing And GPIO
     </a>
   </li>
@@ -378,7 +367,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../benchmark/" title="Comparing Banyan and MQTT" class="md-nav__link">
+    <a href="benchmark.html" title="Comparing Banyan and MQTT" class="md-nav__link">
       Comparing Banyan and MQTT
     </a>
   </li>
@@ -390,7 +379,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../about/" title="About" class="md-nav__link">
+    <a href="about.html" title="About" class="md-nav__link">
       About
     </a>
   </li>
@@ -405,10 +394,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       The OneGPIO Project
@@ -430,11 +421,56 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../gpio_intro/" title="Introducing OneGPIO" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Introducing OneGPIO
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="gpio_intro.html" title="Introducing OneGPIO" class="md-nav__link md-nav__link--active">
       Introducing OneGPIO
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#standard-function-call-gpio-api-libraries" class="md-nav__link">
+    "Standard" Function Call GPIO API Libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-banyan-onegpio-api" class="md-nav__link">
+    The Banyan OneGPIO API
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -444,7 +480,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../common_messaging_protocol/" title="The OneGPIO Messaging Protocol" class="md-nav__link">
+    <a href="common_messaging_protocol.html" title="The OneGPIO Messaging Protocol" class="md-nav__link">
       The OneGPIO Messaging Protocol
     </a>
   </li>
@@ -456,7 +492,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../banyan_gateways/" title="An Introduction To OneGPIO Gateways" class="md-nav__link">
+    <a href="banyan_gateways.html" title="An Introduction To OneGPIO Gateways" class="md-nav__link">
       An Introduction To OneGPIO Gateways
     </a>
   </li>
@@ -468,7 +504,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../additional_gateways/" title="Additional Banyan Gateways" class="md-nav__link">
+    <a href="additional_gateways.html" title="Additional Banyan Gateways" class="md-nav__link">
       Additional Banyan Gateways
     </a>
   </li>
@@ -480,7 +516,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../one_gpio_demos/" title="OneGPIO Demos" class="md-nav__link">
+    <a href="one_gpio_demos.html" title="OneGPIO Demos" class="md-nav__link">
       OneGPIO Demos
     </a>
   </li>
@@ -505,8 +541,30 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#standard-function-call-gpio-api-libraries" class="md-nav__link">
+    "Standard" Function Call GPIO API Libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-banyan-onegpio-api" class="md-nav__link">
+    The Banyan OneGPIO API
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -522,34 +580,112 @@
                   
                 
                 
-                <h1 id="the-banyan-monitor">The Banyan Monitor</h1>
-<p>When Python Banyan is installed, an executable program called
-<strong><em>monitor</em></strong> is automatically installed.</p>
-<p>The <strong><em>monitor</em></strong> is a special Banyan component that prints all protocol
-messages published to the Backplane. It displays the message topic as well
-as the payload for each message. It is used mainly as a debugging aid to monitor and
-debug messaging traffic.</p>
-<p>To see the monitor in action, start the Backplane and server as described
-in <a href="../example1">Section 1</a>. Before starting the client, open
-a terminal or command window and type:</p>
-<pre><code>monitor
-</code></pre>
-
-<p><img align="center" src="../images/monitor1.png"></p>
-<p>The monitor displays a familiar Banyan banner.</p>
-<p>Now start the client. The monitor will display all of the protocol messages
-published by both the client and the server.</p>
-<p><img align="center" src="../images/monitor2.png"></p>
-<p>The monitor displays each protocol message. The topic is displayed, followed by
-the payload. The topic is displayed as a string and the payload as a Python dictionary.</p>
-<p>Note that CPU utilization is likely to increase when the monitor is active, 
-so you may wish to dismiss the monitor once an application is debugged.</p>
-<p>The monitor has several command-line options available:</p>
-<p><img align="center" src="../images/monitor_h.png"></p>
-<p>The monitor may be located on any computer and be connected
- to any backplane by using the -b, -s, and -p options. </p>
-<p>If you wish to display numpy data payloads, use the -m option and set it
-to True.</p>
+                  <h1>Introducing OneGPIO</h1>
+                
+                <p><strong><em>OneGPIO</em></strong> is a generalized GPIO specification and framework that will
+allow you to construct GPIO based projects quickly.</p>
+<p>OneGPIO projects are both <em>target hardware</em>
+and <em>computer language</em> independent. This independence is
+accomplished by taking advantage of 
+the 
+abstract nature of the <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/message_specification/OneGPIO.pdf">OneGPIO message set</a>
+and the <a href="../users_guide/">Python Banyan Framework.</a></p>
+<p>A OneGPIO project is typically comprised of 2 main elements - a single OneGPIO Application
+Component and one or more OneGPIO Gateways. The application component is unique for each project.
+The Gateways are reusable components that need no modification when going from one project to
+ another. </p>
+<p>The Application Component contains all the GPIO control logic for your application,
+as well as the logic to process report messages sent from the target hardware.
+A OneGPIO component is responsible for assembling and publishing OneGPIO control messages.
+Also, it subscribes to receive OneGPIO report messages that are sent from the OneGPIO Hardware
+Gateways, connected to target hardware.</p>
+<p>A working OneGPIO project designed for a specific target hardware set is easily converted to
+run on different target hardware by merely enabling the OneGPIO hardware-specific gateway.
+No code changes are needed.</p>
+<p><img align="center" src="../images/one_gpio.png"></p>
+<p>Included with this distribution are several demonstration applications that use
+a single OneGPIO application component (or a variation of that component) to control
+Arduino, ESP-8266, and Raspberry Pi targets. </p>
+<p>For those in a hurry to see OneGPIO in action, 
+you can skip to this document's <a href="../one_gpio_demos/">demonstration section of this document.</a></p>
+<h2 id="standard-function-call-gpio-api-libraries">"Standard" Function Call GPIO API Libraries</h2>
+<p>GPIO API libraries, such as <a href="http://abyz.me.uk/rpi/pigpio/"><em>pigpio</em></a> 
+and <a href="https://gpiozero.readthedocs.io/en/stable/"><em>Gpiozero</em></a> 
+(supporting the Raspberry Pi), and
+<a href="https://mryslab.github.io/pymata-express/"><em>pymata-express</em></a> 
+(supporting the Arduino), all provide software abstractions for GPIO
+control. All of these libraries are written in Python and use function
+or method calls to implement the API. </p>
+<p>Using any of these libraries essentially result in the same
+electrical outcomes, but they have widely differing syntax structures.</p>
+<p>For example, suppose we wish to take advantage of PWM functionality to
+ set an LED's illumination level or a motor's speed. In that case, we might utilize a specific GPIO API library.</p>
+<p>The table below illustrates the PWM API interface for the three libraries mentioned
+above.</p>
+<table>
+<thead>
+<tr>
+<th>GPIO Operation</th>
+<th>pigpio</th>
+<th>Gpiozero</th>
+<th>pymata-express</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Set Pin To PWM Mode</td>
+<td>pi.set_mode(PIN, pigpio.OUTPUT)</td>
+<td>led = PWMLED(PIN)</td>
+<td>set_pin_mode_pwm(PIN)</td>
+</tr>
+<tr>
+<td>Set PWM Pin Value To 50%</td>
+<td>pi.set_PWM_dutycycle(PIN, 128)</td>
+<td>led.value = 0.5</td>
+<td>analog_write(PIN, 128)</td>
+</tr>
+</tbody>
+</table>
+<p>As you can plainly see, each library has its own unique way of expressing GPIO operations.</p>
+<p>Because of the syntax differences, it makes
+porting a hardware project from one hardware platform to another
+a laborious and tedious process, not to mention being error-prone and time-consuming.
+It also severely hampers the possibility of code reuse for future projects.</p>
+<h2 id="the-banyan-onegpio-api">The Banyan OneGPIO API</h2>
+<p>OneGPIO takes advantage of the portable nature of Banyan protocol messages to
+provide a unified GPIO API. In addition to the OneGPIO GPIO message specification,
+the OneGPIO concept specifies a framework for building specialized Banyan components,
+ called Banyan GPIO Gateways. These specialized components translate 
+OneGPIO messages to and from a specific hardware platform. The OneGPIO project
+includes fully functional Banyan Gateways for the Arduino, 
+ESP-8266, and Raspberry Pi.</p>
+<p>A single OneGPIO control component can control a single hardware target or
+multiple targets simultaneously without any code changes. </p>
+<p>All OneGPIO Gateways
+are derived from a Gateway Base class, making it easy to create new
+Banyan Gateways. </p>
+<p>You may use the included <a href="../banyan_gateways/">OneGPIO Gateways</a> as is, 
+or you may easily customize them to meet your
+specific needs.</p>
+<p>In the following sections, we will:</p>
+<ul>
+<li>Discuss the OneGPIO messaging protocol</li>
+<li>Discuss Banyan OneGPIO Gateway internals</li>
+<li>
+<p>Discuss the included demonstration programs</p>
+<ul>
+<li>Demonstrate a single OneGPIO Application Component that can blink an LED on an Arduino, ESP-8266, or Raspberry Pi</li>
+<li>Demonstrate how a single OneGPIO Tkinter Application Component can control
+a Raspberry Pi, Arduino, and ESP-8266</li>
+</ul>
+<p><img align="center" src="../images/tk_banyan.png"></p>
+<ul>
+<li>Demonstrate a Banyan WebSocket gateway that allows an HTML web page to control
+any of the 3 hardware platforms</li>
+</ul>
+</li>
+</ul>
+<p><img align="center" src="../images/web_banyan.png"></p>
 <p><br>
 <br>
 Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
@@ -571,7 +707,7 @@ Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../example4/" title="Tutorial 4 - Applications From Components On Differing Platforms" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="about.html" title="About" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -580,19 +716,19 @@ Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Tutorial 4  - Applications From Components On Differing Platforms
+                About
               </div>
             </div>
           </a>
         
         
-          <a href="../example6/" title="Tutorial 6 - Integrating With A GUI Event Loop" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="common_messaging_protocol.html" title="The OneGPIO Messaging Protocol" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Tutorial 6  - Integrating With A GUI Event Loop
+                The OneGPIO Messaging Protocol
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -619,15 +755,15 @@ Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
       
     </div>
     
-      <script src="../assets/javascripts/vendor.a0c4167b.min.js"></script>
-      <script src="../assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="assets/javascripts/vendor.a0c4167b.min.js"></script>
+      <script src="assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
-          base: "..",
+          base: ".",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.37585f48.min.js"
+            worker: "assets/javascripts/worker/search.37585f48.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
