@@ -1,191 +1,573 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.6">
+    
+    
+      
+        <title>Python Banyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.4b9ffd7b.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
   
   
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="None">
-    
-    
-    <link rel="shortcut icon" href="./img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Python Banyan</title>
-    <link href="./css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="./css/font-awesome-4.7.0.css" rel="stylesheet">
-    <link href="./css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/highlight.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-    <script src="./js/jquery-3.2.1.min.js"></script>
-    <script src="./js/bootstrap-3.3.7.min.js"></script>
-    <script src="./js/highlight.pack.js"></script>
-    
-      <script src="./js/elasticlunr.min.js"></script>
-    
-    <base target="_top">
-    <script>
-      var base_url = '.';
-      var is_top_frame = (window === window.parent);
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
-        var pageToc = [
-        ];
-
-    </script>
-    <script src="./js/base.js"></script> 
-</head>
-
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
-
-<nav class="navbar wm-page-top-frame">
-  <div class="container-fluid wm-top-container">
+        <a href="#guide-contents" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
-    <div class="wm-top-tool pull-right wm-vcenter">
-      <form class="dropdown wm-vcentered" id="wm-search-form" action="./search.html">
-        
-        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
-          ><i class="fa fa-search" aria-hidden="true"></i></button>
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="." title="Python Banyan" class="md-header-nav__button md-logo" aria-label="Python Banyan">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
-        <div class="input-group input-group-sm wm-top-search">
-          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
-          <span class="input-group-btn" role="search">
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Python Banyan
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
             
-            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
-            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
-            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+              Welcome
+            
           </span>
         </div>
-      </form>
-    </div>
-
-    
-    <div class="wm-top-tool wm-vcenter pull-right wm-small-left">
-      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
-    </div>
-
-    
-    
-
-    
-    <a href="" class="wm-top-brand wm-top-link wm-vcenter">
       
-      <div class="wm-top-title">
-        Python Banyan<br>
-        
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
       </div>
-    </a>
-  </div>
-</nav>
-
-  <div id="main-content" class="wm-page-top-frame">
-    
-<nav class="wm-toc-pane">
-  
-  <ul class="wm-toctree">
-        <li class="wm-toc-li wm-toc-lev1 "><a href="" class="wm-article-link wm-toc-text">Welcome</a>
-</li>
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">User's Guide</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="users_guide/" class="wm-article-link wm-toc-text">What Is Python Banyan?</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="install/" class="wm-article-link wm-toc-text">Installation</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="examples_intro/" class="wm-article-link wm-toc-text">Introduction To The Tutorials</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="api/" class="wm-article-link wm-toc-text">Base Class API Reference</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="example1/" class="wm-article-link wm-toc-text">Tutorial 1  - A Simple Echo Server/Client</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="example2/" class="wm-article-link wm-toc-text">Tutorial 2  - Adding Command Line Options To A Component</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="example3/" class="wm-article-link wm-toc-text">Tutorial 3  - Distributed Applications</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="example4/" class="wm-article-link wm-toc-text">Tutorial 4  - Applications From Components On Differing Platforms</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="example5/" class="wm-article-link wm-toc-text">Tutorial 5  - Debugging Using The Monitor</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="example6/" class="wm-article-link wm-toc-text">Tutorial 6  - Integrating With A GUI Event Loop</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="example7/" class="wm-article-link wm-toc-text">Tutorial 7  - Installing Components As Executable Modules</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="example8/" class="wm-article-link wm-toc-text">Tutorial 8  - Using the Banyan Launcher</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="example9/" class="wm-article-link wm-toc-text">Tutorial 9  - Connecting To Multiple Backplanes</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="example10/" class="wm-article-link wm-toc-text">Tutorial 10 - Connecting Banyan To An MQTT Network</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="example11/" class="wm-article-link wm-toc-text">Tutorial 11 - Physical Computing And GPIO</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="benchmark/" class="wm-article-link wm-toc-text">Comparing Banyan and MQTT</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="about/" class="wm-article-link wm-toc-text">About</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">The OneGPIO Project</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="gpio_intro/" class="wm-article-link wm-toc-text">Introduction</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="common_messaging_protocol/" class="wm-article-link wm-toc-text">The OneGPIO Messaging Protocol</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="banyan_gateways/" class="wm-article-link wm-toc-text">OneGPIO Gateways</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="additional_gateways/" class="wm-article-link wm-toc-text">Additional Banyan Gateways</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="one_gpio_demos/" class="wm-article-link wm-toc-text">OneGPIO Demos</a>
-</li>
-  </ul>
-</li>
-
-  </ul>
-</nav>
-
-    <div class="wm-content-pane">
-      <iframe class="wm-article" name="article"></iframe>
     </div>
   </div>
-
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
+</div>
     
-
     
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Python Banyan" class="md-nav__button md-logo" aria-label="Python Banyan">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Python Banyan
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
     
       
-    
+      
+      
 
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
     
-    <div class="wm-article-nav pull-right">
-      <a href="users_guide/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="users_guide/" class="btn btn-xs btn-link">
-        What Is Python Banyan?
-      </a>
-    </div>
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-  </div>
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Welcome
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="." title="Welcome" class="md-nav__link md-nav__link--active">
+      Welcome
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#guide-contents" class="md-nav__link">
+    Guide Contents
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
 
     
+      
+      
+      
 
-    <p><img src="images/BanyanTree.png" alt="BanyanTree" align=bottom style="float:left;margin-right:35px;
-width:250px;height:250px;">
-<br></br></p>
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      User's Guide
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="User's Guide" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        User's Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="users_guide/" title="What Is Python Banyan?" class="md-nav__link">
+      What Is Python Banyan?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="install/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples_intro/" title="Introduction To The Tutorials" class="md-nav__link">
+      Introduction To The Tutorials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="api/" title="Base Class API Reference" class="md-nav__link">
+      Base Class API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="example1/" title="Tutorial 1 - A Simple Echo Server/Client" class="md-nav__link">
+      Tutorial 1  - A Simple Echo Server/Client
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="example2/" title="Tutorial 2 - Adding Command Line Options To A Component" class="md-nav__link">
+      Tutorial 2  - Adding Command Line Options To A Component
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="example3/" title="Tutorial 3 - Distributed Applications" class="md-nav__link">
+      Tutorial 3  - Distributed Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="example4/" title="Tutorial 4 - Applications From Components On Differing Platforms" class="md-nav__link">
+      Tutorial 4  - Applications From Components On Differing Platforms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="example5/" title="Tutorial 5 - Debugging Using The Monitor" class="md-nav__link">
+      Tutorial 5  - Debugging Using The Monitor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="example6/" title="Tutorial 6 - Integrating With A GUI Event Loop" class="md-nav__link">
+      Tutorial 6  - Integrating With A GUI Event Loop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="example7/" title="Tutorial 7 - Installing Components As Executable Modules" class="md-nav__link">
+      Tutorial 7  - Installing Components As Executable Modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="example8/" title="Tutorial 8 - Using the Banyan Launcher" class="md-nav__link">
+      Tutorial 8  - Using the Banyan Launcher
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="example9/" title="Tutorial 9 - Connecting To Multiple Backplanes" class="md-nav__link">
+      Tutorial 9  - Connecting To Multiple Backplanes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="example10/" title="Tutorial 10 - Connecting Banyan To An MQTT Network" class="md-nav__link">
+      Tutorial 10 - Connecting Banyan To An MQTT Network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="example11/" title="Tutorial 11 - Physical Computing And GPIO" class="md-nav__link">
+      Tutorial 11 - Physical Computing And GPIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="benchmark/" title="Comparing Banyan and MQTT" class="md-nav__link">
+      Comparing Banyan and MQTT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      The OneGPIO Project
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="The OneGPIO Project" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        The OneGPIO Project
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="gpio_intro/" title="Introducing OneGPIO" class="md-nav__link">
+      Introducing OneGPIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="common_messaging_protocol/" title="The OneGPIO Messaging Protocol" class="md-nav__link">
+      The OneGPIO Messaging Protocol
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="banyan_gateways/" title="An Introduction To OneGPIO Gateways" class="md-nav__link">
+      An Introduction To OneGPIO Gateways
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="additional_gateways/" title="Additional Banyan Gateways" class="md-nav__link">
+      Additional Banyan Gateways
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="one_gpio_demos/" title="OneGPIO Demos" class="md-nav__link">
+      OneGPIO Demos
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#guide-contents" class="md-nav__link">
+    Guide Contents
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>Welcome</h1>
+                
+                <p><img src="images/BanyanTree.png" alt="BanyanTree" align=bottom style="float:left;margin-right:35px;
+width:350px;height:350px;"></p>
 <p><span style="text-align:center; color:#990033; font-family:times, serif; font-size:3em"> 
   Programming
   </span></p>
@@ -199,60 +581,88 @@ width:250px;height:250px;">
 <br>
 <p align="left"></p>
 <br>
-<span style="font-family:font-family:times, serif; font-size:1.0em;"><b>The Python Banyan Framework is a lightweight,
+<span style="font-family:font-family:times, serif; font-size:1.0em;">The Python Banyan Framework is a lightweight,
  reactive framework used to create flexible, non-blocking, event-driven,
- asynchronous applications. It was designed primarily to aid in the 
- implementation of real-time physical computing applications for 
- devices such as the Raspberry Pi, ESP8266,  and Arduino, but may easily 
- be applied to projects outside of the physical programming domain.</b></span></p>
-<p><span style="font-family:Georgia; font-size:1.0em;"><b> Here you will learn:</b></span></p>
+ asynchronous applications. It was designed primarily to aid in implementing 
+ real-time physical computing applications for 
+ devices such as the Raspberry Pi, ESP8266,  and Arduino. Still, it may easily be applied to 
+ projects outside of the physical programming domain. </span></p>
+<h2 id="guide-contents">Guide Contents</h2>
 <ul>
-<li>
-<p><a href="users_guide/"><strong>How To Use Python Banyan</strong></a></p>
-</li>
-<li>
-<p><a href="gpio_intro/"><strong>How To Create Physical Computing Projects With The OneGPIO API Specification</strong></a>
-<br>
-<br></p>
-</li>
+<li><a href="users_guide/">How To Use Python Banyan</a> using a learn-by-example approach.</li>
+<li><a href="gpio_intro/">How To Create Portable Physical Computing Projects Using The OneGPIO API Specification</a>.</li>
 </ul>
-<p>Last Updated: 29 January 2020 &nbsp; &nbsp; &nbsp; python-banyan version: v3.9
+<p><br>
+Last Updated: 12 September, 2020 &nbsp; &nbsp; &nbsp; python-banyan version: v3.9
+<br>
 <br>
 <br>
 Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
+                
+              
+              
+                
 
-  <br>
-    
 
-    
-    
+              
+            </article>
+          </div>
+        </div>
+      </main>
       
-    
-
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="users_guide/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="users_guide/" class="btn btn-xs btn-link">
-        What Is Python Banyan?
-      </a>
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+        
+          <a href="users_guide/" title="What Is Python Banyan?" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                What Is Python Banyan?
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
     </div>
     
-  </div>
-
-    <br>
-</div>
-
-<footer class="col-md-12 wm-page-content">
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
-</footer>
-
-</body>
+      <script src="assets/javascripts/vendor.a0c4167b.min.js"></script>
+      <script src="assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: ".",
+          features: [],
+          search: Object.assign({
+            worker: "assets/javascripts/worker/search.37585f48.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
 </html>
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2020-01-29 17:23:33
--->

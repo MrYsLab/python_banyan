@@ -1,89 +1,660 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  
-  
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.6">
+    
+    
+      
+        <title>Tutorial 1 - A Simple Echo Server/Client - Python Banyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b9ffd7b.min.css">
+      
+      
     
     
     
-    <link rel="shortcut icon" href="../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Tutorial 1  - A Simple Echo Server/Client - Python Banyan</title>
-    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
-    <link href="../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/highlight.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-    <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../js/highlight.pack.js"></script>
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
     
-    <base target="_top">
-    <script>
-      var base_url = '..';
-      var is_top_frame = false;
-        
-        var pageToc = [
-          {title: "An Echo Server-Client Example", url: "#_top", children: [
-              {title: "Running The Example", url: "#running-the-example" },
-              {title: "The Server", url: "#the-server" },
-              {title: "The Client", url: "#the-client" },
-          ]},
-        ];
-
-    </script>
-    <script src="../js/base.js"></script> 
-</head>
-
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
-
-
-
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
     
-
     
     
       
     
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#an-echo-server-client-example" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Python Banyan" class="md-header-nav__button md-logo" aria-label="Python Banyan">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../example2/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../example2/" class="btn btn-xs btn-link">
-        Tutorial 2  - Adding Command Line Options To A Component
-      </a>
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Python Banyan
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Tutorial 1  - A Simple Echo Server/Client
+            
+          </span>
+        </div>
+      
     </div>
     
-    <div class="wm-article-nav">
-      <a href="../api/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../api/" class="btn btn-xs btn-link">
-        Base Class API Reference
-      </a>
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
     </div>
-    
   </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python Banyan" class="md-nav__button md-logo" aria-label="Python Banyan">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Python Banyan
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Welcome" class="md-nav__link">
+      Welcome
+    </a>
+  </li>
 
     
+      
+      
+      
 
-    <h1 id="an-echo-server-client-example">An Echo Server-Client Example</h1>
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      User's Guide
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="User's Guide" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        User's Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users_guide/" title="What Is Python Banyan?" class="md-nav__link">
+      What Is Python Banyan?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_intro/" title="Introduction To The Tutorials" class="md-nav__link">
+      Introduction To The Tutorials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="Base Class API Reference" class="md-nav__link">
+      Base Class API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Tutorial 1  - A Simple Echo Server/Client
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Tutorial 1 - A Simple Echo Server/Client" class="md-nav__link md-nav__link--active">
+      Tutorial 1  - A Simple Echo Server/Client
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-example" class="md-nav__link">
+    Running The Example
+  </a>
+  
+    <nav class="md-nav" aria-label="Running The Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-start-the-backplane-in-a-terminal-window" class="md-nav__link">
+    First, start the Backplane in a terminal window.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-the-server-in-a-second-terminal-window" class="md-nav__link">
+    Start the server in a second terminal window.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-the-client-in-a-third-terminal-window" class="md-nav__link">
+    Start the client in a third terminal window.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examining-the-server-code" class="md-nav__link">
+    Examining The Server Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examining-the-client-code" class="md-nav__link">
+    Examining The Client Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example2/" title="Tutorial 2 - Adding Command Line Options To A Component" class="md-nav__link">
+      Tutorial 2  - Adding Command Line Options To A Component
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example3/" title="Tutorial 3 - Distributed Applications" class="md-nav__link">
+      Tutorial 3  - Distributed Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example4/" title="Tutorial 4 - Applications From Components On Differing Platforms" class="md-nav__link">
+      Tutorial 4  - Applications From Components On Differing Platforms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example5/" title="Tutorial 5 - Debugging Using The Monitor" class="md-nav__link">
+      Tutorial 5  - Debugging Using The Monitor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example6/" title="Tutorial 6 - Integrating With A GUI Event Loop" class="md-nav__link">
+      Tutorial 6  - Integrating With A GUI Event Loop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example7/" title="Tutorial 7 - Installing Components As Executable Modules" class="md-nav__link">
+      Tutorial 7  - Installing Components As Executable Modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example8/" title="Tutorial 8 - Using the Banyan Launcher" class="md-nav__link">
+      Tutorial 8  - Using the Banyan Launcher
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example9/" title="Tutorial 9 - Connecting To Multiple Backplanes" class="md-nav__link">
+      Tutorial 9  - Connecting To Multiple Backplanes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example10/" title="Tutorial 10 - Connecting Banyan To An MQTT Network" class="md-nav__link">
+      Tutorial 10 - Connecting Banyan To An MQTT Network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example11/" title="Tutorial 11 - Physical Computing And GPIO" class="md-nav__link">
+      Tutorial 11 - Physical Computing And GPIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../benchmark/" title="Comparing Banyan and MQTT" class="md-nav__link">
+      Comparing Banyan and MQTT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      The OneGPIO Project
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="The OneGPIO Project" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        The OneGPIO Project
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gpio_intro/" title="Introducing OneGPIO" class="md-nav__link">
+      Introducing OneGPIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../common_messaging_protocol/" title="The OneGPIO Messaging Protocol" class="md-nav__link">
+      The OneGPIO Messaging Protocol
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../banyan_gateways/" title="An Introduction To OneGPIO Gateways" class="md-nav__link">
+      An Introduction To OneGPIO Gateways
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../additional_gateways/" title="Additional Banyan Gateways" class="md-nav__link">
+      Additional Banyan Gateways
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../one_gpio_demos/" title="OneGPIO Demos" class="md-nav__link">
+      OneGPIO Demos
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-example" class="md-nav__link">
+    Running The Example
+  </a>
+  
+    <nav class="md-nav" aria-label="Running The Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-start-the-backplane-in-a-terminal-window" class="md-nav__link">
+    First, start the Backplane in a terminal window.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-the-server-in-a-second-terminal-window" class="md-nav__link">
+    Start the server in a second terminal window.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-the-client-in-a-third-terminal-window" class="md-nav__link">
+    Start the client in a third terminal window.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examining-the-server-code" class="md-nav__link">
+    Examining The Server Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examining-the-client-code" class="md-nav__link">
+    Examining The Client Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="an-echo-server-client-example">An Echo Server-Client Example</h1>
 <p>In this section, we will build a simple echo server-client application
  using the Python Banyan Framework.</p>
 <p>First, we will run the demo and then examine the code for both the server
@@ -91,7 +662,7 @@ and client Banyan components.</p>
 <h2 id="running-the-example">Running The Example</h2>
 <p>The Backplane is installed as an executable module when Python Banyan is installed.
 By typing 'backplane' in a command or terminal window, the Backplane will start.</p>
-<p>The components, simple_echo_server.py, and simple_echo_client.py, are invoked
+<p>The components, simple_echo_server.py, and simple_echo_client.py are invoked
 from the command line using the typical method to start a Python program.</p>
 <p>The following screenshots were taken on a Linux computer running Python 3,
 and that is why the <em>python3</em> command is displayed. You may
@@ -117,17 +688,15 @@ and type:</p>
 <pre><code>python3 simple_echo_client.py
 </code></pre>
 
-<p>A standard Banyan header is printed to the console for the client, and the client begins
-sending its messages.</p>
-<p>When the client completes sending all of its messages, the console for the client will indicate
-the number of messages sent and received.</p>
+<p>A standard Banyan header is printed to the client's console, and the client begins sending its messages.</p>
+<p>When the client completes sending all of its messages, 
+the client's console will indicate the number of messages sent and received.</p>
 <p><img align="center" src="../images/simple_echo_client.png"></p>
 <p>The console for the server will display all of the message numbers it received</p>
 <p><img align="center" src="../images/simple_server_done.png"></p>
-<h2 id="the-server">The Server</h2>
-<p>The role of the server is to simply wait for the "echo" topic messages to arrive
-and then to extract the message's payload and publish a "reply" topic message.</p>
-<h3 id="examining-the-code">Examining the Code</h3>
+<h2 id="examining-the-server-code">Examining The Server Code</h2>
+<p>The server's role is to simply wait for the "echo" topic messages
+ to arrive and then to extract the message's payload and publish a "reply" topic message.</p>
 <p>Let's look at the code below:</p>
 <p>Lines 20 through 22 import the component's required modules.</p>
 <p>Line 22 illustrates the standard syntax used to import the BanyanBase base class.</p>
@@ -188,10 +757,10 @@ is called to close the ZeroMQ connections. The program is then exited.</p>
     44              sys.exit(0)
 </code></pre>
 
-<p>Lines 46 through 55 override the base class <a href="../examples_intro/#incoming_message_processing"><em>incoming_message_process</em></a> method.
+<p>Lines 46 through 55 overrides the base class <a href="../examples_intro/#incoming_message_processing"><em>incoming_message_process</em></a> method.
 Whenever a message is received by the <em>receive_loop</em>, it calls <em>incoming_message_processing</em> to process the message.</p>
 <p>The <em>incoming_message_processing</em> method requires two parameters, a
-topic string, and a payload. Both the topic and payload are decoded within the receive_loop, so they
+topic string and a payload. Both the topic and payload are decoded within the receive_loop, so they
 are ready for use by the <em>incoming_message_processing</em> method.</p>
 <p>Line 53 republishes the payload just received, setting the topic to 'reply,' The message number
 of the received message is then printed to the console.</p>
@@ -207,7 +776,6 @@ of the received message is then printed to the console.</p>
     55
 </code></pre>
 
-<h3 id="instantiation-function">Instantiation Function</h3>
 <p>Lines 61 through 62 create a function to instantiate the EchoServer class.
 This function is added so that we can install our component as an executable
 file in our system if we desire to do so. Installing Components as executable modules
@@ -224,20 +792,19 @@ call the instantiation function.</p>
 
 </code></pre>
 
-<h2 id="the-client">The Client</h2>
+<h2 id="examining-the-client-code">Examining The Client Code</h2>
 <p>The role of the client is to publish 'echo' messages. It maintains a message sequencing number,
 incorporated into the payload. Shortly after being invoked, the client
 sends out the first 'echo' message. It then waits for a 'reply' message from the server before
 publishing the next message.</p>
 <p>The messaging sequencing number is decremented after each message is published.
 When the sequencing number reaches zero, the final message is published, and the client halts.</p>
-<h3 id="examining-the-code_1">Examining the Code</h3>
-<p>The code for the client is very similar to that of the <a href="#examining-the-code">server</a>.
+<p>The code for the client is very similar to that of the <a href="#examining-the-server-code">server</a>.
 In this section, the major differences between the client and server are highlighted.</p>
 <p>Line 38 calls the inherited BanyanBase method <em>set_subscriber_topic</em> to subscribe to
 'reply' messages.</p>
 <p>Line 41 establishes
-instance variables to keep track of the current message sequencing number in addition to
+instance variables to keep track of the current message sequencing number and
 the total messages sent. Both are initialized to a value of 10.</p>
 <p>Line 44 publishes
 an "echo" message with a payload containing the current message number.</p>
@@ -339,43 +906,85 @@ and published.</p>
 <p><br>
 <br>
 Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
+                
+              
+              
+                
 
-  <br>
-    
 
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../api/" title="Base Class API Reference" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Base Class API Reference
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../example2/" title="Tutorial 2 - Adding Command Line Options To A Component" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Tutorial 2  - Adding Command Line Options To A Component
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
     
-    
+      <script src="../assets/javascripts/vendor.a0c4167b.min.js"></script>
+      <script src="../assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.37585f48.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
-
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../example2/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../example2/" class="btn btn-xs btn-link">
-        Tutorial 2  - Adding Command Line Options To A Component
-      </a>
-    </div>
-    
-    <div class="wm-article-nav">
-      <a href="../api/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../api/" class="btn btn-xs btn-link">
-        Base Class API Reference
-      </a>
-    </div>
-    
-  </div>
-
-    <br>
-</div>
-
-<footer class="col-md-12 wm-page-content">
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
-</footer>
-
-</body>
+  </body>
 </html>

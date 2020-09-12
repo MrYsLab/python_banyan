@@ -1,109 +1,632 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  
-  
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.6">
+    
+    
+      
+        <title>An Introduction To OneGPIO Gateways - Python Banyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b9ffd7b.min.css">
+      
+      
     
     
     
-    <link rel="shortcut icon" href="../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>OneGPIO Gateways - Python Banyan</title>
-    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
-    <link href="../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/highlight.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-    <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../js/highlight.pack.js"></script>
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
     
-    <base target="_top">
-    <script>
-      var base_url = '..';
-      var is_top_frame = false;
-        
-        var pageToc = [
-          {title: "Introduction To OneGPIO Gateways", url: "#_top", children: [
-          ]},
-          {title: "Understanding The GatewayBase Class", url: "#understanding-the-gatewaybase-class", children: [
-          ]},
-          {title: "Some Specific Command Examples", url: "#some-specific-command-examples", children: [
-              {title: "Adding A Custom Spin To The Command", url: "#adding-a-custom-spin-to-the-command" },
-              {title: "Adding Some More Spin", url: "#adding-some-more-spin" },
-          ]},
-        ];
-
-    </script>
-    <script src="../js/base.js"></script> 
-</head>
-
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
-
-
-
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
     
-
     
     
       
     
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#understanding-the-gatewaybase-class" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Python Banyan" class="md-header-nav__button md-logo" aria-label="Python Banyan">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../additional_gateways/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../additional_gateways/" class="btn btn-xs btn-link">
-        Additional Banyan Gateways
-      </a>
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Python Banyan
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              An Introduction To OneGPIO Gateways
+            
+          </span>
+        </div>
+      
     </div>
     
-    <div class="wm-article-nav">
-      <a href="../common_messaging_protocol/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../common_messaging_protocol/" class="btn btn-xs btn-link">
-        The OneGPIO Messaging Protocol
-      </a>
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
     </div>
-    
   </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python Banyan" class="md-nav__button md-logo" aria-label="Python Banyan">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Python Banyan
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Welcome" class="md-nav__link">
+      Welcome
+    </a>
+  </li>
 
     
+      
+      
+      
 
-    <h1 id="introduction-to-onegpio-gateways">Introduction To OneGPIO Gateways</h1>
-<p>A <em>OneGPIO Gateway</em> is a specialized Banyan component that is target-hardware specific. 
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      User's Guide
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="User's Guide" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        User's Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users_guide/" title="What Is Python Banyan?" class="md-nav__link">
+      What Is Python Banyan?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_intro/" title="Introduction To The Tutorials" class="md-nav__link">
+      Introduction To The Tutorials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="Base Class API Reference" class="md-nav__link">
+      Base Class API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example1/" title="Tutorial 1 - A Simple Echo Server/Client" class="md-nav__link">
+      Tutorial 1  - A Simple Echo Server/Client
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example2/" title="Tutorial 2 - Adding Command Line Options To A Component" class="md-nav__link">
+      Tutorial 2  - Adding Command Line Options To A Component
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example3/" title="Tutorial 3 - Distributed Applications" class="md-nav__link">
+      Tutorial 3  - Distributed Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example4/" title="Tutorial 4 - Applications From Components On Differing Platforms" class="md-nav__link">
+      Tutorial 4  - Applications From Components On Differing Platforms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example5/" title="Tutorial 5 - Debugging Using The Monitor" class="md-nav__link">
+      Tutorial 5  - Debugging Using The Monitor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example6/" title="Tutorial 6 - Integrating With A GUI Event Loop" class="md-nav__link">
+      Tutorial 6  - Integrating With A GUI Event Loop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example7/" title="Tutorial 7 - Installing Components As Executable Modules" class="md-nav__link">
+      Tutorial 7  - Installing Components As Executable Modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example8/" title="Tutorial 8 - Using the Banyan Launcher" class="md-nav__link">
+      Tutorial 8  - Using the Banyan Launcher
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example9/" title="Tutorial 9 - Connecting To Multiple Backplanes" class="md-nav__link">
+      Tutorial 9  - Connecting To Multiple Backplanes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example10/" title="Tutorial 10 - Connecting Banyan To An MQTT Network" class="md-nav__link">
+      Tutorial 10 - Connecting Banyan To An MQTT Network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example11/" title="Tutorial 11 - Physical Computing And GPIO" class="md-nav__link">
+      Tutorial 11 - Physical Computing And GPIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../benchmark/" title="Comparing Banyan and MQTT" class="md-nav__link">
+      Comparing Banyan and MQTT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      The OneGPIO Project
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="The OneGPIO Project" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        The OneGPIO Project
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gpio_intro/" title="Introducing OneGPIO" class="md-nav__link">
+      Introducing OneGPIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../common_messaging_protocol/" title="The OneGPIO Messaging Protocol" class="md-nav__link">
+      The OneGPIO Messaging Protocol
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        An Introduction To OneGPIO Gateways
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="An Introduction To OneGPIO Gateways" class="md-nav__link md-nav__link--active">
+      An Introduction To OneGPIO Gateways
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-gatewaybase-class" class="md-nav__link">
+    Understanding The GatewayBase Class
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-specific-command-examples" class="md-nav__link">
+    Some Specific Command Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-custom-spin-to-the-command" class="md-nav__link">
+    Adding A Custom Spin To The Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-some-more-spin" class="md-nav__link">
+    Adding Some More Spin
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../additional_gateways/" title="Additional Banyan Gateways" class="md-nav__link">
+      Additional Banyan Gateways
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../one_gpio_demos/" title="OneGPIO Demos" class="md-nav__link">
+      OneGPIO Demos
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-gatewaybase-class" class="md-nav__link">
+    Understanding The GatewayBase Class
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-specific-command-examples" class="md-nav__link">
+    Some Specific Command Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-custom-spin-to-the-command" class="md-nav__link">
+    Adding A Custom Spin To The Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-some-more-spin" class="md-nav__link">
+    Adding Some More Spin
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>An Introduction To OneGPIO Gateways</h1>
+                
+                <p>A <em>OneGPIO Gateway</em> is a specialized Banyan component that is target-hardware specific. 
  It subscribes to and translates OneGPIO command messages to and from native target hardware 
  GPIO API calls. OneGPIO Gateways for the <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/arduino_uno/arduino_gateway.py">Arduino</a>, 
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/esp_8266/esp8266_gateway.py">ESP-8266,</a>
  and <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/raspberry_pi/rpi_gateway.py">Raspberry Pi</a> are included with this distribution.</p>
 <p>A base class, called
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/gateway_base/gateway_base.py"><strong><em>GatewayBase,</em></strong></a>
-is made available to simplify the task of creating a OneGPIO Gateway. This class encapsulates both BanyanBase functionality as well as
+is made available to simplify creating a OneGPIO Gateway. This class encapsulates both BanyanBase functionality as well as
 OneGPIO Gateway functionality. When implementing a OneGPIO Gateway, you may choose
 any target GPIO API. For example, in creating the Raspberry Pi Gateway, the <em>pigpio</em> library
 was chosen. If you prefer to use some other API, there are no restrictions to do so.</p>
 <p>There is also a Python asyncio version of the base class, called
  <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/gateway_base_aio/gateway_base_aio.py"><strong><em>GatewayBaseAIO</em></strong>.</a>
- This additional base class,
+ This additional base class
 was necessary to support the pymata-express asyncio GPIO library for the Arduino. It is very
 similar to the GatewayBase class, and so it will not be discussed here.</p>
-<h1 id="understanding-the-gatewaybase-class">Understanding The GatewayBase Class</h1>
+<h2 id="understanding-the-gatewaybase-class">Understanding The GatewayBase Class</h2>
 <p>Let's look at the <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/gateway_base/gateway_base.py">code.</a> 
 Below are code sections that are followed by a discussion. </p>
 <pre><code>    23  from python_banyan.banyan_base import BanyanBase
@@ -298,7 +821,7 @@ incoming message. </p>
 <p>Line 149 checks to see if an optional <em>tag</em> key is in the message.</p>
 <p>If it is, lines 149-158 process the tag. If the tag is not in the <em>tags_dictionary</em>,
 the tag and its associated pin number are added to the dictionary.</p>
-<p>Lines 160-165 checks to see if the value of the <em>command</em> key is within the command_dictionary.
+<p>Lines 160-165 check to see if the value of the <em>command</em> key is within the command_dictionary.
 If it is, the command method is called.</p>
 <p>If it is not found, the <em>additional_banyan_messages</em> method is called.
  This allows you to add hardware-specific commands not found in the command dictionary easily.</p>
@@ -315,7 +838,7 @@ If it is, the command method is called.</p>
 <p>The remainder of the class is the set of command methods that need to be overwritten
 in the derived class. Lines 179-186 are an illustration of the analog_write method. All the
 other command methods follow a similar pattern (lines 170-378).</p>
-<h1 id="some-specific-command-examples">Some Specific Command Examples</h1>
+<h2 id="some-specific-command-examples">Some Specific Command Examples</h2>
 <p>To illustrate the flexibility of using the OneGPIO specification, let's look 
 at some sample OneGPIO command implementations. Both examples
 presented below are from the Raspberry Pi Gateway.</p>
@@ -388,49 +911,91 @@ A/D converter.</p>
         self.publish_payload(payload, 'from_rpi_gateway')
 </code></pre>
 
-<p>The A/D device is i2c based and so this method implements the i2c communication.
+<p>The A/D device is i2c based, and so this method implements the i2c communication.
 The method retrieves the current value for one of the 4 channels supported by the
-PCF8591 A/D converter and then publishes that value using a OneGPIO report message.</p>
+PCF8591 A/D converter. It then publishes that value using a OneGPIO report message.</p>
 <p><br>
 <br>
 Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
+                
+              
+              
+                
 
-  <br>
-    
 
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../common_messaging_protocol/" title="The OneGPIO Messaging Protocol" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                The OneGPIO Messaging Protocol
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../additional_gateways/" title="Additional Banyan Gateways" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Additional Banyan Gateways
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
     
-    
+      <script src="../assets/javascripts/vendor.a0c4167b.min.js"></script>
+      <script src="../assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.37585f48.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
-
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../additional_gateways/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../additional_gateways/" class="btn btn-xs btn-link">
-        Additional Banyan Gateways
-      </a>
-    </div>
-    
-    <div class="wm-article-nav">
-      <a href="../common_messaging_protocol/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../common_messaging_protocol/" class="btn btn-xs btn-link">
-        The OneGPIO Messaging Protocol
-      </a>
-    </div>
-    
-  </div>
-
-    <br>
-</div>
-
-<footer class="col-md-12 wm-page-content">
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
-</footer>
-
-</body>
+  </body>
 </html>

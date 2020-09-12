@@ -1,117 +1,1043 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  
-  
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.6">
+    
+    
+      
+        <title>Introduction To The Tutorials - Python Banyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b9ffd7b.min.css">
+      
+      
     
     
     
-    <link rel="shortcut icon" href="../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Introduction To The Tutorials - Python Banyan</title>
-    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
-    <link href="../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/highlight.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-    <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../js/highlight.pack.js"></script>
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
     
-    <base target="_top">
-    <script>
-      var base_url = '..';
-      var is_top_frame = false;
-        
-        var pageToc = [
-          {title: "Learn By Example", url: "#_top", children: [
-          ]},
-          {title: "The Key Elements of Python Banyan", url: "#the-key-elements-of-python-banyan", children: [
-          ]},
-          {title: "The Banyan Backplane", url: "#the-banyan-backplane", children: [
-              {title: "Starting the Backplane", url: "#starting-the-backplane" },
-              {title: "The Backplane's Command-Line Options", url: "#the-backplanes-command-line-options" },
-              {title: "Always Start The Backplane First", url: "#always-start-the-backplane-first" },
-          ]},
-          {title: "Python Banyan Base Classes", url: "#python-banyan-base-classes", children: [
-              {title: "The BanyanBase Class", url: "#the-banyanbase-class" },
-              {title: "__init__", url: "#95_init__" },
-              {title: "set_subscriber_topic", url: "#set_subscriber_topic" },
-              {title: "publish_payload", url: "#publish_payload" },
-              {title: "receive_loop", url: "#receive_loop" },
-              {title: "incoming_message_processing", url: "#incoming_message_processing" },
-              {title: "clean_up", url: "#clean_up" },
-          ]},
-          {title: "A Template For Component Command-Line Options", url: "#a-template-for-component-command-line-options", children: [
-          ]},
-          {title: "The Examples", url: "#the-examples", children: [
-              {title: "Where To Find The Example Source Code", url: "#where-to-find-the-example-source-code" },
-          ]},
-        ];
-
-    </script>
-    <script src="../js/base.js"></script> 
-</head>
-
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
-
-
-
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
     
-
     
     
       
     
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#learning-by-example" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Python Banyan" class="md-header-nav__button md-logo" aria-label="Python Banyan">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../api/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../api/" class="btn btn-xs btn-link">
-        Base Class API Reference
-      </a>
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Python Banyan
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Introduction To The Tutorials
+            
+          </span>
+        </div>
+      
     </div>
     
-    <div class="wm-article-nav">
-      <a href="../install/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../install/" class="btn btn-xs btn-link">
-        Installation
-      </a>
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
     </div>
-    
   </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python Banyan" class="md-nav__button md-logo" aria-label="Python Banyan">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Python Banyan
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Welcome" class="md-nav__link">
+      Welcome
+    </a>
+  </li>
 
     
+      
+      
+      
 
-    <h1 id="learn-by-example">Learn By Example</h1>
-<p>The tutorials included with this guide, provide samples of simple working
-applications. The tutorials help to demonstrate Python Banyan's features,
- as well as the
-set of utilities that are part of the <a href="https://github.com/MrYsLab/python_banyan"><strong><em>python-banyan</em></strong></a> package.</p>
-<h1 id="the-key-elements-of-python-banyan">The Key Elements of Python Banyan</h1>
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      User's Guide
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="User's Guide" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        User's Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users_guide/" title="What Is Python Banyan?" class="md-nav__link">
+      What Is Python Banyan?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Introduction To The Tutorials
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Introduction To The Tutorials" class="md-nav__link md-nav__link--active">
+      Introduction To The Tutorials
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-by-example" class="md-nav__link">
+    Learning By Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-key-elements-of-python-banyan" class="md-nav__link">
+    The Key Elements of Python Banyan
+  </a>
+  
+    <nav class="md-nav" aria-label="The Key Elements of Python Banyan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-banyan-backplane" class="md-nav__link">
+    The Banyan Backplane
+  </a>
+  
+    <nav class="md-nav" aria-label="The Banyan Backplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-the-backplane" class="md-nav__link">
+    Starting the Backplane
+  </a>
+  
+    <nav class="md-nav" aria-label="Starting the Backplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-backplanes-command-line-options" class="md-nav__link">
+    The Backplane's Command-Line Options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#always-start-the-backplane-first" class="md-nav__link">
+    Always Start The Backplane First
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-banyan-base-class-and-its-methods" class="md-nav__link">
+    Python Banyan Base Class And Its Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Python Banyan Base Class And Its Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-banyanbase-class-methods" class="md-nav__link">
+    The BanyanBase Class Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="The BanyanBase Class Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init__" class="md-nav__link">
+    __init__
+  </a>
+  
+    <nav class="md-nav" aria-label="__init__">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#back_plane_ip_address" class="md-nav__link">
+    back_plane_ip_address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber-and-publisher-ports" class="md-nav__link">
+    subscriber and publisher ports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process_name" class="md-nav__link">
+    process_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop_time" class="md-nav__link">
+    loop_time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numpy" class="md-nav__link">
+    numpy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external_message_processor" class="md-nav__link">
+    external_message_processor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receive_loop_idle_addition" class="md-nav__link">
+    receive_loop_idle_addition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect_time" class="md-nav__link">
+    connect_time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_subscriber_topic" class="md-nav__link">
+    set_subscriber_topic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publish_payload" class="md-nav__link">
+    publish_payload
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receive_loop" class="md-nav__link">
+    receive_loop
+  </a>
+  
+    <nav class="md-nav" aria-label="receive_loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-a-message-is-available" class="md-nav__link">
+    When A Message Is Available
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-no-messages-are-available" class="md-nav__link">
+    When No Messages Are Available
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incoming_message_processing" class="md-nav__link">
+    incoming_message_processing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clean_up" class="md-nav__link">
+    clean_up
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-template-for-component-command-line-options" class="md-nav__link">
+    A Template For Component Command-Line Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-examples" class="md-nav__link">
+    The Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="The Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-to-find-the-example-source-code" class="md-nav__link">
+    Where To Find The Example Source Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="Base Class API Reference" class="md-nav__link">
+      Base Class API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example1/" title="Tutorial 1 - A Simple Echo Server/Client" class="md-nav__link">
+      Tutorial 1  - A Simple Echo Server/Client
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example2/" title="Tutorial 2 - Adding Command Line Options To A Component" class="md-nav__link">
+      Tutorial 2  - Adding Command Line Options To A Component
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example3/" title="Tutorial 3 - Distributed Applications" class="md-nav__link">
+      Tutorial 3  - Distributed Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example4/" title="Tutorial 4 - Applications From Components On Differing Platforms" class="md-nav__link">
+      Tutorial 4  - Applications From Components On Differing Platforms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example5/" title="Tutorial 5 - Debugging Using The Monitor" class="md-nav__link">
+      Tutorial 5  - Debugging Using The Monitor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example6/" title="Tutorial 6 - Integrating With A GUI Event Loop" class="md-nav__link">
+      Tutorial 6  - Integrating With A GUI Event Loop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example7/" title="Tutorial 7 - Installing Components As Executable Modules" class="md-nav__link">
+      Tutorial 7  - Installing Components As Executable Modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example8/" title="Tutorial 8 - Using the Banyan Launcher" class="md-nav__link">
+      Tutorial 8  - Using the Banyan Launcher
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example9/" title="Tutorial 9 - Connecting To Multiple Backplanes" class="md-nav__link">
+      Tutorial 9  - Connecting To Multiple Backplanes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example10/" title="Tutorial 10 - Connecting Banyan To An MQTT Network" class="md-nav__link">
+      Tutorial 10 - Connecting Banyan To An MQTT Network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example11/" title="Tutorial 11 - Physical Computing And GPIO" class="md-nav__link">
+      Tutorial 11 - Physical Computing And GPIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../benchmark/" title="Comparing Banyan and MQTT" class="md-nav__link">
+      Comparing Banyan and MQTT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      The OneGPIO Project
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="The OneGPIO Project" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        The OneGPIO Project
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gpio_intro/" title="Introducing OneGPIO" class="md-nav__link">
+      Introducing OneGPIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../common_messaging_protocol/" title="The OneGPIO Messaging Protocol" class="md-nav__link">
+      The OneGPIO Messaging Protocol
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../banyan_gateways/" title="An Introduction To OneGPIO Gateways" class="md-nav__link">
+      An Introduction To OneGPIO Gateways
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../additional_gateways/" title="Additional Banyan Gateways" class="md-nav__link">
+      Additional Banyan Gateways
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../one_gpio_demos/" title="OneGPIO Demos" class="md-nav__link">
+      OneGPIO Demos
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-by-example" class="md-nav__link">
+    Learning By Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-key-elements-of-python-banyan" class="md-nav__link">
+    The Key Elements of Python Banyan
+  </a>
+  
+    <nav class="md-nav" aria-label="The Key Elements of Python Banyan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-banyan-backplane" class="md-nav__link">
+    The Banyan Backplane
+  </a>
+  
+    <nav class="md-nav" aria-label="The Banyan Backplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-the-backplane" class="md-nav__link">
+    Starting the Backplane
+  </a>
+  
+    <nav class="md-nav" aria-label="Starting the Backplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-backplanes-command-line-options" class="md-nav__link">
+    The Backplane's Command-Line Options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#always-start-the-backplane-first" class="md-nav__link">
+    Always Start The Backplane First
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-banyan-base-class-and-its-methods" class="md-nav__link">
+    Python Banyan Base Class And Its Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Python Banyan Base Class And Its Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-banyanbase-class-methods" class="md-nav__link">
+    The BanyanBase Class Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="The BanyanBase Class Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init__" class="md-nav__link">
+    __init__
+  </a>
+  
+    <nav class="md-nav" aria-label="__init__">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#back_plane_ip_address" class="md-nav__link">
+    back_plane_ip_address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber-and-publisher-ports" class="md-nav__link">
+    subscriber and publisher ports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process_name" class="md-nav__link">
+    process_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop_time" class="md-nav__link">
+    loop_time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numpy" class="md-nav__link">
+    numpy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external_message_processor" class="md-nav__link">
+    external_message_processor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receive_loop_idle_addition" class="md-nav__link">
+    receive_loop_idle_addition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect_time" class="md-nav__link">
+    connect_time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_subscriber_topic" class="md-nav__link">
+    set_subscriber_topic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publish_payload" class="md-nav__link">
+    publish_payload
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receive_loop" class="md-nav__link">
+    receive_loop
+  </a>
+  
+    <nav class="md-nav" aria-label="receive_loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-a-message-is-available" class="md-nav__link">
+    When A Message Is Available
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-no-messages-are-available" class="md-nav__link">
+    When No Messages Are Available
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incoming_message_processing" class="md-nav__link">
+    incoming_message_processing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clean_up" class="md-nav__link">
+    clean_up
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-template-for-component-command-line-options" class="md-nav__link">
+    A Template For Component Command-Line Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-examples" class="md-nav__link">
+    The Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="The Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-to-find-the-example-source-code" class="md-nav__link">
+    Where To Find The Example Source Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>Introduction To The Tutorials</h1>
+                
+                <h2 id="learning-by-example">Learning By Example</h2>
+<p>The tutorials included with this guide provide samples of simple working
+applications. The tutorials help demonstrate Python Banyan's features and 
+the set of utilities that are part of the <a href="https://github.com/MrYsLab/python_banyan"><strong><em>python-banyan</em></strong></a> package.</p>
+<h2 id="the-key-elements-of-python-banyan">The Key Elements of Python Banyan</h2>
 <p>There are two key components of the Banyan Framework, the <strong><em>backplane</em></strong> that acts as a
 communication hub, and the <strong><em>Banyan Components</em></strong> where you implement your design. This section
 will discuss these two elements.</p>
-<h1 id="the-banyan-backplane">The Banyan Backplane</h1>
-<p>When you install Python Banyan, an executable file called <strong><em>backplane</em></strong>,
+<h3 id="the-banyan-backplane">The Banyan Backplane</h3>
+<p>When you install Python Banyan, an executable file called <strong><em>backplane</em></strong>
 is automatically installed on your computer. The backplane is implemented as a ZeroMQ <em>device</em>
 called a <a href="http://learning-0mq-with-pyzmq.readthedocs.io/en/latest/pyzmq/devices/forwarder.html"><strong><em>Forwarder</em></strong></a>.</p>
 <p>When connecting to the backplane, all components utilize common, well-known IP addresses and port numbers.
@@ -120,7 +1046,7 @@ eliminates the need for maintaining a routing table.</p>
 <p>Because a Banyan component automatically attempts to
 "plug" itself into the backplane when first invoked, <strong><em>the backplane
 must be started before starting any other components.</em></strong></p>
-<p>If you forget to start backplane first, the component will raise a RunTimeError
+<p>If you forget to first start the backplane, the component will raise a RunTimeError
 exception.</p>
 <p>In general, a Banyan application uses a single instance of the backplane.
 However, it is possible to have multiple backplanes running in a single
@@ -128,7 +1054,7 @@ application. Using multiple backplanes will be covered in a <a href="../example9
 <p>Since the backplane is not usually modified by the user, its code will not be discussed here, but
 if you wish, you may view
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/backplane/backplane.py">the backplane source code here</a>.</p>
-<h2 id="starting-the-backplane">Starting the Backplane</h2>
+<h4 id="starting-the-backplane">Starting the Backplane</h4>
 <p>To start the backplane, open a command or terminal window and type:</p>
 <pre><code>backplane
 </code></pre>
@@ -138,16 +1064,15 @@ if you wish, you may view
 <p>The <strong>backplane name</strong> is displayed. The default is "Backplane," and usually, this default is accepted.
 You may change it
 using a <a href="#the-backplanes-command-line-options">command-line option described below</a></p>
-<p>The backplane's <strong>IP Address</strong> is shown next to the backplane name. The backplane
-always uses the <strong>IP address</strong> of the computer on which it is run and
-is not user-configurable. This address is auto-discovered.</p>
+<p>The backplane always uses the computer's IP address on which it is run and is 
+not user-configurable.  This address is auto-discovered.</p>
 <p>The <strong>Subscriber and Publisher Ports</strong> are also displayed. For applications
 that will run on a single computer, the default ports should be accepted. These
 values are user-configurable, in case you need to modify them.</p>
 <p>The <strong>Loop Time</strong> sets the iteration time for the backplane's idle loop. Usually,
 the default should be accepted, but it can be altered to fine-tune the application's
 CPU utilization.</p>
-<h2 id="the-backplanes-command-line-options">The Backplane's Command-Line Options</h2>
+<h5 id="the-backplanes-command-line-options">The Backplane's Command-Line Options</h5>
 <p>To see the command-line options for the backplane type:</p>
 <pre><code>backplane -h
 </code></pre>
@@ -158,25 +1083,26 @@ value. Multiple options may be set if desired.</p>
 <pre><code>backplane -n MyBackplane -p 12345 -s 54321 -t .01
 </code></pre>
 
-<p>In the above, the parameters backplane name, the publisher port, the subscriber port,
-and loop time have all been customized.</p>
-<h2 id="always-start-the-backplane-first">Always Start The Backplane First</h2>
+<p>The parameters consisting of backplane name, the publisher port, 
+the subscriber port, and loop time have all been customized in the example above.</p>
+<h5 id="always-start-the-backplane-first">Always Start The Backplane First</h5>
 <p>A Python Banyan component expects the backplane to be running when it is instantiated.
 If you forget to start the backplane, the component will raise a RunTimeException.</p>
 <p><img align="center" src="../images/no_backplane_running.png"></p>
-<h1 id="python-banyan-base-classes">Python Banyan Base Classes</h1>
+<h2 id="python-banyan-base-class-and-its-methods">Python Banyan Base Class And Its Methods</h2>
 <p>Most Python Banyan components need only to connect to a single Backplane and are built
  by inheriting from the <strong><em>banyan_base</em></strong>
 base class, <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/banyan_base/banyan_base.py">banyan_base.py</a>.</p>
 <p>If you need to create your application using multiple backplanes (a rare occurrence),
 please refer to <a href="../example9/#example9/">this section</a> for a discussion of the <strong><em>banyan_base_multi</em></strong> class.</p>
-<h2 id="the-banyanbase-class">The BanyanBase Class</h2>
+<p>There is also a Python asyncio version of the base class called <a href="https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/banyan_base_aio/banyan_base_aio.py">banyan_base_aio.py.</a></p>
+<h3 id="the-banyanbase-class-methods">The BanyanBase Class Methods</h3>
 <p>The methods of the BanyanBase class
-are discussed in <a href="#the-banyanbase-class">detail</a> below.</p>
+are discussed in detail below.</p>
 <p>An "executive summary" of the methods follows:</p>
 <ol>
 <li>
-<p><strong>__init__</strong> - This method initializes the class. A derived class
+<p><strong>_<strong>init_</strong></strong> - This method initializes the class. A derived class
 often overrides this method to add additional initialization parameters
 as well as being a convenient place to add subscription topics.
 The Banyan event loop, called <em>receive_loop</em>, may be started within this method. If you choose
@@ -202,10 +1128,10 @@ When a message is received, it calls the <strong>incoming_message_processing</st
 <p><strong>incoming_message_processing</strong> - This method <strong>must</strong> be overridden to handle incoming messages.</p>
 </li>
 <li>
-<p><strong>clean_up</strong> - This method may be overridden to add any additional clean-up for a terminating component.</p>
+<p><strong>clean_up</strong> - This method may be overridden to add any additional clean-up for terminating a component.</p>
 </li>
 </ol>
-<p>To get a better understanding of the base class, let's look at the code line by line. You can skip this
+<p>To better understand the base class, let's look at the code line by line.  You can skip this
 section and move on to the <a href="../example1/">examples</a> and return later if you need a more detailed explanation of the base class.</p>
 <p>Lines 1 through 19 displays the license information.</p>
 <pre><code>     1  &quot;&quot;&quot;
@@ -284,7 +1210,7 @@ The examples will demonstrate how to import BanyanBase.</p>
 
 <p>The base class consists of 6 methods, and the following is a discussion of each of the
 methods.</p>
-<h2 id="95_init__">__init__</h2>
+<h4 id="__init__">__init__</h4>
 <p>The __init__ method is overwritten as needed. A subscription to specific topics is
 often established in this method by calling <a href="#set_subscriber_topic">set_subscriber_topic</a>
 for each topic.</p>
@@ -298,21 +1224,22 @@ for each topic.</p>
 </code></pre>
 
 <p>Line 57 through 59 constitutes the parameter list for the __init__ method.
-Notice that all of the parameters contain default values, and in most cases accepting the defaults
+Notice that all of the parameters contain default values. In most cases accepting the defaults
 is all that you need.</p>
-<p>Lines 63 through 83 documents the parameters (and are discussed below).</p>
-<h3 id="back_plane_ip_address">back_plane_ip_address</h3>
-<p>The default for this parameter is <em>None</em>. The component will discover the IP
-address of the local computer and assume that the backplane is also running on this
-computer. If the component is running on a computer different from the one that the backplane is running,
-then this parameter will need to match the IP address of the backplane.</p>
+<p>Lines 64 through 85 documents each the parameters and are discussed below,</p>
+<h5 id="back_plane_ip_address">back_plane_ip_address</h5>
+<p>The default for this parameter is <em>None</em>. The component will discover the
+ local computer's IP address and assume that the backplane 
+ is also running on this computer. 
+ If the component is running on a computer other than the one that the backplane is running on. 
+ In that case, this parameter will need to match the IP address of the running backplane.</p>
 <pre><code>    64          :param back_plane_ip_address: banyan_base back_planeIP Address -
     65                                        if not specified, it will be set to the
     66                                        local computer.
 </code></pre>
 
-<h3 id="subscriber-and-publisher-ports">subscriber and publisher ports</h3>
-<p>These are default IP ports dictated by those set for the backplane. Normally the
+<h5 id="subscriber-and-publisher-ports">subscriber and publisher ports</h5>
+<p>These are default IP ports dictated by those set for the backplane. Usually, the
 defaults are accepted. However, they may be modified if there are any port conflicts, or if you are running in a system
 that has more than one backplane running on a computer.</p>
 <pre><code>    68          :param subscriber_port: banyan_base back plane subscriber port.
@@ -323,14 +1250,14 @@ that has more than one backplane running on a computer.</p>
     73
 </code></pre>
 
-<h3 id="process_name">process_name</h3>
-<p>This sets the name shown in the component's console header for identification purposes. If not set,
+<h5 id="process_name">process_name</h5>
+<p>This sets the name shown in the component's console header for identification purposes. If not specified,
 the name of the component will be 'None'.</p>
 <pre><code>    74          :param process_name: Component identifier in banner at component startup.
     75
 </code></pre>
 
-<h3 id="loop_time">loop_time</h3>
+<h5 id="loop_time">loop_time</h5>
 <p>A Banyan component continuously checks for any incoming messages. If no messages are available,
 then the component will sleep for the specified loop time. The smaller the number,
 the greater the CPU utilization for the component.</p>
@@ -338,38 +1265,38 @@ the greater the CPU utilization for the component.</p>
     77
 </code></pre>
 
-<h3 id="numpy">numpy</h3>
-<p>If the component requires numpy data handling,
-then set this parameter to <em>True</em> to serialize the data efficiently.</p>
+<h5 id="numpy">numpy</h5>
+<p>If the component requires Numpy data handling, 
+then set this parameter to True to efficiently serialize the data.</p>
 <pre><code>    78          :param numpy: Set true if you wish to include numpy matrices in your messages.
     79
 </code></pre>
 
-<h3 id="external_message_processor">external_message_processor</h3>
-<p>Normally all incoming messages are handled within the Banyan component itself. If specified, message processing
+<h5 id="external_message_processor">external_message_processor</h5>
+<p>Typically all incoming messages are handled within the Banyan component itself. If specified, message processing
 will be done outside of the component and act similarly to a callback.</p>
 <pre><code>    80          :param external_message_processor: external method to process messages
     81
 </code></pre>
 
-<h3 id="receive_loop_idle_addition">receive_loop_idle_addition</h3>
-<p>Normally the receive idle loop is executed when no messages are present.
-If you wish to perform some additional processing during
-idle time, set this parameter to the function or method that you would like to be called.
+<h5 id="receive_loop_idle_addition">receive_loop_idle_addition</h5>
+<p>Usually, the receive idle loop is executed when no messages are present.
+If you wish to perform some additional processing during idle 
+time, set this parameter to the function or method you would like to call. 
 The function or method should be non-blocking.</p>
 <pre><code>    82          :param receive_loop_idle_addition: an external method called in the idle section
     83                                             of the receive loop
     84          &quot;&quot;&quot;
 </code></pre>
 
-<h3 id="connect_time">connect_time</h3>
+<h5 id="connect_time">connect_time</h5>
 <p>This parameter allows for the connection between the component and backplane to complete.
 It prevents a race condition from occurring when trying to publish a message before the connection to the backplane
 has been established.</p>
 <pre><code>85          :param connect_time: a short delay to allow the component to connect to the backplane
 </code></pre>
 <p>The actual class code for the method follows the parameter documentation strings.</p>
-<p>Line 89 allows for the possibility of multiple inheritance.
+<p>Line 89 allows for the possibility of multiple inheritances.
  An example might be the need to import the <em>threading</em> module in addition to BanyanBase.</p>
 <pre><code>    88          # call to super allows this class to be used in multiple inheritance scenarios when needed
     89          super(BanyanBase, self).__init__()
@@ -398,11 +1325,11 @@ numpy parameter was set to True.</p>
 
 <p>Lines 103 through 105 set the IP address for the backplane if one was specified.</p>
 <p>If no backplane IP address was specified, Lines 107 through 121 checks to
-see if there is a backplane currently running.
+see if a backplane is currently running.
 If a backplane is running, the <em>self.backplane_exists</em> flag is set to True.</p>
-<p><strong>NOTE:</strong> When the backplane is running on a remoter computer, the local component
-cannot detect the presence of the remote backplane. Thus, in this case,
-it is the user's responsibility to check for a running remote backplane.</p>
+<p><strong>NOTE:</strong> When the backplane is running on a remote computer, 
+the local component cannot detect the remote backplane's presence. Therefore, it is the user's 
+responsibility to check for a running remote backplane in this case.</p>
 <pre><code>   103          # If no back plane address was specified, determine the IP address of the local machine
    104          if back_plane_ip_address:
    105              self.back_plane_ip_address = back_plane_ip_address
@@ -426,9 +1353,8 @@ it is the user's responsibility to check for a running remote backplane.</p>
 </code></pre>
 
 <p>Lines 123 through 124 checks to see if a local backplane was found.
-If not, a RunTimeError is raised. If a backplane was detected as running, lines 125 through  129 retrieve the IP address of
-the local computer
-and then sets the backplane_ip_address to that address.</p>
+If not, a RunTimeError is raised. If a backplane was detected as running, lines 125 through 129 
+retrieve the local computer's IP address and then sets the backplane_ip_address to that address.</p>
 <p>Lines 131 through 134 continue setting instance variables from input parameters
 received by the __init__ method.</p>
 <pre><code>   123              if not self.backplane_exists:
@@ -476,7 +1402,7 @@ to be established.</p>
    155
 </code></pre>
 
-<h2 id="set_subscriber_topic">set_subscriber_topic</h2>
+<h3 id="set_subscriber_topic">set_subscriber_topic</h3>
 <p>This method is not typically overridden.</p>
 <p>Line 156 defines the <em>set_subscriber_topic</em> method that requires a topic string
 parameter. This method must be called for each subscribed topic.</p>
@@ -499,7 +1425,7 @@ parameter. This method must be called for each subscribed topic.</p>
    169          self.subscriber.setsockopt(zmq.SUBSCRIBE, topic.encode())
 </code></pre>
 
-<h2 id="publish_payload">publish_payload</h2>
+<h3 id="publish_payload">publish_payload</h3>
 <p>This method is typically not overridden.</p>
 <p>Line 171 defines the <em>publish_payload</em> method. It accepts two parameters,
 a message <strong><em>payload</em></strong> that by convention is in the form of a Python
@@ -538,7 +1464,7 @@ is selected.</p>
 
 </code></pre>
 
-<h2 id="receive_loop">receive_loop</h2>
+<h3 id="receive_loop">receive_loop</h3>
 <pre><code>   193      def receive_loop(self):
    194          &quot;&quot;&quot;
    195          This is the receive loop for Banyan messages.
@@ -581,7 +1507,7 @@ is selected.</p>
 <p>To retrieve the next available
  message on the subscription queue, line 203 calls the ZeroMQ <em>recv_multipart</em> method with the
 non-blocking flag set.</p>
-<h3 id="when-a-message-is-available">When A Message Is Available</h3>
+<h4 id="when-a-message-is-available">When A Message Is Available</h4>
 <p>If a message is available, it is assigned to the <em>data</em> variable on line 203.</p>
 <p>Line 204 checks to see if the numpy flag was set, and if it were, lines 205
 through 216 are executed to handle the numpy data.
@@ -592,7 +1518,7 @@ messagepack_numpy.</p>
 <a href="#incoming_message_processing">incoming_message_processing method</a>
  to process the message. Line 216 handles the case for numpy data,
 and 218 for non-numpy data.</p>
-<h3 id="when-no-messages-are-available">When No Messages Are Available</h3>
+<h4 id="when-no-messages-are-available">When No Messages Are Available</h4>
 <p>When the ZeroMQ <em>recv_mutlipart</em> method is called, and no data
  is available on the subscription queue, ZeroMQ raises a <strong><em>zmq.error.Again</em></strong> exception.
  The exception handler constitutes the idle portion of the Python Banyan event loop.
@@ -602,11 +1528,11 @@ and 218 for non-numpy data.</p>
 <p>Within the idle loop, a  <em>sleep</em> is performed for the <em>loop_time</em> duration.
  This relinquishes control of the CPU to allow other components to run. If the user presses Control-C during the idle
 loop, a KeyboardInterrupt exception is raised.</p>
-<h2 id="incoming_message_processing">incoming_message_processing</h2>
+<h3 id="incoming_message_processing">incoming_message_processing</h3>
 <p>This method <strong><em>must</em></strong> be overridden to process the incoming messages.
 The decoded topic, in the form of a string, and decoded payload,
 typically in the form of a dictionary, are passed in as input parameters.</p>
-<p>The message is typically processed within this method, but may be
+<p>The message is typically processed within this method. Still, it may be
  handled by
 an external function or method specified by the <a href="#external_message_processor"><em>external_message_processor</em></a>
 parameter.</p>
@@ -624,10 +1550,11 @@ parameter.</p>
    240              print('this method should be overwritten in the child class', topic, payload)
 </code></pre>
 
-<h2 id="clean_up">clean_up</h2>
-<p>This method may be overridden. It is normally called before terminating the component.
-It closes both the publisher and subscriber connections and terminates the
-ZeroMQ session for the component. You may add any additional clean-up that your component may require.</p>
+<h3 id="clean_up">clean_up</h3>
+<p>This method may be overridden. 
+It is typically called before terminating the component. Both the publisher and subscriber close their 
+respective connections and terminate the ZeroMQ session for the component.<br />
+You may add any additional clean-up that your component may require.</p>
 <pre><code>   242      def clean_up(self):
    243          &quot;&quot;&quot;
    244          Clean up before exiting - override if additional cleanup is necessary
@@ -638,7 +1565,7 @@ ZeroMQ session for the component. You may add any additional clean-up that your 
    249          self.my_context.term()
 </code></pre>
 
-<h1 id="a-template-for-component-command-line-options">A Template For Component Command-Line Options</h1>
+<h2 id="a-template-for-component-command-line-options">A Template For Component Command-Line Options</h2>
 <p>If you would like to provide the facility to specify command-line options
 for a component, the following is a template to do so.</p>
 <p>This will be explained in detail in a <a href="../example2">later section</a>.</p>
@@ -701,51 +1628,93 @@ for a component, the following is a template to do so.</p>
 
 </code></pre>
 
-<h1 id="the-examples">The Examples</h1>
+<h2 id="the-examples">The Examples</h2>
 <p>In the next section, we will begin using the hands-on demos to understand
 how to build and use Python Banyan components.</p>
-<h2 id="where-to-find-the-example-source-code">Where To Find The Example Source Code</h2>
+<h3 id="where-to-find-the-example-source-code">Where To Find The Example Source Code</h3>
 <p>The code for all the examples may be found on <a href="https://github.com/MrYsLab/python_banyan/tree/master/examples">GitHub</a>.</p>
 <p><br>
 <br>
 Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
+                
+              
+              
+                
 
-  <br>
-    
 
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../install/" title="Installation" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Installation
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../api/" title="Base Class API Reference" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Base Class API Reference
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
     
-    
+      <script src="../assets/javascripts/vendor.a0c4167b.min.js"></script>
+      <script src="../assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.37585f48.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
-
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../api/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../api/" class="btn btn-xs btn-link">
-        Base Class API Reference
-      </a>
-    </div>
-    
-    <div class="wm-article-nav">
-      <a href="../install/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../install/" class="btn btn-xs btn-link">
-        Installation
-      </a>
-    </div>
-    
-  </div>
-
-    <br>
-</div>
-
-<footer class="col-md-12 wm-page-content">
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
-</footer>
-
-</body>
+  </body>
 </html>

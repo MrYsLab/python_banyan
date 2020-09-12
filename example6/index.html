@@ -1,91 +1,635 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  
-  
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.6">
+    
+    
+      
+        <title>Tutorial 6 - Integrating With A GUI Event Loop - Python Banyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b9ffd7b.min.css">
+      
+      
     
     
     
-    <link rel="shortcut icon" href="../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Tutorial 6  - Integrating With A GUI Event Loop - Python Banyan</title>
-    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
-    <link href="../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/highlight.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-    <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../js/highlight.pack.js"></script>
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
     
-    <base target="_top">
-    <script>
-      var base_url = '..';
-      var is_top_frame = false;
-        
-        var pageToc = [
-          {title: "Creating A Banyan GUI Component", url: "#_top", children: [
-              {title: "Running The Example", url: "#running-the-example" },
-              {title: "Exploring The Example Code", url: "#exploring-the-example-code" },
-          ]},
-        ];
-
-    </script>
-    <script src="../js/base.js"></script> 
-</head>
-
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
-
-
-
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
     
-
     
     
       
     
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#creating-a-banyan-gui-component" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Python Banyan" class="md-header-nav__button md-logo" aria-label="Python Banyan">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../example7/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../example7/" class="btn btn-xs btn-link">
-        Tutorial 7  - Installing Components As Executable Modules
-      </a>
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Python Banyan
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Tutorial 6  - Integrating With A GUI Event Loop
+            
+          </span>
+        </div>
+      
     </div>
     
-    <div class="wm-article-nav">
-      <a href="../example5/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../example5/" class="btn btn-xs btn-link">
-        Tutorial 5  - Debugging Using The Monitor
-      </a>
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
     </div>
-    
   </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python Banyan" class="md-nav__button md-logo" aria-label="Python Banyan">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Python Banyan
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Welcome" class="md-nav__link">
+      Welcome
+    </a>
+  </li>
 
     
+      
+      
+      
 
-    <h1 id="creating-a-banyan-gui-component">Creating A Banyan GUI Component</h1>
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      User's Guide
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="User's Guide" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        User's Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users_guide/" title="What Is Python Banyan?" class="md-nav__link">
+      What Is Python Banyan?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_intro/" title="Introduction To The Tutorials" class="md-nav__link">
+      Introduction To The Tutorials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="Base Class API Reference" class="md-nav__link">
+      Base Class API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example1/" title="Tutorial 1 - A Simple Echo Server/Client" class="md-nav__link">
+      Tutorial 1  - A Simple Echo Server/Client
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example2/" title="Tutorial 2 - Adding Command Line Options To A Component" class="md-nav__link">
+      Tutorial 2  - Adding Command Line Options To A Component
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example3/" title="Tutorial 3 - Distributed Applications" class="md-nav__link">
+      Tutorial 3  - Distributed Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example4/" title="Tutorial 4 - Applications From Components On Differing Platforms" class="md-nav__link">
+      Tutorial 4  - Applications From Components On Differing Platforms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example5/" title="Tutorial 5 - Debugging Using The Monitor" class="md-nav__link">
+      Tutorial 5  - Debugging Using The Monitor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Tutorial 6  - Integrating With A GUI Event Loop
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Tutorial 6 - Integrating With A GUI Event Loop" class="md-nav__link md-nav__link--active">
+      Tutorial 6  - Integrating With A GUI Event Loop
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-example" class="md-nav__link">
+    Running The Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploring-the-example-code" class="md-nav__link">
+    Exploring The Example Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Exploring The Example Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importing-tkinter" class="md-nav__link">
+    Importing Tkinter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breaking-into-the-gui-event-loop" class="md-nav__link">
+    Breaking Into The GUI Event Loop
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example7/" title="Tutorial 7 - Installing Components As Executable Modules" class="md-nav__link">
+      Tutorial 7  - Installing Components As Executable Modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example8/" title="Tutorial 8 - Using the Banyan Launcher" class="md-nav__link">
+      Tutorial 8  - Using the Banyan Launcher
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example9/" title="Tutorial 9 - Connecting To Multiple Backplanes" class="md-nav__link">
+      Tutorial 9  - Connecting To Multiple Backplanes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example10/" title="Tutorial 10 - Connecting Banyan To An MQTT Network" class="md-nav__link">
+      Tutorial 10 - Connecting Banyan To An MQTT Network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example11/" title="Tutorial 11 - Physical Computing And GPIO" class="md-nav__link">
+      Tutorial 11 - Physical Computing And GPIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../benchmark/" title="Comparing Banyan and MQTT" class="md-nav__link">
+      Comparing Banyan and MQTT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      The OneGPIO Project
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="The OneGPIO Project" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        The OneGPIO Project
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gpio_intro/" title="Introducing OneGPIO" class="md-nav__link">
+      Introducing OneGPIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../common_messaging_protocol/" title="The OneGPIO Messaging Protocol" class="md-nav__link">
+      The OneGPIO Messaging Protocol
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../banyan_gateways/" title="An Introduction To OneGPIO Gateways" class="md-nav__link">
+      An Introduction To OneGPIO Gateways
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../additional_gateways/" title="Additional Banyan Gateways" class="md-nav__link">
+      Additional Banyan Gateways
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../one_gpio_demos/" title="OneGPIO Demos" class="md-nav__link">
+      OneGPIO Demos
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-example" class="md-nav__link">
+    Running The Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploring-the-example-code" class="md-nav__link">
+    Exploring The Example Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Exploring The Example Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importing-tkinter" class="md-nav__link">
+    Importing Tkinter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breaking-into-the-gui-event-loop" class="md-nav__link">
+    Breaking Into The GUI Event Loop
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="creating-a-banyan-gui-component">Creating A Banyan GUI Component</h1>
 <p><img align="center" src="../images/gui_client.png"></p>
-<p>In this section, we will demonstrate how to create a Banyan compatible GUI client
-for the <a href="../example1/#the-server">simple echo server</a> example.</p>
+<p>This section will demonstrate how to create a Banyan compatible GUI client for the 
+<a href="../example1/#the-server">simple echo server</a> example.</p>
 <p>Both Banyan and GUI frameworks are implemented using <em>event loops</em>.
 Because only one event loop can run within any given thread of execution,
 we need to find a way for both event loops to coexist.</p>
@@ -95,48 +639,49 @@ in its own thread. This, however, introduces unnecessary
 complexity and complicates the testing and debugging efforts.</p>
 <p>If you are using a GUI that provides a callback hook to allow you to link
 your own code into the GUI's event loop, a much simpler solution is at hand.
-The <a href="https://docs.python.org/3/library/tk.html">tkinter GUI framework</a>
- provides such a hook, and we will integrate Banyan into our GUI using this technique.
-Note that many other GUI frameworks also provide a callback hook, and the techniques
-shown here may be applied similarly to those frameworks. The <a href="https://github.com/dddomodossola/remi">remi library,</a>
+The <a href="https://docs.python.org/3/library/tk.html">Tkinter GUI framework</a>
+ provides such a hook, and we will integrate Banyan into our GUI using this technique. Note that many other GUI 
+ frameworks also provide a callback hook. 
+ The techniques shown here may also be applied similarly to those frameworks.<br />
+ The <a href="https://github.com/dddomodossola/remi">remi library,</a>
  for example, uses a method called <em>idle</em> to provide the callback hook.</p>
-<p>The tkinter callback hook method is called <a href="http://effbot.org/tkinterbook/widget.htm"><strong><em>after</em></strong></a>.
+<p>The Tkinter callback hook method is called <a href="https://www.tutorialspoint.com/after-method-in-python-tkinter"><strong><em>after</em></strong></a>.
 We will pass in 2 parameters to <em>after</em>, a sleep time
-in milliseconds, and the user callback function that is called after the sleep time expires.</p>
+in milliseconds, and the user callback function called when the sleep time expires.</p>
 <p>The example code shown below illustrates integrating the Banyan receive_loop
- into the GUI event loop using the <em>after</em> method. Some discussion of tkinter will be provided
+ into the GUI event loop using the <em>after</em> method. Some discussion of Tkinter will be provided
  for clarity. However, a detailed
-discussion of the tkinter framework is beyond the scope of this document.
-<a href="https://smile.amazon.com/Modern-Tkinter-Busy-Python-Developers-ebook/dp/B0071QDNLO/ref=sr_1_9?ie=UTF8&amp;qid=1528656765&amp;sr=8-9&amp;keywords=tkinter+book">This ebook</a>
-offers a concise and useful discussion of building GUIs with tkinter.</p>
+discussion of the Tkinter framework is beyond the scope of this document.
+<a href="https://smile.amazon.com/Modern-Tkinter-Busy-Python-Developers-ebook/dp/B0071QDNLO/ref=sr_1_9?ie=UTF8&amp;qid=1528656765&amp;sr=8-9&amp;keywords=Tkinter+book">This ebook</a>
+offers a concise and useful discussion of building GUIs with Tkinter. An online version may be found
+<a href="https://tkdocs.com/tutorial/index.html">here</a>.</p>
 <h2 id="running-the-example">Running The Example</h2>
-<p>Make sure that backplane and <a href="../example1#the-server">server</a> are running. Next start
+<p>Make sure that the backplane and <a href="../example1#the-server">server</a> are running. Next, start
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/examples/tk_echo_client.py"><em>tk_echo_client.py</em>.</a>
 After starting the GUI client code, you should see the GUI shown at the top of this section appear on your screen,
 and the console should display something similar to this:</p>
 <p><img align="center" src="../images/tk_echo_console.png"></p>
-<p>If you press the "Send Messages" button, you should the "Messages Sent" field
-update to a value of 10. If you start the Monitor before pressing the "Send
-Messages" button, you can verify the contents of the messages.</p>
+<p>If you press the "Send Messages" button, you should the "Messages Sent" field update to 10.
+If you start the Monitor before pressing the "Send Messages" button, you can verify the messages' contents.</p>
 <h2 id="exploring-the-example-code">Exploring The Example Code</h2>
 <p>The code is shown below.</p>
-<h3 id="importing-tkinter">Importing tkinter</h3>
-<p>Lines 27 through 34 handle the tkinter differences for Python 2 and 3 and allow a single code source to service both tkinter
+<h3 id="importing-tkinter">Importing Tkinter</h3>
+<p>Lines 27 through 34 handle the Tkinter differences for Python 2 and 3 and allow a single code source to service both Tkinter
 versions.</p>
 <p>Lines 37 through 39 import not only the BanyanBase class but MessagePack
-and ZeroMQ. Our GUI component needs direct access to these packages
+and ZeroMQ as well. Our GUI component needs direct access to these packages
 because portions of the Python Banyan receive_loop will be placed in
-the tkinter mainloop.</p>
-<p>Lines 62 through 68 prepare for initializing the parent BanyanBase class on line 71.</p>
+the Tkinter mainloop.</p>
+<p>Lines 62 through 68 are in preparation for initializing the parent BanyanBase class on line 71.</p>
 <p>Lines 77 and 78 subscribe to all topics of interest.</p>
 <h3 id="breaking-into-the-gui-event-loop">Breaking Into The GUI Event Loop</h3>
-<p>Line 149 uses the <em>tkinter</em> <strong><em>after</em></strong> method. The first parameter specifies a delay
+<p>Line 149 uses the <em>Tkinter</em> <strong><em>after</em></strong> method. The first parameter specifies a delay
 in milliseconds
 before the callback function specified by the second parameter is called.</p>
 <p>In this example, the callback function is the <em>get_message</em> method defined on line 156. This method
 is essentially the same code normally run in the BanyanBase receive_loop. It checks to see if there any
 Banyan messages to process, and if there are, it processes them. If there are no messages available, line 169 re-arms
-the <em>tkinter</em> <strong><em>after</em></strong> method to check for Banyan messages within the GUI event loop.</p>
+the <em>Tkinter</em> <strong><em>after</em></strong> method to check for Banyan messages within the GUI event loop.</p>
 <pre><code>     1  #!/usr/bin/env python
      2
      3  &quot;&quot;&quot;
@@ -164,9 +709,9 @@ the <em>tkinter</em> <strong><em>after</em></strong> method to check for Banyan 
     25
     26  # python 2/3 compatibility
     27  try:
-    28      from tkinter import *
-    29      from tkinter import font
-    30      from tkinter import ttk
+    28      from Tkinter import *
+    29      from Tkinter import font
+    30      from Tkinter import ttk
     31  except ImportError:
     32      from Tkinter import *
     33      import tkFont as font
@@ -377,43 +922,85 @@ the <em>tkinter</em> <strong><em>after</em></strong> method to check for Banyan 
 <p><br>
 <br>
 Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
+                
+              
+              
+                
 
-  <br>
-    
 
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../example5/" title="Tutorial 5 - Debugging Using The Monitor" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Tutorial 5  - Debugging Using The Monitor
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../example7/" title="Tutorial 7 - Installing Components As Executable Modules" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Tutorial 7  - Installing Components As Executable Modules
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
     
-    
+      <script src="../assets/javascripts/vendor.a0c4167b.min.js"></script>
+      <script src="../assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.37585f48.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
-
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../example7/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../example7/" class="btn btn-xs btn-link">
-        Tutorial 7  - Installing Components As Executable Modules
-      </a>
-    </div>
-    
-    <div class="wm-article-nav">
-      <a href="../example5/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../example5/" class="btn btn-xs btn-link">
-        Tutorial 5  - Debugging Using The Monitor
-      </a>
-    </div>
-    
-  </div>
-
-    <br>
-</div>
-
-<footer class="col-md-12 wm-page-content">
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
-</footer>
-
-</body>
+  </body>
 </html>

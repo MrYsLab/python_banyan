@@ -1,93 +1,1008 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  
-  
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.6">
+    
+    
+      
+        <title>OneGPIO Demos - Python Banyan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b9ffd7b.min.css">
+      
+      
     
     
     
-    <link rel="shortcut icon" href="../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>OneGPIO Demos - Python Banyan</title>
-    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
-    <link href="../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/highlight.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-    <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../js/highlight.pack.js"></script>
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
     
-    <base target="_top">
-    <script>
-      var base_url = '..';
-      var is_top_frame = false;
-        
-        var pageToc = [
-          {title: "Introduction To The Demos", url: "#_top", children: [
-              {title: "Prerequisites", url: "#prerequisites" },
-          ]},
-          {title: "The Demo Examples", url: "#the-demo-examples", children: [
-              {title: "Blink Demo", url: "#blink-demo" },
-              {title: "Tkinter Demo Station", url: "#tkinter-demo-station" },
-              {title: "Banyan Demonstration Station Web Pages", url: "#banyan-demonstration-station-web-pages" },
-          ]},
-        ];
-
-    </script>
-    <script src="../js/base.js"></script> 
-</head>
-
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
-
-
-
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
     
-
     
     
       
     
-
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
-    <div class="wm-article-nav">
-      <a href="../additional_gateways/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../additional_gateways/" class="btn btn-xs btn-link">
-        Additional Banyan Gateways
-      </a>
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-to-the-demos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
     </div>
     
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Python Banyan" class="md-header-nav__button md-logo" aria-label="Python Banyan">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Python Banyan
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              OneGPIO Demos
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python Banyan" class="md-nav__button md-logo" aria-label="Python Banyan">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Python Banyan
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Welcome" class="md-nav__link">
+      Welcome
+    </a>
+  </li>
 
     
+      
+      
+      
 
-    <h1 id="introduction-to-the-demos">Introduction To The Demos</h1>
-<p>In this section, we will introduce three demonstration programs
-that control the Arduino, ESP-8266, and Raspberry Pi hardware targets,
-using common OneGPIO Application Components.</p>
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      User's Guide
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="User's Guide" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        User's Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users_guide/" title="What Is Python Banyan?" class="md-nav__link">
+      What Is Python Banyan?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_intro/" title="Introduction To The Tutorials" class="md-nav__link">
+      Introduction To The Tutorials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="Base Class API Reference" class="md-nav__link">
+      Base Class API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example1/" title="Tutorial 1 - A Simple Echo Server/Client" class="md-nav__link">
+      Tutorial 1  - A Simple Echo Server/Client
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example2/" title="Tutorial 2 - Adding Command Line Options To A Component" class="md-nav__link">
+      Tutorial 2  - Adding Command Line Options To A Component
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example3/" title="Tutorial 3 - Distributed Applications" class="md-nav__link">
+      Tutorial 3  - Distributed Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example4/" title="Tutorial 4 - Applications From Components On Differing Platforms" class="md-nav__link">
+      Tutorial 4  - Applications From Components On Differing Platforms
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example5/" title="Tutorial 5 - Debugging Using The Monitor" class="md-nav__link">
+      Tutorial 5  - Debugging Using The Monitor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example6/" title="Tutorial 6 - Integrating With A GUI Event Loop" class="md-nav__link">
+      Tutorial 6  - Integrating With A GUI Event Loop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example7/" title="Tutorial 7 - Installing Components As Executable Modules" class="md-nav__link">
+      Tutorial 7  - Installing Components As Executable Modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example8/" title="Tutorial 8 - Using the Banyan Launcher" class="md-nav__link">
+      Tutorial 8  - Using the Banyan Launcher
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example9/" title="Tutorial 9 - Connecting To Multiple Backplanes" class="md-nav__link">
+      Tutorial 9  - Connecting To Multiple Backplanes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example10/" title="Tutorial 10 - Connecting Banyan To An MQTT Network" class="md-nav__link">
+      Tutorial 10 - Connecting Banyan To An MQTT Network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example11/" title="Tutorial 11 - Physical Computing And GPIO" class="md-nav__link">
+      Tutorial 11 - Physical Computing And GPIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../benchmark/" title="Comparing Banyan and MQTT" class="md-nav__link">
+      Comparing Banyan and MQTT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      The OneGPIO Project
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="The OneGPIO Project" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        The OneGPIO Project
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gpio_intro/" title="Introducing OneGPIO" class="md-nav__link">
+      Introducing OneGPIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../common_messaging_protocol/" title="The OneGPIO Messaging Protocol" class="md-nav__link">
+      The OneGPIO Messaging Protocol
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../banyan_gateways/" title="An Introduction To OneGPIO Gateways" class="md-nav__link">
+      An Introduction To OneGPIO Gateways
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../additional_gateways/" title="Additional Banyan Gateways" class="md-nav__link">
+      Additional Banyan Gateways
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        OneGPIO Demos
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="OneGPIO Demos" class="md-nav__link md-nav__link--active">
+      OneGPIO Demos
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#all-hardware-platforms" class="md-nav__link">
+    All Hardware Platforms
+  </a>
+  
+    <nav class="md-nav" aria-label="All Hardware Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-37" class="md-nav__link">
+    Python 3.7
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arduino" class="md-nav__link">
+    Arduino
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esp-8266" class="md-nav__link">
+    ESP-8266
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raspberry-pi" class="md-nav__link">
+    Raspberry Pi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-demo-examples" class="md-nav__link">
+    The Demo Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="The Demo Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blink-demo" class="md-nav__link">
+    Blink Demo
+  </a>
+  
+    <nav class="md-nav" aria-label="Blink Demo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-blink-demo-on-the-arduino" class="md-nav__link">
+    Running The Blink Demo On The Arduino
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-blink-demo-on-the-esp-8266" class="md-nav__link">
+    Running The Blink Demo On The ESP-8266
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-blink-demo-on-the-raspberry-pi" class="md-nav__link">
+    Running The Blink Demo On The Raspberry Pi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tkinter-demo-station" class="md-nav__link">
+    Tkinter Demo Station
+  </a>
+  
+    <nav class="md-nav" aria-label="Tkinter Demo Station">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tkinter-demo-station-functions" class="md-nav__link">
+    Tkinter Demo Station Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Tkinter Demo Station Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-output-control" class="md-nav__link">
+    Digital Output Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwm-output-control" class="md-nav__link">
+    PWM Output Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buzzer-tone-control" class="md-nav__link">
+    Buzzer Tone Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digital-input" class="md-nav__link">
+    Digital Input
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-tkinter-demonstration-station-for-arduino" class="md-nav__link">
+    Running The Tkinter Demonstration Station For Arduino
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-tkinter-demonstration-station-for-the-esp-8266" class="md-nav__link">
+    Running The Tkinter Demonstration Station For The ESP-8266
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-tkinter-demonstration-station-for-raspberry-pi" class="md-nav__link">
+    Running The Tkinter Demonstration Station For Raspberry Pi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#banyan-demonstration-station-web-pages" class="md-nav__link">
+    Banyan Demonstration Station Web Pages
+  </a>
+  
+    <nav class="md-nav" aria-label="Banyan Demonstration Station Web Pages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-web-demo-station-for-the-arduino" class="md-nav__link">
+    Running The Web Demo Station For The Arduino
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-web-demo-station-for-the-esp-8266" class="md-nav__link">
+    Running The Web Demo Station For The ESP-8266
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-web-demo-station-for-the-raspberry-pi-without-python-37-installed" class="md-nav__link">
+    Running The Web Demo Station For The Raspberry Pi Without Python 3.7 Installed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#killing-all-the-processes" class="md-nav__link">
+    Killing All The Processes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#all-hardware-platforms" class="md-nav__link">
+    All Hardware Platforms
+  </a>
+  
+    <nav class="md-nav" aria-label="All Hardware Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-37" class="md-nav__link">
+    Python 3.7
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arduino" class="md-nav__link">
+    Arduino
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esp-8266" class="md-nav__link">
+    ESP-8266
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raspberry-pi" class="md-nav__link">
+    Raspberry Pi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-demo-examples" class="md-nav__link">
+    The Demo Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="The Demo Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blink-demo" class="md-nav__link">
+    Blink Demo
+  </a>
+  
+    <nav class="md-nav" aria-label="Blink Demo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-blink-demo-on-the-arduino" class="md-nav__link">
+    Running The Blink Demo On The Arduino
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-blink-demo-on-the-esp-8266" class="md-nav__link">
+    Running The Blink Demo On The ESP-8266
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-blink-demo-on-the-raspberry-pi" class="md-nav__link">
+    Running The Blink Demo On The Raspberry Pi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tkinter-demo-station" class="md-nav__link">
+    Tkinter Demo Station
+  </a>
+  
+    <nav class="md-nav" aria-label="Tkinter Demo Station">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tkinter-demo-station-functions" class="md-nav__link">
+    Tkinter Demo Station Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Tkinter Demo Station Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-output-control" class="md-nav__link">
+    Digital Output Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwm-output-control" class="md-nav__link">
+    PWM Output Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buzzer-tone-control" class="md-nav__link">
+    Buzzer Tone Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digital-input" class="md-nav__link">
+    Digital Input
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-tkinter-demonstration-station-for-arduino" class="md-nav__link">
+    Running The Tkinter Demonstration Station For Arduino
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-tkinter-demonstration-station-for-the-esp-8266" class="md-nav__link">
+    Running The Tkinter Demonstration Station For The ESP-8266
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-tkinter-demonstration-station-for-raspberry-pi" class="md-nav__link">
+    Running The Tkinter Demonstration Station For Raspberry Pi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#banyan-demonstration-station-web-pages" class="md-nav__link">
+    Banyan Demonstration Station Web Pages
+  </a>
+  
+    <nav class="md-nav" aria-label="Banyan Demonstration Station Web Pages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-web-demo-station-for-the-arduino" class="md-nav__link">
+    Running The Web Demo Station For The Arduino
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-web-demo-station-for-the-esp-8266" class="md-nav__link">
+    Running The Web Demo Station For The ESP-8266
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-web-demo-station-for-the-raspberry-pi-without-python-37-installed" class="md-nav__link">
+    Running The Web Demo Station For The Raspberry Pi Without Python 3.7 Installed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#killing-all-the-processes" class="md-nav__link">
+    Killing All The Processes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="introduction-to-the-demos">Introduction To The Demos</h1>
+<p>This section will introduce three demonstration programs that control the Arduino, 
+ESP-8266, and Raspberry Pi hardware targets, using common OneGPIO Application Components.</p>
 <p>The demo programs included are:</p>
 <ol>
 <li>An LED blink program.</li>
-<li>A tkinter GPIO Demonstration Station.</li>
+<li>A Tkinter GPIO Demonstration Station.</li>
 <li>A Web-based GPIO Demonstration Station.</li>
 </ol>
-<p>A single OneGPIO Application Component is provided for the blink demo,
-and one for the tkinter demo, each containing the
+<p>A single OneGPIO Application Component is provided for the blink demo
+and one for the Tkinter demo, each containing the
 GPIO control logic to run their respective demos.</p>
 <p>For the Web Demonstration
 stations, the logic is coded in JavaScript within the Web page. The Web page
@@ -100,8 +1015,8 @@ WebSocket Gateway.</p>
 <p>Make sure that you have the newest version of
 <a href="../install/#installing-python-banyan_1"><strong><em>python-banyan</em></strong></a> on your computer.
 You can upgrade to the latest version using the <a href="https://packaging.python.org/tutorials/installing-packages/#upgrading-packages">pip <em>--upgrade</em> option.</a></p>
-<p>To run the demos, in addition to installing Python Banyan, you will need to download the latest python-banyan distribution
- files to your computer.  To download,
+<p>In addition to installing Python Banyan, you will need to download the 
+latest python-banyan distribution files to your computer to run the demos.  To download,
 go to the <a href="https://github.com/MrYsLab/python_banyan">Python Banyan Github Web page</a> and
 click on the green download button and unzip to any directory.</p>
 <p>All of the demos may be launched manually, that is, bringing up each component
@@ -113,7 +1028,7 @@ the python-banyan distribution.</p>
 <p>The launcher requires a command-line option to load a Launcher specification file. Launcher
 specification files have been provided for each demo and for each platform. Modifications
 that you may need to be made to these files will be covered in each demo section.</p>
-<h3 id="python-37">Python 3.7</h3>
+<h4 id="python-37">Python 3.7</h4>
 <p>Both the Arduino Gateway and WebSocket Gateway requires the use of Python 3.7 or higher.</p>
 <p>You may install and manage multiple versions of Python by using <a href="https://realpython.com/intro-to-pyenv/">pyenv.</a></p>
 <p>With pyenv, you can set a specific directory
@@ -123,9 +1038,9 @@ directory
 using <em>pyenv virtualenv</em>.</p>
 <p>Again, this will all be accomplished via the Banyan launcher and will be covered in the <a href="../one_gpio_demos/#banyan-demonstration-station-web-pages">Web Demonstration Station section of this document for
 the Raspberry Pi.</a></p>
-<p>For Windows users, since the Windows Operating System is not dependent upon Python, it is probably
+<p>Since the Windows Operating System is not dependent upon Python, it is probably
 easiest to install the latest version of Python3 on your computer from
-python.org(https://www.python.org/).</p>
+<a href="https://www.python.org/">python.org</a>.</p>
 <h3 id="arduino">Arduino</h3>
 <p>The Arduino Gateway was implemented using the <strong><em>python-express</em></strong> GPIO library.
 Install <a href="https://mryslab.github.io/pymata-express/install_pymata_express/"><strong><em>python-express</em></strong></a>
@@ -133,8 +1048,8 @@ Install <a href="https://mryslab.github.io/pymata-express/install_pymata_express
 on your Arduino.</p>
 <h3 id="esp-8266">ESP-8266</h3>
 <p>A NodeMCU ESP-8266 development module was used to test the demo programs.
-A custom MicroPython script was developed to work with the ESP-8266 Gateway.
-This script must be installed on the ESP-8266 and may be found 
+AA custom MicroPython script was developed to work with the 
+ESP-8266 Gateway, and this script must be installed on the ESP-8266.  It and may be found
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/esp_8266/esp_8266.py">here.</a></p>
 <p>This script is a "minified" version to allow it to fit on the device. A fully commented file
 is provided <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/esp_8266/esp_8266_micropython/esp_8266Full.py">here.</a></p>
@@ -145,7 +1060,7 @@ install the OneGPIO MicroPython script.</p>
 <p>The ampy command-line I use is: <strong>ampy -p /dev/ttyUSB0 put esp_8266.py</strong></p>
 <p>You will need to re-power the board after flashing. The red LED should 
 flash and then stay lit. It will extinguish when the board
-successfully connects to the ESP8266 OneGPIO Gateway.</p>
+successfully connects to the ESP-8266 OneGPIO Gateway.</p>
 <p><strong>NOTE:</strong> You will need to know the TCP/IP address of your ESP-8266
 and present that as a command-line argument to the ESP-8266 Gateway.</p>
 <h3 id="raspberry-pi">Raspberry Pi</h3>
@@ -165,8 +1080,8 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 
 </code></pre>
 
-<p>If no errors are reported, you are good to go. If you see an import error,
-then you will need to move a copy of pigpio.py to the virtual environment manually.</p>
+<p>If no errors are reported, you are good to go. 
+If you see an import error, you will need to manually move a copy of pigpio.py to the virtual environment.</p>
 <p>If you are using the version of pigpio included with the Raspbian distribution,
 you can find pipgio.py in the /usr/lib/python3/dist-packages/ directory.</p>
 <p>If you rebuilt pigpio to use the latest version, then you can find the pigpio.py
@@ -176,11 +1091,11 @@ the virtual environment python_banyan. I needed to copy the file to:</p>
 <p>~/.pyenv/versions/3.7.3/python-banyan/lib/python3.7/site-packages/</p>
 <p>Here is the general template for this path:</p>
 <p>~/.pyenv/versions/PYTHON VERSION/VIRTUAL ENVIRONMENT NAME/lib/PYTHON VERSION WITHOUT LAST NUMBER/site-packages/</p>
-<h1 id="the-demo-examples">The Demo Examples</h1>
+<h2 id="the-demo-examples">The Demo Examples</h2>
 <p>All of the demos are launched using the Banyan Launcher. The launcher specification files utilize a relative
 path to access the components for the applications. As a result, you must
 maintain the directory structure of the python-banyan distribution. If you haven't downloaded
-the distribution as of yet, you may do so by
+the distribution yet, you may do so by
 clicking on the green download button found on <a href="https://github.com/MrYsLab/python_banyan">this link</a>
  and then unzip the files.</p>
 <p>The launcher files may be found in the 
@@ -188,17 +1103,17 @@ clicking on the green download button found on <a href="https://github.com/MrYsL
 directory or the 
 <a href="https://github.com/MrYsLab/python_banyan/tree/master/projects/OneGPIO/launch_scripts_for_windows">projects/OneGPIO/launch_scripts_for_windows</a>
 directory. </p>
-<p>In those directories, you will find the Banyan Launcher specification files used for each demonstration and for
-each hardware target.</p>
+<p>You will find the Banyan Launcher specification files used for each 
+demonstration and for each hardware target in those directories.</p>
 <p>The difference between the Windows and non-Windows specifications files is that the command
 to invoke python is different. Windows uses <strong><em>python</em></strong>, while the other platforms use <strong><em>python3.</em></strong></p>
 <p>The specification files are csv (comma-separated value) files. They may need to be modified
-for your specific environment, and those modifications will be discussed within the discussions for each specific
+for your specific environment. Those modifications will be discussed within the discussions for each specific
 demonstration.</p>
-<h2 id="blink-demo">Blink Demo</h2>
+<h3 id="blink-demo">Blink Demo</h3>
 <p>You can view the source code for the 
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/shared/blinker.py">blink demo here.</a></p>
-<h3 id="running-the-blink-demo-on-the-arduino">Running The Blink Demo On The Arduino</h3>
+<h4 id="running-the-blink-demo-on-the-arduino">Running The Blink Demo On The Arduino</h4>
 <p>To run this demo for the Arduino, you must use Python 3.7 or higher, as mentioned above.</p>
 <p>Let's look at the <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/launch_scripts/b_a.csv">b_a.csv</a> launcher specification file in the launch_scripts directory.</p>
 <pre><code>command_string,spawn,topic,append_bp_address,auto_restart,wait
@@ -222,7 +1137,7 @@ number for the connected LED. The default is set to 10 - modify this value to me
 to load the b_a.csv specification file.</p>
 <p>When you hit return, everything needed to run this demo will be loaded, and you should see
 the LED on the pin you specified blink.</p>
-<h3 id="running-the-blink-demo-on-the-esp-8266">Running The Blink Demo On The ESP-8266</h3>
+<h4 id="running-the-blink-demo-on-the-esp-8266">Running The Blink Demo On The ESP-8266</h4>
 <p>Let's look at the <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/launch_scripts/b_e.csv">b_e.csv</a> launcher specification file in the launch_scripts directory.</p>
 <pre><code>command_string,spawn,topic,append_bp_address,auto_restart,wait
 python3 ../esp_8266/esp8266_gateway.py -i 192.168.2.183,no,local,no,no,0
@@ -247,7 +1162,7 @@ script also needs to have the target hardware type defined using the -d option. 
 to load the b_e.csv specification file.</p>
 <p>When you hit return, everything needed to run this demo will be loaded, and you should see
 the LED on the pin you specified blink.</p>
-<h3 id="running-the-blink-demo-on-the-raspberry-pi">Running The Blink Demo On The Raspberry Pi</h3>
+<h4 id="running-the-blink-demo-on-the-raspberry-pi">Running The Blink Demo On The Raspberry Pi</h4>
 <p>The <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/raspberry_pi/rpi_gateway.py">Raspberry Pi Gateway</a>
 utilizes the <a href="http://abyz.me.uk/rpi/pigpio/python.html">pigpio API library.</a></p>
 <p>When the Raspberry Pi Gateway is invoked, it will check to see if the pigpio daemon is currently running.
@@ -277,27 +1192,26 @@ to load the b_r.csv specification file.</p>
 <p>When you hit return, everything needed to run this demo will be loaded, and you should see
 the LED on the pin you specified blink.</p>
 <h2 id="tkinter-demo-station">Tkinter Demo Station</h2>
-<p>The Tkinter Demo Station is a GUI application that will
-allow you to interact with the target hardware remotely.  A common python script,
+<p>The Tkinter Demo Station is a GUI application that will allow you to remotely interact with the target hardware. 
+ A common python script,
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/shared/blinker.py">banyan_tkinter_demo.py,</a>
 is used for all three targets and is a OneGPIO Application Component. The target type is supplied as a command-line parameter when
 invoking banyan_tkinter_demo. This is provided in each of the launcher specification files.</p>
 <h3 id="tkinter-demo-station-functions">Tkinter Demo Station Functions</h3>
 <p><img align="center" src="../images/tkinter_arduino.png"></p>
 <p>The Tkinter Demo Station for the Arduino is shown above. No matter the target hardware, the
-Tkinter Demo Station for all of the target hardware types share common capabilities.</p>
+Tkinter Demo Station for all target hardware types share common capabilities.</p>
 <h4 id="digital-output-control">Digital Output Control</h4>
-<p>The Tkinter Demo Station allows you to set the state of a digital output pin. To use this feature, you
-first select the pin number, then the output value for the pin, and finally you set the state by pressing
-the <strong>Set Output State</strong> button</p>
+<p>The Tkinter Demo Station allows you to set the state of a digital output pin. To use this feature, you first select the pin number, 
+then the pin's output value, and finally, you set the state by pressing the <strong>Set Output State</strong> button.</p>
 <h4 id="pwm-output-control">PWM Output Control</h4>
-<p>To set a pin for PWM output, first, select the pin number and then use the slider to set its output value.</p>
+<p>To set a PWM output pin, first, select the pin number and then use the slider to set its output value.</p>
 <h4 id="buzzer-tone-control">Buzzer Tone Control</h4>
 <p>Select the pin, then set the frequency in HZ and duration in milliseconds for the tone. Press the <strong>Play Tone</strong>
 button to generate the tone.</p>
 <h4 id="digital-input">Digital Input</h4>
 <p>Select and enable digital input for a pin by clicking on the white box to the left of the pin number.
-The box to the right of the pin number will be black if the pin value is zero and red if it is a one.
+The box to the pin number's right will be black if the pin value is zero and red if it is a one. 
 If a pin is enabled for digital input, its current state will be shown in real-time.</p>
 <h3 id="running-the-tkinter-demonstration-station-for-arduino">Running The Tkinter Demonstration Station For Arduino</h3>
 <p>Let's look at the <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/launch_scripts/tk_a.csv">tk_a.csv</a> launcher specification file in the launch_scripts directory.</p>
@@ -317,7 +1231,7 @@ python3 ../shared/banyan_tkinter_demo.py -d arduino,no,local,no,no,0
 
 <p>The bls command starts the Banyan Launcher server, and the -f option instructs bls
 to load the tk_a.csv specification file.</p>
-<p>You should see a tkinter window for the Arduino appear.</p>
+<p>You should see a Tkinter window for the Arduino appear.</p>
 <p><img align="center" src="../images/tkinter_arduino.png"></p>
 <h3 id="running-the-tkinter-demonstration-station-for-the-esp-8266">Running The Tkinter Demonstration Station For The ESP-8266</h3>
 <p>Let's look at the <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/launch_scripts/tk_e.csv">tk_e.csv</a> launcher specification file in the launch_scripts directory.</p>
@@ -339,7 +1253,7 @@ running the esp8266 gateway. This is done on line 2 of the file with the
 
 <p>The bls command starts the Banyan Launcher server, and the -f option instructs bls
 to load the tk_e.csv specification file.</p>
-<p>You should see a tkinter window for the ESP-8266 appear.</p>
+<p>You should see a Tkinter window for the ESP-8266 appear.</p>
 <p><img align="center" src="../images/tk_inter_demo.png"></p>
 <h3 id="running-the-tkinter-demonstration-station-for-raspberry-pi">Running The Tkinter Demonstration Station For Raspberry Pi</h3>
 <p>Let's look at the <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/launch_scripts/tk_r.csv">tk_r.csv</a> launcher specification file in the launch_scripts directory.</p>
@@ -359,13 +1273,12 @@ python3 ../shared/banyan_tkinter_demo.py -d rpi,no,local,no,no,0
 
 <p>The bls command starts the Banyan Launcher server, and the -f option instructs bls
 to load the tk_r.csv specification file.</p>
-<p>You should see a tkinter window for the Raspberry Pi appear.</p>
+<p>You should see a Tkinter window for the Raspberry Pi appear.</p>
 <p><img align="center" src="../images/tkinter_rpi.png"></p>
 <h2 id="banyan-demonstration-station-web-pages">Banyan Demonstration Station Web Pages</h2>
 <p>Once again, the Banyan launcher will be used to run Web page demos.
-The launcher will start the Backplane, the Gateway for the hardware target,
-the WebSocket Gateway, and it will start your Web browser with the correct HTML
-page loaded.</p>
+The launcher will start the Backplane, the Gateway for the hardware target, 
+the WebSocket Gateway.  It will also start your Web browser with the correct HTML page loaded.</p>
 <p>By clicking on the following links, you may view the HTML pages for the
 <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/arduino_uno/arduino.html">Arduino</a>,
  <a href="https://github.com/MrYsLab/python_banyan/blob/master/projects/OneGPIO/esp_8266/esp8266.html">ESP-8266</a>, 
@@ -388,7 +1301,7 @@ handle the messaging.</p>
 <p><strong>Note</strong> Analog Input is supported for the Raspberry Pi by using a PCF8591 A/D
 i2c converter.</p>
 <p>The digital and analog tabs will display a timestamp for the last
-change to an enabled pin, as well as the pin's value:</p>
+change to an enabled pin, and the pin's value:</p>
 <p><img align="center" src="../images/web_digital_input.png"></p>
 <p><img align="center" src="../images/web_analog_input.png"></p>
 <h3 id="running-the-web-demo-station-for-the-arduino">Running The Web Demo Station For The Arduino</h3>
@@ -430,16 +1343,16 @@ python3 ../shared/open_browser.py esp8266,no,local,no,no,5
 </code></pre>
 
 <h3 id="running-the-web-demo-station-for-the-raspberry-pi-without-python-37-installed">Running The Web Demo Station For The Raspberry Pi Without Python 3.7 Installed</h3>
-<p>If you do not have Python 3.7 or higher, installed on your Raspberry Pi, you may still run this demo.
+<p>If you do not have Python 3.7 or higher installed on your Raspberry Pi, you may still run this demo.
 Because Banyan allows us to distribute Banyan components across computers, we run
-the Web server, and WebSocket Gateway on our PC and the Raspberry Pi Gateway on the
+the Web server and WebSocket Gateway on our PC and the Raspberry Pi Gateway on the
 Raspberry Pi.</p>
 <p>The launcher was designed to handle these situations. First, we need to start the
 Banyan Launcher Client (blc) on the Raspberry Pi using a command-line similar to this one:</p>
 <pre><code>blc -t rpi_remote -b 192.168.2.186
 </code></pre>
 
-<p>The <em>-t</em> option is a topic that will used when the Banyan Launcher Server (bls) publishes its
+<p>The <em>-t</em> option is a topic that will be used when the Banyan Launcher Server (bls) publishes its
 launcher messages. The <em>-b</em> option is the IP address of the PC, where we will launch bls.</p>
 <p>You will most likely have to modify the IP address when executing this command. The <em>topic</em> may be
 any string as long as both bls and blc use the same string.</p>
@@ -483,8 +1396,7 @@ ACKrpi_remote: python3 ../raspberry_pi/rpi_gateway.py -b 192.168.2.186 PID = 621
 <p><img align="center" src="../images/rpi_blc2.png"></p>
 <p>We may now start using the Web page on our PC to control the Raspberry Pi remotely.</p>
 <h3 id="killing-all-the-processes">Killing All The Processes</h3>
-<p>To kill all the processes on both computers, open another terminal window on your pc
-and type blk (the Banyan Launch Killer):</p>
+<p>To kill all the computers' processes, open another terminal window on your pc and type blk (the Banyan Launch Killer):</p>
 <pre><code>$ blk
 
 ************************************************************
@@ -527,33 +1439,71 @@ blc, we see:</p>
 <p><br>
 <br>
 Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved</p>
+                
+              
+              
+                
 
-  <br>
-    
 
-    
-    
+              
+            </article>
+          </div>
+        </div>
+      </main>
       
-    
-
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav">
-      <a href="../additional_gateways/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../additional_gateways/" class="btn btn-xs btn-link">
-        Additional Banyan Gateways
-      </a>
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../additional_gateways/" title="Additional Banyan Gateways" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Additional Banyan Gateways
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
     </div>
     
-  </div>
-
-    <br>
-</div>
-
-<footer class="col-md-12 wm-page-content">
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
-</footer>
-
-</body>
+      <script src="../assets/javascripts/vendor.a0c4167b.min.js"></script>
+      <script src="../assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.37585f48.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
 </html>
