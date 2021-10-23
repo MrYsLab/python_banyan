@@ -1,7 +1,7 @@
 """
 banyan_base_aio.py
 
- Copyright (c) 2018-2019 Alan Yorinks All right reserved.
+ Copyright (c) 2018-2021 Alan Yorinks All right reserved.
 
  Python Banyan is free software; you can redistribute it and/or
  modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -49,6 +49,7 @@ class BanyanBaseAIO(object):
 
     """
 
+    # noinspection PyBroadException
     def __init__(self, back_plane_ip_address=None, subscriber_port='43125',
                  publisher_port='43124', process_name='None', numpy=False,
                  external_message_processor=None, receive_loop_idle_addition=None,
@@ -79,7 +80,8 @@ class BanyanBaseAIO(object):
         :param connect_time: a short delay to allow the component to connect to the Backplane
         """
 
-        # call to super allows this class to be used in multiple inheritance scenarios when needed
+        # call to super allows this class to be used in multiple inheritance
+        # scenarios when needed
         super(BanyanBaseAIO, self).__init__()
 
         self.backplane_exists = False
@@ -107,7 +109,8 @@ class BanyanBaseAIO(object):
         if numpy:
             m.patch()
 
-        # If no back plane address was specified, determine the IP address of the local machine
+        # If no back plane address was specified, determine the IP address of
+        # the local machine
         if back_plane_ip_address:
             self.back_plane_ip_address = back_plane_ip_address
         else:
@@ -135,7 +138,7 @@ class BanyanBaseAIO(object):
             try:
                 s.connect(('8.8.8.8', 1))
                 self.back_plane_ip_address = s.getsockname()[0]
-            except:
+            except Exception:
                 self.back_plane_ip_address = '127.0.0.1'
             finally:
                 s.close()
@@ -149,8 +152,29 @@ class BanyanBaseAIO(object):
         print('Publisher  Port = ' + self.publisher_port)
         print('************************************************************')
 
+    async def get_subscriber(self):
+        """
+        Retrieve the zmq subscriber object
+
+        :return: self.subscriber
+        """
+        return self.subscriber
+
+    async def get_publisher(self):
+        """
+        Retrieve the zmq subscriber object
+
+        :return: self.subscriber
+        """
+        return self.publisher
+
     # noinspection PyUnresolvedReferences
-    async def begin(self):
+    async def begin(self, start_loop=True):
+        """
+        Create the zmq socket objects and conditionally start the receive loop.
+
+        :param start_loop: If true start the receive loop within this method.
+        """
         # establish the zeromq sub and pub sockets and connect to the backplane
         if not self.my_context:
             self.my_context = zmq.asyncio.Context()
@@ -171,19 +195,55 @@ class BanyanBaseAIO(object):
         # time.sleep(self.connect_time)
         await asyncio.sleep(self.connect_time)
 
-        # start the receive_loop
+        # start the receive_loop if start_loop is True
+        if start_loop:
+            self.the_task = self.event_loop.create_task(self.receive_loop())
+
+    async def begin_receive_loop(self):
+        """
+        Start the receive loop independent of the begin method.
+        """
         self.the_task = self.event_loop.create_task(self.receive_loop())
 
     async def pack(self, data):
+        """
+        Pack the data using msgpack
+
+        :param data: item to be packed
+
+        :return: the packed data
+
+        """
         return msgpack.packb(data, use_bin_type=True)
 
     async def unpack(self, data):
+        """
+        Unpack the data item using msgpack.
+
+        :param data: data to be unpacked.
+
+        :return: unpacked data
+        """
         return msgpack.unpackb(data, raw=False)
 
     async def numpy_pack(self, data):
+        """
+        Pack data if using numpy.
+
+        :param data: item to be packed
+
+        :return: the packed data
+        """
         return msgpack.packb(data, default=m.encode)
 
     async def numpy_unpack(self, data):
+        """
+        Unpack data if numpy is in use.
+
+        :param data: item to be packed
+
+        :return: the unpacked data
+        """
         return msgpack.unpackb(data[1], object_hook=m.decode)
 
     async def publish_payload(self, payload, topic=''):
