@@ -31,7 +31,7 @@ width:350px;height:350px;">
  
  
 <br>
-Last Updated: 12 September, 2020 &nbsp; &nbsp; &nbsp; python-banyan version: v3.9
+Last Updated: 23 October, 2021 &nbsp; &nbsp; &nbsp; python-banyan version: v3.10
 <br>
 <br>
 <br>
