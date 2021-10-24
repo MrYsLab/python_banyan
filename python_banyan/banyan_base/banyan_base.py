@@ -1,7 +1,7 @@
 """
 banyan_base.py
 
- Copyright (c) 2016-2019 Alan Yorinks All right reserved.
+ Copyright (c) 2016-2021 Alan Yorinks All right reserved.
 
  Python Banyan is free software; you can redistribute it and/or
  modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -53,6 +53,7 @@ class BanyanBase(object):
 
     """
 
+    # noinspection PyBroadException
     def __init__(self, back_plane_ip_address=None, subscriber_port='43125',
                  publisher_port='43124', process_name='None', loop_time=.1, numpy=False,
                  external_message_processor=None, receive_loop_idle_addition=None,
@@ -81,10 +82,12 @@ class BanyanBase(object):
         :param receive_loop_idle_addition: an external method called in the idle section
                                            of the receive loop
 
-        :param connect_time: a short delay to allow the component to connect to the Backplane
+        :param connect_time: a short delay to allow the component to connect
+                             to the Backplane
         """
 
-        # call to super allows this class to be used in multiple inheritance scenarios when needed
+        # call to super allows this class to be used in multiple
+        # inheritance scenarios when needed
         super(BanyanBase, self).__init__()
 
         self.backplane_exists = False
@@ -127,7 +130,7 @@ class BanyanBase(object):
             try:
                 s.connect(('8.8.8.8', 1))
                 self.back_plane_ip_address = s.getsockname()[0]
-            except:
+            except Exception:
                 self.back_plane_ip_address = '127.0.0.1'
             finally:
                 s.close()
@@ -156,6 +159,22 @@ class BanyanBase(object):
 
         # Allow enough time for the TCP connection to the Backplane complete.
         time.sleep(self.connect_time)
+
+    def get_subscriber(self):
+        """
+        Retrieve the zmq subscriber object
+
+        :return: self.subscriber
+        """
+        return self.subscriber
+
+    def get_publisher(self):
+        """
+        Retrieve the zmq subscriber object
+
+        :return: self.subscriber
+        """
+        return self.publisher
 
     def set_subscriber_topic(self, topic):
         """

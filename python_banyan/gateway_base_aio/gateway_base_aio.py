@@ -157,9 +157,11 @@ class GatewayBaseAIO(BanyanBaseAIO):
     async def incoming_message_processing(self, topic, payload):
         """
         Messages are sent here from the receive_loop
+
         :param topic: Message Topic string
+
         :param payload: Message Data
-        :return:
+
         """
         # process payload command
         try:
@@ -195,7 +197,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -204,7 +208,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -213,7 +219,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -222,7 +230,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -231,7 +241,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -240,7 +252,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -249,7 +263,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -258,7 +274,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -267,7 +285,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -276,7 +296,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -285,7 +307,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -294,7 +318,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -303,7 +329,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -312,7 +340,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -321,7 +351,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -330,7 +362,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -339,7 +373,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -348,7 +384,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -357,7 +395,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -366,7 +406,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         This method will pass any messages not handled by this class to the
         specific gateway class. Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -375,7 +417,9 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         Set the mode for the specific board.
         Must be overwritten by the hardware gateway class.
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
@@ -384,19 +428,29 @@ class GatewayBaseAIO(BanyanBaseAIO):
         """
         Must be overwritten by the hardware gateway class.
         Handles a digital write
+
         :param topic: message topic
+
         :param payload: message payload
         """
         raise NotImplementedError
 
     async def digital_read(self, pin):
+        """
+        Read the state of a digital input pin.
+
+        :param pin: pin number
+        """
         raise NotImplementedError
 
     async def stepper_write(self, topic, payload):
         """
         Must be overwritten by the hardware gateway class.
         Handles a pwm write
+
         :param topic: message topic
+
         :param payload: message payload
+
         """
         raise NotImplementedError
