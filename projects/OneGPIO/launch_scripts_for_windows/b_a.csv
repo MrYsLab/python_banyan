@@ -1,3 +1,0 @@
-command_string,spawn,topic,append_bp_address,auto_restart,wait
-python ../arduino_uno/arduino_gateway.py,no,local,no,no,8
-python ../shared/blinker.py -d arduino -g 10,no,local,no,no,0
