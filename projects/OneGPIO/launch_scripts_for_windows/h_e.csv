@@ -1,3 +1,0 @@
-command_string,spawn,topic,append_bp_address,auto_restart,wait
-python ../esp_8266/esp8266_gateway.py -i 192.168.2.185,no,local,no,no,4
-python ../shared/ws_gateway.py,no,local,no,no,1
