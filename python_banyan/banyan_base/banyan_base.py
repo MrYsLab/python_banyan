@@ -108,7 +108,11 @@ class BanyanBase(object):
         else:
             # check for a running backplane
             for pid in psutil.pids():
-                p = psutil.Process(pid)
+                try:
+                    p = psutil.Process(pid)
+                except psutil.NoSuchProcess:
+                    # the process list from psutil.pids() may be outdated
+                    continue
                 try:
                     p_command = p.cmdline()
                 except psutil.AccessDenied:
