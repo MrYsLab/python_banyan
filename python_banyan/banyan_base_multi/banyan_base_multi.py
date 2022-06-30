@@ -32,6 +32,7 @@ import msgpack
 import msgpack_numpy as m
 import zmq
 import os
+import umsgpack
 
 
 # noinspection PyMethodMayBeStatic
