@@ -1,0 +1,1087 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>banyan_base_multi.banyan_base_multi API documentation</title>
+<meta name="description" content="banyan_base_multi.py …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>banyan_base_multi.banyan_base_multi</code></h1>
+</header>
+<section id="section-intro">
+<p>banyan_base_multi.py</p>
+<p>Copyright (c) 2016 - 2019 Alan Yorinks All right reserved.</p>
+<p>Python Banyan is free software; you can redistribute it and/or
+modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+Version 3 as published by the Free Software Foundation; either
+or (at your option) any later version.
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU
+General Public License for more details.</p>
+<p>You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE
+along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+02110-1301
+USA</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+banyan_base_multi.py
+
+ Copyright (c) 2016 - 2019 Alan Yorinks All right reserved.
+
+ Python Banyan is free software; you can redistribute it and/or
+ modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+ Version 3 as published by the Free Software Foundation; either
+ or (at your option) any later version.
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+
+ You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE
+ along with this library; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+&#34;&#34;&#34;
+from __future__ import unicode_literals
+
+# Use argparse and signal if you wish to implement the argparse
+# code located at the bottom of this file
+# import argparse
+# import signal
+
+import csv
+import sys
+import time
+import itertools
+import msgpack
+import msgpack_numpy as m
+import zmq
+import os
+
+
+# noinspection PyMethodMayBeStatic
+class BanyanBaseMulti(object):
+    &#34;&#34;&#34;
+
+    This is the base class for Python Banyan components that wish to connect to multiple back planes.
+    It requires the user to create a .csv descriptor file to describe the back planes and their
+    addresses/ports and subscription topics.
+
+    The .csv file has the following format. This line must be the first line in the file:
+
+    backplane_name,ip_address,subscriber_port,subscriber_topic,publisher_port
+
+    backplane_name: a unique identifier string for backplane - for informational purposes only
+
+    ip_address: IP address of the computer that the backplane is running on
+
+    subscriber_port: port number assigned to the backplane&#39;s subscriber port
+
+    subscriber_topic: this is an optional list of subscription topics
+
+    publisher_port: port number assigned to the backplane&#39;s publisher port
+
+
+
+    There should be an entry in this file for each backplane that the component needs to connect to.
+
+    This class encapsulates zeromq and message pack functionality. Its methods should be overridden by the user
+    in the derived class to meet the needs of the component.
+
+    To import into  the derived class use:
+
+           from python_banyan.banyan_base_multi import BanyanBaseMulti
+
+    &#34;&#34;&#34;
+
+    def __init__(self, back_plane_csv_file=None, process_name=&#39;None&#39;,
+                 loop_time=.1, numpy=False, connect_time=0.3):
+        &#34;&#34;&#34;
+        The __init__ method sets up all the ZeroMQ &#34;plumbing&#34;
+
+        :param back_plane_csv_file: full path to .csv file with backplane descriptors
+
+        :param process_name: identifier for your component printed at startup on the console
+
+        :param loop_time: receive loop sleep time
+
+        :param numpy: Set true if you wish to include numpy matrices in your messages
+
+        :param connect_time: a short delay to allow the component to connect to the Backplane
+
+        :return:
+        &#34;&#34;&#34;
+
+        # socket type - used for calls to find_socket
+        self.SUB_SOCK = 0
+        self.PUB_SOCK = 1
+
+        if back_plane_csv_file is None:
+            raise ValueError(&#39;You must specify a valid .csv backplane descriptor file&#39;)
+
+        # file specified, make sure it exists
+        if not os.path.isfile(back_plane_csv_file):
+            raise ValueError(&#34;Can&#39;t find backplane configuration file&#34;)
+
+        if process_name == &#39;None&#39;:
+            print(&#39;Warning: No Process Name Was Specified&#39;)
+
+        self.numpy = numpy
+
+        self.connect_time = connect_time
+
+        # if using numpy apply the msgpack_numpy monkey patch
+        if numpy:
+            m.patch()
+
+        self.loop_time = loop_time
+
+        # get a zeromq context
+        self.my_context = zmq.Context()
+
+        # a list of dictionaries describing connections to the back planes
+        self.backplane_table = []
+
+        print(&#34;\nUsing Backplane Descriptor File: &#34;, back_plane_csv_file)
+
+        with open(back_plane_csv_file) as csvfile:
+            reader = csv.DictReader(csvfile)
+            print(&#39;\n************************************************************\n&#39;)
+            for row in reader:
+                # make sure backplane name is unique
+                if any(d[&#39;backplane_name&#39;] == row[&#39;backplane_name&#39;] for d in self.backplane_table):
+                    raise RuntimeError(&#39;Duplicate Back Plane Name - check your .csv file&#39;)
+
+                print(process_name + &#39; using &#39; + row[&#39;backplane_name&#39;] + &#39; Black plane at IP Address: &#39; +
+                      row[&#39;ip_address&#39;])
+
+                # setup a publisher and subscriber for each backplane
+                subscriber = None
+                if row[&#39;subscriber_port&#39;]:
+                    subscriber = self.my_context.socket(zmq.SUB)
+                    connect_string = &#34;tcp://&#34; + row[&#39;ip_address&#39;] + &#39;:&#39; + row[&#39;subscriber_port&#39;]
+                    subscriber.connect(connect_string)
+
+                publisher = None
+                if row[&#39;publisher_port&#39;]:
+                    publisher = self.my_context.socket(zmq.PUB)
+                    connect_string = &#34;tcp://&#34; + row[&#39;ip_address&#39;] + &#39;:&#39; + row[&#39;publisher_port&#39;]
+                    publisher.connect(connect_string)
+
+                # get topics and subscribe to them
+                # test that topic string has a leading and trailing []
+                if row[&#39;subscriber_port&#39;]:
+                    print(&#39;    Subscriber Port = &#39; + row[&#39;subscriber_port&#39;])
+                    topic_list = row[&#39;subscriber_topic&#39;]
+                    if &#39;[&#39; not in topic_list:
+                        raise RuntimeError(&#39;Topic field must begin with &#34;[&#34; and end with &#34;]&#34; &#39;)
+                    if &#39;]&#39; not in topic_list:
+                        raise RuntimeError(&#39;Topic field must begin with &#34;[&#34; and end with &#34;]&#34; &#39;)
+
+                    # make sure that the topic string does not contain a space character
+                    if &#39; &#39; in topic_list:
+                        raise RuntimeError(&#39;Topics may not contain a space character&#39;)
+
+                    topic_list = topic_list[1:-1].split(&#39;,&#39;)
+
+                    # subscribe to topics in list
+                    for t in topic_list:
+                        if sys.version_info[0] &lt; 3:
+                            t = t.encode()
+                        print(&#39;        Subscribed to topic: &#39; + t)
+                        self.set_subscriber_topic(t, subscriber)
+                else:
+                    print(&#39;    Subscriber Port = None Specified&#39;)
+
+                if row[&#39;publisher_port&#39;]:
+                    print(&#39;    Publisher  Port = &#39; + row[&#39;publisher_port&#39;])
+                else:
+                    print(&#39;    Publisher  Port = None Specified&#39;)
+
+                # update backplane table with new entry
+                self.backplane_table.append(
+                    {&#39;backplane_name&#39;: row[&#39;backplane_name&#39;], &#39;subscriber&#39;: subscriber,
+                     &#39;publisher&#39;: publisher})
+
+            # wait for the last Backplane TCP connection
+            time.sleep(self.connect_time)
+
+            print()
+            print(&#39;Loop Time = &#39; + str(loop_time) + &#39; seconds\n&#39;)
+            print(&#39;************************************************************&#39;)
+
+    def find_socket(self, backplane, socket_type):
+        &#34;&#34;&#34;
+        Find a publisher or subscriber in the backplane table and return a ZMQ socket reference
+
+        :param backplane: backplane name entry in table
+
+        :param socket_type: publisher or subscriber
+
+        :return: socket reference or None
+        &#34;&#34;&#34;
+        valid_socket_types = [self.PUB_SOCK, self.SUB_SOCK]
+
+        if socket_type in valid_socket_types:
+            try:
+                entry = next(item for item in self.backplane_table if item.get(&#34;backplane_name&#34;) == backplane)
+                if socket_type == self.PUB_SOCK:
+                    rval = entry[&#39;publisher&#39;]
+                else:
+                    rval = entry[&#39;subscriber&#39;]
+                return rval
+
+            except StopIteration:
+                raise StopIteration(backplane + &#39; not found in table.&#39;)
+        else:
+            raise ValueError(socket_type + &#39; is an illegal socket_type&#39;)
+
+    def set_subscriber_topic(self, topic, subscriber_socket):
+        &#34;&#34;&#34;
+        This method sets a subscriber topic.
+
+        You can subscribe to multiple topics by calling this method for
+        each topic.
+
+        :param topic: A topic string
+
+        :param subscriber_socket: subscriber socket
+
+        :return:
+        &#34;&#34;&#34;
+
+        # make sure topic is a string
+        if not type(topic) is str:
+            raise TypeError(&#39;Subscriber topic must be python_banyan string&#39;)
+
+        # does the subscriber socket exist?
+        if subscriber_socket:
+            subscriber_socket.setsockopt(zmq.SUBSCRIBE, topic.encode())
+        else:
+            raise ValueError(&#39;set_subscriber_topic: socket is None&#39;)
+
+    def unsubscribe_topic(self, topic, subscriber_socket):
+        &#34;&#34;&#34;
+        This method un-subscribes from a topic.
+
+        :param topic: A topic string
+
+        :param subscriber_socket: subscriber socket
+
+        :return:
+        &#34;&#34;&#34;
+
+        # make sure topic is a string
+        if not type(topic) is str:
+            raise TypeError(&#39;Subscriber topic must be python_banyan string&#39;)
+
+        # make sure that a socket reference has been passed in
+        if subscriber_socket:
+            subscriber_socket.unsubscribe(topic.encode())
+        else:
+            raise ValueError(&#39;set_subscriber_topic: socket is None&#39;)
+
+    def publish_payload(self, payload, publisher_socket, topic=&#39;&#39;):
+        &#34;&#34;&#34;
+        This method will publish a python_banyan payload and its associated topic
+
+        :param payload:  Protocol message to be published
+
+        :param publisher_socket: Publisher socket - handle to socket or &#34;BROADCAST&#34; to send to
+                                 all connected publisher sockets
+
+        :param topic: A string value for message topic
+
+        :return:
+        &#34;&#34;&#34;
+
+        # make sure topic is a string
+        if not type(topic) is str:
+            raise TypeError(&#39;Publish topic must be python_banyan string&#39;, &#39;topic&#39;)
+
+        # create python_banyan message pack payload
+        if self.numpy:
+            message = msgpack.packb(payload, default=m.encode)
+        else:
+            message = umsgpack.packb(payload)
+
+        pub_envelope = topic.encode()
+        if publisher_socket == &#34;BROADCAST&#34;:
+            for element in self.backplane_table:
+                if element[&#39;publisher&#39;]:
+                    element[&#39;publisher&#39;].send_multipart([pub_envelope, message])
+        else:
+
+            if publisher_socket:
+                publisher_socket.send_multipart([pub_envelope, message])
+            else:
+                raise ValueError(&#39;Invalid publisher socket&#39;)
+
+    def receive_loop(self):
+        &#34;&#34;&#34;
+        This is the receive loop for zmq messages.
+
+        This method may be overwritten to meet the needs
+        of the application before handling received messages.
+
+        :return:
+        &#34;&#34;&#34;
+        for element in itertools.cycle(self.backplane_table):
+            if element[&#39;subscriber&#39;]:
+                try:
+                    data = element[&#39;subscriber&#39;].recv_multipart(zmq.NOBLOCK)
+                    if self.numpy:
+                        payload = msgpack.unpackb(data[1], object_hook=m.decode)
+                        self.incoming_message_processing(data[0].decode(), payload)
+                    else:
+                        self.incoming_message_processing(data[0].decode(), umsgpack.unpackb(data[1]))
+                except zmq.error.Again:
+                    try:
+                        time.sleep(self.loop_time)
+                    except KeyboardInterrupt:
+                        self.clean_up()
+                        sys.exit(0)
+                except AttributeError:
+                    raise
+
+    def incoming_message_processing(self, topic, payload):
+        &#34;&#34;&#34;
+        Override this method with a custom python_banyan message processor for subscribed messages
+
+        :param topic: Message Topic string
+
+        :param payload: Message Data
+
+        :return:
+        &#34;&#34;&#34;
+        print(&#39;this method should be overwritten in the child class&#39;, topic, payload)
+
+    def clean_up(self):
+        &#34;&#34;&#34;
+        Clean up before exiting - override if additional cleanup is necessary
+
+        :return:
+        &#34;&#34;&#34;
+        for element in self.backplane_table:
+            if element[&#39;publisher&#39;]:
+                element[&#39;publisher&#39;].close()
+            if element[&#39;subscriber&#39;]:
+                element[&#39;subscriber&#39;].close()
+        self.my_context.term()
+
+# When creating a derived component, replicate the code below and replace banyan_base_multi with a  name of your choice
+
+# def banyan_base_multi():
+#     # allow user to bypass the IP address auto-discovery. This is necessary if the component resides on a computer
+#     # other than the computing running the backplane.
+#
+#     parser = argparse.ArgumentParser()
+#     parser.add_argument(&#34;-b&#34;, dest=&#34;back_plane_csv_file&#34;, default=&#34;None&#34;,
+#                         help=&#34;Backplane .csv descriptor file name&#34;)
+#
+#     # allow the user to specify a name for the component and have it shown on the console banner.
+#     # modify the default process name to one you wish to see on the banner.
+#     # change the default in the derived class to set the name
+#     parser.add_argument(&#34;-n&#34;, dest=&#34;process_name&#34;, default=&#34;YOUR PROCESS NAME&#34;, help=&#34;Set process name in banner&#34;)
+#
+#     parser.add_argument(&#34;-t&#34;, dest=&#34;loop_time&#34;, default=&#34;.1&#34;, help=&#34;Event Loop Timer in seconds&#34;)
+#
+#     args = parser.parse_args()
+#     kw_options = {}
+#
+#     if args.back_plane_csv_file != &#39;None&#39;:
+#         kw_options[&#39;back_plane_csv_file&#39;] = args.back_plane_csv_file
+#
+#     kw_options[&#39;process_name&#39;] = args.process_name
+#
+#     kw_options[&#39;loop_time&#39;] = float(args.loop_time)
+#
+#     # replace with the name of your class
+#     app = BanyanBaseMulti(**kw_options)
+#
+#     # optionally start the receive loop here or start it in your __init__
+#     app.receive_loop()
+#
+#
+# signal handler function called when Control-C occurs
+# noinspection PyShadowingNames,PyUnusedLocal,PyUnusedLocal
+# def signal_handler(sig, frame):
+#     print(&#39;Exiting Through Signal Handler&#39;)
+#     raise KeyboardInterrupt
+#
+#
+# # listen for SIGINT
+# signal.signal(signal.SIGINT, signal_handler)
+# signal.signal(signal.SIGTERM, signal_handler)
+#
+#
+# if __name__ == &#39;__main__&#39;:
+#     # replace with name of function you defined above
+#     banyan_base_multi()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="banyan_base_multi.banyan_base_multi.BanyanBaseMulti"><code class="flex name class">
+<span>class <span class="ident">BanyanBaseMulti</span></span>
+<span>(</span><span>back_plane_csv_file=None, process_name='None', loop_time=0.1, numpy=False, connect_time=0.3)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This is the base class for Python Banyan components that wish to connect to multiple back planes.
+It requires the user to create a .csv descriptor file to describe the back planes and their
+addresses/ports and subscription topics.</p>
+<p>The .csv file has the following format. This line must be the first line in the file:</p>
+<p>backplane_name,ip_address,subscriber_port,subscriber_topic,publisher_port</p>
+<p>backplane_name: a unique identifier string for backplane - for informational purposes only</p>
+<p>ip_address: IP address of the computer that the backplane is running on</p>
+<p>subscriber_port: port number assigned to the backplane's subscriber port</p>
+<p>subscriber_topic: this is an optional list of subscription topics</p>
+<p>publisher_port: port number assigned to the backplane's publisher port</p>
+<p>There should be an entry in this file for each backplane that the component needs to connect to.</p>
+<p>This class encapsulates zeromq and message pack functionality. Its methods should be overridden by the user
+in the derived class to meet the needs of the component.</p>
+<p>To import into
+the derived class use:</p>
+<pre><code>   from python_banyan.banyan_base_multi import BanyanBaseMulti
+</code></pre>
+<p>The <strong>init</strong> method sets up all the ZeroMQ "plumbing"</p>
+<p>:param back_plane_csv_file: full path to .csv file with backplane descriptors</p>
+<p>:param process_name: identifier for your component printed at startup on the console</p>
+<p>:param loop_time: receive loop sleep time</p>
+<p>:param numpy: Set true if you wish to include numpy matrices in your messages</p>
+<p>:param connect_time: a short delay to allow the component to connect to the Backplane</p>
+<p>:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BanyanBaseMulti(object):
+    &#34;&#34;&#34;
+
+    This is the base class for Python Banyan components that wish to connect to multiple back planes.
+    It requires the user to create a .csv descriptor file to describe the back planes and their
+    addresses/ports and subscription topics.
+
+    The .csv file has the following format. This line must be the first line in the file:
+
+    backplane_name,ip_address,subscriber_port,subscriber_topic,publisher_port
+
+    backplane_name: a unique identifier string for backplane - for informational purposes only
+
+    ip_address: IP address of the computer that the backplane is running on
+
+    subscriber_port: port number assigned to the backplane&#39;s subscriber port
+
+    subscriber_topic: this is an optional list of subscription topics
+
+    publisher_port: port number assigned to the backplane&#39;s publisher port
+
+
+
+    There should be an entry in this file for each backplane that the component needs to connect to.
+
+    This class encapsulates zeromq and message pack functionality. Its methods should be overridden by the user
+    in the derived class to meet the needs of the component.
+
+    To import into  the derived class use:
+
+           from python_banyan.banyan_base_multi import BanyanBaseMulti
+
+    &#34;&#34;&#34;
+
+    def __init__(self, back_plane_csv_file=None, process_name=&#39;None&#39;,
+                 loop_time=.1, numpy=False, connect_time=0.3):
+        &#34;&#34;&#34;
+        The __init__ method sets up all the ZeroMQ &#34;plumbing&#34;
+
+        :param back_plane_csv_file: full path to .csv file with backplane descriptors
+
+        :param process_name: identifier for your component printed at startup on the console
+
+        :param loop_time: receive loop sleep time
+
+        :param numpy: Set true if you wish to include numpy matrices in your messages
+
+        :param connect_time: a short delay to allow the component to connect to the Backplane
+
+        :return:
+        &#34;&#34;&#34;
+
+        # socket type - used for calls to find_socket
+        self.SUB_SOCK = 0
+        self.PUB_SOCK = 1
+
+        if back_plane_csv_file is None:
+            raise ValueError(&#39;You must specify a valid .csv backplane descriptor file&#39;)
+
+        # file specified, make sure it exists
+        if not os.path.isfile(back_plane_csv_file):
+            raise ValueError(&#34;Can&#39;t find backplane configuration file&#34;)
+
+        if process_name == &#39;None&#39;:
+            print(&#39;Warning: No Process Name Was Specified&#39;)
+
+        self.numpy = numpy
+
+        self.connect_time = connect_time
+
+        # if using numpy apply the msgpack_numpy monkey patch
+        if numpy:
+            m.patch()
+
+        self.loop_time = loop_time
+
+        # get a zeromq context
+        self.my_context = zmq.Context()
+
+        # a list of dictionaries describing connections to the back planes
+        self.backplane_table = []
+
+        print(&#34;\nUsing Backplane Descriptor File: &#34;, back_plane_csv_file)
+
+        with open(back_plane_csv_file) as csvfile:
+            reader = csv.DictReader(csvfile)
+            print(&#39;\n************************************************************\n&#39;)
+            for row in reader:
+                # make sure backplane name is unique
+                if any(d[&#39;backplane_name&#39;] == row[&#39;backplane_name&#39;] for d in self.backplane_table):
+                    raise RuntimeError(&#39;Duplicate Back Plane Name - check your .csv file&#39;)
+
+                print(process_name + &#39; using &#39; + row[&#39;backplane_name&#39;] + &#39; Black plane at IP Address: &#39; +
+                      row[&#39;ip_address&#39;])
+
+                # setup a publisher and subscriber for each backplane
+                subscriber = None
+                if row[&#39;subscriber_port&#39;]:
+                    subscriber = self.my_context.socket(zmq.SUB)
+                    connect_string = &#34;tcp://&#34; + row[&#39;ip_address&#39;] + &#39;:&#39; + row[&#39;subscriber_port&#39;]
+                    subscriber.connect(connect_string)
+
+                publisher = None
+                if row[&#39;publisher_port&#39;]:
+                    publisher = self.my_context.socket(zmq.PUB)
+                    connect_string = &#34;tcp://&#34; + row[&#39;ip_address&#39;] + &#39;:&#39; + row[&#39;publisher_port&#39;]
+                    publisher.connect(connect_string)
+
+                # get topics and subscribe to them
+                # test that topic string has a leading and trailing []
+                if row[&#39;subscriber_port&#39;]:
+                    print(&#39;    Subscriber Port = &#39; + row[&#39;subscriber_port&#39;])
+                    topic_list = row[&#39;subscriber_topic&#39;]
+                    if &#39;[&#39; not in topic_list:
+                        raise RuntimeError(&#39;Topic field must begin with &#34;[&#34; and end with &#34;]&#34; &#39;)
+                    if &#39;]&#39; not in topic_list:
+                        raise RuntimeError(&#39;Topic field must begin with &#34;[&#34; and end with &#34;]&#34; &#39;)
+
+                    # make sure that the topic string does not contain a space character
+                    if &#39; &#39; in topic_list:
+                        raise RuntimeError(&#39;Topics may not contain a space character&#39;)
+
+                    topic_list = topic_list[1:-1].split(&#39;,&#39;)
+
+                    # subscribe to topics in list
+                    for t in topic_list:
+                        if sys.version_info[0] &lt; 3:
+                            t = t.encode()
+                        print(&#39;        Subscribed to topic: &#39; + t)
+                        self.set_subscriber_topic(t, subscriber)
+                else:
+                    print(&#39;    Subscriber Port = None Specified&#39;)
+
+                if row[&#39;publisher_port&#39;]:
+                    print(&#39;    Publisher  Port = &#39; + row[&#39;publisher_port&#39;])
+                else:
+                    print(&#39;    Publisher  Port = None Specified&#39;)
+
+                # update backplane table with new entry
+                self.backplane_table.append(
+                    {&#39;backplane_name&#39;: row[&#39;backplane_name&#39;], &#39;subscriber&#39;: subscriber,
+                     &#39;publisher&#39;: publisher})
+
+            # wait for the last Backplane TCP connection
+            time.sleep(self.connect_time)
+
+            print()
+            print(&#39;Loop Time = &#39; + str(loop_time) + &#39; seconds\n&#39;)
+            print(&#39;************************************************************&#39;)
+
+    def find_socket(self, backplane, socket_type):
+        &#34;&#34;&#34;
+        Find a publisher or subscriber in the backplane table and return a ZMQ socket reference
+
+        :param backplane: backplane name entry in table
+
+        :param socket_type: publisher or subscriber
+
+        :return: socket reference or None
+        &#34;&#34;&#34;
+        valid_socket_types = [self.PUB_SOCK, self.SUB_SOCK]
+
+        if socket_type in valid_socket_types:
+            try:
+                entry = next(item for item in self.backplane_table if item.get(&#34;backplane_name&#34;) == backplane)
+                if socket_type == self.PUB_SOCK:
+                    rval = entry[&#39;publisher&#39;]
+                else:
+                    rval = entry[&#39;subscriber&#39;]
+                return rval
+
+            except StopIteration:
+                raise StopIteration(backplane + &#39; not found in table.&#39;)
+        else:
+            raise ValueError(socket_type + &#39; is an illegal socket_type&#39;)
+
+    def set_subscriber_topic(self, topic, subscriber_socket):
+        &#34;&#34;&#34;
+        This method sets a subscriber topic.
+
+        You can subscribe to multiple topics by calling this method for
+        each topic.
+
+        :param topic: A topic string
+
+        :param subscriber_socket: subscriber socket
+
+        :return:
+        &#34;&#34;&#34;
+
+        # make sure topic is a string
+        if not type(topic) is str:
+            raise TypeError(&#39;Subscriber topic must be python_banyan string&#39;)
+
+        # does the subscriber socket exist?
+        if subscriber_socket:
+            subscriber_socket.setsockopt(zmq.SUBSCRIBE, topic.encode())
+        else:
+            raise ValueError(&#39;set_subscriber_topic: socket is None&#39;)
+
+    def unsubscribe_topic(self, topic, subscriber_socket):
+        &#34;&#34;&#34;
+        This method un-subscribes from a topic.
+
+        :param topic: A topic string
+
+        :param subscriber_socket: subscriber socket
+
+        :return:
+        &#34;&#34;&#34;
+
+        # make sure topic is a string
+        if not type(topic) is str:
+            raise TypeError(&#39;Subscriber topic must be python_banyan string&#39;)
+
+        # make sure that a socket reference has been passed in
+        if subscriber_socket:
+            subscriber_socket.unsubscribe(topic.encode())
+        else:
+            raise ValueError(&#39;set_subscriber_topic: socket is None&#39;)
+
+    def publish_payload(self, payload, publisher_socket, topic=&#39;&#39;):
+        &#34;&#34;&#34;
+        This method will publish a python_banyan payload and its associated topic
+
+        :param payload:  Protocol message to be published
+
+        :param publisher_socket: Publisher socket - handle to socket or &#34;BROADCAST&#34; to send to
+                                 all connected publisher sockets
+
+        :param topic: A string value for message topic
+
+        :return:
+        &#34;&#34;&#34;
+
+        # make sure topic is a string
+        if not type(topic) is str:
+            raise TypeError(&#39;Publish topic must be python_banyan string&#39;, &#39;topic&#39;)
+
+        # create python_banyan message pack payload
+        if self.numpy:
+            message = msgpack.packb(payload, default=m.encode)
+        else:
+            message = umsgpack.packb(payload)
+
+        pub_envelope = topic.encode()
+        if publisher_socket == &#34;BROADCAST&#34;:
+            for element in self.backplane_table:
+                if element[&#39;publisher&#39;]:
+                    element[&#39;publisher&#39;].send_multipart([pub_envelope, message])
+        else:
+
+            if publisher_socket:
+                publisher_socket.send_multipart([pub_envelope, message])
+            else:
+                raise ValueError(&#39;Invalid publisher socket&#39;)
+
+    def receive_loop(self):
+        &#34;&#34;&#34;
+        This is the receive loop for zmq messages.
+
+        This method may be overwritten to meet the needs
+        of the application before handling received messages.
+
+        :return:
+        &#34;&#34;&#34;
+        for element in itertools.cycle(self.backplane_table):
+            if element[&#39;subscriber&#39;]:
+                try:
+                    data = element[&#39;subscriber&#39;].recv_multipart(zmq.NOBLOCK)
+                    if self.numpy:
+                        payload = msgpack.unpackb(data[1], object_hook=m.decode)
+                        self.incoming_message_processing(data[0].decode(), payload)
+                    else:
+                        self.incoming_message_processing(data[0].decode(), umsgpack.unpackb(data[1]))
+                except zmq.error.Again:
+                    try:
+                        time.sleep(self.loop_time)
+                    except KeyboardInterrupt:
+                        self.clean_up()
+                        sys.exit(0)
+                except AttributeError:
+                    raise
+
+    def incoming_message_processing(self, topic, payload):
+        &#34;&#34;&#34;
+        Override this method with a custom python_banyan message processor for subscribed messages
+
+        :param topic: Message Topic string
+
+        :param payload: Message Data
+
+        :return:
+        &#34;&#34;&#34;
+        print(&#39;this method should be overwritten in the child class&#39;, topic, payload)
+
+    def clean_up(self):
+        &#34;&#34;&#34;
+        Clean up before exiting - override if additional cleanup is necessary
+
+        :return:
+        &#34;&#34;&#34;
+        for element in self.backplane_table:
+            if element[&#39;publisher&#39;]:
+                element[&#39;publisher&#39;].close()
+            if element[&#39;subscriber&#39;]:
+                element[&#39;subscriber&#39;].close()
+        self.my_context.term()</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="banyan_base_multi.banyan_base_multi.BanyanBaseMulti.clean_up"><code class="name flex">
+<span>def <span class="ident">clean_up</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Clean up before exiting - override if additional cleanup is necessary</p>
+<p>:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clean_up(self):
+    &#34;&#34;&#34;
+    Clean up before exiting - override if additional cleanup is necessary
+
+    :return:
+    &#34;&#34;&#34;
+    for element in self.backplane_table:
+        if element[&#39;publisher&#39;]:
+            element[&#39;publisher&#39;].close()
+        if element[&#39;subscriber&#39;]:
+            element[&#39;subscriber&#39;].close()
+    self.my_context.term()</code></pre>
+</details>
+</dd>
+<dt id="banyan_base_multi.banyan_base_multi.BanyanBaseMulti.find_socket"><code class="name flex">
+<span>def <span class="ident">find_socket</span></span>(<span>self, backplane, socket_type)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Find a publisher or subscriber in the backplane table and return a ZMQ socket reference</p>
+<p>:param backplane: backplane name entry in table</p>
+<p>:param socket_type: publisher or subscriber</p>
+<p>:return: socket reference or None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def find_socket(self, backplane, socket_type):
+    &#34;&#34;&#34;
+    Find a publisher or subscriber in the backplane table and return a ZMQ socket reference
+
+    :param backplane: backplane name entry in table
+
+    :param socket_type: publisher or subscriber
+
+    :return: socket reference or None
+    &#34;&#34;&#34;
+    valid_socket_types = [self.PUB_SOCK, self.SUB_SOCK]
+
+    if socket_type in valid_socket_types:
+        try:
+            entry = next(item for item in self.backplane_table if item.get(&#34;backplane_name&#34;) == backplane)
+            if socket_type == self.PUB_SOCK:
+                rval = entry[&#39;publisher&#39;]
+            else:
+                rval = entry[&#39;subscriber&#39;]
+            return rval
+
+        except StopIteration:
+            raise StopIteration(backplane + &#39; not found in table.&#39;)
+    else:
+        raise ValueError(socket_type + &#39; is an illegal socket_type&#39;)</code></pre>
+</details>
+</dd>
+<dt id="banyan_base_multi.banyan_base_multi.BanyanBaseMulti.incoming_message_processing"><code class="name flex">
+<span>def <span class="ident">incoming_message_processing</span></span>(<span>self, topic, payload)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Override this method with a custom python_banyan message processor for subscribed messages</p>
+<p>:param topic: Message Topic string</p>
+<p>:param payload: Message Data</p>
+<p>:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def incoming_message_processing(self, topic, payload):
+    &#34;&#34;&#34;
+    Override this method with a custom python_banyan message processor for subscribed messages
+
+    :param topic: Message Topic string
+
+    :param payload: Message Data
+
+    :return:
+    &#34;&#34;&#34;
+    print(&#39;this method should be overwritten in the child class&#39;, topic, payload)</code></pre>
+</details>
+</dd>
+<dt id="banyan_base_multi.banyan_base_multi.BanyanBaseMulti.publish_payload"><code class="name flex">
+<span>def <span class="ident">publish_payload</span></span>(<span>self, payload, publisher_socket, topic='')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method will publish a python_banyan payload and its associated topic</p>
+<p>:param payload:
+Protocol message to be published</p>
+<p>:param publisher_socket: Publisher socket - handle to socket or "BROADCAST" to send to
+all connected publisher sockets</p>
+<p>:param topic: A string value for message topic</p>
+<p>:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def publish_payload(self, payload, publisher_socket, topic=&#39;&#39;):
+    &#34;&#34;&#34;
+    This method will publish a python_banyan payload and its associated topic
+
+    :param payload:  Protocol message to be published
+
+    :param publisher_socket: Publisher socket - handle to socket or &#34;BROADCAST&#34; to send to
+                             all connected publisher sockets
+
+    :param topic: A string value for message topic
+
+    :return:
+    &#34;&#34;&#34;
+
+    # make sure topic is a string
+    if not type(topic) is str:
+        raise TypeError(&#39;Publish topic must be python_banyan string&#39;, &#39;topic&#39;)
+
+    # create python_banyan message pack payload
+    if self.numpy:
+        message = msgpack.packb(payload, default=m.encode)
+    else:
+        message = umsgpack.packb(payload)
+
+    pub_envelope = topic.encode()
+    if publisher_socket == &#34;BROADCAST&#34;:
+        for element in self.backplane_table:
+            if element[&#39;publisher&#39;]:
+                element[&#39;publisher&#39;].send_multipart([pub_envelope, message])
+    else:
+
+        if publisher_socket:
+            publisher_socket.send_multipart([pub_envelope, message])
+        else:
+            raise ValueError(&#39;Invalid publisher socket&#39;)</code></pre>
+</details>
+</dd>
+<dt id="banyan_base_multi.banyan_base_multi.BanyanBaseMulti.receive_loop"><code class="name flex">
+<span>def <span class="ident">receive_loop</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This is the receive loop for zmq messages.</p>
+<p>This method may be overwritten to meet the needs
+of the application before handling received messages.</p>
+<p>:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def receive_loop(self):
+    &#34;&#34;&#34;
+    This is the receive loop for zmq messages.
+
+    This method may be overwritten to meet the needs
+    of the application before handling received messages.
+
+    :return:
+    &#34;&#34;&#34;
+    for element in itertools.cycle(self.backplane_table):
+        if element[&#39;subscriber&#39;]:
+            try:
+                data = element[&#39;subscriber&#39;].recv_multipart(zmq.NOBLOCK)
+                if self.numpy:
+                    payload = msgpack.unpackb(data[1], object_hook=m.decode)
+                    self.incoming_message_processing(data[0].decode(), payload)
+                else:
+                    self.incoming_message_processing(data[0].decode(), umsgpack.unpackb(data[1]))
+            except zmq.error.Again:
+                try:
+                    time.sleep(self.loop_time)
+                except KeyboardInterrupt:
+                    self.clean_up()
+                    sys.exit(0)
+            except AttributeError:
+                raise</code></pre>
+</details>
+</dd>
+<dt id="banyan_base_multi.banyan_base_multi.BanyanBaseMulti.set_subscriber_topic"><code class="name flex">
+<span>def <span class="ident">set_subscriber_topic</span></span>(<span>self, topic, subscriber_socket)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method sets a subscriber topic.</p>
+<p>You can subscribe to multiple topics by calling this method for
+each topic.</p>
+<p>:param topic: A topic string</p>
+<p>:param subscriber_socket: subscriber socket</p>
+<p>:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_subscriber_topic(self, topic, subscriber_socket):
+    &#34;&#34;&#34;
+    This method sets a subscriber topic.
+
+    You can subscribe to multiple topics by calling this method for
+    each topic.
+
+    :param topic: A topic string
+
+    :param subscriber_socket: subscriber socket
+
+    :return:
+    &#34;&#34;&#34;
+
+    # make sure topic is a string
+    if not type(topic) is str:
+        raise TypeError(&#39;Subscriber topic must be python_banyan string&#39;)
+
+    # does the subscriber socket exist?
+    if subscriber_socket:
+        subscriber_socket.setsockopt(zmq.SUBSCRIBE, topic.encode())
+    else:
+        raise ValueError(&#39;set_subscriber_topic: socket is None&#39;)</code></pre>
+</details>
+</dd>
+<dt id="banyan_base_multi.banyan_base_multi.BanyanBaseMulti.unsubscribe_topic"><code class="name flex">
+<span>def <span class="ident">unsubscribe_topic</span></span>(<span>self, topic, subscriber_socket)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method un-subscribes from a topic.</p>
+<p>:param topic: A topic string</p>
+<p>:param subscriber_socket: subscriber socket</p>
+<p>:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def unsubscribe_topic(self, topic, subscriber_socket):
+    &#34;&#34;&#34;
+    This method un-subscribes from a topic.
+
+    :param topic: A topic string
+
+    :param subscriber_socket: subscriber socket
+
+    :return:
+    &#34;&#34;&#34;
+
+    # make sure topic is a string
+    if not type(topic) is str:
+        raise TypeError(&#39;Subscriber topic must be python_banyan string&#39;)
+
+    # make sure that a socket reference has been passed in
+    if subscriber_socket:
+        subscriber_socket.unsubscribe(topic.encode())
+    else:
+        raise ValueError(&#39;set_subscriber_topic: socket is None&#39;)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="banyan_base_multi" href="index.html">banyan_base_multi</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="banyan_base_multi.banyan_base_multi.BanyanBaseMulti" href="#banyan_base_multi.banyan_base_multi.BanyanBaseMulti">BanyanBaseMulti</a></code></h4>
+<ul class="">
+<li><code><a title="banyan_base_multi.banyan_base_multi.BanyanBaseMulti.clean_up" href="#banyan_base_multi.banyan_base_multi.BanyanBaseMulti.clean_up">clean_up</a></code></li>
+<li><code><a title="banyan_base_multi.banyan_base_multi.BanyanBaseMulti.find_socket" href="#banyan_base_multi.banyan_base_multi.BanyanBaseMulti.find_socket">find_socket</a></code></li>
+<li><code><a title="banyan_base_multi.banyan_base_multi.BanyanBaseMulti.incoming_message_processing" href="#banyan_base_multi.banyan_base_multi.BanyanBaseMulti.incoming_message_processing">incoming_message_processing</a></code></li>
+<li><code><a title="banyan_base_multi.banyan_base_multi.BanyanBaseMulti.publish_payload" href="#banyan_base_multi.banyan_base_multi.BanyanBaseMulti.publish_payload">publish_payload</a></code></li>
+<li><code><a title="banyan_base_multi.banyan_base_multi.BanyanBaseMulti.receive_loop" href="#banyan_base_multi.banyan_base_multi.BanyanBaseMulti.receive_loop">receive_loop</a></code></li>
+<li><code><a title="banyan_base_multi.banyan_base_multi.BanyanBaseMulti.set_subscriber_topic" href="#banyan_base_multi.banyan_base_multi.BanyanBaseMulti.set_subscriber_topic">set_subscriber_topic</a></code></li>
+<li><code><a title="banyan_base_multi.banyan_base_multi.BanyanBaseMulti.unsubscribe_topic" href="#banyan_base_multi.banyan_base_multi.BanyanBaseMulti.unsubscribe_topic">unsubscribe_topic</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
