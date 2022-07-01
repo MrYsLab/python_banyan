@@ -8,8 +8,9 @@ import psutil
 import zmq
 import os
 
+
 class TestBanyanBaseMulti(object):
-    spec_path = os.getcwd() + '/test_specs/'
+    spec_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'test_specs/')
 
     def test___init__no_params(self):
         with pytest.raises(ValueError):

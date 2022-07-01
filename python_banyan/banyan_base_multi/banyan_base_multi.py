@@ -34,6 +34,7 @@ import zmq
 import os
 
 
+
 # noinspection PyMethodMayBeStatic
 class BanyanBaseMulti(object):
     """
@@ -278,7 +279,7 @@ class BanyanBaseMulti(object):
         if self.numpy:
             message = msgpack.packb(payload, default=m.encode)
         else:
-            message = umsgpack.packb(payload)
+            message = msgpack.packb(payload)
 
         pub_envelope = topic.encode()
         if publisher_socket == "BROADCAST":
