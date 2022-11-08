@@ -103,7 +103,8 @@ class BanyanBaseAIO(object):
             # fix for "not implemented" bugs in Python 3.8
             if sys.platform == 'win32':
                 asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-            self.event_loop = asyncio.get_event_loop()
+            self.event_loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(self.event_loop)
 
         # if using numpy apply the msgpack_numpy monkey patch
         if numpy:
