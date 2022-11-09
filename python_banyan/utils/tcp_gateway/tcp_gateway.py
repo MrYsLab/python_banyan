@@ -118,9 +118,10 @@ class TcpGateWay(BanyanBaseAIO):
             await asyncio.sleep(.1)
 
     async def _receive_tcp_data(self):
-        packet = await self.sock.read(1024)
-        pub_envelope = self.banyan_pub_topic
-        await self.publisher.send_multipart([pub_envelope, packet])
+        while True:
+            packet = await self.sock.read(1024)
+            pub_envelope = self.banyan_pub_topic
+            await self.publisher.send_multipart([pub_envelope, packet])
 
     async def receive_loop(self):
         """
@@ -137,6 +138,7 @@ class TcpGateWay(BanyanBaseAIO):
             await self.sock.write(data[1])
 
 
+
 def tcp_gateway():
     # allow user to bypass the IP address auto-discovery. This is necessary if the component resides on a computer
     # other than the computing running the backplane.
@@ -147,7 +149,7 @@ def tcp_gateway():
                         help="IP address TCP Server")
     parser.add_argument("-b", dest="back_plane_ip_address", default="None",
                         help="None or IP address used by Back Plane", )
-    parser.add_argument("-e", dest="banyan_pub_topic", default="from_tcp_server",
+    parser.add_argument("-e", dest="banyan_pub_topic", default="from_pico",
                         help="Topic for messages to the host PC")
     parser.add_argument("-g", dest="subscription_list", nargs='+', default="figura",
                         help="Banyan topics space delimited: topic1 topic2 topic3"),
