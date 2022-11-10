@@ -16,8 +16,6 @@ Here are the steps used:
 
 You should see the messages if you look at the console window for sim_messages_from_pico.py.
 
-**Important Note**: There is a 0.5 delay in the MicroPython script. If the delay is 
-shortened beyond that, exceptions are thrown. I am unsure of the cause.
 
 ## Sending Messages From the Local Simulated Server To The Pico
 1. Start the backplane.
