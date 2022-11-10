@@ -19,7 +19,7 @@ You should see the messages if you look at the console window for sim_messages_f
 **Important Note**: There is a 0.5 delay in the MicroPython script. If the delay is 
 shortened beyond that, exceptions are thrown. I am unsure of the cause.
 
-## Generating Messages To The Pico
+## Sending Messages From the Local Simulated Server To The Pico
 1. Start the backplane.
 2. Start the [messages_to_pico.py](https://github.com/MrYsLab/python_banyan/blob/tcp_gateway/python_banyan/utils/tcp_gateway/pico_micropython_scripts/messages_to_pico.py) MicroPython script.
 3. Start the [tcp_gateway.py](https://github.com/MrYsLab/python_banyan/blob/tcp_gateway/python_banyan/utils/tcp_gateway/tcp_gateway.py)
