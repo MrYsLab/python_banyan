@@ -20,6 +20,7 @@ tcp_gateway.py
 
 import argparse
 import asyncio
+import json
 import signal
 import sys
 import zmq
@@ -119,9 +120,13 @@ class TcpGateWay(BanyanBaseAIO):
 
     async def _receive_tcp_data(self):
         while True:
-            packet = await self.sock.read(1024)
-            pub_envelope = self.banyan_pub_topic
-            await self.publisher.send_multipart([pub_envelope, packet])
+            # get the length of the next packet
+            byte_val = await self.sock.read(1)
+            length = int.from_bytes(byte_val, "big")
+
+            pico_packet = await self.sock.read(length)
+
+            await self.publisher.send_multipart([self.banyan_pub_topic, pico_packet])
 
     async def receive_loop(self):
         """

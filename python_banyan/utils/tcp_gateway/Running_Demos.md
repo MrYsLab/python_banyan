@@ -6,7 +6,7 @@ MicroPython.  The threading
 library is said to be experimental. However, I did locate [this code](https://github.com/fadushin/esp8266/blob/790958fa332592c80a0f81f25cdaa9513d596f64/micropython/uhttpd/uhttpd/__init__.py#L354) which may solve 
 the concurrency issue. I have yet to have a chance to see if the code works.
 
-## Generating Messages To The Local Simulated Server
+## Sending Messages To The Local Simulated Server From The Pico
 Here are the steps used:
 
 1. Start the backplane.
