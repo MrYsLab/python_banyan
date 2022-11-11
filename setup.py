@@ -5,7 +5,7 @@ with open('pypi_desc.md') as f:
 
 setup(
     name='python-banyan',
-    version='3.11',
+    version='3.12',
     packages=[
         'python_banyan',
         'python_banyan.banyan_base',
@@ -17,6 +17,7 @@ setup(
         'python_banyan.utils.monitor',
         'python_banyan.utils.banyan_launcher',
         'python_banyan.utils.mqtt_gateway',
+        'python_banyan.utils.tcp_gateway',
         'python_banyan.backplane',
     ],
     install_requires=[
@@ -36,7 +37,8 @@ setup(
             'bls = python_banyan.utils.banyan_launcher.bls:bls',
             'blc = python_banyan.utils.banyan_launcher.blc:blc',
             'blk = python_banyan.utils.banyan_launcher.blk:blk',
-            'mgw = python_banyan.utils.mqtt_gateway.mqtt_gateway:mqtt_gateway'
+            'mgw = python_banyan.utils.mqtt_gateway.mqtt_gateway:mqtt_gateway',
+            'tgw = python_banyan.utils.tcp_gateway.tcp_gateway:tcp_gateway',
         ]
     },
 

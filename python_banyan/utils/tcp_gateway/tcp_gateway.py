@@ -143,7 +143,6 @@ class TcpGateWay(BanyanBaseAIO):
             await self.sock.write(data[1])
 
 
-
 def tcp_gateway():
     # allow user to bypass the IP address auto-discovery. This is necessary if the component resides on a computer
     # other than the computing running the backplane.
