@@ -139,7 +139,7 @@ class TcpGateWay(BanyanBaseAIO):
         while True:
             data = await self.subscriber.recv_multipart()
             msg = await self.unpack(data[1])
-            print(f'Message from PC host: {msg}')
+            # print(f'Message from PC host: {msg}')
             await self.sock.write(data[1])
 
 
