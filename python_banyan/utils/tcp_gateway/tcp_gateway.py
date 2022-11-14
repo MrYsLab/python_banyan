@@ -138,9 +138,19 @@ class TcpGateWay(BanyanBaseAIO):
         """
         while True:
             data = await self.subscriber.recv_multipart()
-            msg = await self.unpack(data[1])
+            msg = data[1]
+            # p_length = len(msg)
+            # msg = await self.unpack(data[1])
+            # get the length of the payload and express as a bytearray
+            p_length = bytearray(len(msg).to_bytes(1, 'big'))
+
+            # append the length to the packed bytarray
+            p_length.extend(msg)
+
+            # convert from bytearray to bytes
+            msg = bytes(p_length)
             # print(f'Message from PC host: {msg}')
-            await self.sock.write(data[1])
+            await self.sock.write(msg)
 
 
 def tcp_gateway():
