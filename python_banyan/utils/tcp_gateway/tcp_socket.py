@@ -1,4 +1,3 @@
-
 """
  Copyright (c) 2020 Alan Yorinks All rights reserved.
 
@@ -16,7 +15,6 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 """
 
-
 import asyncio
 import sys
 
@@ -27,6 +25,7 @@ class TcpSocket:
     This class encapsulates management of a tcp/ip connection that communicates
     with a TCP server
     """
+
     def __init__(self, ip_address, ip_port, loop):
         self.ip_address = ip_address
         self.ip_port = ip_port
@@ -40,13 +39,16 @@ class TcpSocket:
 
         :return: None
         """
-        try:
-            self.reader, self.writer = await asyncio.open_connection(
-                self.ip_address, self.ip_port)
-            print(f'Successfully connected to: {self.ip_address}:{self.ip_port}')
-        except OSError:
-            print("Can't open connection to " + self.ip_address)
-            sys.exit(0)
+        connected = None
+        print("Waiting to connect to the server ...")
+        while not connected:
+            try:
+                self.reader, self.writer = await asyncio.open_connection(
+                    self.ip_address, self.ip_port)
+                print(f'Successfully connected to: {self.ip_address}:{self.ip_port}')
+                connected = True
+            except OSError:
+                continue
 
     async def write(self, data):
         """

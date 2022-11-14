@@ -22,43 +22,29 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 """
 
+
 import time
 
 from python_banyan.banyan_base import BanyanBase
 
 
 class Bpub(BanyanBase):
-
     def __init__(self):
-
         # initialize the base class
         super(Bpub, self).__init__(process_name='Bpub')
+        self.count = 0
         self.set_subscriber_topic('from_pico')
+        # self.receive_loop()
 
-        # send a message
-        # self.publish_payload({'from_banyan': 'hello_world'}, 'figura')
-        # self.count = 0
-
-        # get the reply messages
+        # while True:
         try:
+            self.publish_payload({'Led_0': self.count}, 'figura')
+            self.count += 1
+            time.sleep(0.01)
             self.receive_loop()
+
         except KeyboardInterrupt:
             self.clean_up()
-            sys.exit(0)
-
-        while True:
-            # send command to turn Led_0 ON
-            # self.publish_payload({'Led_0': self.count}, 'figura')
-            # self.count += 1
-            time.sleep(0.01)
-            # print('published ON')
-
-            # send command to turn Led_0 OFF
-            # self.publish_payload({'Led_0': self.count}, 'figura')
-            # self.count += 1
-
-            # time.sleep(0.01)
-            # print('published OFF')
 
     def incoming_message_processing(self, topic, payload):
         """
@@ -66,8 +52,13 @@ class Bpub(BanyanBase):
         :param topic: Message Topic string
         :param payload: Message Data
         """
+
         # When a message is received and its number is zero, finish up.
         print(f'topic: {topic} payload: {payload}')
+        self.publish_payload({'Led_0': self.count}, 'figura')
+        self.count += 1
+        time.sleep(0.001)
 
 
 b = Bpub()
+
