@@ -312,6 +312,20 @@ to the WebSocket client on line 163.
 Lines 167-219 implement the standard way of instantiating a 
 Banyan component.
 
+## TCP Gateway
+The [TCP gateway](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/utils/tcp_gateway/tcp_gateway.py)
+is an example of a specialized Banyan gateway. This gateway was designed to 
+permit communication between a Banyan application and any server 
+supporting TCP/IP sockets and MessagePack. 
+
+Testing of the TCP gateway utilized a TCP server running on Raspberry Pi 
+Pico W loaded with MicroPython. MicroPython supports both TCP sockets as well as 
+MessagePack.
+
+Let's look at the code to understand how it works.
+
+
+
 <br>
 <br>
-Copyright (C) 2017-2020 Alan Yorinks All Rights Reserved
+Copyright (C) 2017-2022 Alan Yorinks All Rights Reserved
