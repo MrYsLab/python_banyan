@@ -20,7 +20,6 @@ tcp_gateway.py
 
 import argparse
 import asyncio
-import json
 import signal
 import sys
 import zmq
@@ -144,7 +143,7 @@ class TcpGateWay(BanyanBaseAIO):
             # get the length of the payload and express as a bytearray
             p_length = bytearray(len(msg).to_bytes(1, 'big'))
 
-            # append the length to the packed bytarray
+            # append the length to the packed bytearray
             p_length.extend(msg)
 
             # convert from bytearray to bytes

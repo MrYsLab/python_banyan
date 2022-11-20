@@ -57,13 +57,11 @@ class TcpSocket:
 
         :return: None
         """
-        # we need to convert data formats,
-        # so all of the below.
+
         output_list = []
 
         # create an array of integers from the data to be sent
         for x in data:
-            # output_list.append((ord(x)))
             output_list.append(x)
 
         # now convert the integer list to a bytearray
