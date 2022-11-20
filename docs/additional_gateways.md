@@ -315,14 +315,81 @@ Banyan component.
 ## TCP Gateway
 The [TCP gateway](https://github.com/MrYsLab/python_banyan/blob/master/python_banyan/utils/tcp_gateway/tcp_gateway.py)
 is an example of a specialized Banyan gateway. This gateway was designed to 
-permit communication between a Banyan application and any server 
+permit communication between a Banyan application and any TCP server 
 supporting TCP/IP sockets and MessagePack. 
 
 Testing of the TCP gateway utilized a TCP server running on Raspberry Pi 
 Pico W loaded with MicroPython. MicroPython supports both TCP sockets as well as 
 MessagePack.
 
-Let's look at the code to understand how it works.
+The TCP gateway is implemented as a TCP client. A command line executable, called tgw, 
+is installed when python_banyan is installed. Typically one uses the TCP gateway by 
+invoking it through its command line and arguments.
+
+Here are the command-line arguments that tgw supports:
+
+```bash
+tgw --help
+usage: tgw [-h] [-a TCP_IP_ADDRESS] [-b BACK_PLANE_IP_ADDRESS]
+           [-e BANYAN_PUB_TOPIC]
+           [-g SUBSCRIPTION_LIST [SUBSCRIPTION_LIST ...]] [-l EVENT_LOOP]
+           [-n TCP_PORT] [-p PUBLISHER_PORT] [-s SUBSCRIBER_PORT]
+           [-z PROCESS_NAME]
+
+options:
+  -h, --help            show this help message and exit
+  -a TCP_IP_ADDRESS     IP address TCP Server
+  -b BACK_PLANE_IP_ADDRESS
+                        None or IP address used by Back Plane
+  -e BANYAN_PUB_TOPIC   Topic for messages to the host PC
+  -g SUBSCRIPTION_LIST [SUBSCRIPTION_LIST ...]
+                        Banyan topics space delimited: topic1 topic2 topic3
+  -l EVENT_LOOP         asyncio event loop
+  -n TCP_PORT           TCP Server Port Number
+  -p PUBLISHER_PORT     Publisher IP port
+  -s SUBSCRIBER_PORT    Subscriber IP port
+  -z PROCESS_NAME       Name of this gateway
+
+```
+**TCP_IP_ADDRESS** is a required parameter. It is the IP address of the TCP server 
+assigned by the local router. 
+
+The **BACK_PLANE_IP_ADDRESS**, **PUBLISHER_PORT**, and **SUBSCRIBER_PORT** are 
+optional parameters 
+and are typically not used. Default values are assigned if not specified.
+
+**BANYAN_PUB_TOPIC** is the topic used when publishing data to the Banyan network. It has 
+a default value of "from_pico."
+
+**SUBSCRIPTION_LIST** is the list of topics for messages that the TCP gateway 
+processes and passes on to the TCP server. Typically a 
+single topic is used, and the default value is "figura."
+
+**EVENT_LOOP** is an optional parameter allowing the application to specify an asyncio 
+event loop. If none is specified, the TCP gateway will create an asyncio loop.
+
+**PROCESS_NAME** has a default value of "TcpGateway." It displays the TCP 
+Gateway 
+in the application's console window.
+
+Internally, when a subscribed Banyan message arrives, the MessagePack encoded packet 
+is enhanced with a length byte. The packet is forwarded to the TCP server to 
+perform MessagePack decoding and processing. 
+
+When the TCP server wishes to send a message to the Banyan network, it MessagePack 
+encodes it and prepends a message length to the message.
+
+The reason for adding a message length is that TCP is a streaming protocol. 
+Multiple messages may be combined into a single TCP packet. 
+Having a message length assures that messages are appropriately framed.
+
+Also, note that the TCP gateway neither encodes nor 
+decodes the messages. Doing so provides better system throughput, 
+and encoding and decoding are performed once when needed.
+
+A demo is provided. Follow [this link.](https://github.
+com/MrYsLab/python_banyan/blob/master/python_banyan/utils/tcp_gateway/Running_Demos.md)
+for instructions.
 
 
 
