@@ -5,7 +5,7 @@ with open('pypi_desc.md') as f:
 
 setup(
     name='python-banyan',
-    version='3.14',
+    version='3.15',
     packages=[
         'python_banyan',
         'python_banyan.banyan_base',
@@ -27,7 +27,7 @@ setup(
         'msgpack-numpy',
         'psutil',
         'apscheduler',
-        'websockets'
+        'websockets==13.1'
     ],
 
     entry_points={
