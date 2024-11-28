@@ -1,6 +1,6 @@
 from setuptools import setup
 
-with open('pypi_desc.md') as f:
+with open('../pypi_desc.md') as f:
     long_description = f.read()
 
 setup(

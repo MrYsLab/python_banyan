@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages]
+find = { }  # Scan the project directory with the default parameters
+
+[project]
+name = "python_banyan"
+version = "3.16"
+
+authors = [
+    { name = "Alan Yorinks", email = "MisterYsLab@gmail.com" },
+]
+
+description = "The Python Banyan Framework"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "AGPL-3.0-or-later" }
+
+keywords = ['python banyan',  'RPC', 'Remote Procedure Call', 'Event Driven',
+              'Asynchronous', 'Non-Blocking',
+              'Raspberry Pi', 'ZeroMQ', 'MessagePack', 'RedBot']
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Environment :: Other Environment',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Education',
+    'Operating System :: OS Independent',
+    'Topic :: Software Development :: Libraries :: Python Modules'
+]
+
+dependencies = [
+    'pyzmq',
+    'msgpack-python',
+    'numpy>=1.9',
+    'msgpack-numpy',
+    'psutil',
+    'apscheduler',
+    'websockets==13.1'
+]
+
+[project.scripts]
+backplane = 'python_banyan.backplane.backplane:bp'
+monitor = 'python_banyan.utils.monitor.monitor:monitor'
+bls = 'python_banyan.utils.banyan_launcher.bls:bls'
+blc = 'python_banyan.utils.banyan_launcher.blc:blc'
+blk = 'python_banyan.utils.banyan_launcher.blk:blk'
+mgw = 'python_banyan.utils.mqtt_gateway.mqtt_gateway:mqtt_gateway'
+tgw = 'python_banyan.utils.tcp_gateway.tcp_gateway:tcp_gateway'
+
+
