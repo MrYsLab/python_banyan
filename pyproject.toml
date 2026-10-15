@@ -7,7 +7,7 @@ find = { }  # Scan the project directory with the default parameters
 
 [project]
 name = "python_banyan"
-version = "3.16"
+version = "3.17"
 
 authors = [
     { name = "Alan Yorinks", email = "MisterYsLab@gmail.com" },
@@ -32,7 +32,7 @@ classifiers = [
 
 dependencies = [
     'pyzmq',
-    'msgpack-python',
+    'msgpack',
     'numpy>=1.9',
     'msgpack-numpy',
     'psutil',
